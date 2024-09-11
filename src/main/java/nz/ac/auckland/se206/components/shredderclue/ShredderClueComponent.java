@@ -1,4 +1,4 @@
-package nz.ac.auckland.se206.components;
+package nz.ac.auckland.se206.components.shredderclue;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,13 +52,10 @@ public class ShredderClueComponent extends Pane {
 
     // Creates 6 rectangles
     for (int i = 0; i < clues; i++) {
-      Rectangle rect = new Rectangle();
+      ShredderBox rect = new ShredderBox();
       // Sets height
       rect.setWidth(clueWidth);
       rect.setHeight(clueHeight);
-      
-      // Sets up stylesheet 
-      rect.getStyleClass().add("paper-slot");
 
       // Adds to the layout and calculates x position
       this.getChildren().add(rect);
@@ -70,6 +67,8 @@ public class ShredderClueComponent extends Pane {
       // Set the position of the rectangle
       rect.setLayoutX(x);
       rect.setLayoutY(y);
+
+      rect.setCenter();
     }
 
   }

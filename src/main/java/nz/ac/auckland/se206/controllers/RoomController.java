@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.components.ShredderClueComponent;
+import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
