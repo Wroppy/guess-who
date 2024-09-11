@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -52,7 +53,7 @@ public class App extends Application {
   }
 
   /**
-   * Opens the chat view and sets the profession in the chat controller.
+   * Opens the chat view of a specified
    *
    * @param event the mouse event that triggered the method
    * @param profession the profession to set in the chat controller
@@ -63,7 +64,7 @@ public class App extends Application {
     Parent root = loader.load();
 
     ChatController chatController = loader.getController();
-    chatController.setProfession(profession);
+    chatController.setProfession();
 
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     scene = new Scene(root);
