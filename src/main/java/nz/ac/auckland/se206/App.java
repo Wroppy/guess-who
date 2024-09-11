@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import nz.ac.auckland.se206.components.ShredderClueComponent;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -50,6 +50,10 @@ public class App extends Application {
    */
   private static Parent loadFxml(final String fxml) throws IOException {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
+  }
+
+  public static FXMLLoader loadFxmlLoader(final String fxml) throws IOException {
+    return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
   }
 
   /**
