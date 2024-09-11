@@ -2,16 +2,18 @@ package nz.ac.auckland.se206.components;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
 
 public class ShredderClueComponent extends Pane {
   private final double clueHeight = 300;
-  private final double clueWidth = 400 * 283 / 2200;
+  private final double clueWidth = clueHeight * 283 / 2200;
   private final int clues = 6;
 
   @FXML private Pane shredderPane;
+  @FXML private ImageView selectIndicator;
 
   public ShredderClueComponent() {
     try {
@@ -32,6 +34,8 @@ public class ShredderClueComponent extends Pane {
     this.setHeight(400);
     this.setWidth(500);
     this.createRectangles();
+    // selectIndicator.setFitHeight(400);
+    // selectIndicator.setFitWidth(60);
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
   }
@@ -52,13 +56,16 @@ public class ShredderClueComponent extends Pane {
       // Sets height
       rect.setWidth(clueWidth);
       rect.setHeight(clueHeight);
-
+      
       // Sets up stylesheet 
       rect.getStyleClass().add("paper-slot");
 
       // Adds to the layout and calculates x position
       this.getChildren().add(rect);
       double x = startingX + i * step;
+
+      selectIndicator.setLayoutX(x - 6);
+      selectIndicator.setLayoutY(y - 6);
 
       // Set the position of the rectangle
       rect.setLayoutX(x);

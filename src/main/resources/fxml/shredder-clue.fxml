@@ -12,5 +12,10 @@
             <Image url="@../images/document/placeholder-board.png" />
          </image>
       </ImageView>
+      <ImageView fx:id="selectIndicator" layoutY="71.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/document/select-indicator.png" />
+         </image>
+      </ImageView>
    </children>
 </fx:root>
