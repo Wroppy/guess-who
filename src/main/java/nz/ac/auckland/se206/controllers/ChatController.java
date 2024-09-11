@@ -1,8 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -28,7 +27,6 @@ public class ChatController {
   @FXML private Button btnSend;
 
   private ChatCompletionRequest chatCompletionRequest;
-  private String profession;
 
   /**
    * Initializes the chat view.
@@ -46,9 +44,9 @@ public class ChatController {
    * @return the system prompt string
    */
   private String getSystemPrompt() {
-    Map<String, String> map = new HashMap<>();
-    map.put("profession", profession);
-    return PromptEngineering.getPrompt("chat.txt", map);
+    // TODO: Replace the following line with the actual system prompt
+    // TODO: Probably need to pass the "profession" to the getPrompt method
+    return PromptEngineering.getPrompt("chat.txt");
   }
 
   /**
@@ -56,9 +54,9 @@ public class ChatController {
    *
    * @param profession the profession to set
    */
-  public void setProfession(String profession) {
-    this.profession = profession;
+  public void setProfession() {
     try {
+      System.out.println(getSystemPrompt());
       ApiProxyConfig config = ApiProxyConfig.readConfig();
       chatCompletionRequest =
           new ChatCompletionRequest(config)
