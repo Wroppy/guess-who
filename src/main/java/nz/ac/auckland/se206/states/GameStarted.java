@@ -2,7 +2,6 @@ package nz.ac.auckland.se206.states;
 
 import java.io.IOException;
 import javafx.scene.input.MouseEvent;
-import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 
 /**
@@ -31,16 +30,7 @@ public class GameStarted implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    // Transition to chat view or provide an introduction based on the clicked rectangle
-    switch (rectangleId) {
-      case "rectCashier":
-        return;
-      case "rectWaitress":
-        return;
-    }
-    App.openChat(event, context.getProfession(rectangleId));
-  }
+  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {}
 
   /**
    * Handles the event when the guess button is clicked. Prompts the player to make a guess and
@@ -49,7 +39,5 @@ public class GameStarted implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleGuessClick() throws IOException {
-    context.setState(context.getGuessingState());
-  }
+  public void handleGuessClick() throws IOException {}
 }

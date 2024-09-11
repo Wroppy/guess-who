@@ -30,17 +30,7 @@ public class Guessing implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    if (rectangleId.equals("rectCashier") || rectangleId.equals("rectWaitress")) {
-      return;
-    }
-
-    String clickedProfession = context.getProfession(rectangleId);
-    if (rectangleId.equals(context.getRectIdToGuess())) {
-    } else {
-    }
-    context.setState(context.getGameOverState());
-  }
+  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {}
 
   /**
    * Handles the event when the guess button is clicked. Since the player has already guessed, it
@@ -49,6 +39,5 @@ public class Guessing implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleGuessClick() throws IOException {
-  }
+  public void handleGuessClick() throws IOException {}
 }
