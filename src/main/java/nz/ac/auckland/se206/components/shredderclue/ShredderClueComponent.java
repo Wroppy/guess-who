@@ -70,15 +70,13 @@ public class ShredderClueComponent extends Pane {
     }
   }
 
-  /** */
+  /** Creates the shredded paper draggable widgets for the clue. */
   public void createShreddedPaper() {
     for (int i = 0; i < clues; i++) {
       String path = "document/shredded/paper-" + i;
-      ShredderPaper paper = new ShredderPaper(path, clueWidth, clueHeight);
+      ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
 
       this.getChildren().add(paper);
-
-      
     }
   }
 }
