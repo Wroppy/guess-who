@@ -14,11 +14,6 @@ public class ShredderClueComponent extends Pane {
   @FXML private Pane shredderPane;
 
   public ShredderClueComponent() {
-
-    this.setOnMouseClicked(
-        e -> {
-          System.out.println(e.getX() + " " + e.getY());
-        });
     try {
       FXMLLoader loader = App.loadFxmlLoader("shredder-clue");
 
@@ -37,6 +32,8 @@ public class ShredderClueComponent extends Pane {
     this.setHeight(400);
     this.setWidth(500);
     this.createRectangles();
+
+    this.getStylesheets().add(App.getCssUrl("shredder-clue"));
   }
 
   /**
@@ -47,21 +44,26 @@ public class ShredderClueComponent extends Pane {
     final int gap = 20; // Gap between each rectangle
     final double startingX = (this.getWidth() - (clues * clueWidth + (clues - 1) * gap)) / 2;
     final double step = clueWidth + gap;
-    final double y = (this.getHeight() - (clueHeight)) / 2; 
-
+    final double y = (this.getHeight() - (clueHeight)) / 2;
 
     // Creates 6 rectangles
     for (int i = 0; i < clues; i++) {
       Rectangle rect = new Rectangle();
+      // Sets height
       rect.setWidth(clueWidth);
       rect.setHeight(clueHeight);
 
+      // Sets up stylesheet 
+      rect.getStyleClass().add("paper-slot");
+
+      // Adds to the layout and calculates x position
       this.getChildren().add(rect);
       double x = startingX + i * step;
-      System.out.println("Adding on x: " + x + " y: " + y);
+
       // Set the position of the rectangle
       rect.setLayoutX(x);
       rect.setLayoutY(y);
     }
+
   }
 }

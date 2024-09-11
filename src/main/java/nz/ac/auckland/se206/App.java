@@ -95,4 +95,8 @@ public class App extends Application {
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
   }
+
+  public static String getCssUrl(String filename) {
+    return App.class.getResource("/css/" + filename + ".css").toExternalForm();
+  }
 }

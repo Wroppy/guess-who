@@ -1,0 +1,5 @@
+.paper-slot {
+  -fx-fill: none;
+  -fx-stroke-width: 1;
+  -fx-stroke: grey;
+}
