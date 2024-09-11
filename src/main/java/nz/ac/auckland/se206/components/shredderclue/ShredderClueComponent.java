@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.App;
 
 public class ShredderClueComponent extends Pane {
@@ -34,8 +33,7 @@ public class ShredderClueComponent extends Pane {
     this.setHeight(400);
     this.setWidth(500);
     this.createRectangles();
-    // selectIndicator.setFitHeight(400);
-    // selectIndicator.setFitWidth(60);
+    this.createShreddedPaper();
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
   }
@@ -70,6 +68,17 @@ public class ShredderClueComponent extends Pane {
 
       rect.setCenter();
     }
+  }
 
+  /** */
+  public void createShreddedPaper() {
+    for (int i = 0; i < clues; i++) {
+      String path = "document/shredded/paper-" + i;
+      ShredderPaper paper = new ShredderPaper(path, clueWidth, clueHeight);
+
+      this.getChildren().add(paper);
+
+      
+    }
   }
 }
