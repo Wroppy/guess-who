@@ -42,12 +42,8 @@ public class RoomController {
     }
     lblProfession.setText(context.getProfessionToGuess());
 
-
     ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
     this.shredderClueOverlay.getChildren().add(shredderClueComponent);
-
-
-
   }
 
   /**
