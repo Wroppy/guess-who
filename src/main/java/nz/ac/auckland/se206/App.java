@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -80,7 +80,9 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("room");
+    this.setupScenes();
+
+    Parent root = SceneManager.getScene(SceneType.CRIME);
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
@@ -90,5 +92,37 @@ public class App extends Application {
 
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
+  }
+
+  public static void changeScene(SceneType sceneType) {
+    Parent root = SceneManager.getScene(sceneType);
+    scene.setRoot(root);
+  }
+  
+  private void setupScenes() {
+    try {
+      Parent root = loadFxml("introduction-scene");
+      SceneManager.addScene(SceneType.INTRO, root);
+
+      root = loadFxml("room");
+      SceneManager.addScene(SceneType.CRIME, root);
+
+      root = loadFxml("suspect-1-room");
+      SceneManager.addScene(SceneType.SUSPECT_1, root);
+
+      root = loadFxml("suspect-2-room");
+      SceneManager.addScene(SceneType.SUSPECT_2, root);
+
+      root = loadFxml("suspect-3-room");
+      SceneManager.addScene(SceneType.SUSPECT_3, root);
+
+      root = loadFxml("explanation-room");
+      SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
+
+      root = loadFxml("player-feedback");
+      SceneManager.addScene(SceneType.FEEDBACK, root);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
