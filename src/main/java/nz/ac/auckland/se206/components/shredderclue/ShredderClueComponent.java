@@ -87,6 +87,13 @@ public class ShredderClueComponent extends Pane {
       ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
 
       this.getChildren().add(paper);
+
+      // Sets a random position for the paper
+      double x = Math.random() * (this.getWidth() - clueWidth - 10);
+      double y = Math.random() * (this.getHeight() - clueHeight - 10);
+
+      paper.moveTo(new Coordinate(x, y));
+
       EventCallback handlePress = e -> handlePress(paper);
       paper.setOnClick(handlePress);
 
@@ -95,6 +102,8 @@ public class ShredderClueComponent extends Pane {
 
       EventCallback handleDrag = e -> handleDrag(paper);
       paper.setOnDrag(handleDrag);
+
+      // Fin
     }
   }
 
