@@ -280,10 +280,21 @@ public class ShredderClueComponent extends Pane {
 
   /** Shows the completed message and the confidential label. */
   private void showCompletedMessage() {
+    hideShreddedPieces();
     completedMessage.toFront();
     completedMessage.setVisible(true);
     confidentialLabel.setVisible(true);
     confidentialLabel.toFront();
   }
 
+  /** Hides the completed message and the box. */
+  public void hideShreddedPieces() {
+    for (ShredderBox box : paperMap.keySet()) {
+      ShredderPaper paper = paperMap.get(box);
+      if (paper != null) {
+        box.setVisible(false);
+        paper.setVisible(false);
+      }
+    }
+  }
 }
