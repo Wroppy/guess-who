@@ -38,6 +38,10 @@ public class ShredderPaper extends Pane implements Moveable {
     this.imageView.setFitWidth(width);
     this.imageView.setFitHeight(height);
 
+    this.setPrefSize(width + 2, height + 2);
+    this.imageView.setLayoutX(1);
+    this.imageView.setLayoutY(1);
+
     this.makeDraggable();
 
     this.order = order;
