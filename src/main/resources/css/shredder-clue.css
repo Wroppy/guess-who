@@ -8,3 +8,8 @@
   -fx-background-color: white;
   -fx-label-padding: 16;
 }
+
+#closeButton {
+  -fx-background-color: white;
+  -fx-color-label-visible: black;
+}

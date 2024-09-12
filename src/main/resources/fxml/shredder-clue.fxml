@@ -25,6 +25,6 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <Button layoutX="462.0" layoutY="14.0" mnemonicParsing="false" text="X" />
+      <Button fx:id="closeButton" layoutX="462.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" text="X" />
    </children>
 </fx:root>

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -20,6 +21,7 @@ public class ShredderClueComponent extends Pane {
   @FXML private ImageView selectIndicator;
   @FXML private Label completedMessage;
   @FXML private Label confidentialLabel;
+  @FXML private Button closeButton;
 
   private ShredderBoxIndicator indicator;
 
@@ -296,5 +298,10 @@ public class ShredderClueComponent extends Pane {
         paper.setVisible(false);
       }
     }
+  }
+
+  @FXML
+  public void handleClose() {
+    this.setVisible(false);
   }
 }
