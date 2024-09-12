@@ -23,6 +23,7 @@ public class RoomController {
   @FXML private Rectangle rectWaitress;
   @FXML private Label lblProfession;
   @FXML private Button btnGuess;
+  @FXML private Rectangle rectHover1;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -37,6 +38,8 @@ public class RoomController {
       isFirstTimeInit = false;
     }
     lblProfession.setText(context.getProfessionToGuess());
+
+    rectHover1.setVisible(false);
   }
 
   /**

@@ -36,5 +36,6 @@
             <Font size="21.0" />
          </font>
       </Label>
+      <Rectangle fx:id="rectHover1" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="251.0" layoutX="451.0" layoutY="237.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
    </children>
 </Pane>
