@@ -19,6 +19,7 @@ public class ShredderClueComponent extends Pane {
   @FXML private Pane shredderPane;
   @FXML private ImageView selectIndicator;
   @FXML private Label completedMessage;
+  @FXML private Label confidentialLabel;
 
   private ShredderBoxIndicator indicator;
 
@@ -57,6 +58,7 @@ public class ShredderClueComponent extends Pane {
     completedMessage.setVisible(false);
     String message = App.getData("shredder-message.txt");
     completedMessage.setText(message);
+    confidentialLabel.setVisible(false);
   }
 
   /**
@@ -276,8 +278,11 @@ public class ShredderClueComponent extends Pane {
     return true;
   }
 
+  /** Shows the completed message and the confidential label. */
   private void showCompletedMessage() {
     completedMessage.toFront();
     completedMessage.setVisible(true);
+    confidentialLabel.setVisible(true);
+    confidentialLabel.toFront();
   }
 }

@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <fx:root fx:id="shredderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -17,6 +18,11 @@
             <Image url="@../images/document/select-indicator.png" />
          </image>
       </ImageView>
-      <Label fx:id="completedMessage" layoutX="14.0" layoutY="40.0" prefHeight="320.0" prefWidth="472.0" />
+      <Label fx:id="completedMessage" layoutX="14.0" layoutY="40.0" prefHeight="320.0" prefWidth="472.0" wrapText="true" />
+      <Label fx:id="confidentialLabel" layoutX="331.0" layoutY="64.0" prefHeight="50.0" prefWidth="126.0" rotate="10.0" text="CONFIDENTIAL" textFill="RED">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>
