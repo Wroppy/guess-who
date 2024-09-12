@@ -87,7 +87,7 @@ public class ShredderClueComponent extends Pane {
       ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
 
       this.getChildren().add(paper);
-      EventCallback handlePress = e -> handlePress();
+      EventCallback handlePress = e -> handlePress(paper);
       paper.setOnClick(handlePress);
 
       EventCallback handleRelease = e -> handleRelease(paper);
@@ -98,8 +98,14 @@ public class ShredderClueComponent extends Pane {
     }
   }
 
-  private void handlePress() {
+  private void handlePress(ShredderPaper paper) {
     indicator.show();
+
+    // Moves the paper to the front so that it is not hidden by other papers
+    paper.toFront();
+
+    ShredderBox closest = findClosestRectangle(paper);
+    highlightBox(closest);
   }
 
   private void handleRelease(ShredderPaper paper) {
