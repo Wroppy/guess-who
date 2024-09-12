@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.components.shredderclue;
 
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;

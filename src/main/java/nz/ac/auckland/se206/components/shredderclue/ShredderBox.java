@@ -2,7 +2,7 @@ package nz.ac.auckland.se206.components.shredderclue;
 
 import javafx.scene.shape.Rectangle;
 
-public class ShredderBox extends Rectangle {
+public class ShredderBox extends Rectangle implements Positionable {
   Coordinate center;
 
   public ShredderBox() {

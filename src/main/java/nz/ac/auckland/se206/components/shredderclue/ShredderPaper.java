@@ -7,7 +7,7 @@ import javafx.scene.input.MouseEvent;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
-public class ShredderPaper extends ImageView {
+public class ShredderPaper extends ImageView implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
 
@@ -121,16 +121,16 @@ public class ShredderPaper extends ImageView {
     this.onMouseReleaseCallback = callback;
   }
 
-  public Coordinate getCenterPos() {
+  public Coordinate getCenter() {
     return new Coordinate(
         this.getLayoutX() + this.getFitWidth() / 2, this.getLayoutY() + this.getFitHeight() / 2);
   }
 
-  public Coordinate getTopLeftPos() {
+  public Coordinate getTopLeft() {
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 
-  public void move(Coordinate pos) {
+  public void moveTo(Coordinate pos) {
     this.setLayoutX(pos.getX());
     this.setLayoutY(pos.getY());
   }
