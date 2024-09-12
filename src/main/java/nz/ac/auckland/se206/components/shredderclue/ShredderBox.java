@@ -3,7 +3,8 @@ package nz.ac.auckland.se206.components.shredderclue;
 import javafx.scene.shape.Rectangle;
 
 public class ShredderBox extends Rectangle {
-  Coordinate center; 
+  Coordinate center;
+
   public ShredderBox() {
     super();
 
@@ -17,6 +18,11 @@ public class ShredderBox extends Rectangle {
     this.center = new Coordinate(x, y);
   }
 
-  
+  public Coordinate getCenter() {
+    return center;
+  }
 
+  public Coordinate getTopLeft() {
+    return new Coordinate(this.getLayoutX(), this.getLayoutY());
+  }
 }

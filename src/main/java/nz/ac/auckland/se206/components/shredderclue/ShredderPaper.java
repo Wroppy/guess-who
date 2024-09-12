@@ -102,7 +102,6 @@ public class ShredderPaper extends ImageView {
     this.setLayoutX(e.getSceneX() - mouseAnchorX);
     this.setLayoutY(e.getSceneY() - mouseAnchorY);
 
-
     // Calls the callback function
     if (onMouseDragCallback == null) {
       return;
@@ -125,5 +124,14 @@ public class ShredderPaper extends ImageView {
   public Coordinate getCenterPos() {
     return new Coordinate(
         this.getLayoutX() + this.getFitWidth() / 2, this.getLayoutY() + this.getFitHeight() / 2);
+  }
+
+  public Coordinate getTopLeftPos() {
+    return new Coordinate(this.getLayoutX(), this.getLayoutY());
+  }
+
+  public void move(Coordinate pos) {
+    this.setLayoutX(pos.getX());
+    this.setLayoutY(pos.getY());
   }
 }
