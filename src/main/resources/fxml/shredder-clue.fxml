@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-
 
 <fx:root fx:id="shredderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -17,5 +17,6 @@
             <Image url="@../images/document/select-indicator.png" />
          </image>
       </ImageView>
+      <Label fx:id="completedMessage" layoutX="14.0" layoutY="40.0" prefHeight="320.0" prefWidth="472.0" />
    </children>
 </fx:root>

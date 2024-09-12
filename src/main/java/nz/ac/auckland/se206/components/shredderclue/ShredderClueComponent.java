@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
@@ -17,6 +18,7 @@ public class ShredderClueComponent extends Pane {
 
   @FXML private Pane shredderPane;
   @FXML private ImageView selectIndicator;
+  @FXML private Label completedMessage;
 
   private ShredderBoxIndicator indicator;
 
@@ -50,6 +52,11 @@ public class ShredderClueComponent extends Pane {
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
 
     indicator = new ShredderBoxIndicator(selectIndicator);
+
+    // Sets the complete message to be invisible
+    completedMessage.setVisible(true);
+    String message = App.getData("shredder-message.txt");
+    completedMessage.setText(message);
   }
 
   /**

@@ -1,6 +1,9 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -9,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -98,5 +100,22 @@ public class App extends Application {
 
   public static String getCssUrl(String filename) {
     return App.class.getResource("/css/" + filename + ".css").toExternalForm();
+  }
+
+  /**
+   * Given a filename, returns the text data from the file as a string.
+   *
+   * @param filename
+   * @return
+   */
+  public static String getData(String filename) {
+    URL url = App.class.getResource("/data/" + filename);
+    try {
+
+      return new String(Files.readAllBytes(Paths.get(url.toURI())), "UTF-8");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
   }
 }
