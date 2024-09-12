@@ -16,13 +16,16 @@ public class ShredderBox extends Rectangle implements Positionable {
     double y = this.getLayoutY() + this.getHeight() / 2;
 
     this.center = new Coordinate(x, y);
+
+    System.out.println("Center: " + this.center.getX() + ", " + this.center.getY());
   }
 
   public Coordinate getCenter() {
-    return center;
+    return this.center;
   }
 
   public Coordinate getTopLeft() {
+    System.out.println("Top left: " + this.getLayoutX() + ", " + this.getLayoutY());
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 }
