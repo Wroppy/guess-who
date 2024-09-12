@@ -20,4 +20,11 @@ public class Coordinate {
   public double getY() {
     return y;
   }
+
+  public Coordinate subtract(Coordinate other) {
+    x -= other.x;
+    y -= other.y;
+
+    return this;
+  }
 }
