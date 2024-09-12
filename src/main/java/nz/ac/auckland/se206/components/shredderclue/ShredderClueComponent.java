@@ -304,4 +304,11 @@ public class ShredderClueComponent extends Pane {
   public void handleClose() {
     this.setVisible(false);
   }
+
+  /**
+   * Shows the clue component.
+   */
+  public void show() {
+    this.setVisible(true);  
+  }
 }
