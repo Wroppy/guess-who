@@ -3,3 +3,8 @@
   -fx-stroke-width: 1;
   -fx-stroke: grey;
 }
+
+#completedMessage {
+  -fx-background-color: white;
+  -fx-label-padding: 16;
+}

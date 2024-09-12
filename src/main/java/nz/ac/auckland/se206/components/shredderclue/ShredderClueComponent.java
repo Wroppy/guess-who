@@ -54,7 +54,7 @@ public class ShredderClueComponent extends Pane {
     indicator = new ShredderBoxIndicator(selectIndicator);
 
     // Sets the complete message to be invisible
-    completedMessage.setVisible(true);
+    completedMessage.setVisible(false);
     String message = App.getData("shredder-message.txt");
     completedMessage.setText(message);
   }
@@ -218,6 +218,7 @@ public class ShredderClueComponent extends Pane {
     }
 
     System.out.println("correct order");
+    showCompletedMessage();
   }
 
   /**
@@ -273,5 +274,10 @@ public class ShredderClueComponent extends Pane {
       }
     }
     return true;
+  }
+
+  private void showCompletedMessage() {
+    completedMessage.toFront();
+    completedMessage.setVisible(true);
   }
 }
