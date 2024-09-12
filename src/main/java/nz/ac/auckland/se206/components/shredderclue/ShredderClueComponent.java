@@ -10,6 +10,7 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
 public class ShredderClueComponent extends Pane {
+  // Sets the size of the clue rectangles, with aspect ratio 2200:283
   private final double clueHeight = 300;
   private final double clueWidth = clueHeight * 283 / 2200;
   private final int clues = 6;
@@ -20,9 +21,12 @@ public class ShredderClueComponent extends Pane {
   ShredderBoxIndicator indicator;
 
   // Map for each rectangle to the paper that is placed on it
-  private Map<ShredderBox, ShredderPaper> paperMap = new HashMap<>();
+  private Map<ShredderBox, ShredderPaper> paperMap;
 
   public ShredderClueComponent() {
+    paperMap = new HashMap<>();
+
+    // Load the FXML file of the clue
     try {
       FXMLLoader loader = App.loadFxmlLoader("shredder-clue");
 
@@ -53,6 +57,7 @@ public class ShredderClueComponent extends Pane {
    * horizontally in the middle of the image.
    */
   private void createRectangles() {
+    // Calculates the spacing for the rectangles
     final int gap = 5; // Gap between each rectangle
     final double startingX = (this.getWidth() - (clues * clueWidth + (clues - 1) * gap)) / 2;
     final double step = clueWidth + gap;
@@ -73,7 +78,7 @@ public class ShredderClueComponent extends Pane {
       rect.setLayoutX(x);
       rect.setLayoutY(y);
 
-      rect.setCenter();
+      rect.setCenter(); // Required for the draggable paper to find the center of the rectangle
 
       // Add the rectangle to the map
       paperMap.put(rect, null);
@@ -83,6 +88,7 @@ public class ShredderClueComponent extends Pane {
   /** Creates the shredded paper draggable widgets for the clue. */
   public void createShreddedPaper() {
     for (int i = 0; i < clues; i++) {
+      // Creates a new paper
       String path = "document/shredded/paper-" + i;
       ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
 
@@ -91,9 +97,9 @@ public class ShredderClueComponent extends Pane {
       // Sets a random position for the paper
       double x = Math.random() * (this.getWidth() - clueWidth - 10);
       double y = Math.random() * (this.getHeight() - clueHeight - 10);
-
       paper.moveTo(new Coordinate(x, y));
 
+      // Sets the event handlers for the paper
       EventCallback handlePress = e -> handlePress(paper);
       paper.setOnClick(handlePress);
 
@@ -102,11 +108,15 @@ public class ShredderClueComponent extends Pane {
 
       EventCallback handleDrag = e -> handleDrag(paper);
       paper.setOnDrag(handleDrag);
-
-      // Fin
     }
   }
 
+  /**
+   * Handles the press event for the paper. Shows the indicator to its closest shredder box and
+   * moves the selected paper to the front.
+   *
+   * @param paper The paper that is being pressed
+   */
   private void handlePress(ShredderPaper paper) {
     indicator.show();
 
@@ -117,10 +127,17 @@ public class ShredderClueComponent extends Pane {
     highlightBox(closest);
   }
 
+  /**
+   * Handles the release event for the paper. If the paper is released on a rectangle, it will be
+   * placed in the rectangle. If the rectangle is not empty, the papers will be swapped.
+   *
+   * @param paper The paper that is being released
+   */
   private void handleRelease(ShredderPaper paper) {
     indicator.hide();
 
-    Coordinate possiblePos = paper.getTopLeft();
+    Coordinate currentPos =
+        paper.getTopLeft(); // Required for when a paper needs to be switched with another
 
     // Finds  the closest rectangle to the paper
     ShredderBox box = findClosestRectangle(paper);
@@ -136,12 +153,13 @@ public class ShredderClueComponent extends Pane {
     if (paperMap.get(box) == null) {
       // Makes sure that if the paper was in a rectangle, it is removed from the rectangle
       ShredderBox paperParent = findPaperParent(paper);
+
+      // If the pressed paper was in the rectangle, removed it from the rectangle
       if (paperParent != null) {
         paperMap.put(paperParent, null);
       }
 
-      this.movePaper(paper, box);
-
+      this.movePaper(paper, box); // Move the paper to the new rectangle
       return;
     }
 
@@ -159,10 +177,16 @@ public class ShredderClueComponent extends Pane {
       movePaper(otherPaper, paperParent);
     } else {
       // Otherwise move the paper to the previous position of the paper
-      otherPaper.moveTo(possiblePos);
+      otherPaper.moveTo(currentPos);
     }
   }
 
+  /**
+   * Returns the rectangle that the paper is in, or null if the paper is not in any rectangle.
+   *
+   * @param paper The paper to find the parent of
+   * @return The rectangle that the paper is in, or null if the paper is not in any rectangle
+   */
   private ShredderBox findPaperParent(ShredderPaper paper) {
     for (ShredderBox box : paperMap.keySet()) {
       if (paperMap.get(box) == paper) {
@@ -172,17 +196,36 @@ public class ShredderClueComponent extends Pane {
     return null;
   }
 
+  /**
+   * Moves the paper to the box and updates the map.
+   *
+   * @param paper The paper to move
+   * @param box The box to move the paper to
+   */
   private void movePaper(ShredderPaper paper, ShredderBox box) {
     paperMap.put(box, paper);
     paper.moveTo(box.getTopLeft());
+
+    // TODO: Check that the papers are in the correct position
   }
 
+  /**
+   * Handles the drag event for the paper. Shows the indicator to its closest shredder box.
+   *
+   * @param paper The paper that is being dragged
+   */
   private void handleDrag(ShredderPaper paper) {
 
     ShredderBox closest = findClosestRectangle(paper);
     highlightBox(closest);
   }
 
+  /**
+   * Finds the closest rectangle to the paper.
+   *
+   * @param paper The paper to find the closest rectangle to
+   * @return The closest rectangle to the paper
+   */
   public ShredderBox findClosestRectangle(ShredderPaper paper) {
     ShredderBox closest = null;
     double minDistance = Double.MAX_VALUE;
@@ -199,6 +242,11 @@ public class ShredderClueComponent extends Pane {
     return closest;
   }
 
+  /**
+   * Highlights the box by moving the indicator to the top left of the box.
+   *
+   * @param box The box to highlight
+   */
   public void highlightBox(ShredderBox box) {
     indicator.moveTo(box.getTopLeft().subtract(new Coordinate(6, 6)));
   }

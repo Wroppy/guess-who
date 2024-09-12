@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.components.shredderclue;
 
 import javafx.scene.image.ImageView;
 
+/** Indicator for which shredder box the user it currently going to be interacting with. */
 public class ShredderBoxIndicator implements Moveable {
   private ImageView indicator;
 

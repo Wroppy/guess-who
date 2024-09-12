@@ -11,6 +11,7 @@ public class ShredderPaper extends ImageView implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
 
+  // Callback functions for the draggable feature
   EventCallback onMouseClickCallback;
   EventCallback onMouseDragCallback;
   EventCallback onMouseReleaseCallback;
@@ -25,6 +26,7 @@ public class ShredderPaper extends ImageView implements Moveable {
     mouseAnchorY = 0;
     mouseAnchorX = 0;
 
+    // Sets up the image for the paper
     Image image = new Image(App.class.getResource("/images/" + path + ".png").toExternalForm());
     this.setImage(image);
 
@@ -34,6 +36,7 @@ public class ShredderPaper extends ImageView implements Moveable {
     this.makeDraggable();
   }
 
+  /** Sets up the draggable handle methods for the paper. */
   private void makeDraggable() {
     this.setOnMouseReleased(e -> onMouseReleased(e));
 
@@ -48,8 +51,6 @@ public class ShredderPaper extends ImageView implements Moveable {
    * @param e mouse event
    */
   private void onMouseReleased(MouseEvent e) {
-    // TODO: Implement which rectangle the paper would go to
-
     // Calls the callback function
     if (onMouseReleaseCallback == null) {
       return;
@@ -63,6 +64,7 @@ public class ShredderPaper extends ImageView implements Moveable {
    * @param e mouse event
    */
   private void onMousePress(MouseEvent e) {
+    // Sets the anchor points for the mouse
     mouseAnchorX = e.getSceneX() - this.getLayoutX();
     mouseAnchorY = e.getSceneY() - this.getLayoutY();
 
@@ -80,12 +82,13 @@ public class ShredderPaper extends ImageView implements Moveable {
    * @param e mouse event
    */
   private void onMouseDragged(MouseEvent e) {
+    // Calculates the relative position of the mouse
     double relativeXPos = e.getSceneX() - mouseAnchorX;
     double relativeYPos = e.getSceneY() - mouseAnchorY;
+
     // Checks that the node is not dragged out of the parent
     double rightBound = parent.getLayoutBounds().getWidth() - this.getLayoutBounds().getWidth();
     double bottomBound = parent.getLayoutBounds().getHeight() - this.getLayoutBounds().getHeight();
-
     if (relativeXPos < 0) {
       return;
     }
@@ -99,6 +102,7 @@ public class ShredderPaper extends ImageView implements Moveable {
       return;
     }
 
+    // Moves the node
     this.setLayoutX(e.getSceneX() - mouseAnchorX);
     this.setLayoutY(e.getSceneY() - mouseAnchorY);
 
@@ -121,15 +125,18 @@ public class ShredderPaper extends ImageView implements Moveable {
     this.onMouseReleaseCallback = callback;
   }
 
+  @Override
   public Coordinate getCenter() {
     return new Coordinate(
         this.getLayoutX() + this.getFitWidth() / 2, this.getLayoutY() + this.getFitHeight() / 2);
   }
 
+  @Override
   public Coordinate getTopLeft() {
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 
+  @Override
   public void moveTo(Coordinate pos) {
     this.setLayoutX(pos.getX());
     this.setLayoutY(pos.getY());
