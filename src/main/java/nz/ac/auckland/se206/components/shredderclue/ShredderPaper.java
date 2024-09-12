@@ -10,15 +10,16 @@ import nz.ac.auckland.se206.utils.EventCallback;
 public class ShredderPaper extends ImageView implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
+  private int order;
 
   // Callback functions for the draggable feature
-  EventCallback onMouseClickCallback;
-  EventCallback onMouseDragCallback;
-  EventCallback onMouseReleaseCallback;
+  private EventCallback onMouseClickCallback;
+  private EventCallback onMouseDragCallback;
+  private EventCallback onMouseReleaseCallback;
 
-  Node parent;
+  private Node parent;
 
-  public ShredderPaper(Node parent, String path, double width, double height) {
+  public ShredderPaper(Node parent, String path, double width, double height, int order) {
     super();
 
     // Sets up variables for the draggable feature
@@ -34,6 +35,8 @@ public class ShredderPaper extends ImageView implements Moveable {
     this.setFitHeight(height);
 
     this.makeDraggable();
+
+    this.order = order;
   }
 
   /** Sets up the draggable handle methods for the paper. */
@@ -140,5 +143,9 @@ public class ShredderPaper extends ImageView implements Moveable {
   public void moveTo(Coordinate pos) {
     this.setLayoutX(pos.getX());
     this.setLayoutY(pos.getY());
+  }
+
+  public int getOrder() {
+    return order;
   }
 }

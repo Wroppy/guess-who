@@ -18,7 +18,7 @@ public class ShredderClueComponent extends Pane {
   @FXML private Pane shredderPane;
   @FXML private ImageView selectIndicator;
 
-  ShredderBoxIndicator indicator;
+  private ShredderBoxIndicator indicator;
 
   // Map for each rectangle to the paper that is placed on it
   private Map<ShredderBox, ShredderPaper> paperMap;
@@ -65,7 +65,7 @@ public class ShredderClueComponent extends Pane {
 
     // Creates 6 rectangles
     for (int i = 0; i < clues; i++) {
-      ShredderBox rect = new ShredderBox();
+      ShredderBox rect = new ShredderBox(i);
       // Sets height
       rect.setWidth(clueWidth);
       rect.setHeight(clueHeight);
@@ -86,11 +86,11 @@ public class ShredderClueComponent extends Pane {
   }
 
   /** Creates the shredded paper draggable widgets for the clue. */
-  public void createShreddedPaper() {
+  private void createShreddedPaper() {
     for (int i = 0; i < clues; i++) {
       // Creates a new paper
       String path = "document/shredded/paper-" + i;
-      ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
+      ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight, i);
 
       this.getChildren().add(paper);
 
@@ -136,8 +136,7 @@ public class ShredderClueComponent extends Pane {
   private void handleRelease(ShredderPaper paper) {
     indicator.hide();
 
-    Coordinate currentPos =
-        paper.getTopLeft(); // Required for when a paper needs to be switched with another
+    Coordinate currentPos = paper.getTopLeft(); // For when a paper needs to be switched back
 
     // Finds  the closest rectangle to the paper
     ShredderBox box = findClosestRectangle(paper);
@@ -206,7 +205,12 @@ public class ShredderClueComponent extends Pane {
     paperMap.put(box, paper);
     paper.moveTo(box.getTopLeft());
 
-    // TODO: Check that the papers are in the correct position
+    // Checks if the papers are in the correct position
+    if (!arePapersCorrect()) {
+      return;
+    }
+
+    System.out.println("correct order");
   }
 
   /**
@@ -215,7 +219,6 @@ public class ShredderClueComponent extends Pane {
    * @param paper The paper that is being dragged
    */
   private void handleDrag(ShredderPaper paper) {
-
     ShredderBox closest = findClosestRectangle(paper);
     highlightBox(closest);
   }
@@ -226,7 +229,7 @@ public class ShredderClueComponent extends Pane {
    * @param paper The paper to find the closest rectangle to
    * @return The closest rectangle to the paper
    */
-  public ShredderBox findClosestRectangle(ShredderPaper paper) {
+  private ShredderBox findClosestRectangle(ShredderPaper paper) {
     ShredderBox closest = null;
     double minDistance = Double.MAX_VALUE;
 
@@ -247,7 +250,21 @@ public class ShredderClueComponent extends Pane {
    *
    * @param box The box to highlight
    */
-  public void highlightBox(ShredderBox box) {
+  private void highlightBox(ShredderBox box) {
     indicator.moveTo(box.getTopLeft().subtract(new Coordinate(6, 6)));
+  }
+
+  /**
+   * Checks if the papers are in the correct position.
+   *
+   * @return True if the papers are in the correct position, false otherwise
+   */
+  private boolean arePapersCorrect() {
+    for (ShredderBox box : paperMap.keySet()) {
+      if (!box.isPaperCorrect(paperMap.get(box))) {
+        return false;
+      }
+    }
+    return true;
   }
 }
