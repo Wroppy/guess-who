@@ -285,4 +285,5 @@ public class ShredderClueComponent extends Pane {
     confidentialLabel.setVisible(true);
     confidentialLabel.toFront();
   }
+
 }
