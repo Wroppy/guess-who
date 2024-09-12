@@ -13,3 +13,9 @@
   -fx-background-color: white;
   -fx-color-label-visible: black;
 }
+
+.shredder-paper {
+  -fx-border-color: black;
+  -fx-border-width: 1;
+  -fx-border-style: solid;
+}

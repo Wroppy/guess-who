@@ -12,14 +12,14 @@ public class ShredderBoxIndicator implements Moveable {
   }
 
   @Override
-  public Coordinate getCenter() {
+  public Coordinate getCenterCooridinate() {
     return new Coordinate(
         indicator.getX() + indicator.getFitWidth() / 2,
         indicator.getY() + indicator.getFitHeight() / 2);
   }
 
   @Override
-  public Coordinate getTopLeft() {
+  public Coordinate getTopLeftCooridinate() {
     return new Coordinate(indicator.getX(), indicator.getY());
   }
 

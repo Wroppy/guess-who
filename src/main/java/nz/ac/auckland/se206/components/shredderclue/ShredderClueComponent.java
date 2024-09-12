@@ -147,7 +147,8 @@ public class ShredderClueComponent extends Pane {
   private void handleRelease(ShredderPaper paper) {
     indicator.hide();
 
-    Coordinate currentPos = paper.getTopLeft(); // For when a paper needs to be switched back
+    Coordinate currentPos =
+        paper.getTopLeftCooridinate(); // For when a paper needs to be switched back
 
     // Finds  the closest rectangle to the paper
     ShredderBox box = findClosestRectangle(paper);
@@ -155,7 +156,7 @@ public class ShredderClueComponent extends Pane {
     // Checks to make sure that the paper is not already in the rectangle
     // If it is, move the paper back to the original box
     if (paperMap.get(box) == paper) {
-      paper.moveTo(findPaperParent(paper).getTopLeft());
+      paper.moveTo(findPaperParent(paper).getTopLeftCooridinate());
       return;
     }
 
@@ -214,7 +215,7 @@ public class ShredderClueComponent extends Pane {
    */
   private void movePaper(ShredderPaper paper, ShredderBox box) {
     paperMap.put(box, paper);
-    paper.moveTo(box.getTopLeft());
+    paper.moveTo(box.getTopLeftCooridinate());
 
     // Checks if the papers are in the correct position
     if (!arePapersCorrect()) {
@@ -247,7 +248,7 @@ public class ShredderClueComponent extends Pane {
 
     // Loops through each rectangle and finds the closest one
     for (ShredderBox rect : paperMap.keySet()) {
-      double distance = paper.getCenter().getDistance(rect.getCenter());
+      double distance = paper.getCenterCooridinate().getDistance(rect.getCenterCooridinate());
       if (distance < minDistance) {
         minDistance = distance;
         closest = rect;
@@ -263,7 +264,7 @@ public class ShredderClueComponent extends Pane {
    * @param box The box to highlight
    */
   private void highlightBox(ShredderBox box) {
-    indicator.moveTo(box.getTopLeft().subtract(new Coordinate(6, 6)));
+    indicator.moveTo(box.getTopLeftCooridinate().subtract(new Coordinate(6, 6)));
   }
 
   /**
@@ -305,10 +306,8 @@ public class ShredderClueComponent extends Pane {
     this.setVisible(false);
   }
 
-  /**
-   * Shows the clue component.
-   */
+  /** Shows the clue component. */
   public void show() {
-    this.setVisible(true);  
+    this.setVisible(true);
   }
 }

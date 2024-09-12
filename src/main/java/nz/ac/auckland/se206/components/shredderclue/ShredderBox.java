@@ -28,12 +28,12 @@ public class ShredderBox extends Rectangle implements Positionable {
   }
 
   @Override
-  public Coordinate getCenter() {
+  public Coordinate getCenterCooridinate() {
     return this.center;
   }
 
   @Override
-  public Coordinate getTopLeft() {
+  public Coordinate getTopLeftCooridinate() {
     System.out.println("Top left: " + this.getLayoutX() + ", " + this.getLayoutY());
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }

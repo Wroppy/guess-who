@@ -4,10 +4,11 @@ import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
-public class ShredderPaper extends ImageView implements Moveable {
+public class ShredderPaper extends Pane implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
   private int order;
@@ -17,6 +18,7 @@ public class ShredderPaper extends ImageView implements Moveable {
   private EventCallback onMouseDragCallback;
   private EventCallback onMouseReleaseCallback;
 
+  private ImageView imageView;
   private Node parent;
 
   public ShredderPaper(Node parent, String path, double width, double height, int order) {
@@ -29,14 +31,18 @@ public class ShredderPaper extends ImageView implements Moveable {
 
     // Sets up the image for the paper
     Image image = new Image(App.class.getResource("/images/" + path + ".png").toExternalForm());
-    this.setImage(image);
+    this.imageView = new ImageView(image);
 
-    this.setFitWidth(width);
-    this.setFitHeight(height);
+    this.getChildren().add(this.imageView);
+
+    this.imageView.setFitWidth(width);
+    this.imageView.setFitHeight(height);
 
     this.makeDraggable();
 
     this.order = order;
+
+    this.getStyleClass().add("shredder-paper");
   }
 
   /** Sets up the draggable handle methods for the paper. */
@@ -129,13 +135,13 @@ public class ShredderPaper extends ImageView implements Moveable {
   }
 
   @Override
-  public Coordinate getCenter() {
+  public Coordinate getCenterCooridinate() {
     return new Coordinate(
-        this.getLayoutX() + this.getFitWidth() / 2, this.getLayoutY() + this.getFitHeight() / 2);
+        this.getLayoutX() + this.getWidth() / 2, this.getLayoutY() + this.getHeight() / 2);
   }
 
   @Override
-  public Coordinate getTopLeft() {
+  public Coordinate getTopLeftCooridinate() {
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 
