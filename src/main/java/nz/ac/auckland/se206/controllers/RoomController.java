@@ -44,6 +44,8 @@ public class RoomController {
 
     ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
     this.shredderClueOverlay.getChildren().add(shredderClueComponent);
+
+    shredderClueComponent.hide();
   }
 
   /**

@@ -310,4 +310,8 @@ public class ShredderClueComponent extends Pane {
   public void show() {
     this.setVisible(true);
   }
+
+  public void hide() {
+    this.setVisible(false);
+  }
 }
