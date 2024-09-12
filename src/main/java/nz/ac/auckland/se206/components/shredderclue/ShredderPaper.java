@@ -54,7 +54,7 @@ public class ShredderPaper extends ImageView implements Moveable {
     if (onMouseReleaseCallback == null) {
       return;
     }
-    onMouseReleaseCallback.function(e);
+    onMouseReleaseCallback.run(e);
   }
 
   /**
@@ -70,7 +70,7 @@ public class ShredderPaper extends ImageView implements Moveable {
     if (onMouseClickCallback == null) {
       return;
     }
-    onMouseClickCallback.function(e);
+    onMouseClickCallback.run(e);
   }
 
   /**
@@ -106,7 +106,7 @@ public class ShredderPaper extends ImageView implements Moveable {
     if (onMouseDragCallback == null) {
       return;
     }
-    onMouseDragCallback.function(e);
+    onMouseDragCallback.run(e);
   }
 
   public void setOnClick(EventCallback callback) {
