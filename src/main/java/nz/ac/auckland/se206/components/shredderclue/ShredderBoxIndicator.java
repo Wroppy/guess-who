@@ -7,6 +7,7 @@ public class ShredderBoxIndicator implements Moveable {
 
   public ShredderBoxIndicator(ImageView selectIndicator) {
     this.indicator = selectIndicator;
+    indicator.setVisible(false);
   }
 
   @Override
@@ -26,5 +27,13 @@ public class ShredderBoxIndicator implements Moveable {
 
     indicator.setLayoutX(c.getX());
     indicator.setLayoutY(c.getY());
+  }
+
+  public void hide() {
+    indicator.setVisible(false);
+  }
+
+  public void show() {
+    indicator.setVisible(true);
   }
 }
