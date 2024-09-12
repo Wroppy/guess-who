@@ -90,7 +90,7 @@ public class ShredderClueComponent extends Pane {
       EventCallback handlePress = e -> handlePress();
       paper.setOnClick(handlePress);
 
-      EventCallback handleRelease = e -> handleRelease();
+      EventCallback handleRelease = e -> handleRelease(paper);
       paper.setOnRelease(handleRelease);
 
       EventCallback handleDrag = e -> handleDrag(paper);
@@ -102,8 +102,64 @@ public class ShredderClueComponent extends Pane {
     indicator.show();
   }
 
-  private void handleRelease() {
+  private void handleRelease(ShredderPaper paper) {
     indicator.hide();
+
+    Coordinate possiblePos = paper.getTopLeft();
+
+    // Finds  the closest rectangle to the paper
+    ShredderBox box = findClosestRectangle(paper);
+
+    // Checks to make sure that the paper is not already in the rectangle
+    // If it is, move the paper back to the original box
+    if (paperMap.get(box) == paper) {
+      paper.moveTo(findPaperParent(paper).getTopLeft());
+      return;
+    }
+
+    // If the rectangle is empty, place the paper in the rectangle
+    if (paperMap.get(box) == null) {
+      // Makes sure that if the paper was in a rectangle, it is removed from the rectangle
+      ShredderBox paperParent = findPaperParent(paper);
+      if (paperParent != null) {
+        paperMap.put(paperParent, null);
+      }
+
+      this.movePaper(paper, box);
+
+      return;
+    }
+
+    // If the rectangle is not empty, swap the papers
+    // Note that box is the rectangle that the paper is being placed in
+    ShredderPaper otherPaper = paperMap.get(box);
+
+    // Current parent of this paper
+    ShredderBox paperParent = findPaperParent(paper);
+
+    movePaper(paper, box); // Move the dragged paper to the new rectangle
+
+    // If the paper moved was in a rectangle, move the other paper to the old rectangle
+    if (paperParent != null) {
+      movePaper(otherPaper, paperParent);
+    } else {
+      // Otherwise move the paper to the previous position of the paper
+      otherPaper.moveTo(possiblePos);
+    }
+  }
+
+  private ShredderBox findPaperParent(ShredderPaper paper) {
+    for (ShredderBox box : paperMap.keySet()) {
+      if (paperMap.get(box) == paper) {
+        return box;
+      }
+    }
+    return null;
+  }
+
+  private void movePaper(ShredderPaper paper, ShredderBox box) {
+    paperMap.put(box, paper);
+    paper.moveTo(box.getTopLeft());
   }
 
   private void handleDrag(ShredderPaper paper) {
