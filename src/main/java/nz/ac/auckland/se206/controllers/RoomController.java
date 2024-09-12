@@ -40,6 +40,16 @@ public class RoomController {
     lblProfession.setText(context.getProfessionToGuess());
 
     rectHover1.setVisible(false);
+
+    rectWaitress.setOnMouseEntered(
+        (MouseEvent event) -> {
+          rectHover1.setVisible(true); // Show the image when the mouse enters the rectangle
+        });
+
+    rectWaitress.setOnMouseExited(
+        (MouseEvent event) -> {
+          rectHover1.setVisible(false); // Hide the image when the mouse exits the rectangle
+        });
   }
 
   /**
