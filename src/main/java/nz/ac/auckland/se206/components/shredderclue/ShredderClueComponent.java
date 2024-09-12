@@ -53,7 +53,7 @@ public class ShredderClueComponent extends Pane {
    * horizontally in the middle of the image.
    */
   private void createRectangles() {
-    final int gap = 20; // Gap between each rectangle
+    final int gap = 5; // Gap between each rectangle
     final double startingX = (this.getWidth() - (clues * clueWidth + (clues - 1) * gap)) / 2;
     final double step = clueWidth + gap;
     final double y = (this.getHeight() - (clueHeight)) / 2;
