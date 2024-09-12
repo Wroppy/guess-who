@@ -5,10 +5,15 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.utils.EventCallback;
 
 public class ShredderPaper extends ImageView {
   private double mouseAnchorX;
   private double mouseAnchorY;
+
+  EventCallback onMouseClickCallback;
+  EventCallback onMouseDragCallback;
+  EventCallback onMouseReleaseCallback;
 
   Node parent;
 
@@ -30,8 +35,6 @@ public class ShredderPaper extends ImageView {
   }
 
   private void makeDraggable() {
-    this.setLayoutX(10);
-    this.setLayoutY(10);
     this.setOnMouseReleased(e -> onMouseReleased(e));
 
     this.setOnMouseDragged(e -> onMouseDragged(e));
@@ -46,6 +49,12 @@ public class ShredderPaper extends ImageView {
    */
   private void onMouseReleased(MouseEvent e) {
     // TODO: Implement which rectangle the paper would go to
+
+    // Calls the callback function
+    if (onMouseReleaseCallback == null) {
+      return;
+    }
+    onMouseReleaseCallback.function(e);
   }
 
   /**
@@ -56,6 +65,12 @@ public class ShredderPaper extends ImageView {
   private void onMousePress(MouseEvent e) {
     mouseAnchorX = e.getSceneX() - this.getLayoutX();
     mouseAnchorY = e.getSceneY() - this.getLayoutY();
+
+    // Calls the callback function
+    if (onMouseClickCallback == null) {
+      return;
+    }
+    onMouseClickCallback.function(e);
   }
 
   /**
@@ -70,7 +85,7 @@ public class ShredderPaper extends ImageView {
     // Checks that the node is not dragged out of the parent
     double rightBound = parent.getLayoutBounds().getWidth() - this.getLayoutBounds().getWidth();
     double bottomBound = parent.getLayoutBounds().getHeight() - this.getLayoutBounds().getHeight();
-    
+
     if (relativeXPos < 0) {
       return;
     }
@@ -81,10 +96,34 @@ public class ShredderPaper extends ImageView {
       return;
     }
     if (e.getSceneY() - mouseAnchorY > bottomBound) {
-    return;
+      return;
     }
 
     this.setLayoutX(e.getSceneX() - mouseAnchorX);
     this.setLayoutY(e.getSceneY() - mouseAnchorY);
+
+
+    // Calls the callback function
+    if (onMouseDragCallback == null) {
+      return;
+    }
+    onMouseDragCallback.function(e);
+  }
+
+  public void setOnClick(EventCallback callback) {
+    this.onMouseClickCallback = callback;
+  }
+
+  public void setOnDrag(EventCallback callback) {
+    this.onMouseDragCallback = callback;
+  }
+
+  public void setOnRelease(EventCallback callback) {
+    this.onMouseReleaseCallback = callback;
+  }
+
+  public Coordinate getCenterPos() {
+    return new Coordinate(
+        this.getLayoutX() + this.getFitWidth() / 2, this.getLayoutY() + this.getFitHeight() / 2);
   }
 }

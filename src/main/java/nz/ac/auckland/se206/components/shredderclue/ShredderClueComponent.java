@@ -1,10 +1,12 @@
 package nz.ac.auckland.se206.components.shredderclue;
 
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.utils.EventCallback;
 
 public class ShredderClueComponent extends Pane {
   private final double clueHeight = 300;
@@ -77,6 +79,14 @@ public class ShredderClueComponent extends Pane {
       ShredderPaper paper = new ShredderPaper(this, path, clueWidth, clueHeight);
 
       this.getChildren().add(paper);
+      EventCallback handlePress = e -> System.out.println("Handle Press");
+      paper.setOnClick(handlePress);
+
+      EventCallback handleRelease = e -> System.out.println("Handle Release");
+      paper.setOnRelease(handleRelease);
+
+      EventCallback handleDrag = e -> System.out.println("Handle Drag");
+      paper.setOnDrag(handleDrag);
     }
   }
 }
