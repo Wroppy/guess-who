@@ -6,13 +6,24 @@ import javafx.scene.Parent;
 
 public class SceneManager {
   public enum SceneType {
-    INTRO,
-    CRIME,
-    SUSPECT_1,
-    SUSPECT_2,
-    SUSPECT_3,
-    PLAYER_EXPLANATION,
-    FEEDBACK
+    INTRO("Introduction"),
+    CRIME("Crime Scene"),
+    SUSPECT_1("Suspect 1"),
+    SUSPECT_2("Suspect 2"),
+    SUSPECT_3("Suspect 3"),
+    PLAYER_EXPLANATION("Player Explanation"),
+
+    FEEDBACK("Player Feedback");
+
+    private String name;
+
+    SceneType(String name) {
+      this.name = name;
+    }
+
+    public String getName() {
+      return name;
+    }
   }
 
   private static Map<SceneType, Parent> sceneMap = new HashMap<>();
