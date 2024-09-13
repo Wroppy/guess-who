@@ -125,6 +125,8 @@ public class App extends Application {
   public static void changeScene(SceneType sceneType) {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   private void setupScenes() {
