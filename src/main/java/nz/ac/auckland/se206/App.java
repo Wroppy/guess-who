@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
+import nz.ac.auckland.se206.controllers.HeaderableController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 /**
@@ -21,7 +22,6 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
  * application.
  */
 public class App extends Application {
-
   private static Scene scene;
 
   /**
@@ -132,16 +132,24 @@ public class App extends Application {
       Parent root = loadFxml("introduction-scene");
       SceneManager.addScene(SceneType.INTRO, root);
 
-      root = loadFxml("room");
+      FXMLLoader rootFXML = loadFxmlLoader("room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.CRIME);
       SceneManager.addScene(SceneType.CRIME, root);
 
-      root = loadFxml("suspect-1-room");
+      rootFXML = loadFxmlLoader("suspect-1-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_1);
       SceneManager.addScene(SceneType.SUSPECT_1, root);
 
-      root = loadFxml("suspect-2-room");
+      rootFXML = loadFxmlLoader("suspect-2-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_2);
       SceneManager.addScene(SceneType.SUSPECT_2, root);
 
-      root = loadFxml("suspect-3-room");
+      rootFXML = loadFxmlLoader("suspect-3-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
 
       root = loadFxml("explanation-room");

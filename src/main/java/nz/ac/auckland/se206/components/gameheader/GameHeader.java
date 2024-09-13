@@ -17,9 +17,9 @@ public class GameHeader extends Pane {
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessButton;
 
-  private static SceneType currentScene = SceneType.CRIME;
+  private SceneType currentScene;
 
-  public GameHeader() {
+  public GameHeader(SceneType sceneType) {
     super();
 
     try {
@@ -27,6 +27,9 @@ public class GameHeader extends Pane {
       loader.setRoot(this);
       loader.setController(this);
       loader.load();
+
+      currentScene = sceneType;
+      changeLabel(sceneType);
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -34,7 +37,6 @@ public class GameHeader extends Pane {
 
   public void initialize() {
     setupComboBox();
-    changeLabel(currentScene);
   }
 
   private void setupComboBox() {
@@ -57,9 +59,6 @@ public class GameHeader extends Pane {
 
   private void onRoomChange(ActionEvent e) {
     SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
-    if (selectedScene == null) {
-      return;
-    }
 
     changeScene(selectedScene);
   }
@@ -69,14 +68,9 @@ public class GameHeader extends Pane {
   }
 
   private void changeScene(SceneType sceneType) {
-    App.changeScene(sceneType);
-    roomComboBox.getSelectionModel().clearSelection();
-    roomComboBox.getItems().clear();
-    addComboBoxItems();
-    GameHeader.currentScene = sceneType;
     System.out.println("Changed scene to " + sceneType);
-
-    changeLabel(sceneType);
+    App.changeScene(sceneType);
+    System.out.println("Changed scene to " + sceneType);
   }
 
   private void addComboBoxItems() {
@@ -85,10 +79,12 @@ public class GameHeader extends Pane {
     };
 
     for (SceneType sceneType : sceneTypes) {
-      if (sceneType == GameHeader.currentScene) {
-        continue;
-      }
       roomComboBox.getItems().add(sceneType);
     }
+  }
+
+  public void setScene(SceneType sceneType) {
+    currentScene = sceneType;
+    changeLabel(sceneType);
   }
 }
