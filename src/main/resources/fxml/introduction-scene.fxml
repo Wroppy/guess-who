@@ -8,38 +8,38 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.MenuController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0">
+      <ImageView fitHeight="599.0" fitWidth="789.0">
          <image>
             <Image url="@../images/menu.jpeg" />
          </image>
       </ImageView>
-      <TextArea layoutX="34.0" layoutY="284.0" opacity="0.72" prefHeight="58.0" prefWidth="521.0" />
-      <TextArea layoutX="164.0" layoutY="74.0" opacity="0.65" prefHeight="46.0" prefWidth="266.0" />
-      <Label layoutX="164.0" layoutY="68.0" prefHeight="58.0" prefWidth="273.0" text="Guess the thief">
+      <TextArea layoutX="83.0" layoutY="433.0" opacity="0.72" prefHeight="76.0" prefWidth="632.0" />
+      <TextArea layoutX="245.0" layoutY="80.0" opacity="0.65" prefHeight="46.0" prefWidth="308.0" />
+      <Label layoutX="245.0" layoutY="69.0" prefHeight="58.0" prefWidth="308.0" text="Guess the thief">
          <font>
-            <Font size="40.0" />
+            <Font size="46.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="277.0" prefHeight="35.0" prefWidth="534.0" text="An internal hostile takeover is underway, with a crucial document" textAlignment="CENTER" wrapText="true">
+      <Label layoutX="83.0" layoutY="427.0" prefHeight="35.0" prefWidth="632.0" text="An internal hostile takeover is underway, with a crucial document" textAlignment="CENTER" wrapText="true">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="299.0" prefHeight="27.0" prefWidth="527.0" text="playing a central role. This document is found missing, determine">
+      <Label layoutX="83.0" layoutY="452.0" prefHeight="32.0" prefWidth="632.0" text="playing a central role. This document is found missing, determine">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <Label layoutX="34.0" layoutY="319.0" prefHeight="17.0" prefWidth="437.0" text="the thief.">
+      <Label layoutX="83.0" layoutY="478.0" prefHeight="17.0" prefWidth="437.0" text="the thief.">
          <font>
-            <Font size="18.0" />
+            <Font size="22.0" />
          </font>
       </Label>
-      <Button fx:id="btnStart" layoutX="244.0" layoutY="171.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="58.0" prefWidth="101.0" text="Start">
+      <Button fx:id="btnStart" layoutX="348.0" layoutY="271.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="58.0" prefWidth="101.0" text="Start">
          <font>
-            <Font size="24.0" />
+            <Font size="26.0" />
          </font>
       </Button>
    </children>
