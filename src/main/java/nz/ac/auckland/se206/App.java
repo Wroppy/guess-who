@@ -89,7 +89,7 @@ public class App extends Application {
   public void start(final Stage stage) throws IOException {
     this.setupScenes();
 
-    Parent root = SceneManager.getScene(SceneType.CRIME);
+    Parent root = SceneManager.getScene(SceneType.INTRO);
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
@@ -125,6 +125,8 @@ public class App extends Application {
   public static void changeScene(SceneType sceneType) {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
   }
 
   private void setupScenes() {
