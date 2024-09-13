@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -41,6 +42,17 @@ public class GameHeader extends Pane {
   }
 
   private void setupComboBox() {
+    roomComboBox.setButtonCell(
+        new ListCell<SceneType>() {
+          @Override
+          protected void updateItem(SceneType item, boolean empty) {
+            super.updateItem(item, empty);
+            if (empty || item == null) {
+              setText("Switch to room...");
+            }
+          }
+        });
+
     roomComboBox.setConverter(
         new StringConverter<SceneType>() {
           @Override
@@ -81,9 +93,7 @@ public class GameHeader extends Pane {
   }
 
   private void changeScene(SceneType sceneType) {
-    System.out.println("Changed scene to " + sceneType);
     App.changeScene(sceneType);
-    System.out.println("Changed scene to " + sceneType);
   }
 
   private void addComboBoxItems() {
