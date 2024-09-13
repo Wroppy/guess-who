@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 
 /**
@@ -23,13 +24,15 @@ public class RoomController {
   @FXML private Rectangle rectPerson2;
   @FXML private Rectangle rectPerson3;
   @FXML private Rectangle rectWaitress;
-  @FXML private Label lblProfession;
   @FXML private Button btnGuess;
 
+  @FXML private Pane headerContainer;
   @FXML private Pane shredderClueOverlay;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+
+  private GameHeader gameHeader;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -40,12 +43,16 @@ public class RoomController {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
-    lblProfession.setText(context.getProfessionToGuess());
+    // lblProfession.setText(context.getProfessionToGuess());
 
     ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
     this.shredderClueOverlay.getChildren().add(shredderClueComponent);
 
     shredderClueComponent.hide();
+
+    gameHeader = new GameHeader();
+    this.headerContainer.getChildren().add(gameHeader);
+    
   }
 
   /**
