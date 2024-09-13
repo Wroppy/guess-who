@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.components.gameheader;
 
 import java.io.IOException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -40,7 +41,6 @@ public class GameHeader extends Pane {
   }
 
   private void setupComboBox() {
-    addComboBoxItems();
     roomComboBox.setConverter(
         new StringConverter<SceneType>() {
           @Override
@@ -54,13 +54,26 @@ public class GameHeader extends Pane {
           }
         });
 
+    addComboBoxItems();
+
     roomComboBox.setOnAction(e -> onRoomChange(e));
   }
 
   private void onRoomChange(ActionEvent e) {
     SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
 
+    if (selectedScene == null) {
+      return;
+    }
+
+    // Deselect the item and go back to default
+    Platform.runLater(() -> clearComboBoxSelection());
+
     changeScene(selectedScene);
+  }
+
+  private void clearComboBoxSelection() {
+    roomComboBox.getSelectionModel().clearSelection();
   }
 
   private void changeLabel(SceneType sceneType) {
