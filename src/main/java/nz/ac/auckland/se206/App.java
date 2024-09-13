@@ -1,6 +1,9 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -52,6 +55,10 @@ public class App extends Application {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
   }
 
+  public static FXMLLoader loadFxmlLoader(final String fxml) throws IOException {
+    return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
+  }
+
   /**
    * Opens the chat view of a specified
    *
@@ -94,11 +101,32 @@ public class App extends Application {
     FreeTextToSpeech.deallocateSynthesizer();
   }
 
+  public static String getCssUrl(String filename) {
+    return App.class.getResource("/css/" + filename + ".css").toExternalForm();
+  }
+
+  /**
+   * Given a filename, returns the text data from the file as a string.
+   *
+   * @param filename
+   * @return
+   */
+  public static String getData(String filename) {
+    URL url = App.class.getResource("/data/" + filename);
+    try {
+
+      return new String(Files.readAllBytes(Paths.get(url.toURI())), "UTF-8");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+
   public static void changeScene(SceneType sceneType) {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);
   }
-  
+
   private void setupScenes() {
     try {
       Parent root = loadFxml("introduction-scene");

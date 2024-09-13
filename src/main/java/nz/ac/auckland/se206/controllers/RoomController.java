@@ -7,8 +7,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -24,6 +26,8 @@ public class RoomController {
   @FXML private Label lblProfession;
   @FXML private Button btnGuess;
 
+  @FXML private Pane shredderClueOverlay;
+
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
 
@@ -37,6 +41,11 @@ public class RoomController {
       isFirstTimeInit = false;
     }
     lblProfession.setText(context.getProfessionToGuess());
+
+    ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
+    this.shredderClueOverlay.getChildren().add(shredderClueComponent);
+
+    shredderClueComponent.hide();
   }
 
   /**
