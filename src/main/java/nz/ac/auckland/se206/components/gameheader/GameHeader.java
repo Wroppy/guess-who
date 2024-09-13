@@ -34,6 +34,7 @@ public class GameHeader extends Pane {
 
   public void initialize() {
     setupComboBox();
+    changeLabel(currentScene);
   }
 
   private void setupComboBox() {
@@ -63,14 +64,19 @@ public class GameHeader extends Pane {
     changeScene(selectedScene);
   }
 
+  private void changeLabel(SceneType sceneType) {
+    roomLabel.setText("Room: " + sceneType.toString());
+  }
+
   private void changeScene(SceneType sceneType) {
     App.changeScene(sceneType);
-    roomComboBox.getSelectionModel().clearSelection();  
+    roomComboBox.getSelectionModel().clearSelection();
     roomComboBox.getItems().clear();
     addComboBoxItems();
     GameHeader.currentScene = sceneType;
     System.out.println("Changed scene to " + sceneType);
-    
+
+    changeLabel(sceneType);
   }
 
   private void addComboBoxItems() {
