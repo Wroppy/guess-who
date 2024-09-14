@@ -139,17 +139,20 @@ public class App extends Application {
       ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.CRIME);
       SceneManager.addScene(SceneType.CRIME, root);
 
-      rootFXML = loadFxmlLoader("suspect-1-room");
+      // Suspect 1 room
+      rootFXML = loadFxmlLoader("suspect-room");
       root = rootFXML.load();
       ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_1);
       SceneManager.addScene(SceneType.SUSPECT_1, root);
 
-      rootFXML = loadFxmlLoader("suspect-2-room");
+      // Suspect 2 room
+      rootFXML = loadFxmlLoader("suspect-room");
       root = rootFXML.load();
       ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_2);
       SceneManager.addScene(SceneType.SUSPECT_2, root);
 
-      rootFXML = loadFxmlLoader("suspect-3-room");
+      // Suspect 3 room
+      rootFXML = loadFxmlLoader("suspect-room");
       root = rootFXML.load();
       ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
