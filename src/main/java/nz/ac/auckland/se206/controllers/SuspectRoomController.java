@@ -8,7 +8,10 @@ import nz.ac.auckland.se206.components.gameheader.GameHeader;
 public class SuspectRoomController implements HeaderableController {
   @FXML private Pane headerContainer;
 
-  public void initialize() {
+  public void initialize() {}
+
+  public void setupRoom(SceneType sceneType) {
+    setupHeader(sceneType);
   }
 
   @Override
