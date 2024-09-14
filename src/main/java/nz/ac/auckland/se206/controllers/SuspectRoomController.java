@@ -1,12 +1,15 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 
 public class SuspectRoomController implements HeaderableController {
   @FXML private Pane headerContainer;
+  @FXML private Pane chatContainer;
+  @FXML private ImageView imageContainer;
 
   public void initialize() {}
 
