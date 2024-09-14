@@ -101,6 +101,11 @@ public class RoomController implements HeaderableController {
     accessPad.setVisible(false);
   }
 
+  @FXML
+  private void handleAcessPadClick() {
+    accessPad.setVisible(true);
+  }
+
   @Override
   public void setupHeader(SceneType sceneType) {
     gameHeader = new GameHeader(sceneType);

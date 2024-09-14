@@ -24,7 +24,7 @@
       <Rectangle fx:id="rectPerson2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="171.0" layoutX="368.0" layoutY="305.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
       <Pane fx:id="shredderClueOverlay" layoutX="135.0" layoutY="62.0" prefHeight="400.0" prefWidth="500.0" />
       <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
-      <Pane fx:id="accessPad" layoutX="14.0" layoutY="154.0" prefHeight="440.0" prefWidth="762.0">
+      <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0" visible="false">
          <children>
             <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="104.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -111,5 +111,6 @@
             <Button layoutX="580.0" layoutY="14.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
          </children>
       </Pane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff06" height="107.0" layoutX="483.0" layoutY="381.0" onMouseClicked="#handleAcessPadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
    </children>
 </Pane>
