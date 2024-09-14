@@ -50,6 +50,7 @@ public class RoomController implements HeaderableController {
     this.shredderClueOverlay.getChildren().add(shredderClueComponent);
 
     shredderClueComponent.hide();
+    accessPad.setVisible(false);
   }
 
   /**
