@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -9,11 +10,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
+<Pane fx:id="laptop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="589.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
    <children>
+      <Pane layoutX="101.0" layoutY="2.0" prefHeight="452.0" prefWidth="389.0" style="-fx-background-color: grey; -fx-opacity: 85%;">
+         <children>
+            <Button layoutX="345.0" layoutY="18.0" mnemonicParsing="false" onAction="#closeLaptop" text="X" />
+         </children>
+      </Pane>
       <ImageView fitHeight="260.0" fitWidth="357.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/9306518_45999-removebg-preview.png" />
+            <Image url="@../images/9306518_45999-removebg-preview.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f5" height="192.0" layoutX="155.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
@@ -23,7 +29,7 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="18.0" layoutX="155.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="286.0" />
       <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="158.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../../Downloads/email_icon-removebg-preview.png" />
+            <Image url="@../images/email_icon-removebg-preview.png" />
          </image>
       </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="171.0" layoutX="263.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="178.0" />
@@ -99,7 +105,7 @@
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Pane fx:id="perfomanceReport" layoutX="266.0" layoutY="106.0" prefHeight="167.0" prefWidth="174.0">
+      <Pane fx:id="performanceReport" layoutX="266.0" layoutY="106.0" prefHeight="167.0" prefWidth="174.0">
          <children>
             <TextField layoutX="1.0" layoutY="1.0" prefHeight="14.0" prefWidth="171.0" text="Manager - Performance Report:">
                <font>
@@ -159,7 +165,7 @@
             </TextField>
          </children>
       </Pane>
-      <Rectangle fx:id="perfomanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="157.0" layoutY="104.0" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="158.0" layoutY="147.0" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="157.0" layoutY="104.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="158.0" layoutY="147.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
    </children>
 </Pane>

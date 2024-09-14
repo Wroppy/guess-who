@@ -3,12 +3,17 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 
@@ -27,6 +32,8 @@ public class RoomController {
   @FXML private Button btnGuess;
 
   @FXML private Pane shredderClueOverlay;
+  @FXML private Pane room;
+
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -40,7 +47,7 @@ public class RoomController {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
-    lblProfession.setText(context.getProfessionToGuess());
+    // lblProfession.setText(context.getProfessionToGuess());
 
     ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
     this.shredderClueOverlay.getChildren().add(shredderClueComponent);
@@ -79,7 +86,6 @@ public class RoomController {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     context.handleRectangleClick(event, clickedRectangle.getId());
   }
-
   /**
    * Handles the guess button click event.
    *
@@ -89,5 +95,15 @@ public class RoomController {
   @FXML
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
+  }
+
+  @FXML
+  private void showLaptop(MouseEvent event) throws IOException {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Pane mainPane = (Pane) stage.getScene().lookup("#room");
+    Parent overlay = App.loadFxmlLoader("laptop-clue").load();
+    overlay.setLayoutX(100.0);
+    overlay.setLayoutY(147.0);
+    mainPane.getChildren().add(overlay);
   }
 }
