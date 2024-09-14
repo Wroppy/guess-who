@@ -28,6 +28,7 @@ public class RoomController implements HeaderableController {
 
   @FXML private Pane headerContainer;
   @FXML private Pane shredderClueOverlay;
+  @FXML private Pane accessPad;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -94,10 +95,14 @@ public class RoomController implements HeaderableController {
     context.handleGuessClick();
   }
 
+  @FXML
+  private void onCloseButtonClick() {
+    accessPad.setVisible(false);
+  }
+
   @Override
   public void setupHeader(SceneType sceneType) {
     gameHeader = new GameHeader(sceneType);
     this.headerContainer.getChildren().add(gameHeader);
-
-  } 
+  }
 }
