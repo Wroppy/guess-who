@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -23,7 +24,7 @@ public class RoomController {
   @FXML private Rectangle rectWaitress;
   @FXML private Label lblProfession;
   @FXML private Button btnGuess;
-  @FXML private Rectangle rectHover1;
+  @FXML private ImageView rectHover1;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
