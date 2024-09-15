@@ -12,8 +12,11 @@
 
 <Pane fx:id="laptop" layoutX="500.0" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="772.0" scaleX="1.5" scaleY="1.5" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
    <children>
-      <Pane layoutX="101.0" layoutY="41.0" prefHeight="312.0" prefWidth="389.0" style="-fx-background-color: grey; -fx-opacity: 85%;" />
-      <Button layoutX="454.0" layoutY="57.0" mnemonicParsing="false" onAction="#closeLaptop" text="X" />
+      <Pane layoutX="101.0" layoutY="7.0" prefHeight="346.0" prefWidth="389.0" style="-fx-background-color: grey; -fx-opacity: 85%;" />
+      <Button layoutX="452.0" layoutY="50.0" mnemonicParsing="false" onAction="#closeLaptop" text="Close">
+         <font>
+            <Font size="8.0" />
+         </font></Button>
       <ImageView fitHeight="260.0" fitWidth="357.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/9306518_45999-removebg-preview.png" />
