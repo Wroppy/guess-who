@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -14,27 +13,31 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
  * chat with customers and guess their profession.
  */
-public class RoomController {
+public class RoomController implements HeaderableController {
 
   @FXML private Rectangle rectCashier;
   @FXML private Rectangle rectPerson1;
   @FXML private Rectangle rectPerson2;
   @FXML private Rectangle rectPerson3;
   @FXML private Rectangle rectWaitress;
-  @FXML private Label lblProfession;
   @FXML private Button btnGuess;
 
+  @FXML private Pane headerContainer;
   @FXML private Pane shredderClueOverlay;
   @FXML private Pane room;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+
+  private GameHeader gameHeader;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -95,6 +98,13 @@ public class RoomController {
   private void handleGuessClick(ActionEvent event) throws IOException {
     context.handleGuessClick();
   }
+
+  @Override
+  public void setupHeader(SceneType sceneType) {
+    gameHeader = new GameHeader(sceneType);
+    this.headerContainer.getChildren().add(gameHeader);
+
+  } 
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
