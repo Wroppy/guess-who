@@ -37,11 +37,6 @@
                </image>
             </ImageView>
             <TextArea layoutX="166.0" layoutY="76.0" opacity="0.41" prefHeight="17.0" prefWidth="420.0" />
-            <Label layoutX="172.0" layoutY="85.0" prefHeight="25.0" prefWidth="435.0" text="        Avatar                       Name                 Time of Access">
-               <font>
-                  <Font name="Calisto MT" size="16.0" />
-               </font>
-            </Label>
             <Line endX="-100.0" endY="307.0" layoutX="396.0" layoutY="73.0" startX="-100.0" />
             <Line endX="-100.0" endY="307.0" layoutX="540.0" layoutY="73.0" startX="-100.0" />
             <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="202.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
@@ -103,12 +98,27 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="441.0" layoutY="338.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24    4:18pm">
+            <Label layoutX="441.0" layoutY="338.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24     4:18pm">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
             <Button layoutX="580.0" layoutY="14.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
+            <Label layoutX="209.0" layoutY="88.0" prefHeight="19.0" prefWidth="51.0" text="Profile">
+               <font>
+                  <Font name="Calisto MT" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="343.0" layoutY="88.0" prefHeight="19.0" prefWidth="44.0" text="Name">
+               <font>
+                  <Font name="Calisto MT" size="16.0" />
+               </font>
+            </Label>
+            <Label layoutX="460.0" layoutY="88.0" prefHeight="19.0" prefWidth="109.0" text="Time of Access">
+               <font>
+                  <Font name="Calisto MT" size="16.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff06" height="107.0" layoutX="483.0" layoutY="381.0" onMouseClicked="#handleAcessPadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
