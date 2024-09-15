@@ -113,56 +113,51 @@
                </font>
             </TextField>
             <TextField layoutX="3.0" layoutY="18.0" prefHeight="145.0" prefWidth="169.0" />
-            <Label layoutX="5.0" layoutY="17.0" prefHeight="34.0" prefWidth="140.0" text="Hey 'Bob', please find attached your performance report for this quarter. " wrapText="true">
+            <Label layoutX="7.0" layoutY="25.0" style="-fx-underline: true;" text="Performance Report for Bob:">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="6.0" layoutY="55.0" style="-fx-underline: true;" text="Performance Report:">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </Label>
-            <Label layoutX="6.0" layoutY="62.0" prefHeight="97.0" prefWidth="160.0" text="'Bob' has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. 'Bob's' keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
+            <Label layoutX="5.0" layoutY="40.0" prefHeight="97.0" prefWidth="160.0" text="'Bob' has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. 'Bob's' keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="firedEmail" layoutX="265.0" layoutY="107.0" prefHeight="164.0" prefWidth="175.0">
+      <Pane fx:id="firedEmail" layoutX="265.0" layoutY="107.0" prefHeight="164.0" prefWidth="175.0" visible="false">
          <children>
             <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
-            <Label layoutX="7.0" layoutY="82.0" prefHeight="15.0" prefWidth="75.0" text="⚫ Lack of results." wrapText="true">
+            <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Vice President" wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="6.0" layoutY="70.0" prefHeight="15.0" prefWidth="75.0" text="⚫ Lack of results." wrapText="true">
+            <Label layoutX="6.0" layoutY="58.0" prefHeight="15.0" prefWidth="162.0" text="⚫ Lack of results and commitment." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="6.0" layoutY="22.0" prefHeight="18.0" prefWidth="32.0" text="Hey 'Bob'," wrapText="true">
+            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Please inform Bob that his employment with the company is being terminated, effective immediately. The following are the reasons for his dismisal:" wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="6.0" layoutY="33.0" prefHeight="44.0" prefWidth="163.0" text="I regret to inform you that your employment with us is being terminated, effective immediately (or add date). The following are the reasons for your dismissal:" wrapText="true">
+            <Label layoutX="6.0" layoutY="93.0" prefHeight="53.0" prefWidth="161.0" text="Please ensure all offboarding procedures are completed. Bob should be informed of his termination, and a separate notice will address his final paycheck, benefits, and departure details. Let me know if you have any questions or require further steps." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="7.0" layoutY="110.0" prefHeight="53.0" prefWidth="156.0" text="Please return any business property that you have under your possession. The issuance of your final payment would be delayed if you delay or fail to do so.  Any severance payments will be given in accordance with the company’s policies. " wrapText="true">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </Label>
-            <TextField layoutX="2.0" prefHeight="14.0" prefWidth="171.0" text="Vice President - Termination of Employement:">
+            <TextField layoutX="4.0" prefHeight="14.0" prefWidth="171.0" text="Vice President - Termination of Employee:">
                <font>
                   <Font size="7.0" />
                </font>
             </TextField>
+            <Label layoutX="6.0" layoutY="73.0" prefHeight="19.0" prefWidth="155.0" text="⚫ Not being a team player and having company's best interests in mind." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="157.0" layoutY="104.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
