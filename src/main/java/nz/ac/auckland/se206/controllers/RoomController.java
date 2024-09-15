@@ -3,7 +3,6 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -33,7 +32,6 @@ public class RoomController {
 
   @FXML private Pane shredderClueOverlay;
   @FXML private Pane room;
-
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -86,6 +84,7 @@ public class RoomController {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     context.handleRectangleClick(event, clickedRectangle.getId());
   }
+
   /**
    * Handles the guess button click event.
    *
@@ -102,8 +101,8 @@ public class RoomController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
-    overlay.setLayoutX(100.0);
-    overlay.setLayoutY(147.0);
+    overlay.setLayoutX(140.0);
+    overlay.setLayoutY(247.0);
     mainPane.getChildren().add(overlay);
   }
 }
