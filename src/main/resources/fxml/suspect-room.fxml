@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.SuspectRoomController">
    <children>
-      <Label layoutX="219.0" layoutY="130.0" text="Suspect 2 " />
       <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
+      <ImageView fx:id="imageContainer" fitHeight="499.0" fitWidth="539.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+      <Pane fx:id="chatContainer" layoutX="539.0" layoutY="100.0" prefHeight="499.0" prefWidth="250.0" />
    </children>
 </Pane>
