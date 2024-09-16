@@ -44,7 +44,6 @@ public class ChatComponent extends VBox {
 
       setupButton();
 
-      // TODO: Set up the GPT model for the suspect
       this.setupGpt();
 
     } catch (IOException e) {
@@ -110,7 +109,7 @@ public class ChatComponent extends VBox {
    * @throws IOException if there is an I/O error
    */
   @FXML
-  private void onSendMessage(MouseEvent event) throws ApiProxyException, IOException {
+  private void handleSendMessageClicked(MouseEvent event) throws ApiProxyException, IOException {
     this.sendMessage();
   }
 
