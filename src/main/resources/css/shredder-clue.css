@@ -1,0 +1,19 @@
+.paper-slot {
+  -fx-fill: none;
+  -fx-stroke-width: 1;
+  -fx-stroke: grey;
+}
+
+#completedMessage {
+  -fx-background-color: white;
+  -fx-label-padding: 16;
+}
+
+#closeButton {
+  -fx-background-color: white;
+  -fx-color-label-visible: black;
+}
+
+.shredder-paper {
+  -fx-background-color: black;
+}

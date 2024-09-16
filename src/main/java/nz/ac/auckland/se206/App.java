@@ -1,7 +1,9 @@
 package nz.ac.auckland.se206;
 
 import java.io.IOException;
-
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -10,7 +12,9 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
+import nz.ac.auckland.se206.controllers.HeaderableController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
 /**
@@ -18,7 +22,6 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
  * application.
  */
 public class App extends Application {
-
   private static Scene scene;
 
   /**
@@ -52,6 +55,10 @@ public class App extends Application {
     return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml")).load();
   }
 
+  public static FXMLLoader loadFxmlLoader(final String fxml) throws IOException {
+    return new FXMLLoader(App.class.getResource("/fxml/" + fxml + ".fxml"));
+  }
+
   /**
    * Opens the chat view of a specified
    *
@@ -80,7 +87,9 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
-    Parent root = loadFxml("room");
+    this.setupScenes();
+
+    Parent root = SceneManager.getScene(SceneType.INTRO);
     scene = new Scene(root);
     stage.setScene(scene);
     stage.show();
@@ -90,5 +99,68 @@ public class App extends Application {
 
   private void handleWindowClose(WindowEvent event) {
     FreeTextToSpeech.deallocateSynthesizer();
+  }
+
+  public static String getCssUrl(String filename) {
+    return App.class.getResource("/css/" + filename + ".css").toExternalForm();
+  }
+
+  /**
+   * Given a filename, returns the text data from the file as a string.
+   *
+   * @param filename
+   * @return
+   */
+  public static String getData(String filename) {
+    URL url = App.class.getResource("/data/" + filename);
+    try {
+
+      return new String(Files.readAllBytes(Paths.get(url.toURI())), "UTF-8");
+    } catch (Exception e) {
+      e.printStackTrace();
+      return null;
+    }
+  }
+
+  public static void changeScene(SceneType sceneType) {
+    Parent root = SceneManager.getScene(sceneType);
+    scene.setRoot(root);
+    Stage stage = (Stage) scene.getWindow();
+    stage.sizeToScene();
+  }
+
+  private void setupScenes() {
+    try {
+      Parent root = loadFxml("introduction-scene");
+      SceneManager.addScene(SceneType.INTRO, root);
+
+      FXMLLoader rootFXML = loadFxmlLoader("room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.CRIME);
+      SceneManager.addScene(SceneType.CRIME, root);
+
+      rootFXML = loadFxmlLoader("suspect-1-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_1);
+      SceneManager.addScene(SceneType.SUSPECT_1, root);
+
+      rootFXML = loadFxmlLoader("suspect-2-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_2);
+      SceneManager.addScene(SceneType.SUSPECT_2, root);
+
+      rootFXML = loadFxmlLoader("suspect-3-room");
+      root = rootFXML.load();
+      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.SUSPECT_3);
+      SceneManager.addScene(SceneType.SUSPECT_3, root);
+
+      root = loadFxml("explanation-room");
+      SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
+
+      root = loadFxml("player-feedback");
+      SceneManager.addScene(SceneType.FEEDBACK, root);
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
   }
 }
