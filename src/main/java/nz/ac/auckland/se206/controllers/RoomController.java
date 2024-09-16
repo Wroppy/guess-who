@@ -64,6 +64,9 @@ public class RoomController implements HeaderableController {
     ShredderClueComponent shredderClueComponent = new ShredderClueComponent(onClose);
 
     shredderClueOverlay = new Pane();
+    shredderClueOverlay.setPrefWidth(789);
+    shredderClueOverlay.setPrefHeight(599 - 100);
+    shredderClueOverlay.setStyle("-fx-background-color: rgba(0, 0, 0, 0.8);");
     this.room.getChildren().add(shredderClueOverlay);
     shredderClueOverlay.setLayoutX(0);
     shredderClueOverlay.setLayoutY(100);
@@ -75,6 +78,8 @@ public class RoomController implements HeaderableController {
     double y = (599 - 100 - shredderClueComponent.getPrefHeight()) / 2;
     shredderClueComponent.setLayoutX(x);
     shredderClueComponent.setLayoutY(y);
+
+    shredderClueOverlay.setVisible(false);
   }
 
   /**
@@ -95,6 +100,11 @@ public class RoomController implements HeaderableController {
   @FXML
   public void onKeyReleased(KeyEvent event) {
     System.out.println("Key " + event.getCode() + " released");
+  }
+
+  @FXML
+  private void handleShredderClueClicked(MouseEvent event) {
+    shredderClueOverlay.setVisible(true);
   }
 
   /**
