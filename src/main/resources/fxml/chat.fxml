@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
@@ -10,7 +11,10 @@
    <children>
       <TextArea fx:id="chatBox" editable="false" wrapText="true" VBox.vgrow="ALWAYS" />
       <TextField fx:id="textInput" onKeyPressed="#onKeyPressed" prefHeight="26.0" prefWidth="280.0" promptText="Write your message here..." />
-      <Pane fx:id="sendMessageButton" onMouseClicked="#handleSendMessageClicked" prefHeight="26.0" prefWidth="250.0" />
+      <Pane fx:id="sendMessageButton" onMouseClicked="#handleSendMessageClicked" prefHeight="26.0" prefWidth="250.0">
+         <children>
+            <Label fx:id="sendMessageLabel" layoutX="79.0" layoutY="5.0" prefHeight="3.0" text="Send message" />
+         </children></Pane>
    </children>
    <padding>
       <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />

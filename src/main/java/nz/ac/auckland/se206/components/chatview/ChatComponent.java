@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.components.chatview;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
@@ -22,7 +23,8 @@ import nz.ac.auckland.se206.tasks.RunGptTask;
 public class ChatComponent extends VBox {
   private boolean loading;
   private SceneType sceneType;
-  ChatCompletionRequest chatCompletionRequest;
+  private ChatCompletionRequest chatCompletionRequest;
+  private Label sendMessageLabel;
 
   @FXML private Pane sendMessageButton;
 
@@ -93,11 +95,6 @@ public class ChatComponent extends VBox {
     }
     // Checks if the component is loadwing
     // if (this.isLoading()) {
-    // return;
-    // }
-
-    // Checks that the send button is active
-    // if (ChatController.disableSendButton) {
     // return;
     // }
 
