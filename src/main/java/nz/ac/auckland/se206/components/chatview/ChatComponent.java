@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -66,7 +67,12 @@ public class ChatComponent extends VBox {
    * @param e key event of the text box
    */
   @FXML
-  private void onKeyPressed(KeyEvent e) {}
+  private void onKeyPressed(KeyEvent event) {
+    // Sends message when the enter key is pressed
+    if (event.getCode() == KeyCode.ENTER) {
+      this.sendMessage();
+    }
+  }
 
   private void setLoading(boolean loading) {
     this.loading = loading;
