@@ -121,7 +121,7 @@
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
-            <Pane fx:id="accessUnlock" layoutX="165.0" layoutY="71.0" prefHeight="314.0" prefWidth="421.0" visible="false">
+            <Pane fx:id="accessUnlock" layoutX="165.0" layoutY="71.0" prefHeight="314.0" prefWidth="421.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
                   <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
@@ -135,7 +135,7 @@
                   <Button fx:id="Eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
                   <Button fx:id="Nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
                   <Label fx:id="passcodeDisplay" layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
-                  <Label fx:id="errorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="203.0" layoutY="75.0" prefHeight="17.0" prefWidth="84.0" textAlignment="RIGHT" textFill="RED">
+                  <Label fx:id="errorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="190.0" layoutY="75.0" prefHeight="17.0" prefWidth="97.0" textAlignment="RIGHT" textFill="RED">
                      <font>
                         <Font size="10.0" />
                      </font>
