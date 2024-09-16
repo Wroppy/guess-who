@@ -57,35 +57,9 @@ public class RoomController implements HeaderableController {
     paneHover2.setVisible(false);
     paneHover3.setVisible(false);
 
-    rectAccess.setOnMouseEntered(
-        (MouseEvent event) -> {
-          paneHover1.setVisible(true); // Show the image when the mouse enters the rectangle
-        });
-
-    rectAccess.setOnMouseExited(
-        (MouseEvent event) -> {
-          paneHover1.setVisible(false); // Hide the image when the mouse exits the rectangle
-        });
-
-    rectLaptop.setOnMouseEntered(
-        (MouseEvent event) -> {
-          paneHover2.setVisible(true);
-        });
-
-    rectLaptop.setOnMouseExited(
-        (MouseEvent event) -> {
-          paneHover2.setVisible(false);
-        });
-
-    rectShredder.setOnMouseEntered(
-        (MouseEvent event) -> {
-          paneHover3.setVisible(true);
-        });
-
-    rectShredder.setOnMouseExited(
-        (MouseEvent event) -> {
-          paneHover3.setVisible(false);
-        });
+    setHoverHandlers(rectAccess, paneHover1);
+    setHoverHandlers(rectLaptop, paneHover2);
+    setHoverHandlers(rectShredder, paneHover3);
 
     // lblProfession.setText(context.getProfessionToGuess());
 
@@ -174,6 +148,12 @@ public class RoomController implements HeaderableController {
   @FXML
   private void handleAcessPadClick() {
     accessPad.setVisible(true);
+  }
+
+  @FXML
+  private void setHoverHandlers(Rectangle rectangle, Pane hoverPane) {
+    rectangle.setOnMouseEntered(event -> hoverPane.setVisible(true));
+    rectangle.setOnMouseExited(event -> hoverPane.setVisible(false));
   }
 
   @Override
