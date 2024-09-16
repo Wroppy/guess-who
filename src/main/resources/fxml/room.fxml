@@ -120,23 +120,37 @@
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" layoutX="165.0" layoutY="71.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
-            <TextField layoutX="291.0" layoutY="122.0" />
-            <Button fx:id="One" layoutX="290.0" layoutY="159.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="1" />
-            <Button fx:id="Two" layoutX="347.0" layoutY="159.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="2" />
-            <Button fx:id="Three" layoutX="405.0" layoutY="158.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="3" />
-            <Button fx:id="Four" layoutX="290.0" layoutY="194.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="4" />
-            <Button fx:id="Five" layoutX="347.0" layoutY="194.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="5" />
-            <Button fx:id="Six" layoutX="405.0" layoutY="193.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="6" />
-            <Button fx:id="Seven" layoutX="290.0" layoutY="229.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="7" />
-            <Button fx:id="Eight" layoutX="347.0" layoutY="229.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="8" />
-            <Button fx:id="Nine" layoutX="405.0" layoutY="228.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="46.0" text="9" />
-            <Label layoutX="293.0" layoutY="128.0" prefHeight="17.0" prefWidth="25.0" text="****" />
-            <Label layoutX="388.0" layoutY="128.0" prefHeight="17.0" prefWidth="53.0" text="Access Denied">
-               <font>
-                  <Font size="8.0" />
-               </font>
-            </Label>
+            <Pane fx:id="accessUnlock" layoutX="165.0" layoutY="71.0" prefHeight="314.0" prefWidth="421.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
+                  <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
+                  <Button fx:id="One" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
+                  <Button fx:id="Two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="2" />
+                  <Button fx:id="Three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
+                  <Button fx:id="Four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
+                  <Button fx:id="Five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
+                  <Button fx:id="Six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="6" />
+                  <Button fx:id="Seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="7" />
+                  <Button fx:id="Eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
+                  <Button fx:id="Nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
+                  <Label fx:id="passcodeDisplay" layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
+                  <Label fx:id="errorMessage" layoutX="203.0" layoutY="75.0" prefHeight="17.0" prefWidth="84.0">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="184.0" layoutY="225.0" mnemonicParsing="false" onAction="#checkPasscode" prefHeight="26.0" prefWidth="50.0" text="Submit">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="245.0" layoutY="224.0" mnemonicParsing="false" onAction="#clearPasscode" prefHeight="26.0" prefWidth="50.0" text="Clear">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2197ff06" height="107.0" layoutX="483.0" layoutY="381.0" onMouseClicked="#handleAcessPadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
