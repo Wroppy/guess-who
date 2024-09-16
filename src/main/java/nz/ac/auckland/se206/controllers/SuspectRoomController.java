@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.SceneManager.SceneType;
@@ -16,6 +17,11 @@ public class SuspectRoomController implements HeaderableController {
 
   public void setupRoom(SceneType sceneType) {
     setupHeader(sceneType);
+
+    Image image = new Image(getClass().getResourceAsStream("/images/bobscene.png"));
+    imageContainer.setImage(image);
+    imageContainer.setFitWidth(539);
+    imageContainer.setFitHeight(499);
 
     // Adds the chat box
     ChatComponent chatComponent = new ChatComponent(sceneType);
