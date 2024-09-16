@@ -171,9 +171,9 @@ public class RoomController implements HeaderableController {
 
   public void checkPasscode() {
     if (passcode.size() == 4) {
-      if (passcode.get(0) == 1
+      if (passcode.get(0) == 7
           && passcode.get(1) == 2
-          && passcode.get(2) == 3
+          && passcode.get(2) == 6
           && passcode.get(3) == 4) {
         accessUnlock.setVisible(false);
         unlocked = true;
