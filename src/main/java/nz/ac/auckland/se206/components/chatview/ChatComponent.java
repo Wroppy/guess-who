@@ -24,8 +24,8 @@ public class ChatComponent extends VBox {
   private boolean loading;
   private SceneType sceneType;
   private ChatCompletionRequest chatCompletionRequest;
-  private Label sendMessageLabel;
-
+  
+  @FXML private Label sendMessageLabel;
   @FXML private Pane sendMessageButton;
 
   @FXML private TextField textInput;
@@ -49,17 +49,25 @@ public class ChatComponent extends VBox {
 
       this.setupGpt();
 
+      this.styleWidget();
+
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  private void styleWidget() {
+    String styles = App.getCssUrl("chat-box");
+    
+    this.getStylesheets().add(styles);
   }
 
   private void setupButton() {
     loaderComponent = new LoaderComponent();
     loaderComponent.setPrefWidth(
         sendMessageButton.getPrefWidth() - this.getPadding().getBottom() * 2);
-    loaderComponent.setStyle(
-        "-fx-border-color: black; -fx-border-width: 1px; -fx-border-style: solid;");
+    // loaderComponent.setStyle(
+        // );
     sendMessageButton.getChildren().add(loaderComponent);
   }
 
@@ -79,12 +87,8 @@ public class ChatComponent extends VBox {
   private void setLoading(boolean loading) {
     this.loading = loading;
 
-    // Shows or hides loading for user experience
-    if (loading) {
-
-    } else {
-
-    }
+    loaderComponent.setVisible(loading);
+    sendMessageLabel.setVisible(!loading);
   }
 
   /** Sends a message to the GPT model. */
