@@ -31,9 +31,10 @@ public class RoomController implements HeaderableController {
   @FXML private Button btnGuess;
 
   @FXML private Pane headerContainer;
-  @FXML private Pane shredderClueOverlay;
   @FXML private Pane room;
   @FXML private Pane accessPad;
+
+  private Pane shredderClueOverlay;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -51,11 +52,26 @@ public class RoomController implements HeaderableController {
     }
     // lblProfession.setText(context.getProfessionToGuess());
 
-    ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
-    this.shredderClueOverlay.getChildren().add(shredderClueComponent);
+    addShredderClue();
 
-    shredderClueComponent.hide();
     accessPad.setVisible(false);
+  }
+
+  private void addShredderClue() {
+    ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
+
+    shredderClueOverlay = new Pane();
+    this.room.getChildren().add(shredderClueOverlay);
+    shredderClueOverlay.setLayoutX(0);
+    shredderClueOverlay.setLayoutY(100);
+
+    shredderClueOverlay.getChildren().add(shredderClueComponent);
+
+    // Center the shredder clue component
+    double x = (789 - shredderClueComponent.getPrefWidth()) / 2;
+    double y = (599 - 100 - shredderClueComponent.getPrefHeight()) / 2;
+    shredderClueComponent.setLayoutX(x);
+    shredderClueComponent.setLayoutY(y);
   }
 
   /**
@@ -115,8 +131,7 @@ public class RoomController implements HeaderableController {
   public void setupHeader(SceneType sceneType) {
     gameHeader = new GameHeader(sceneType);
     this.headerContainer.getChildren().add(gameHeader);
-
-  } 
+  }
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
