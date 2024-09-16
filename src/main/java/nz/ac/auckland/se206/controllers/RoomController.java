@@ -225,6 +225,8 @@ public class RoomController implements HeaderableController {
     passcode.clear(); 
     passcodeDisplay.setText("");
     errorMessage.setText("");
+
+  }
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
