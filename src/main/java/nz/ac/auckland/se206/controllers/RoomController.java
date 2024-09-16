@@ -24,13 +24,11 @@ import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
  */
 public class RoomController implements HeaderableController {
 
-  @FXML private Rectangle rectCashier;
-  @FXML private Rectangle rectPerson1;
-  @FXML private Rectangle rectPerson2;
-  @FXML private Rectangle rectPerson3;
-  @FXML private Rectangle rectWaitress;
+  @FXML private Rectangle rectAccess;
+  @FXML private Rectangle rectLaptop;
   @FXML private Button btnGuess;
   @FXML private ImageView rectHover1;
+  @FXML private ImageView rectHover2;
 
   @FXML private Pane headerContainer;
   @FXML private Pane shredderClueOverlay;
@@ -53,15 +51,26 @@ public class RoomController implements HeaderableController {
     }
 
     rectHover1.setVisible(false);
+    rectHover2.setVisible(false);
 
-    rectWaitress.setOnMouseEntered(
+    rectAccess.setOnMouseEntered(
         (MouseEvent event) -> {
           rectHover1.setVisible(true); // Show the image when the mouse enters the rectangle
         });
 
-    rectWaitress.setOnMouseExited(
+    rectAccess.setOnMouseExited(
         (MouseEvent event) -> {
           rectHover1.setVisible(false); // Hide the image when the mouse exits the rectangle
+        });
+
+    rectLaptop.setOnMouseEntered(
+        (MouseEvent event) -> {
+          rectHover2.setVisible(true);
+        });
+
+    rectLaptop.setOnMouseExited(
+        (MouseEvent event) -> {
+          rectHover2.setVisible(false);
         });
 
     // lblProfession.setText(context.getProfessionToGuess());
