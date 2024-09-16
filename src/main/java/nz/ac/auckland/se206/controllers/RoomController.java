@@ -24,12 +24,13 @@ import nz.ac.auckland.se206.utils.EventCallback;
  */
 public class RoomController implements HeaderableController {
 
-  @FXML private Rectangle rectCashier;
-  @FXML private Rectangle rectPerson1;
-  @FXML private Rectangle rectPerson2;
-  @FXML private Rectangle rectPerson3;
-  @FXML private Rectangle rectWaitress;
+  @FXML private Rectangle rectAccess;
+  @FXML private Rectangle rectLaptop;
+  @FXML private Rectangle rectShredder;
   @FXML private Button btnGuess;
+  @FXML private Pane paneHover1;
+  @FXML private Pane paneHover2;
+  @FXML private Pane paneHover3;
 
   @FXML private Pane headerContainer;
   @FXML private Pane room;
@@ -51,6 +52,15 @@ public class RoomController implements HeaderableController {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
+
+    paneHover1.setVisible(false);
+    paneHover2.setVisible(false);
+    paneHover3.setVisible(false);
+
+    setHoverHandlers(rectAccess, paneHover1);
+    setHoverHandlers(rectLaptop, paneHover2);
+    setHoverHandlers(rectShredder, paneHover3);
+
     // lblProfession.setText(context.getProfessionToGuess());
 
     addShredderClue();
@@ -138,6 +148,12 @@ public class RoomController implements HeaderableController {
   @FXML
   private void handleAcessPadClick() {
     accessPad.setVisible(true);
+  }
+
+  @FXML
+  private void setHoverHandlers(Rectangle rectangle, Pane hoverPane) {
+    rectangle.setOnMouseEntered(event -> hoverPane.setVisible(true));
+    rectangle.setOnMouseExited(event -> hoverPane.setVisible(false));
   }
 
   @Override
