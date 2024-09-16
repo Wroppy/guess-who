@@ -17,19 +17,80 @@
             <Image url="@../images/crime-scene.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="rectHover1" fitHeight="133.0" fitWidth="51.0" layoutX="480.0" layoutY="368.0" pickOnBounds="true">
-         <image>
-            <Image url="@../images/select-indicator.png" />
-         </image>
-      </ImageView>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" layoutX="305.0" layoutY="355.0" stroke="BLACK" strokeType="INSIDE" width="67.0" />
-            <ImageView fx:id="rectHover2" fitHeight="92.0" fitWidth="85.0" layoutX="161.0" layoutY="280.0" pickOnBounds="true">
+      <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
+      <Pane fx:id="paneHover2" layoutX="300.0" layoutY="345.0" prefHeight="72.0" prefWidth="77.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="-8.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/select-indicator.png" />
+                  <Image url="@../images/border_bl.png" />
                </image>
             </ImageView>
-      <Rectangle fx:id="rectLaptop" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="72.0" layoutX="299.0" layoutY="345.0" onMouseClicked="#showLaptop" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
-      <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
+            <ImageView fitHeight="52.0" fitWidth="25.0" layoutX="-8.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tl.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="57.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tr.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="25.0" layoutX="57.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_br.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="paneHover1" layoutX="479.0" layoutY="381.0" prefHeight="114.0" prefWidth="67.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="2.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_bl.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="25.0" layoutX="2.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tl.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="33.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tr.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="25.0" layoutX="33.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_br.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Pane fx:id="paneHover3" layoutX="2.0" layoutY="384.0" prefHeight="72.0" prefWidth="180.0">
+         <children>
+            <ImageView fitHeight="30.0" fitWidth="25.0" layoutX="5.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_bl.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="52.0" fitWidth="25.0" layoutX="5.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tl.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="153.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_tr.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="44.0" fitWidth="25.0" layoutX="153.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/border_br.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
       <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0" visible="false">
          <children>
             <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="104.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
@@ -127,7 +188,8 @@
             </Label>
          </children>
       </Pane>
+      <Rectangle fx:id="rectShredder" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="89.0" layoutX="5.0" layoutY="375.0" onMouseClicked="#handleShredderClueClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="174.0" />
       <Rectangle fx:id="rectAccess" arcHeight="5.0" arcWidth="5.0" fill="#2197ff06" height="107.0" layoutX="483.0" layoutY="381.0" onMouseClicked="#handleAcessPadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="89.0" layoutX="5.0" layoutY="375.0" onMouseClicked="#handleShredderClueClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="174.0" />
+      <Rectangle fx:id="rectLaptop" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="72.0" layoutX="299.0" layoutY="345.0" onMouseClicked="#showLaptop" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
    </children>
 </Pane>

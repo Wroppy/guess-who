@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -27,9 +26,11 @@ public class RoomController implements HeaderableController {
 
   @FXML private Rectangle rectAccess;
   @FXML private Rectangle rectLaptop;
+  @FXML private Rectangle rectShredder;
   @FXML private Button btnGuess;
-  @FXML private ImageView rectHover1;
-  @FXML private ImageView rectHover2;
+  @FXML private Pane paneHover1;
+  @FXML private Pane paneHover2;
+  @FXML private Pane paneHover3;
 
   @FXML private Pane headerContainer;
   @FXML private Pane room;
@@ -52,27 +53,38 @@ public class RoomController implements HeaderableController {
       isFirstTimeInit = false;
     }
 
-    rectHover1.setVisible(false);
-    rectHover2.setVisible(false);
+    paneHover1.setVisible(false);
+    paneHover2.setVisible(false);
+    paneHover3.setVisible(false);
 
     rectAccess.setOnMouseEntered(
         (MouseEvent event) -> {
-          rectHover1.setVisible(true); // Show the image when the mouse enters the rectangle
+          paneHover1.setVisible(true); // Show the image when the mouse enters the rectangle
         });
 
     rectAccess.setOnMouseExited(
         (MouseEvent event) -> {
-          rectHover1.setVisible(false); // Hide the image when the mouse exits the rectangle
+          paneHover1.setVisible(false); // Hide the image when the mouse exits the rectangle
         });
 
     rectLaptop.setOnMouseEntered(
         (MouseEvent event) -> {
-          rectHover2.setVisible(true);
+          paneHover2.setVisible(true);
         });
 
     rectLaptop.setOnMouseExited(
         (MouseEvent event) -> {
-          rectHover2.setVisible(false);
+          paneHover2.setVisible(false);
+        });
+
+    rectShredder.setOnMouseEntered(
+        (MouseEvent event) -> {
+          paneHover3.setVisible(true);
+        });
+
+    rectShredder.setOnMouseExited(
+        (MouseEvent event) -> {
+          paneHover3.setVisible(false);
         });
 
     // lblProfession.setText(context.getProfessionToGuess());
