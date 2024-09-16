@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
@@ -56,7 +57,7 @@
          </children>
       </Pane>
       <Rectangle fx:id="rectShredder" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="89.0" layoutX="5.0" layoutY="375.0" onMouseClicked="#handleShredderClueClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="174.0" />
-      <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0" visible="false">
+      <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0">
          <children>
             <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="104.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -151,6 +152,37 @@
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
+            <Pane fx:id="accessUnlock" layoutX="165.0" layoutY="71.0" prefHeight="314.0" prefWidth="421.0">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
+                  <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
+                  <Button fx:id="One" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
+                  <Button fx:id="Two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="2" />
+                  <Button fx:id="Three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
+                  <Button fx:id="Four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
+                  <Button fx:id="Five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
+                  <Button fx:id="Six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="6" />
+                  <Button fx:id="Seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="7" />
+                  <Button fx:id="Eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
+                  <Button fx:id="Nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
+                  <Label fx:id="passcodeDisplay" layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
+                  <Label fx:id="errorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="190.0" layoutY="75.0" prefHeight="17.0" prefWidth="97.0" textAlignment="RIGHT" textFill="RED">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="184.0" layoutY="225.0" mnemonicParsing="false" onAction="#checkPasscode" prefHeight="26.0" prefWidth="50.0" text="Submit">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="245.0" layoutY="224.0" mnemonicParsing="false" onAction="#clearPasscode" prefHeight="26.0" prefWidth="50.0" text="Clear">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </Pane>
       <Rectangle fx:id="rectAccess" arcHeight="5.0" arcWidth="5.0" fill="#2197ff06" height="107.0" layoutX="483.0" layoutY="381.0" onMouseClicked="#handleAcessPadClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="44.0" />
