@@ -24,7 +24,7 @@ public class ChatComponent extends VBox {
   private boolean loading;
   private SceneType sceneType;
   private ChatCompletionRequest chatCompletionRequest;
-  
+
   @FXML private Label sendMessageLabel;
   @FXML private Pane sendMessageButton;
 
@@ -58,7 +58,7 @@ public class ChatComponent extends VBox {
 
   private void styleWidget() {
     String styles = App.getCssUrl("chat-box");
-    
+
     this.getStylesheets().add(styles);
   }
 
@@ -67,7 +67,7 @@ public class ChatComponent extends VBox {
     loaderComponent.setPrefWidth(
         sendMessageButton.getPrefWidth() - this.getPadding().getBottom() * 2);
     // loaderComponent.setStyle(
-        // );
+    // );
     sendMessageButton.getChildren().add(loaderComponent);
   }
 
@@ -97,10 +97,11 @@ public class ChatComponent extends VBox {
     if (message.isEmpty()) {
       return;
     }
+
     // Checks if the component is loadwing
-    // if (this.isLoading()) {
-    // return;
-    // }
+    if (loading) {
+      return;
+    }
 
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
