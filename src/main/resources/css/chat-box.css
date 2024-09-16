@@ -1,15 +1,15 @@
 #sendMessageButton {
-  -fx-border-color: black;
+  -fx-border-color: #a8a8a8;
   -fx-border-style: solid;
   -fx-border-width: 1;
 
-  -fx-background-color: #f0f0f0;
+  -fx-background-color: #dbdbdb;
   -fx-cursor: hand;
 
-  
-
+  /* Box shadow */
+  /* -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 0); */
 }
 
-#sendMessageButton:hover{ 
-  -fx-background-color: #e0e0e0;
+#sendMessageButton:hover {
+  -fx-background-color: #c8c8c8;
 }

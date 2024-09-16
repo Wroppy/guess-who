@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.components.chatview;
 
 import java.io.IOException;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -47,7 +48,10 @@ public class ChatComponent extends VBox {
 
       setupButton();
 
-      this.setupGpt();
+      // Sets up the GPT model
+      // TODO: UNCOMMENT IN PRESENTATION, COMMENT OUT SET LOADING
+      // this.setupGpt();
+      this.setLoading(true);
 
       this.styleWidget();
 
@@ -186,5 +190,10 @@ public class ChatComponent extends VBox {
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
+  }
+
+  @FXML
+  private void handleSetupGptClicked(ActionEvent e) {
+    this.setupGpt();
   }
 }
