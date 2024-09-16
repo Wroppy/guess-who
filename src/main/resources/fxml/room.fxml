@@ -22,7 +22,11 @@
       <Rectangle fx:id="rectPerson3" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="135.0" layoutX="587.0" layoutY="284.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="91.0" />
       <Rectangle fx:id="rectWaitress" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="251.0" layoutX="463.0" layoutY="237.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="52.0" />
       <Rectangle fx:id="rectPerson2" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff" focusTraversable="true" height="171.0" layoutX="368.0" layoutY="305.0" onMouseClicked="#handleRectangleClick" opacity="0.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
-      <Pane fx:id="shredderClueOverlay" layoutX="135.0" layoutY="62.0" prefHeight="400.0" prefWidth="500.0" />
+      <Pane fx:id="shredderClueOverlay" layoutX="135.0" layoutY="62.0" prefHeight="400.0" prefWidth="500.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="44.0" layoutX="170.0" layoutY="294.0" stroke="BLACK" strokeType="INSIDE" width="67.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="72.0" layoutX="163.0" layoutY="281.0" onMouseClicked="#showLaptop" opacity="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="85.0" />
+         </children></Pane>
       <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
       <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0" visible="false">
          <children>

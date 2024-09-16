@@ -3,11 +3,15 @@ package nz.ac.auckland.se206.controllers;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
@@ -28,6 +32,7 @@ public class RoomController implements HeaderableController {
 
   @FXML private Pane headerContainer;
   @FXML private Pane shredderClueOverlay;
+  @FXML private Pane room;
   @FXML private Pane accessPad;
 
   private static boolean isFirstTimeInit = true;
@@ -110,5 +115,16 @@ public class RoomController implements HeaderableController {
   public void setupHeader(SceneType sceneType) {
     gameHeader = new GameHeader(sceneType);
     this.headerContainer.getChildren().add(gameHeader);
+
+  } 
+
+  @FXML
+  private void showLaptop(MouseEvent event) throws IOException {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Pane mainPane = (Pane) stage.getScene().lookup("#room");
+    Parent overlay = App.loadFxmlLoader("laptop-clue").load();
+    overlay.setLayoutX(140.0);
+    overlay.setLayoutY(247.0);
+    mainPane.getChildren().add(overlay);
   }
 }
