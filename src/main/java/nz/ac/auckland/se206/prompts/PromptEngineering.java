@@ -24,7 +24,9 @@ public class PromptEngineering {
   public static String getPrompt(String promptId) {
     try {
       // Load the prompt template file from resources
-      URL resourceUrl = PromptEngineering.class.getClassLoader().getResource("prompts/" + promptId);
+
+      URL resourceUrl =
+          PromptEngineering.class.getClassLoader().getResource("prompts/" + promptId + ".txt");
       String prompt = loadTemplate(resourceUrl.toURI());
       // Fill the template with the provided data
       return prompt;

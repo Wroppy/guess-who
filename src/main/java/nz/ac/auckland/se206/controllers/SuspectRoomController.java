@@ -18,7 +18,7 @@ public class SuspectRoomController implements HeaderableController {
     setupHeader(sceneType);
 
     // Adds the chat box
-    ChatComponent chatComponent = new ChatComponent();
+    ChatComponent chatComponent = new ChatComponent(sceneType);
     chatContainer.getChildren().add(chatComponent);
   }
 
