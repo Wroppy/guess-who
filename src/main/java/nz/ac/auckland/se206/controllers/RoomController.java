@@ -4,16 +4,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
+import nz.ac.auckland.se206.utils.EventCallback;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -40,12 +45,14 @@ public class RoomController implements HeaderableController {
   @FXML private Label passcodeDisplay;
 
   @FXML private Pane headerContainer;
-  @FXML private Pane shredderClueOverlay;
+  @FXML private Pane room;
   @FXML private Pane accessPad;
   @FXML private Pane accessUnlock;
 
   private ArrayList<Integer> passcode = new ArrayList<Integer>();
   private boolean unlocked = false;
+
+  private Pane shredderClueOverlay;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -63,12 +70,34 @@ public class RoomController implements HeaderableController {
     }
     // lblProfession.setText(context.getProfessionToGuess());
 
-    ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
-    this.shredderClueOverlay.getChildren().add(shredderClueComponent);
+    addShredderClue();
 
-    shredderClueComponent.hide();
     accessPad.setVisible(false);
     accessUnlock.setVisible(false);
+  }
+
+  private void addShredderClue() {
+    EventCallback onClose = e -> shredderClueOverlay.setVisible(false);
+
+    ShredderClueComponent shredderClueComponent = new ShredderClueComponent(onClose);
+
+    shredderClueOverlay = new Pane();
+    shredderClueOverlay.setPrefWidth(789);
+    shredderClueOverlay.setPrefHeight(599 - 100);
+    shredderClueOverlay.setStyle("-fx-background-color: rgba(0, 0, 0, 0.8);");
+    this.room.getChildren().add(shredderClueOverlay);
+    shredderClueOverlay.setLayoutX(0);
+    shredderClueOverlay.setLayoutY(100);
+
+    shredderClueOverlay.getChildren().add(shredderClueComponent);
+
+    // Center the shredder clue component
+    double x = (789 - shredderClueComponent.getPrefWidth()) / 2;
+    double y = (599 - 100 - shredderClueComponent.getPrefHeight()) / 2;
+    shredderClueComponent.setLayoutX(x);
+    shredderClueComponent.setLayoutY(y);
+
+    shredderClueOverlay.setVisible(false);
   }
 
   /**
@@ -89,6 +118,11 @@ public class RoomController implements HeaderableController {
   @FXML
   public void onKeyReleased(KeyEvent event) {
     System.out.println("Key " + event.getCode() + " released");
+  }
+
+  @FXML
+  private void handleShredderClueClicked(MouseEvent event) {
+    shredderClueOverlay.setVisible(true);
   }
 
   /**
@@ -191,5 +225,13 @@ public class RoomController implements HeaderableController {
     passcode.clear(); 
     passcodeDisplay.setText("");
     errorMessage.setText("");
+  @FXML
+  private void showLaptop(MouseEvent event) throws IOException {
+    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+    Pane mainPane = (Pane) stage.getScene().lookup("#room");
+    Parent overlay = App.loadFxmlLoader("laptop-clue").load();
+    overlay.setLayoutX(140.0);
+    overlay.setLayoutY(247.0);
+    mainPane.getChildren().add(overlay);
   }
 }
