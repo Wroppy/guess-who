@@ -16,6 +16,7 @@ import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
+import nz.ac.auckland.se206.utils.EventCallback;
 
 /**
  * Controller class for the room view. Handles user interactions within the room where the user can
@@ -58,7 +59,9 @@ public class RoomController implements HeaderableController {
   }
 
   private void addShredderClue() {
-    ShredderClueComponent shredderClueComponent = new ShredderClueComponent();
+    EventCallback onClose = e -> shredderClueOverlay.setVisible(false);
+
+    ShredderClueComponent shredderClueComponent = new ShredderClueComponent(onClose);
 
     shredderClueOverlay = new Pane();
     this.room.getChildren().add(shredderClueOverlay);

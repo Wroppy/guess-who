@@ -2,6 +2,8 @@ package nz.ac.auckland.se206.components.shredderclue;
 
 import java.util.HashMap;
 import java.util.Map;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -23,13 +25,16 @@ public class ShredderClueComponent extends Pane {
   @FXML private Label confidentialLabel;
   @FXML private Button closeButton;
 
+  private EventCallback onClose;
+
   private ShredderBoxIndicator indicator;
 
   // Map for each rectangle to the paper that is placed on it
   private Map<ShredderBox, ShredderPaper> paperMap;
 
-  public ShredderClueComponent() {
+  public ShredderClueComponent(EventCallback onClose) {
     paperMap = new HashMap<>();
+    this.onClose = onClose;
 
     // Load the FXML file of the clue
     try {
@@ -302,8 +307,10 @@ public class ShredderClueComponent extends Pane {
   }
 
   @FXML
-  public void handleClose() {
-    this.setVisible(false);
+  public void handleClose(ActionEvent event) {
+    // this.setVisible(false);
+
+    Platform.runLater(() -> onClose.run(event));
   }
 
   /** Shows the clue component. */
