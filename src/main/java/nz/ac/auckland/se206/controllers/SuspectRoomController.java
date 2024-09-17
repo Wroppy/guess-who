@@ -18,10 +18,12 @@ public class SuspectRoomController implements HeaderableController {
   public void setupRoom(SceneType sceneType) {
     setupHeader(sceneType);
 
-    Image image = new Image(getClass().getResourceAsStream("/images/bobscene.png"));
-    imageContainer.setImage(image);
-    imageContainer.setFitWidth(539);
-    imageContainer.setFitHeight(499);
+    if (sceneType == SceneType.SUSPECT_1) {
+      Image image = new Image(getClass().getResourceAsStream("/images/bobscene.png"));
+      imageContainer.setImage(image);
+      imageContainer.setFitWidth(545);
+      imageContainer.setFitHeight(545);
+    }
 
     // Adds the chat box
     ChatComponent chatComponent = new ChatComponent(sceneType);
