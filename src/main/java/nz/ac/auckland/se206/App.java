@@ -158,7 +158,7 @@ public class App extends Application {
       ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
 
-      root = loadFxml("explanation-room");
+      root = loadFxml("guessing_screen");
       SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
 
       root = loadFxml("player-feedback");

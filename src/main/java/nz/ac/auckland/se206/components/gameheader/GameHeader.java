@@ -117,12 +117,13 @@ public class GameHeader extends Pane {
   }
 
   public void guessingStage(MouseEvent event) throws IOException {
-      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/guessing_screen.fxml"));
-      Parent labelsRoot = loader.load();
+  //     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/guessing_screen.fxml"));
+  //     Parent labelsRoot = loader.load();
 
-      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      Scene labelsScene = new Scene(labelsRoot);
-      stage.setScene(labelsScene);
-      stage.show();
+  //     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+  //     Scene labelsScene = new Scene(labelsRoot);
+  //     stage.setScene(labelsScene);
+  //     stage.show();
+    App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }
