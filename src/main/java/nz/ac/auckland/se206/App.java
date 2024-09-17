@@ -5,6 +5,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,6 +16,7 @@ import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.controllers.HeaderableController;
+import nz.ac.auckland.se206.controllers.RoomController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -96,6 +98,15 @@ public class App extends Application {
     stage.show();
     stage.setOnCloseRequest(event -> handleWindowClose(event));
     root.requestFocus();
+
+    stage.setOnCloseRequest(
+        event -> {
+          if (RoomController.gameTimer != null) {
+            RoomController.gameTimer.stop();
+          }
+          Platform.exit();
+          System.exit(0);
+        });
   }
 
   private void handleWindowClose(WindowEvent event) {
