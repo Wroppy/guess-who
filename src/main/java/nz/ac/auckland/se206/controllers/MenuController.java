@@ -10,7 +10,7 @@ public class MenuController {
 
   @FXML private Button btnStart;
 
-  public GameTimer gameTimer;
+  public static GameTimer gameTimer;
 
   /** Initializes the menu view. */
   @FXML

@@ -16,7 +16,7 @@ import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.controllers.HeaderableController;
-import nz.ac.auckland.se206.controllers.RoomController;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -101,8 +101,8 @@ public class App extends Application {
 
     stage.setOnCloseRequest(
         event -> {
-          if (RoomController.gameTimer != null) {
-            RoomController.gameTimer.stop();
+          if (MenuController.gameTimer != null) {
+            MenuController.gameTimer.stop();
           }
           Platform.exit();
           System.exit(0);

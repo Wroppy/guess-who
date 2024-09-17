@@ -79,4 +79,8 @@ public class GameTimer {
   public void setFirstFiveMinutesFalse() {
     firstFiveMinutes = false;
   }
+
+  public void setTimerLabel1(Label timerLabel1) {
+    this.timerLabel1 = timerLabel1;
+  }
 }

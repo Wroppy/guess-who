@@ -13,6 +13,8 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.controllers.MenuController;
+import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
@@ -81,6 +83,26 @@ public class GameHeader extends Pane {
 
     // Deselect the item and go back to default
     Platform.runLater(() -> clearComboBoxSelection());
+
+    if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
+      SuspectRoomController.gameHeader1
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+      SuspectRoomController.gameHeader2
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+      SuspectRoomController.gameHeader3
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
+    }
 
     changeScene(selectedScene);
   }

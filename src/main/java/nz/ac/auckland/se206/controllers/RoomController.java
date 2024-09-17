@@ -15,7 +15,6 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
-import nz.ac.auckland.se206.GameTimer;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
@@ -58,7 +57,6 @@ public class RoomController implements HeaderableController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
-  public static GameTimer gameTimer;
 
   private static GameHeader gameHeader;
 

@@ -12,6 +12,10 @@ public class SuspectRoomController implements HeaderableController {
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
 
+  public static GameHeader gameHeader1;
+  public static GameHeader gameHeader2;
+  public static GameHeader gameHeader3;
+
   public void initialize() {}
 
   public void setupRoom(SceneType sceneType) {
@@ -24,7 +28,21 @@ public class SuspectRoomController implements HeaderableController {
 
   @Override
   public void setupHeader(SceneType sceneType) {
-    GameHeader gameHeader = new GameHeader(sceneType);
-    this.headerContainer.getChildren().add(gameHeader);
+    if (sceneType == SceneType.SUSPECT_1) {
+      gameHeader1 = new GameHeader(sceneType);
+      this.headerContainer.getChildren().add(gameHeader1);
+    } else if (sceneType == SceneType.SUSPECT_2) {
+      gameHeader2 = new GameHeader(sceneType);
+      this.headerContainer.getChildren().add(gameHeader2);
+    } else if (sceneType == SceneType.SUSPECT_3) {
+      gameHeader3 = new GameHeader(sceneType);
+      this.headerContainer.getChildren().add(gameHeader3);
+    }
+    // GameHeader gameHeader = new GameHeader(sceneType);
+    // this.headerContainer.getChildren().add(gameHeader);
   }
+
+  // public static GameHeader getGameHeader() {
+  // return gameHeader;
+  // }
 }
