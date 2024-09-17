@@ -5,11 +5,16 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
@@ -109,5 +114,15 @@ public class GameHeader extends Pane {
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
+  }
+
+  public void guessingStage(MouseEvent event) throws IOException {
+      FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/guessing_screen.fxml"));
+      Parent labelsRoot = loader.load();
+
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Scene labelsScene = new Scene(labelsRoot);
+      stage.setScene(labelsScene);
+      stage.show();
   }
 }
