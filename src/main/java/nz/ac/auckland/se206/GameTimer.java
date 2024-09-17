@@ -6,7 +6,7 @@ import javafx.scene.control.Label;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 
 public class GameTimer {
-  private static final int TIME_LIMIT = 300; // 2 minutes in seconds
+  private static final int TIME_LIMIT = 20; // 2 minutes in seconds
   private int timeRemaining;
   private Label timerLabel1;
   private Label timerLabel2;
