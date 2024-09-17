@@ -10,6 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <Pane fx:id="room" focusTraversable="true" onKeyPressed="#onKeyPressed" onKeyReleased="#onKeyReleased" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.RoomController">
    <children>
@@ -157,12 +158,12 @@
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
                   <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
                   <Button fx:id="One" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
-                  <Button fx:id="Two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="2" />
+                  <Button fx:id="Two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="2" />
                   <Button fx:id="Three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
                   <Button fx:id="Four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
                   <Button fx:id="Five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
-                  <Button fx:id="Six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="6" />
-                  <Button fx:id="Seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="7" />
+                  <Button fx:id="Six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="6" />
+                  <Button fx:id="Seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="7" />
                   <Button fx:id="Eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
                   <Button fx:id="Nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
                   <Label fx:id="passcodeDisplay" layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
@@ -181,6 +182,7 @@
                         <Font size="8.0" />
                      </font>
                   </Button>
+                  <Text layoutX="127.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Using tools, you notice these 3 numbers have been pressed the most. Unlock to look at the access logs." textAlignment="CENTER" wrappingWidth="166.24977032427955" />
                </children>
             </Pane>
          </children>

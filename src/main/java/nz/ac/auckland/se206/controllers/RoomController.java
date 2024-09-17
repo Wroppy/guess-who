@@ -188,8 +188,8 @@ public class RoomController implements HeaderableController {
   }
 
   public void getPasscode(ActionEvent event) {
-    if (passcode.size() >= 4) {
-      errorMessage.setText("Enter 4 digits only.");
+    if (passcode.size() >= 3) {
+      errorMessage.setText("Enter 3 digits only.");
       return;
     } else {
       errorMessage.setText("");
@@ -221,11 +221,8 @@ public class RoomController implements HeaderableController {
   }
 
   public void checkPasscode() {
-    if (passcode.size() == 4) {
-      if (passcode.get(0) == 7
-          && passcode.get(1) == 2
-          && passcode.get(2) == 6
-          && passcode.get(3) == 4) {
+    if (passcode.size() == 3) {
+      if (passcode.get(0) == 7 && passcode.get(1) == 2 && passcode.get(2) == 6) {
         accessUnlock.setVisible(false);
         unlocked = true;
       } else {
@@ -234,16 +231,16 @@ public class RoomController implements HeaderableController {
         passcode.clear();
       }
     } else {
-      errorMessage.setText("Enter 4 digits.");
+      errorMessage.setText("Enter 3 digits.");
     }
   }
 
   public void clearPasscode() {
-    passcode.clear(); 
+    passcode.clear();
     passcodeDisplay.setText("");
     errorMessage.setText("");
-
   }
+
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
