@@ -15,6 +15,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
+import nz.ac.auckland.se206.GameTimer;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
@@ -57,8 +58,9 @@ public class RoomController implements HeaderableController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+  public static GameTimer gameTimer;
 
-  private GameHeader gameHeader;
+  private static GameHeader gameHeader;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -239,11 +241,11 @@ public class RoomController implements HeaderableController {
   }
 
   public void clearPasscode() {
-    passcode.clear(); 
+    passcode.clear();
     passcodeDisplay.setText("");
     errorMessage.setText("");
-
   }
+
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -252,5 +254,13 @@ public class RoomController implements HeaderableController {
     overlay.setLayoutX(140.0);
     overlay.setLayoutY(247.0);
     mainPane.getChildren().add(overlay);
+  }
+
+  public static GameStateContext getContext() {
+    return context;
+  }
+
+  public static GameHeader getGameHeader() {
+    return gameHeader;
   }
 }

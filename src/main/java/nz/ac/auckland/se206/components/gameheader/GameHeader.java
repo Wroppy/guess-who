@@ -18,6 +18,7 @@ public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessButton;
+  @FXML public Label timerLabel;
 
   private SceneType currentScene;
 
@@ -109,5 +110,9 @@ public class GameHeader extends Pane {
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
+  }
+
+  public Label getTimerLabel() {
+    return timerLabel;
   }
 }
