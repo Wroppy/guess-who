@@ -58,6 +58,7 @@ public class RoomController implements HeaderableController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+  private static boolean accessClue = false;
 
   private GameHeader gameHeader;
 
@@ -229,6 +230,7 @@ public class RoomController implements HeaderableController {
           && passcode.get(3) == 4) {
         accessUnlock.setVisible(false);
         unlocked = true;
+        accessClue = true;
       } else {
         errorMessage.setText("Incorrect. Try again.");
         passcodeDisplay.setText("");
@@ -277,5 +279,9 @@ public class RoomController implements HeaderableController {
     if (laptopOverlay != null && laptopOverlay.getParent() != null) {
       ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
     }
+  }
+
+  public static boolean isAccessClue() {
+    return accessClue;
   }
 }
