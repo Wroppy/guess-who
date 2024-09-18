@@ -6,7 +6,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="789.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="roomLabel" layoutX="14.0" layoutY="14.0" prefHeight="4.0" prefWidth="500.0" text="Room: waoidnwan ioawniod npawnd oipadpinaw">
@@ -16,6 +15,6 @@
       </Label>
       <ComboBox fx:id="roomComboBox" layoutX="625.0" layoutY="18.0" prefWidth="150.0" promptText="Switch to room..." />
       <Pane fx:id="timerContainer" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="109.0" />
-      <Button fx:id="guessButton" layoutX="625.0" layoutY="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
+      <Button fx:id="guessBtn" disable="true" layoutX="625.0" layoutY="61.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
    </children>
 </fx:root>

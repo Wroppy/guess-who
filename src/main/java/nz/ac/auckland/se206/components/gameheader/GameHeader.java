@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.components.gameheader;
 
 import java.io.IOException;
+import java.util.HashMap;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,13 +15,18 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
-  @FXML private Button guessButton;
+  @FXML private Button guessBtn;
 
   private SceneType currentScene;
+  private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
+
 
   public GameHeader(SceneType sceneType) {
     super();
@@ -38,7 +45,17 @@ public class GameHeader extends Pane {
   }
 
   public void initialize() {
+    talkedTo.put(SceneType.SUSPECT_1, false);
+    talkedTo.put(SceneType.SUSPECT_2, false);
+    talkedTo.put(SceneType.SUSPECT_3, false);
     setupComboBox();
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+      if(talkedTo.get(SceneType.SUSPECT_1) && talkedTo.get(SceneType.SUSPECT_2) && talkedTo.get(SceneType.SUSPECT_3)){
+        guessBtn.setDisable(false);
+      }
+    }));
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.play();
   }
 
   private void setupComboBox() {
@@ -109,5 +126,10 @@ public class GameHeader extends Pane {
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
+  }
+
+  //setter for hashmap
+  public static void setTalkedTo(SceneType scene) {
+    talkedTo.put(scene, true);
   }
 }
