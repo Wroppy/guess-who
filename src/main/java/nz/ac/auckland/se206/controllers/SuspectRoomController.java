@@ -19,11 +19,11 @@ public class SuspectRoomController implements HeaderableController {
     setupHeader(sceneType);
 
     if (sceneType == SceneType.SUSPECT_1) {
-      setupImage("/images/bobscene.png");
+      setupImage("/images/bob_bar.png");
     } else if (sceneType == SceneType.SUSPECT_2) {
-      // setupImage("/images/suspect2.png");
+      setupImage("/images/VP.png");
     } else if (sceneType == SceneType.SUSPECT_3) {
-      // setupImage("/images/suspect3.png");
+      setupImage("/images/file-clerk.png");
     }
 
     // Adds the chat box
@@ -34,8 +34,16 @@ public class SuspectRoomController implements HeaderableController {
   public void setupImage(String imagePath) {
     Image image = new Image(getClass().getResourceAsStream(imagePath));
     imageContainer.setImage(image);
-    imageContainer.setFitWidth(545);
-    imageContainer.setFitHeight(545);
+    if(imagePath == "/images/bob_bar.png") {
+      imageContainer.setFitWidth(840);
+      imageContainer.setFitHeight(499);
+    } else if(imagePath == "/images/VP.png") {
+      imageContainer.setFitWidth(750);
+      imageContainer.setFitHeight(499);
+    } else {
+      imageContainer.setFitWidth(830);
+      imageContainer.setFitHeight(499);
+    }
   }
 
   @Override
