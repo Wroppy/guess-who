@@ -239,11 +239,11 @@ public class RoomController implements HeaderableController {
   }
 
   public void clearPasscode() {
-    passcode.clear(); 
+    passcode.clear();
     passcodeDisplay.setText("");
     errorMessage.setText("");
-
   }
+
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -252,5 +252,17 @@ public class RoomController implements HeaderableController {
     overlay.setLayoutX(140.0);
     overlay.setLayoutY(247.0);
     mainPane.getChildren().add(overlay);
+  }
+
+  public Pane getAccessPad() {
+    return accessPad;
+  }
+
+  public Pane getAccessUnlock() {
+    return accessUnlock;
+  }
+
+  public Pane getShredderClueOverlay() {
+    return shredderClueOverlay;
   }
 }
