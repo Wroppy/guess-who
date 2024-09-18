@@ -7,7 +7,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.GuessingController;
 
 public class GameTimer {
-  private static final int TIME_LIMIT = 20; // 2 minutes in seconds
+  private static final int TIME_LIMIT = 10; // 2 minutes in seconds
   private int timeRemaining;
   private Label timerLabel1;
   private Label timerLabel2;
@@ -45,15 +45,15 @@ public class GameTimer {
             }
             if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
-              // Platform.runLater(() -> setTimerLabel3(GuessingController.getTimerLabel()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
 
-              setTimeRemaining(60);
+              setTimeRemaining(5);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGameOverState()));
+              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
             return null;
