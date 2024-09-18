@@ -119,6 +119,11 @@ public class GameHeader extends Pane {
       MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
     }
 
+    if (MenuController.gameTimer != null && selectedScene == SceneType.PLAYER_EXPLANATION) {
+      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.setFirstFiveMinutesFalse();
+    }
+
     changeScene(selectedScene);
   }
 
