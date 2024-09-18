@@ -10,6 +10,8 @@ public class MenuController {
 
   @FXML private Button btnStart;
 
+  private GuessingController guessingController;
+
   public static GameTimer gameTimer;
 
   /** Initializes the menu view. */
@@ -22,8 +24,15 @@ public class MenuController {
   @FXML
   public void onStartButtonClick() {
     gameTimer =
-        new GameTimer(RoomController.getGameHeader().getTimerLabel(), RoomController.getContext());
+        new GameTimer(
+            RoomController.getGameHeader().getTimerLabel(),
+            RoomController.getContext(),
+            guessingController);
     gameTimer.start();
     App.changeScene(SceneType.CRIME);
+  }
+
+  public void setGuessingController(GuessingController guessingController) {
+    this.guessingController = guessingController;
   }
 }

@@ -5,6 +5,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
@@ -18,6 +19,7 @@ public class GuessingController {
   @FXML private Rectangle vicePresident;
   @FXML private Rectangle third;
   @FXML private Button submitBtn;
+  @FXML private Label timerLabel;
   private String explanation;
   private static boolean correctChoice;
   private boolean isClicked = false;
@@ -62,5 +64,13 @@ public class GuessingController {
   // getter for correctChoice
   public static boolean getCorrectChoice() {
     return correctChoice;
+  }
+
+  public Label getTimerLabel() {
+    return timerLabel;
+  }
+
+  public GuessingController getGuessingController() {
+    return this;
   }
 }

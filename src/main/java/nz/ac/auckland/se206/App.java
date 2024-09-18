@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
+import nz.ac.auckland.se206.controllers.GuessingController;
 import nz.ac.auckland.se206.controllers.HeaderableController;
 import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
@@ -143,7 +144,11 @@ public class App extends Application {
 
   private void setupScenes() {
     try {
-      Parent root = loadFxml("introduction-scene");
+
+      FXMLLoader loader = loadFxmlLoader("introduction-scene");
+      Parent root = loader.load();
+      MenuController menuController = loader.getController();
+      // Parent root = loadFxml("introduction-scene");
       SceneManager.addScene(SceneType.INTRO, root);
 
       FXMLLoader rootFXML = loadFxmlLoader("room");
@@ -169,7 +174,11 @@ public class App extends Application {
       ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
 
-      root = loadFxml("guessing_screen");
+      FXMLLoader loader2 = loadFxmlLoader("guessing_screen");
+      root = loader2.load();
+      GuessingController guessingController = loader2.getController();
+      menuController.setGuessingController(guessingController);
+      // root = loadFxml("guessing_screen");
       SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
 
       root = loadFxml("game-over");

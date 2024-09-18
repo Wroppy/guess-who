@@ -4,21 +4,25 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.controllers.GuessingController;
 
 public class GameTimer {
   private static final int TIME_LIMIT = 20; // 2 minutes in seconds
   private int timeRemaining;
   private Label timerLabel1;
   private Label timerLabel2;
+  private Label timerLabel3;
   private GameStateContext context;
   private volatile boolean running; // Flag to control the running state
   private boolean firstFiveMinutes = true;
 
-  public GameTimer(Label timerLabel1, GameStateContext context) {
+  public GameTimer(
+      Label timerLabel1, GameStateContext context, GuessingController guessingController) {
     this.timerLabel1 = timerLabel1;
     this.context = context;
     this.timeRemaining = TIME_LIMIT;
     this.running = true; // Initialize the flag to true
+    this.timerLabel3 = guessingController.getTimerLabel();
   }
 
   // This method starts the timer, and updates the timer label every second
@@ -33,15 +37,19 @@ public class GameTimer {
               if (timerLabel2 != null) {
                 Platform.runLater(() -> timerLabel2.setText(formatTime(timeRemaining)));
               }
+              if (timerLabel3 != null) {
+                Platform.runLater(() -> timerLabel3.setText(formatTime(timeRemaining)));
+              }
               Thread.sleep(1000);
               timeRemaining--;
             }
             if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
+              // Platform.runLater(() -> setTimerLabel3(GuessingController.getTimerLabel()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
 
-              // setTimeRemaining(10);
+              setTimeRemaining(60);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes) {
@@ -82,5 +90,9 @@ public class GameTimer {
 
   public void setTimerLabel1(Label timerLabel1) {
     this.timerLabel1 = timerLabel1;
+  }
+
+  public void setTimerLabel3(Label timerLabel3) {
+    this.timerLabel3 = timerLabel3;
   }
 }
