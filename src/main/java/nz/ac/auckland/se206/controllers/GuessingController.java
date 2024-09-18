@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -22,18 +21,23 @@ public class GuessingController {
   private String explanation;
   private static boolean correctChoice;
   private boolean isClicked = false;
-  
 
   public void initialize() {
     // Add a listener to check if TextArea has text input
-
-  Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-      if (explaintxt.getText() == null || explaintxt.getText().trim().isEmpty() || !isClicked) {
-        submitBtn.setDisable(true);
-      } else {
-        submitBtn.setDisable(false);
-      }
-    }));
+    submitBtn.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 0; -fx-border-style: solid;");
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(1),
+                event -> {
+                  if (explaintxt.getText() == null
+                      || explaintxt.getText().trim().isEmpty()
+                      || !isClicked) {
+                    submitBtn.setDisable(true);
+                  } else {
+                    submitBtn.setDisable(false);
+                  }
+                }));
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
   }
@@ -52,7 +56,8 @@ public class GuessingController {
       correctChoice = false;
     }
   }
-  //getter for correctChoice
+
+  // getter for correctChoice
   public static boolean getCorrectChoice() {
     return correctChoice;
   }
