@@ -6,108 +6,109 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane fx:id="laptop" layoutX="500.0" layoutY="500.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="772.0" scaleX="1.5" scaleY="1.5" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
+<Pane fx:id="laptop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="789.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
    <children>
-      <Pane layoutX="101.0" layoutY="7.0" prefHeight="346.0" prefWidth="389.0" style="-fx-background-color: grey; -fx-opacity: 85%;" />
-      <Button layoutX="452.0" layoutY="50.0" mnemonicParsing="false" onAction="#closeLaptop" text="Close">
+      <Button layoutX="650.0" layoutY="50.0" mnemonicParsing="false" onAction="#closeLaptop" scaleX="1.5" scaleY="1.5" text="Close">
          <font>
             <Font size="8.0" />
          </font></Button>
-      <ImageView fitHeight="260.0" fitWidth="357.0" layoutX="120.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="260.0" fitWidth="357.0" layoutX="213.0" layoutY="130.0" pickOnBounds="true" preserveRatio="true" scaleX="1.5" scaleY="1.5">
          <image>
             <Image url="@../images/9306518_45999-removebg-preview.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f5" height="192.0" layoutX="155.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="287.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="191.0" layoutX="263.0" layoutY="84.0" stroke="BLACK" strokeType="INSIDE" width="2.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="154.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="110.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="155.0" layoutY="146.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="109.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="18.0" layoutX="155.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="286.0" />
-      <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="158.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4f4f5" height="192.0" layoutX="248.0" layoutY="135.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" width="287.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="191.0" layoutX="335.0" layoutY="135.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" width="2.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="197.0" layoutY="131.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="110.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="202.0" layoutY="194.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="109.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="27.0" layoutX="242.0" layoutY="87.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="292.0" />
+      <ImageView fitHeight="21.0" fitWidth="18.0" layoutX="211.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" scaleX="1.5" scaleY="1.5">
          <image>
             <Image url="@../images/email_icon-removebg-preview.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="171.0" layoutX="263.0" layoutY="105.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="178.0" />
-      <Text layoutX="182.0" layoutY="98.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inbox">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="171.0" layoutX="382.0" layoutY="162.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="178.0" />
+      <Text layoutX="251.0" layoutY="107.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Inbox">
          <font>
             <Font name="Arial Black" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="319.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message">
+      <Text layoutX="439.0" layoutY="107.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Message">
          <font>
             <Font name="Arial Black" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Report">
+      <Text layoutX="202.0" layoutY="148.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Report">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager" wrappingWidth="43.79609234953398">
+      <Text layoutX="201.0" layoutY="140.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Manager" wrappingWidth="43.79609234953398">
          <font>
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
-      <Text layoutX="159.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', please find attached your...">
+      <Text layoutX="202.0" layoutY="160.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', please find attached your...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vice President" wrappingWidth="68.86681683683867">
+      <Text layoutX="205.0" layoutY="204.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Vice President" wrappingWidth="68.86681683683867">
          <font>
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="155.0" layoutY="187.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="110.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="156.0" layoutY="228.0" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="109.0" />
-      <Text layoutX="158.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Termination of Employement">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="202.0" layoutY="257.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="110.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4e4f51" height="42.0" layoutX="201.0" layoutY="320.0" scaleX="1.5" scaleY="1.5" stroke="BLACK" strokeType="INSIDE" style="-fx-opacity: 25%;" width="109.0" />
+      <Text layoutX="205.0" layoutY="212.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Termination of Employement">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="159.0" layoutY="176.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', I regret to inform you...">
+      <Text layoutX="206.0" layoutY="224.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', I regret to inform you...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="195.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Co-Worker" wrappingWidth="66.18303998136992">
+      <Text layoutX="205.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Project" wrappingWidth="66.18303998136992">
          <font>
             <Font name="Arial Black" size="5.5" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="203.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Meeting">
+      <Text layoutX="197.0" layoutY="275.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Meeting">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="219.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey there, We've just done our...">
+      <Text layoutX="205.0" layoutY="289.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey there, We've just done our...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="237.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="68.86681683683867">
+      <Text layoutX="203.0" layoutY="329.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Client" wrappingWidth="68.86681683683867">
          <font>
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
-      <Text layoutX="158.0" layoutY="245.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Update">
+      <Text layoutX="195.0" layoutY="337.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Update">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="160.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', reaching out to get an update...">
+      <Text layoutX="205.0" layoutY="349.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', reaching out to get an update...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="157.0" layoutY="104.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="158.0" layoutY="147.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Pane fx:id="performanceReport" layoutX="266.0" layoutY="106.0" prefHeight="167.0" prefWidth="174.0" visible="false">
+      <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="200.0" layoutY="130.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="accessEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="258.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="195.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="2.0" layoutY="1.0" prefHeight="14.0" prefWidth="171.0" text="Manager - Performance Report:">
                <font>
@@ -127,7 +128,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="firedEmail" layoutX="265.0" layoutY="107.0" prefHeight="164.0" prefWidth="175.0" visible="false">
+      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
             <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Vice President" wrapText="true">
@@ -160,6 +161,32 @@
                   <Font size="7.0" />
                </font>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="accessEmailPane" layoutX="384.0" layoutY="163.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
+         <children>
+            <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
+            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Hey there," wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <TextField layoutX="3.0" prefHeight="14.0" prefWidth="171.0" text="HR - Access Pad Codes">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </TextField>
+            <Label layoutX="6.0" layoutY="46.0" prefHeight="44.0" prefWidth="160.0" text="We've just done our routine change of the passcode to unlock the access pad logs. It has been changed to:" wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Label layoutX="75.0" layoutY="93.0" prefHeight="28.0" prefWidth="20.0" text="7264" wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Line endX="19.0" layoutX="76.0" layoutY="112.0" startX="-3.003570556640625" />
          </children>
       </Pane>
    </children>

@@ -9,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -17,7 +18,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
-  @FXML private Button guessButton;
+  @FXML private static Button guessButton;
 
   private SceneType currentScene;
 
@@ -109,5 +110,9 @@ public class GameHeader extends Pane {
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
+  }
+
+  public void guessingStage(MouseEvent event) throws IOException {
+    App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

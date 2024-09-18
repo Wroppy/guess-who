@@ -57,102 +57,102 @@
          </children>
       </Pane>
       <Rectangle fx:id="rectShredder" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="89.0" layoutX="5.0" layoutY="375.0" onMouseClicked="#handleShredderClueClicked" stroke="TRANSPARENT" strokeType="INSIDE" width="174.0" />
-      <Pane fx:id="accessPad" layoutX="14.0" layoutY="135.0" prefHeight="440.0" prefWidth="762.0">
+      <Pane fx:id="accessPad" layoutY="100.0" prefHeight="499.0" prefWidth="789.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);">
          <children>
-            <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="104.0" layoutY="-3.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="118.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/access-pad.jpeg" />
                </image>
             </ImageView>
-            <ImageView fitHeight="308.0" fitWidth="420.0" layoutX="166.0" layoutY="73.0" pickOnBounds="true">
+            <ImageView fitHeight="308.0" fitWidth="420.0" layoutX="180.0" layoutY="103.0" pickOnBounds="true">
                <image>
                   <Image url="@../images/light-blue-background.jpg" />
                </image>
             </ImageView>
-            <TextArea layoutX="166.0" layoutY="76.0" opacity="0.41" prefHeight="17.0" prefWidth="420.0" />
-            <Line endX="-100.0" endY="307.0" layoutX="396.0" layoutY="73.0" startX="-100.0" />
-            <Line endX="-100.0" endY="307.0" layoutX="540.0" layoutY="73.0" startX="-100.0" />
-            <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="202.0" layoutY="265.0" pickOnBounds="true" preserveRatio="true">
+            <TextArea layoutX="180.0" layoutY="106.0" opacity="0.41" prefHeight="17.0" prefWidth="420.0" />
+            <Line endX="-100.0" endY="307.0" layoutX="410.0" layoutY="103.0" startX="-100.0" />
+            <Line endX="-100.0" endY="307.0" layoutX="554.0" layoutY="103.0" startX="-100.0" />
+            <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="216.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/bob.png" />
                </image>
             </ImageView>
-            <Label layoutX="351.0" layoutY="270.0" prefHeight="18.0" prefWidth="51.0" text="Bob">
+            <Label layoutX="365.0" layoutY="300.0" prefHeight="18.0" prefWidth="51.0" text="Bob">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="441.0" layoutY="272.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24    10:23 pm">
+            <Label layoutX="455.0" layoutY="302.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24    10:23 pm">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <ImageView fitHeight="64.0" fitWidth="52.0" layoutX="202.0" layoutY="329.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="64.0" fitWidth="52.0" layoutX="216.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/emma.png" />
                </image>
             </ImageView>
-            <Line endX="78.0" endY="307.0" layoutX="508.0" layoutY="9.0" startX="-342.0" startY="307.0" />
-            <Line endX="78.0" endY="307.0" layoutX="508.0" layoutY="-54.0" startX="-342.0" startY="307.0" />
-            <ImageView fitHeight="52.0" fitWidth="58.0" layoutX="202.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true">
+            <Line endX="78.0" endY="307.0" layoutX="522.0" layoutY="39.0" startX="-342.0" startY="307.0" />
+            <Line endX="78.0" endY="307.0" layoutX="522.0" layoutY="-24.0" startX="-342.0" startY="307.0" />
+            <ImageView fitHeight="52.0" fitWidth="58.0" layoutX="216.0" layoutY="231.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/noah.png" />
                </image>
             </ImageView>
-            <Line endX="78.0" endY="307.0" layoutX="507.0" layoutY="-120.0" startX="-342.0" startY="307.0" />
-            <ImageView fitHeight="58.0" fitWidth="51.0" layoutX="202.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+            <Line endX="78.0" endY="307.0" layoutX="521.0" layoutY="-90.0" startX="-342.0" startY="307.0" />
+            <ImageView fitHeight="58.0" fitWidth="51.0" layoutX="216.0" layoutY="166.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/david.png" />
                </image>
             </ImageView>
-            <Line endX="78.0" endY="307.0" layoutX="507.0" layoutY="-188.0" startX="-342.0" startY="307.0" />
-            <Label layoutX="343.0" layoutY="136.0" prefHeight="25.0" prefWidth="44.0" text="David">
+            <Line endX="78.0" endY="307.0" layoutX="521.0" layoutY="-158.0" startX="-342.0" startY="307.0" />
+            <Label layoutX="357.0" layoutY="166.0" prefHeight="25.0" prefWidth="44.0" text="David">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="207.0" prefHeight="25.0" prefWidth="44.0" text="Noah">
+            <Label layoutX="357.0" layoutY="237.0" prefHeight="25.0" prefWidth="44.0" text="Noah">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="336.0" prefHeight="25.0" prefWidth="44.0" text="Emma">
+            <Label layoutX="357.0" layoutY="366.0" prefHeight="25.0" prefWidth="44.0" text="Emma">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="441.0" layoutY="209.0" prefHeight="18.0" prefWidth="146.0" text=" 15/09/24     8:49 am">
+            <Label layoutX="455.0" layoutY="239.0" prefHeight="18.0" prefWidth="146.0" text=" 15/09/24     8:49 am">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="441.0" layoutY="138.0" prefHeight="18.0" prefWidth="146.0" text=" 15/09/24     2:31 pm">
+            <Label layoutX="455.0" layoutY="168.0" prefHeight="18.0" prefWidth="146.0" text=" 15/09/24     2:31 pm">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="441.0" layoutY="338.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24     4:18pm">
+            <Label layoutX="455.0" layoutY="368.0" prefHeight="18.0" prefWidth="146.0" text=" 14/09/24     4:18pm">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Button layoutX="580.0" layoutY="14.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
-            <Label layoutX="209.0" layoutY="88.0" prefHeight="19.0" prefWidth="51.0" text="Profile">
+            <Button layoutX="594.0" layoutY="44.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
+            <Label layoutX="223.0" layoutY="118.0" prefHeight="19.0" prefWidth="51.0" text="Profile">
                <font>
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="343.0" layoutY="88.0" prefHeight="19.0" prefWidth="44.0" text="Name">
+            <Label layoutX="357.0" layoutY="118.0" prefHeight="19.0" prefWidth="44.0" text="Name">
                <font>
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
-            <Label layoutX="460.0" layoutY="88.0" prefHeight="19.0" prefWidth="109.0" text="Time of Access">
+            <Label layoutX="474.0" layoutY="118.0" prefHeight="19.0" prefWidth="109.0" text="Time of Access">
                <font>
                   <Font name="Calisto MT" size="16.0" />
                </font>
             </Label>
-            <Pane fx:id="accessUnlock" layoutX="165.0" layoutY="71.0" prefHeight="314.0" prefWidth="421.0">
+            <Pane fx:id="accessUnlock" layoutX="179.0" layoutY="101.0" prefHeight="314.0" prefWidth="421.0">
                <children>
                   <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
                   <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
