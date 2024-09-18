@@ -10,13 +10,24 @@ public class GameOverController {
   @FXML private TextArea feedbacktxt;
   @FXML private Text feedback;
 
+  private static Label resultLabel;
+  private static Text feedbackLabel;
+  private static TextArea feedbackTextArea;
+
   public void initialize() {
+    GameOverController.resultLabel = result;
+    GameOverController.feedbackLabel = feedback;
+    GameOverController.feedbackTextArea = feedbacktxt;
+  }
+
+  public static void showResult() {
     if (GuessingController.getCorrectChoice()) {
-      result.setText("Correct Choice!");
+      GameOverController.resultLabel.setText("Correct Choice!");
     } else {
-      result.setText("Incorrect Choice!");
-      feedbacktxt.setVisible(false);
-      feedback.setVisible(false);
+      GameOverController.resultLabel.setText("Incorrect Choice!");
+      GameOverController.feedbackTextArea.setVisible(false);
+      GameOverController.feedbackLabel.setVisible(false);
     }
+
   }
 }
