@@ -24,7 +24,9 @@ public class GuessingController {
 
   public void initialize() {
     // Add a listener to check if TextArea has text input
-    submitBtn.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 0; -fx-border-style: solid;");
+    submitBtn.setStyle(
+        "-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 4 6; -fx-border-style: solid;"
+            + " -fx-background-insets: 0;");
     Timeline timeline =
         new Timeline(
             new KeyFrame(
