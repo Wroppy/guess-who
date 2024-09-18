@@ -250,8 +250,8 @@ public class RoomController implements HeaderableController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
-    overlay.setLayoutX(140.0);
-    overlay.setLayoutY(247.0);
+    overlay.setLayoutX(0);
+    overlay.setLayoutY(100.0);
     this.laptopOverlay = (Pane) overlay;
     mainPane.getChildren().add(overlay);
   }

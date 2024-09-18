@@ -36,7 +36,6 @@ public class LaptopController {
   }
   @FXML
   private void closeLaptop(ActionEvent event) {
-    System.out.println("Closing laptop");
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     mainPane.getChildren().remove(mainPane.lookup("#laptop"));
