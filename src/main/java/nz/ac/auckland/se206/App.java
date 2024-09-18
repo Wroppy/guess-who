@@ -161,7 +161,7 @@ public class App extends Application {
       root = loadFxml("guessing_screen");
       SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
 
-      root = loadFxml("player-feedback");
+      root = loadFxml("game-over");
       SceneManager.addScene(SceneType.FEEDBACK, root);
     } catch (IOException e) {
       e.printStackTrace();
