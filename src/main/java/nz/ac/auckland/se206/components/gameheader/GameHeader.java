@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.controllers.RoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
@@ -21,9 +22,15 @@ public class GameHeader extends Pane {
   @FXML private static Button guessButton;
 
   private SceneType currentScene;
+  private RoomController roomController;
 
   public GameHeader(SceneType sceneType) {
+    this(sceneType, null);
+  }
+
+  public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
+    this.roomController = roomController;
 
     try {
       FXMLLoader loader = App.loadFxmlLoader("game-header");
@@ -81,6 +88,13 @@ public class GameHeader extends Pane {
 
     // Deselect the item and go back to default
     Platform.runLater(() -> clearComboBoxSelection());
+
+    if (roomController != null) {
+      roomController.getAccessPad().setVisible(false);
+      roomController.getAccessUnlock().setVisible(false);
+      roomController.getShredderClueOverlay().setVisible(false);
+      roomController.removeLaptopOverlay();
+    }
 
     changeScene(selectedScene);
   }
