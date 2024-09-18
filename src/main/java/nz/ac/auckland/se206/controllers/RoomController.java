@@ -54,6 +54,7 @@ public class RoomController implements HeaderableController {
   private boolean unlocked = false;
 
   private Pane shredderClueOverlay;
+  private Pane laptopOverlay;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -183,7 +184,7 @@ public class RoomController implements HeaderableController {
 
   @Override
   public void setupHeader(SceneType sceneType) {
-    gameHeader = new GameHeader(sceneType);
+    gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
 
@@ -251,6 +252,7 @@ public class RoomController implements HeaderableController {
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
     overlay.setLayoutX(140.0);
     overlay.setLayoutY(247.0);
+    this.laptopOverlay = (Pane) overlay;
     mainPane.getChildren().add(overlay);
   }
 
@@ -264,5 +266,9 @@ public class RoomController implements HeaderableController {
 
   public Pane getShredderClueOverlay() {
     return shredderClueOverlay;
+  }
+
+  public Pane getLaptopOverlay() {
+    return laptopOverlay;
   }
 }
