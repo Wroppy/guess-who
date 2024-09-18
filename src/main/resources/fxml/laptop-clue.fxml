@@ -43,7 +43,7 @@
             <Font name="Arial Black" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="201.0" layoutY="148.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Report">
+      <Text layoutX="202.0" layoutY="148.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Performance Report">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
@@ -75,12 +75,12 @@
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="205.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="HR " wrappingWidth="66.18303998136992">
+      <Text layoutX="205.0" layoutY="265.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Project" wrappingWidth="66.18303998136992">
          <font>
             <Font name="Arial Black" size="5.5" />
          </font>
       </Text>
-      <Text layoutX="205.0" layoutY="273.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Access Pad Codes">
+      <Text layoutX="197.0" layoutY="275.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Team Meeting">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
@@ -95,7 +95,7 @@
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
-      <Text layoutX="203.0" layoutY="337.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Update">
+      <Text layoutX="195.0" layoutY="337.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Update">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
