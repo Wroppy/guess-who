@@ -15,7 +15,7 @@
             <Font size="47.0" />
          </font>
       </Text>
-      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" stroke="RED" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" width="121.0" />
       <Text fill="WHITE" layoutX="222.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bob">
          <font>
             <Font size="26.0" />
@@ -36,8 +36,8 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" stroke="RED" strokeType="INSIDE" width="121.0" />
-      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" stroke="RED" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" width="121.0" />
+      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" width="121.0" />
       <Line endX="188.27825927734375" layoutX="371.0" layoutY="97.0" startX="-141.5838623046875" stroke="#f2f2f2" />
       <TextArea fx:id="explaintxt" layoutX="188.0" layoutY="381.0" prefHeight="141.0" prefWidth="412.0" />
       <Button layoutX="358.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#explanationScene" text="Submit" />

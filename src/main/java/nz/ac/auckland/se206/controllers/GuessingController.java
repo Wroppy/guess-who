@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
@@ -13,9 +14,10 @@ public class GuessingController {
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
   @FXML private Rectangle third;
+  
 
   private String explanation;
-  private boolean correctChoice;
+  private static boolean correctChoice;
 
   public void explanationScene(MouseEvent event) throws IOException {
     explanation = explaintxt.getText().trim();
@@ -29,5 +31,9 @@ public class GuessingController {
     } else {
       correctChoice = false;
     }
+  }
+  //getter for correctChoice
+  public static boolean getCorrectChoice() {
+    return correctChoice;
   }
 }
