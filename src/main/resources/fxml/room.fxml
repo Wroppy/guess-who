@@ -74,7 +74,7 @@
             <Line endX="-100.0" endY="307.0" layoutX="554.0" layoutY="103.0" startX="-100.0" />
             <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="216.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/bob.png" />
+                  <Image url="@../images/bob-pad.png" />
                </image>
             </ImageView>
             <Label layoutX="365.0" layoutY="300.0" prefHeight="18.0" prefWidth="51.0" text="Bob">
