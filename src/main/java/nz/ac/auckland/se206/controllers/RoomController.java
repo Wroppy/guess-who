@@ -271,4 +271,11 @@ public class RoomController implements HeaderableController {
   public Pane getLaptopOverlay() {
     return laptopOverlay;
   }
+
+  @FXML
+  public void removeLaptopOverlay() {
+    if (laptopOverlay != null && laptopOverlay.getParent() != null) {
+      ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
+    }
+  }
 }
