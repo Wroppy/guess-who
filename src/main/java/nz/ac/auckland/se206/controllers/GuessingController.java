@@ -97,6 +97,11 @@ public class GuessingController {
 
   public void explanationScene(MouseEvent event) throws IOException {
     explanation = explaintxt.getText().trim();
+
+    // TODO: Send explanation to GPT
+
+    GameOverController.showResult();
+
     App.changeScene(SceneType.FEEDBACK);
   }
 
