@@ -119,11 +119,6 @@ public class GameHeader extends Pane {
       MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
     }
 
-    if (MenuController.gameTimer != null && selectedScene == SceneType.PLAYER_EXPLANATION) {
-      MenuController.gameTimer.setTimeRemaining(10);
-      MenuController.gameTimer.setFirstFiveMinutesFalse();
-    }
-
     changeScene(selectedScene);
   }
 
@@ -159,6 +154,11 @@ public class GameHeader extends Pane {
   }
 
   public void guessingStage(MouseEvent event) throws IOException {
+    if (MenuController.gameTimer != null) {
+      MenuController.gameTimer.getTimerLabel3().setText("00:10");
+      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.setFirstFiveMinutesFalse();
+    }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

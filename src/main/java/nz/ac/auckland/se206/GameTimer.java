@@ -95,4 +95,8 @@ public class GameTimer {
   public void setTimerLabel3(Label timerLabel3) {
     this.timerLabel3 = timerLabel3;
   }
+
+  public Label getTimerLabel3() {
+    return timerLabel3;
+  }
 }
