@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -18,6 +19,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
+import nz.ac.auckland.se206.controllers.RoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
@@ -27,9 +29,15 @@ public class GameHeader extends Pane {
   private SceneType currentScene;
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
+  private RoomController roomController;
 
   public GameHeader(SceneType sceneType) {
+    this(sceneType, null);
+  }
+
+  public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
+    this.roomController = roomController;
 
     try {
       FXMLLoader loader = App.loadFxmlLoader("game-header");
@@ -98,6 +106,13 @@ public class GameHeader extends Pane {
     // Deselect the item and go back to default
     Platform.runLater(() -> clearComboBoxSelection());
 
+    if (roomController != null) {
+      roomController.getAccessPad().setVisible(false);
+      roomController.getAccessUnlock().setVisible(false);
+      roomController.getShredderClueOverlay().setVisible(false);
+      roomController.removeLaptopOverlay();
+    }
+
     changeScene(selectedScene);
   }
 
@@ -131,5 +146,9 @@ public class GameHeader extends Pane {
   //setter for hashmap
   public static void setTalkedTo(SceneType scene) {
     talkedTo.put(scene, true);
+  }
+
+  public void guessingStage(MouseEvent event) throws IOException {
+    App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

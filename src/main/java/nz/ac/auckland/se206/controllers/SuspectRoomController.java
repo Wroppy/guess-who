@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.SceneManager.SceneType;
@@ -17,9 +18,32 @@ public class SuspectRoomController implements HeaderableController {
   public void setupRoom(SceneType sceneType) {
     setupHeader(sceneType);
 
+    if (sceneType == SceneType.SUSPECT_1) {
+      setupImage("/images/bob_bar.png");
+    } else if (sceneType == SceneType.SUSPECT_2) {
+      setupImage("/images/VP.png");
+    } else if (sceneType == SceneType.SUSPECT_3) {
+      setupImage("/images/file-clerk.png");
+    }
+
     // Adds the chat box
     ChatComponent chatComponent = new ChatComponent(sceneType);
     chatContainer.getChildren().add(chatComponent);
+  }
+
+  public void setupImage(String imagePath) {
+    Image image = new Image(getClass().getResourceAsStream(imagePath));
+    imageContainer.setImage(image);
+    if(imagePath == "/images/bob_bar.png") {
+      imageContainer.setFitWidth(840);
+      imageContainer.setFitHeight(499);
+    } else if(imagePath == "/images/VP.png") {
+      imageContainer.setFitWidth(750);
+      imageContainer.setFitHeight(499);
+    } else {
+      imageContainer.setFitWidth(830);
+      imageContainer.setFitHeight(499);
+    }
   }
 
   @Override
