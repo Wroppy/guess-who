@@ -31,6 +31,11 @@ public class AccessPadClue extends Pane {
   @FXML private ImageView brush;
   @FXML private ImageView keypadPowder;
 
+  @FXML private ImageView fingerprint1;
+  @FXML private ImageView fingerprint2;
+  @FXML private ImageView fingerprint3;
+  @FXML private ImageView fingerprint4;
+
   private boolean unlocked = false;
 
   private ImageView currentlySelected;
@@ -66,6 +71,14 @@ public class AccessPadClue extends Pane {
     setDraggable(brush, brushClick, brushRelease);
 
     keypadPowder.setOpacity(0);
+
+    hidePrints();
+
+    // Sets the opacity of the fingerprint to 0.5
+    fingerprint1.setOpacity(0.5);
+    fingerprint2.setOpacity(0.5);
+    fingerprint3.setOpacity(0.5);
+    fingerprint4.setOpacity(0.5);
   }
 
   @FXML
@@ -202,12 +215,29 @@ public class AccessPadClue extends Pane {
       // Decrease the opacity of the dust
       if (keypadPowder.getOpacity() <= 0) {
         dustingStage = DustingStage.REVEAL;
+
+        // Shows the prints
+        showPrints();
         changeLabel();
         return;
       }
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.001);
     }
+  }
+
+  private void showPrints() {
+    fingerprint1.setVisible(true);
+    fingerprint2.setVisible(true);
+    fingerprint3.setVisible(true);
+    fingerprint4.setVisible(true);
+  }
+
+  private void hidePrints() {
+    fingerprint1.setVisible(false);
+    fingerprint2.setVisible(false);
+    fingerprint3.setVisible(false);
+    fingerprint4.setVisible(false);
   }
 
   private void changeLabel() {
