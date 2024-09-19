@@ -36,6 +36,7 @@ public class AccessPadClue extends Pane {
   @FXML private ImageView fingerprint2;
   @FXML private ImageView fingerprint3;
   @FXML private ImageView fingerprint4;
+  @FXML private Pane progressPane;
 
   private static boolean unlocked = false;
 
@@ -203,12 +204,15 @@ public class AccessPadClue extends Pane {
       }
       if (keypadPowder.getOpacity() >= 1) {
         dustingStage = DustingStage.BRUSH;
-        changeLabel();
+        changeLabel(0);
 
         return;
       }
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.005);
+      changeLabel((int) (keypadPowder.getOpacity() * 100));
+
+      //
     } else if (dustingStage == DustingStage.BRUSH) {
       if (currentlySelected != brush) {
         return;
@@ -229,6 +233,7 @@ public class AccessPadClue extends Pane {
       }
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.005);
+      changeLabel((int) ((1 - keypadPowder.getOpacity()) * 100));
     }
   }
 
@@ -268,7 +273,11 @@ public class AccessPadClue extends Pane {
   }
 
   private void changeLabel() {
-    progressLabel.setText("Todo: " + dustingStage.getDescription());
+    progressLabel.setText("Progress: " + dustingStage.getDescription());
+  }
+
+  private void changeLabel(int progress) {
+    progressLabel.setText("Progress: " + dustingStage.getDescription() + " " + progress + "%");
   }
 
   public Pane getAccessUnlock() {

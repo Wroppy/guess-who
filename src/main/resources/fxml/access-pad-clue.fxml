@@ -198,7 +198,12 @@
                   <Image url="@../images/brusher.png" />
                </image>
             </ImageView>
-            <Label fx:id="progressLabel" layoutX="7.0" layoutY="34.0" prefHeight="17.0" prefWidth="124.0" text="Progress: Dust prints" textFill="WHITE" />
+            <Label fx:id="progressLabel" layoutY="399.0" prefHeight="17.0" prefWidth="124.0" text="Progress: Dust prints" textFill="WHITE" />
+            <Pane layoutY="416.0" prefHeight="30.0" prefWidth="137.0" style="-fx-border-color: white;">
+               <children>
+                  <Pane fx:id="progressPane" prefHeight="30.0" prefWidth="137.0" style="-fx-background-color: green;" />
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
