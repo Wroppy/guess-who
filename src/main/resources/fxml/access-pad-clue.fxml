@@ -30,7 +30,7 @@
             <Line endX="-100.0" endY="307.0" layoutX="216.0" startX="-100.0" />
             <ImageView fitHeight="51.0" fitWidth="58.0" layoutX="36.0" layoutY="179.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/bob.png" />
+                  <Image url="@../images/bob-pad.png" />
                </image>
             </ImageView>
             <Label layoutX="168.0" layoutY="190.0" prefHeight="18.0" prefWidth="51.0" text="Bob" textAlignment="CENTER">
