@@ -1,6 +1,8 @@
 package nz.ac.auckland.se206.components.chatview;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,6 +20,7 @@ import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
@@ -31,13 +34,12 @@ public class ChatComponent extends VBox {
 
   @FXML private TextField textInput;
   @FXML private TextArea chatBox;
-
   private LoaderComponent loaderComponent;
+  private Map<String, String> suspectMap = new HashMap<>();
 
   public ChatComponent(SceneType sceneType) {
     this.sceneType = sceneType;
     this.loading = false;
-
     try {
       FXMLLoader loader = App.loadFxmlLoader("chat");
 
@@ -58,6 +60,13 @@ public class ChatComponent extends VBox {
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
+  }
+
+  public void initialize() {
+    // Any required initialization code can be placed here
+    suspectMap.put("Suspect 1", "Dominic");
+    suspectMap.put("Suspect 2", "Sebastian");
+    suspectMap.put("Suspect 3", "Alexandra");
   }
 
   private void styleWidget() {
@@ -97,6 +106,7 @@ public class ChatComponent extends VBox {
 
   /** Sends a message to the GPT model. */
   private void sendMessage() {
+    GameHeader.setTalkedTo(sceneType);
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
       return;
@@ -150,7 +160,10 @@ public class ChatComponent extends VBox {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    String heading = msg.getRole().replaceFirst("assistant", sceneType.toString());
+    String heading = suspectMap.get(msg.getRole().replaceFirst("assistant", sceneType.toString()));
+    if (heading == null) {
+      heading = "Me";
+    }
     chatBox.appendText(heading + ": " + msg.getContent() + "\n\n");
   }
 

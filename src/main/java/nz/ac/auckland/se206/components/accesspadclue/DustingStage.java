@@ -1,8 +1,8 @@
 package nz.ac.auckland.se206.components.accesspadclue;
 
 public enum DustingStage {
-  POWDER("Dust powder"),
-  BRUSH("Brush dust"),
+  POWDER("Dust"),
+  BRUSH("Brush"),
   REVEAL("Done!");
 
   private final String description;
