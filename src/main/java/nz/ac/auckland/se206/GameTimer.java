@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
 
 public class GameTimer {
@@ -53,6 +54,10 @@ public class GameTimer {
               start();
             } else if (running && !firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGameOverState()));
+              GameOverController.getFeedbackTextArea().setVisible(false);
+              GameOverController.getFeedbackLabel().setVisible(false);
+              GameOverController.getResultLabel().setVisible(false);
+              GameOverController.getTimeUpLabel().setVisible(true);
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
