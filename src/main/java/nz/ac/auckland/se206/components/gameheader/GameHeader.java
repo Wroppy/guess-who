@@ -1,6 +1,9 @@
 package nz.ac.auckland.se206.components.gameheader;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,6 +26,7 @@ public class GameHeader extends Pane {
 
   private SceneType currentScene;
   private RoomController roomController;
+  private Map<String, String> suspectMap = new HashMap<>();
 
   public GameHeader(SceneType sceneType) {
     this(sceneType, null);
@@ -46,6 +50,10 @@ public class GameHeader extends Pane {
   }
 
   public void initialize() {
+    suspectMap.put("Suspect 1", "Dominic Sterling");
+    suspectMap.put("Suspect 2", "Sebastian Kensington");
+    suspectMap.put("Suspect 3", "Alexandra Johnson");
+    suspectMap.put("Crime Scene", "Crime Scene");
     setupComboBox();
 
     colourHeader();
@@ -86,7 +94,7 @@ public class GameHeader extends Pane {
         new StringConverter<SceneType>() {
           @Override
           public String toString(SceneType object) {
-            return object.toString();
+            return suspectMap.get(object.toString());
           }
 
           @Override
