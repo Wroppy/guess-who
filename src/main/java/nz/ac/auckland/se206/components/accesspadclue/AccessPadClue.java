@@ -30,6 +30,7 @@ public class AccessPadClue extends Pane {
   @FXML private ImageView dust;
   @FXML private ImageView brush;
   @FXML private ImageView keypadPowder;
+  @FXML private Pane fingerPrintingPane;
 
   @FXML private ImageView fingerprint1;
   @FXML private ImageView fingerprint2;
@@ -41,6 +42,10 @@ public class AccessPadClue extends Pane {
   private ImageView currentlySelected;
 
   private DustingStage dustingStage = DustingStage.POWDER;
+
+  @FXML private ImageView border;
+  @FXML private Pane accessPadUnlocked;
+  @FXML private Button closeButton;
 
   public AccessPadClue() {
     super();
@@ -109,6 +114,7 @@ public class AccessPadClue extends Pane {
       if (passCode.get(0) == 7 && passCode.get(1) == 2 && passCode.get(2) == 6) {
         accessUnlock.setVisible(false);
         unlocked = true;
+        hideTools();
       } else {
         errorMessage.setText("Incorrect. Try again.");
         passCodeDisplay.setText("");
@@ -224,6 +230,27 @@ public class AccessPadClue extends Pane {
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.001);
     }
+  }
+
+  public void showTools() {
+    int offset = 68;
+    fingerPrintingPane.setVisible(true);
+    // Moves the border, accessPadUnlocked, closeButton and accessUnlock to the right
+    border.setLayoutX(border.getLayoutX() + offset);
+    accessPadUnlocked.setLayoutX(accessPadUnlocked.getLayoutX() + offset);
+    closeButton.setLayoutX(closeButton.getLayoutX() + offset);
+    accessUnlock.setLayoutX(accessUnlock.getLayoutX() + offset);
+  }
+
+  public void hideTools() {
+    int offset = 68;
+    fingerPrintingPane.setVisible(false);
+
+    // Moves the border, accessPadUnlocked, closeButton and accessUnlock to the left
+    border.setLayoutX(border.getLayoutX() - offset);
+    accessPadUnlocked.setLayoutX(accessPadUnlocked.getLayoutX() - offset);
+    closeButton.setLayoutX(closeButton.getLayoutX() - offset);
+    accessUnlock.setLayoutX(accessUnlock.getLayoutX() - offset);
   }
 
   private void showPrints() {
