@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.components.accesspadclue;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +14,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.components.shredderclue.Coordinate;
+import nz.ac.auckland.se206.utils.CoordinateCallback;
+import nz.ac.auckland.se206.utils.EventCallback;
 
 public class AccessPadClue extends Pane {
   private ArrayList<Integer> passCode = new ArrayList<Integer>();
@@ -26,8 +29,11 @@ public class AccessPadClue extends Pane {
 
   @FXML private ImageView dust;
   @FXML private ImageView brush;
+  @FXML private ImageView keypadPowder;
 
   private boolean unlocked = false;
+
+  private ImageView currentlySelected;
 
   private DustingStage dustingStage = DustingStage.POWDER;
 
@@ -49,8 +55,17 @@ public class AccessPadClue extends Pane {
 
   @FXML
   private void initialize() {
-    setDraggable(dust);
-    setDraggable(brush);
+
+    EventCallback dustClick = e -> onDustClick(e);
+    EventCallback brushClick = e -> onBrushClick(e);
+
+    EventCallback dustRelease = e -> onDustMouseRelease(e);
+    EventCallback brushRelease = e -> onBrushMouseRelease(e);
+
+    setDraggable(dust, dustClick, dustRelease);
+    setDraggable(brush, brushClick, brushRelease);
+
+    keypadPowder.setOpacity(0);
   }
 
   @FXML
@@ -110,7 +125,75 @@ public class AccessPadClue extends Pane {
     progressLabel.setText("Progress: " + stage.getDescription());
   }
 
-  private void setDraggable(Node node) {
-    new Draggable(node, new Coordinate(node.getLayoutX(), node.getLayoutY()));
+  private void setDraggable(Node node, EventCallback onMouseClick, EventCallback onMouseRelease) {
+    Coordinate anchor = new Coordinate(node.getLayoutX(), node.getLayoutY());
+
+    CoordinateCallback onMouseMove = c -> onMove(c);
+
+    new Draggable(node, anchor, onMouseClick, onMouseRelease, onMouseMove);
+  }
+
+  private void onDustClick(Event event) {
+    currentlySelected = dust;
+  }
+
+  private void onBrushClick(Event event) {
+    currentlySelected = brush;
+  }
+
+  private void onDustMouseRelease(Event event) {
+    currentlySelected = null;
+    if (dustingStage == DustingStage.POWDER) {}
+  }
+
+  private void onBrushMouseRelease(Event event) {
+    currentlySelected = null;
+    if (dustingStage == DustingStage.BRUSH) {}
+  }
+
+  private void onMove(Coordinate center) {
+    handleDustMouseMove(center);
+  }
+
+  private void handleDustMouseMove(Coordinate center) {
+    if (currentlySelected == null) {
+      return;
+    }
+
+    double x = 343;
+    double y = 144;
+    Coordinate keypadDustTopLeft = new Coordinate(x, y);
+
+    Coordinate keypadDustBottomRight =
+        new Coordinate(
+            x + keypadPowder.getLayoutBounds().getWidth(),
+            y + keypadPowder.getLayoutBounds().getHeight());
+
+    System.out.println(keypadDustTopLeft + " " + keypadDustBottomRight);
+
+    if (dustingStage == DustingStage.POWDER) {
+      // Check if the dust is on the keypad
+      if (!center.isInsideRectangle(keypadDustTopLeft, keypadDustBottomRight)) {
+        return;
+      }
+
+      System.out.println("IN KEYPAD");
+
+      if (currentlySelected != dust) {
+        return;
+      }
+      if (keypadPowder.getOpacity() >= 1) {
+        dustingStage = DustingStage.BRUSH;
+        changeLabel();
+
+        return;
+      }
+
+      keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.001);
+    }
+  }
+
+  private void changeLabel() {
+    progressLabel.setText("Progress: " + dustingStage.getDescription());
   }
 }
