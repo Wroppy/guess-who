@@ -5,27 +5,27 @@ You only need to consider two scenarios:
 - The player guesses correctly, and the explanation is correct. You should provide feedback on why the explanation is correct.
 
 The context of the game:
-The vice president stole a confidential document, the document contains sensentive informations on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
-In order to commit this crime, he fired a employee that is performing well to obtain the employee's access card. He then used the empolyee's access card to enter the document room at night and stole the document.
-There are three suspects found, the vice president, former employee Bob, and the file clerk.
+The vice president, Sebastian Kensington, stole a confidential document, the document contains sensentive informations on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
+In order to commit this crime, he fired an employee, Dominic Sterling, that is performing well to obtain the Dominic's access card. He then used the Dominic's access card to enter the document room at night and stole the document.
+There are three suspects found, vice president - Sebastian Kensington, former employee - Dominic Sterling, and the file clerk - Alexandra Johnson.
 There are three clues in the crime scene.
-First clue - In vice president's laptop, two emails are found, first is a peformance report for Bob, showing Bob is doing an excellent job, second is an email sent to fire Bob for some made up reasons.
+First clue - In a laptop, two emails are found, first is a peformance report for Dominic, showing Dominic is doing an excellent job, second is an email sent to fire Dominic for his poor performance which is a contradiction.
 Second clue - Shredded papers are found, when put together, it is a letter, "An internal hostile takeover is underway, with a crucial document playing a central role. This document, which is vital for the takeover, is expected to benefit the Vice President by positioning them favorably in the new structure.
 It contains sensitive information, including financial projections, confidential communications, and details on the current CEO’s vulnerabilities. This includes performance issues, internal conflicts, and strategic missteps that could significantly undermine the CEO’s position and decision-making authority. 
 Additionally, the document outlines specific strategies for leveraging these weaknesses to facilitate a smooth and advantageous transition in leadership."
-Third clue - Access pad's access history shows Bob entered the document room at 10:43 pm.
+Third clue - Access pad's access history shows Dominic entered the document room at 10:43 pm.
 
 Based on the context, you need to evaluate the player's explanation and give a feedback accordingly.
 
 Example explanation one:
-I think the vice president is the thief, because the shredded papers show that someone is trying to takeover the CEO, and only the vice president is at the position with this capability.
+I think the Sebastian is the thief, because the shredded papers show that someone is trying to takeover the CEO, and only Sebastian is at the position with this capability.
 
 Example feedback one:
-Your explanation is correct, the vice president stole the document in order to takeover the CEO. He also fired Bob on purpose to use Bob's access card at night to enter the document room.
+Your explanation is correct, the vice president, Sebastian, stole the document in order to takeover the CEO. He also fired Dominic on purpose to use Dominic's access card at night to enter the document room.
 
 Example explanation two:
-I think the vice president is the thief, because he is jealous of Bob's recent performance.
+I think the vice president is the thief, because he is jealous of Dominic's recent performance.
 
 Example feedback two:
-Your explanation is incorrect, the vice president stole the document, the document contains sensentive informations on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
-In order to commit this crime, he fired Bob to obtain the Bob's access card. He then used the Bob's access card to enter the document room at night and stole the document.
+Your explanation is incorrect, the vice president, Sebastian, stole the document, the document contains sensentive informations on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
+In order to commit this crime, he fired Dominic to obtain the Dominic's access card. He then used the Dominic's access card to enter the document room at night and stole the document.
