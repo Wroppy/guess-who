@@ -190,6 +190,23 @@ public class AccessPadClue extends Pane {
       }
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.001);
+    } else if (dustingStage == DustingStage.BRUSH) {
+      if (currentlySelected != brush) {
+        return;
+      }
+
+      if (!center.isInsideRectangle(keypadDustTopLeft, keypadDustBottomRight)) {
+        return;
+      }
+
+      // Decrease the opacity of the dust
+      if (keypadPowder.getOpacity() <= 0) {
+        dustingStage = DustingStage.REVEAL;
+        changeLabel();
+        return;
+      }
+
+      keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.001);
     }
   }
 
