@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.components.shredderclue.Coordinate;
 
 public class AccessPadClue extends Pane {
   private ArrayList<Integer> passCode = new ArrayList<Integer>();
@@ -20,6 +23,9 @@ public class AccessPadClue extends Pane {
   @FXML private Pane accessUnlock;
 
   @FXML private Label progressLabel;
+
+  @FXML private ImageView dust;
+  @FXML private ImageView brush;
 
   private boolean unlocked = false;
 
@@ -39,6 +45,12 @@ public class AccessPadClue extends Pane {
     }
 
     this.setVisible(false);
+  }
+
+  @FXML
+  private void initialize() {
+    setDraggable(dust);
+    setDraggable(brush);
   }
 
   @FXML
@@ -96,5 +108,9 @@ public class AccessPadClue extends Pane {
   public void setStage(DustingStage stage) {
     this.dustingStage = stage;
     progressLabel.setText("Progress: " + stage.getDescription());
+  }
+
+  private void setDraggable(Node node) {
+    new Draggable(node, new Coordinate(node.getLayoutX(), node.getLayoutY()));
   }
 }

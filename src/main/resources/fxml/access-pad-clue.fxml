@@ -163,12 +163,12 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <ImageView fitHeight="103.0" fitWidth="97.0" layoutX="8.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="dust" fitHeight="103.0" fitWidth="97.0" layoutX="8.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/finger-print-powder.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="102.0" fitWidth="103.0" layoutX="6.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" rotate="225.0">
+            <ImageView fx:id="brush" fitHeight="102.0" fitWidth="103.0" layoutX="6.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" rotate="225.0">
                <image>
                   <Image url="@../images/brusher.png" />
                </image>
