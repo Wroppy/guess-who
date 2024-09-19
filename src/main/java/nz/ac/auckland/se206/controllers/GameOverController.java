@@ -1,9 +1,12 @@
 package nz.ac.auckland.se206.controllers;
 
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
+import nz.ac.auckland.se206.App;
 
 public class GameOverController {
   @FXML private Label result;
@@ -49,5 +52,10 @@ public class GameOverController {
 
   public static Label getTimeUpLabel() {
     return timeUpLabel;
+  }
+
+  @FXML
+  private void handlePlayAgain(ActionEvent event) {
+    App.restart();
   }
 }

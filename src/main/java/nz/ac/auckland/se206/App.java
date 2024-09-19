@@ -26,7 +26,19 @@ import nz.ac.auckland.se206.speech.FreeTextToSpeech;
  * application.
  */
 public class App extends Application {
+  private static App app;
+  private static Stage stage;
+
   private static Scene scene;
+
+  public static void restart() {
+    try {
+      app.start(stage);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+  
 
   /**
    * The main method that launches the JavaFX application.
@@ -92,6 +104,9 @@ public class App extends Application {
   @Override
   public void start(final Stage stage) throws IOException {
     this.setupScenes();
+
+    App.stage = stage;
+    App.app = this;
 
     Parent root = SceneManager.getScene(SceneType.INTRO);
     scene = new Scene(root);

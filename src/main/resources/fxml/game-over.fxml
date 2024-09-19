@@ -21,7 +21,7 @@
          </font>
       </Text>
       <TextArea fx:id="feedbacktxt" editable="false" layoutX="111.0" layoutY="250.0" prefHeight="238.0" prefWidth="580.0" />
-      <Button fx:id="playAgain" layoutX="335.0" layoutY="529.0" mnemonicParsing="false" text="Play Again">
+      <Button fx:id="playAgain" layoutX="335.0" layoutY="529.0" mnemonicParsing="false" onAction="#handlePlayAgain" text="Play Again">
          <font>
             <Font size="20.0" />
          </font>
