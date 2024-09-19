@@ -139,27 +139,27 @@
                   <Font size="8.0" />
                </font>
             </Button>
-            <ImageView fx:id="keypadPowder" fitHeight="232.0" fitWidth="247.0" layoutX="95.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="keypadPowder" fitHeight="232.0" fitWidth="247.0" layoutX="95.0" layoutY="41.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/black-dust.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fingerprint1" fitHeight="60.0" fitWidth="26.0" layoutX="125.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fingerprint1" fitHeight="60.0" fitWidth="26.0" layoutX="125.0" layoutY="178.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fingerprint.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fingerprint2" fitHeight="60.0" fitWidth="26.0" layoutX="196.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fingerprint2" fitHeight="60.0" fitWidth="26.0" layoutX="196.0" layoutY="218.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fingerprint.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fingerprint3" fitHeight="60.0" fitWidth="26.0" layoutX="196.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fingerprint3" fitHeight="60.0" fitWidth="26.0" layoutX="196.0" layoutY="97.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fingerprint.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="fingerprint4" fitHeight="60.0" fitWidth="26.0" layoutX="257.0" layoutY="131.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="fingerprint4" fitHeight="60.0" fitWidth="26.0" layoutX="257.0" layoutY="131.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/fingerprint.png" />
                </image>
