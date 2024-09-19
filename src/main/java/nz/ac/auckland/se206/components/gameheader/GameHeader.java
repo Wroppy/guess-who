@@ -14,12 +14,15 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
+import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private static Button guessButton;
+  @FXML public Label timerLabel;
 
   private SceneType currentScene;
   private RoomController roomController;
@@ -117,6 +120,26 @@ public class GameHeader extends Pane {
       roomController.removeLaptopOverlay();
     }
 
+    if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
+      SuspectRoomController.gameHeader1
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+      SuspectRoomController.gameHeader2
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+      SuspectRoomController.gameHeader3
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
+    }
+
     changeScene(selectedScene);
   }
 
@@ -147,7 +170,16 @@ public class GameHeader extends Pane {
     changeLabel(sceneType);
   }
 
+  public Label getTimerLabel() {
+    return timerLabel;
+  }
+
   public void guessingStage(MouseEvent event) throws IOException {
+    if (MenuController.gameTimer != null) {
+      MenuController.gameTimer.getTimerLabel3().setText("00:10");
+      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.setFirstFiveMinutesFalse();
+    }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

@@ -1,13 +1,11 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -47,7 +45,7 @@ public class RoomController implements HeaderableController {
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
 
-  private GameHeader gameHeader;
+  private static GameHeader gameHeader;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
@@ -153,9 +151,6 @@ public class RoomController implements HeaderableController {
     context.handleGuessClick();
   }
 
-
-
-
   @FXML
   private void setHoverHandlers(Rectangle rectangle, Pane hoverPane) {
     rectangle.setOnMouseEntered(event -> hoverPane.setVisible(true));
@@ -167,8 +162,6 @@ public class RoomController implements HeaderableController {
     gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
-
-
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
@@ -185,6 +178,14 @@ public class RoomController implements HeaderableController {
   private void handleAcessPadClick(MouseEvent event) {
     System.out.println("Hello world");
     accessPad.setVisible(true);
+  }
+
+  public static GameStateContext getContext() {
+    return context;
+  }
+
+  public static GameHeader getGameHeader() {
+    return gameHeader;
   }
 
   public Pane getAccessPad() {
