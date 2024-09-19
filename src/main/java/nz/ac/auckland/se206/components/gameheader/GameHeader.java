@@ -22,12 +22,15 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.controllers.LaptopController;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
+import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessBtn;
+  @FXML public Label timerLabel;
 
   private SceneType currentScene;
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
@@ -41,6 +44,7 @@ public class GameHeader extends Pane {
   public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
     this.roomController = roomController;
+    currentScene = sceneType;
 
     try {
       FXMLLoader loader = App.loadFxmlLoader("game-header");
@@ -48,7 +52,6 @@ public class GameHeader extends Pane {
       loader.setController(this);
       loader.load();
 
-      currentScene = sceneType;
       changeLabel(sceneType);
     } catch (IOException e) {
       e.printStackTrace();
@@ -67,6 +70,27 @@ public class GameHeader extends Pane {
     }));
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
+
+    colourHeader();
+  }
+
+  private void colourHeader() {
+    switch (currentScene) {
+      case CRIME:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #cee3ec, #7c9fb0);");
+        break;
+      case SUSPECT_1:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #cdc2a4, #313130);");
+        break;
+      case SUSPECT_2:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #ead8c1, #483223);");
+        break;
+      case SUSPECT_3:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #dab576, #503218);");
+        break;
+      default:
+        break;
+    }
   }
 
   private void setupComboBox() {
@@ -111,9 +135,29 @@ public class GameHeader extends Pane {
 
     if (roomController != null) {
       roomController.getAccessPad().setVisible(false);
-      roomController.getAccessUnlock().setVisible(false);
+      // roomController.getAccessUnlock().setVisible(false);
       roomController.getShredderClueOverlay().setVisible(false);
       roomController.removeLaptopOverlay();
+    }
+
+    if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
+      SuspectRoomController.gameHeader1
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+      SuspectRoomController.gameHeader2
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+      SuspectRoomController.gameHeader3
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
     }
 
     changeScene(selectedScene);
@@ -151,7 +195,16 @@ public class GameHeader extends Pane {
     talkedTo.put(scene, true);
   }
 
+  public Label getTimerLabel() {
+    return timerLabel;
+  }
+
   public void guessingStage(MouseEvent event) throws IOException {
+    if (MenuController.gameTimer != null) {
+      MenuController.gameTimer.getTimerLabel3().setText("00:10");
+      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.setFirstFiveMinutesFalse();
+    }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

@@ -39,4 +39,13 @@ public class Coordinate {
 
     return this;
   }
+
+  public boolean isInsideRectangle(Coordinate topLeft, Coordinate bottomRight) {
+    return x >= topLeft.x && x <= bottomRight.x && y >= topLeft.y && y <= bottomRight.y;
+  }
+
+  @Override
+  public String toString() {
+    return "(" + x + ", " + y + ")";
+  }
 }

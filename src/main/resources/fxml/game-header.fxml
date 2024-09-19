@@ -14,7 +14,19 @@
          </font>
       </Label>
       <ComboBox fx:id="roomComboBox" layoutX="625.0" layoutY="18.0" prefWidth="150.0" promptText="Switch to room..." />
-      <Pane fx:id="timerContainer" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="109.0" />
+      <Pane fx:id="timerContainer" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="109.0">
+         <children>
+            <Label layoutY="-3.0" text="Time:">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="timerLabel" layoutX="57.0" layoutY="-3.0">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+         </children></Pane>
       <Button fx:id="guessBtn" disable="true" layoutX="625.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
    </children>
 </fx:root>
