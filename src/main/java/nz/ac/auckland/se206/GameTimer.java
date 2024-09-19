@@ -16,6 +16,7 @@ public class GameTimer {
   private GameStateContext context;
   private volatile boolean running; // Flag to control the running state
   private boolean firstFiveMinutes = true;
+  private boolean isSuspectChosen = false;
 
   public GameTimer(
       Label timerLabel1, GameStateContext context, GuessingController guessingController) {
@@ -52,12 +53,16 @@ public class GameTimer {
               setTimeRemaining(10);
               setFirstFiveMinutesFalse();
               start();
-            } else if (running && !firstFiveMinutes) {
+            } else if (running && !firstFiveMinutes && !isSuspectChosen) {
               Platform.runLater(() -> context.setState(context.getGameOverState()));
               GameOverController.getFeedbackTextArea().setVisible(false);
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getResultLabel().setVisible(false);
               GameOverController.getTimeUpLabel().setVisible(true);
+              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
+            } else if (running && !firstFiveMinutes && isSuspectChosen) {
+              Platform.runLater(() -> context.setState(context.getGuessingState()));
+              Platform.runLater(() -> GameOverController.showResult());
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
@@ -103,5 +108,9 @@ public class GameTimer {
 
   public Label getTimerLabel3() {
     return timerLabel3;
+  }
+
+  public void setSuspectChosenTrue() {
+    isSuspectChosen = true;
   }
 }

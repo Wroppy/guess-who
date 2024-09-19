@@ -110,6 +110,7 @@ public class GuessingController {
 
   public void choiceCriminal(MouseEvent event) {
     isClicked = true;
+    MenuController.gameTimer.setSuspectChosenTrue();
     Rectangle clickedRectangle = (Rectangle) event.getSource();
 
     selectedRectangle = clickedRectangle;
