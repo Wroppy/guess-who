@@ -243,4 +243,8 @@ public class AccessPadClue extends Pane {
   private void changeLabel() {
     progressLabel.setText("Todo: " + dustingStage.getDescription());
   }
+
+  public Pane getAccessUnlock() {
+    return accessUnlock;
+  }
 }

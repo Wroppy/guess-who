@@ -39,9 +39,10 @@ public class RoomController implements HeaderableController {
   @FXML private Pane headerContainer;
   @FXML private Pane room;
 
-  private Pane accessPad;
+  private AccessPadClue accessPad;
 
   private Pane shredderClueOverlay;
+  private Pane laptopOverlay;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -163,11 +164,9 @@ public class RoomController implements HeaderableController {
 
   @Override
   public void setupHeader(SceneType sceneType) {
-    gameHeader = new GameHeader(sceneType);
+    gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
-
-
 
 
 
@@ -176,8 +175,9 @@ public class RoomController implements HeaderableController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
-    overlay.setLayoutX(140.0);
-    overlay.setLayoutY(247.0);
+    overlay.setLayoutX(0);
+    overlay.setLayoutY(100.0);
+    this.laptopOverlay = (Pane) overlay;
     mainPane.getChildren().add(overlay);
   }
 
@@ -185,6 +185,28 @@ public class RoomController implements HeaderableController {
   private void handleAcessPadClick(MouseEvent event) {
     System.out.println("Hello world");
     accessPad.setVisible(true);
+  }
 
+  public Pane getAccessPad() {
+    return accessPad;
+  }
+
+  public Pane getAccessUnlock() {
+    return accessPad.getAccessUnlock();
+  }
+
+  public Pane getShredderClueOverlay() {
+    return shredderClueOverlay;
+  }
+
+  public Pane getLaptopOverlay() {
+    return laptopOverlay;
+  }
+
+  @FXML
+  public void removeLaptopOverlay() {
+    if (laptopOverlay != null && laptopOverlay.getParent() != null) {
+      ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
+    }
   }
 }
