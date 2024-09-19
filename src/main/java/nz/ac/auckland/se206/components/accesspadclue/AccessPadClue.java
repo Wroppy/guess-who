@@ -208,7 +208,7 @@ public class AccessPadClue extends Pane {
         return;
       }
 
-      keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.001);
+      keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.005);
     } else if (dustingStage == DustingStage.BRUSH) {
       if (currentlySelected != brush) {
         return;
@@ -228,7 +228,7 @@ public class AccessPadClue extends Pane {
         return;
       }
 
-      keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.001);
+      keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.005);
     }
   }
 
@@ -274,6 +274,7 @@ public class AccessPadClue extends Pane {
   public Pane getAccessUnlock() {
     return accessUnlock;
   }
+
   public static boolean isUnlocked() {
     return unlocked;
   }
