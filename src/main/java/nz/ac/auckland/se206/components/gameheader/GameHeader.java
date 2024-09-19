@@ -2,6 +2,9 @@ package nz.ac.auckland.se206.components.gameheader;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
+
+import java.util.HashMap;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -37,6 +40,7 @@ public class GameHeader extends Pane {
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   private RoomController roomController;
+  private Map<String, String> suspectMap = new HashMap<>();
 
   public GameHeader(SceneType sceneType) {
     this(sceneType, null);
@@ -60,6 +64,10 @@ public class GameHeader extends Pane {
   }
 
   public void initialize() {
+    suspectMap.put("Suspect 1", "Dominic Sterling");
+    suspectMap.put("Suspect 2", "Sebastian Kensington");
+    suspectMap.put("Suspect 3", "Alexandra Johnson");
+    suspectMap.put("Crime Scene", "Crime Scene");
     talkedTo.put(SceneType.SUSPECT_1, false);
     talkedTo.put(SceneType.SUSPECT_2, false);
     talkedTo.put(SceneType.SUSPECT_3, false);
@@ -110,7 +118,7 @@ public class GameHeader extends Pane {
         new StringConverter<SceneType>() {
           @Override
           public String toString(SceneType object) {
-            return object.toString();
+            return suspectMap.get(object.toString());
           }
 
           @Override
