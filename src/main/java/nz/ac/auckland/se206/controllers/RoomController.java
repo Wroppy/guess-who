@@ -33,6 +33,8 @@ public class RoomController implements HeaderableController {
   @FXML private Pane paneHover1;
   @FXML private Pane paneHover2;
   @FXML private Pane paneHover3;
+  @FXML private Pane accessUnlock;
+
 
   @FXML private Pane headerContainer;
   @FXML private Pane room;
@@ -44,6 +46,7 @@ public class RoomController implements HeaderableController {
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
+  private static boolean accessClue = false;
 
   private static GameHeader gameHeader;
 
@@ -162,7 +165,6 @@ public class RoomController implements HeaderableController {
     gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
-
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -209,5 +211,9 @@ public class RoomController implements HeaderableController {
     if (laptopOverlay != null && laptopOverlay.getParent() != null) {
       ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
     }
+  }
+
+  public static boolean isAccessClue() {
+    return accessClue;
   }
 }
