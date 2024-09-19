@@ -16,6 +16,7 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
 import nz.ac.auckland.se206.components.shredderclue.ShredderBox;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import javafx.animation.KeyFrame;
@@ -64,7 +65,7 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_3, false);
     setupComboBox();
     Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-      if(talkedTo.get(SceneType.SUSPECT_1) && talkedTo.get(SceneType.SUSPECT_2) && talkedTo.get(SceneType.SUSPECT_3) && (LaptopController.isEmailOpened() || ShredderClueComponent.isPaperClue() || RoomController.isAccessClue())) {
+      if(talkedTo.get(SceneType.SUSPECT_1) && talkedTo.get(SceneType.SUSPECT_2) && talkedTo.get(SceneType.SUSPECT_3) && (LaptopController.isEmailOpened() || ShredderClueComponent.isPaperClue() || AccessPadClue.isUnlocked())) {
         guessBtn.setDisable(false);
       }
     }));
