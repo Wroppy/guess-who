@@ -13,3 +13,11 @@
 #sendMessageButton:hover {
   -fx-background-color: #c8c8c8;
 }
+
+#chatBox {
+  -fx-text-fill: black;
+}
+
+#sendMessageLabel {
+  -fx-text-fill: black;
+}
