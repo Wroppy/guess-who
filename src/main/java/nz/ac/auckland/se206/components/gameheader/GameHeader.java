@@ -112,7 +112,7 @@ public class GameHeader extends Pane {
 
     if (roomController != null) {
       roomController.getAccessPad().setVisible(false);
-      roomController.getAccessUnlock().setVisible(false);
+      // roomController.getAccessUnlock().setVisible(false);
       roomController.getShredderClueOverlay().setVisible(false);
       roomController.removeLaptopOverlay();
     }

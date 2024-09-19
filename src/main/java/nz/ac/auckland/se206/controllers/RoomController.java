@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import nz.ac.auckland.se206.utils.EventCallback;
@@ -30,28 +31,15 @@ public class RoomController implements HeaderableController {
   @FXML private Rectangle rectLaptop;
   @FXML private Rectangle rectShredder;
   @FXML private Button btnGuess;
-  @FXML private Button One;
-  @FXML private Button Two;
-  @FXML private Button Three;
-  @FXML private Button Four;
-  @FXML private Button Five;
-  @FXML private Button Six;
-  @FXML private Button Seven;
-  @FXML private Button Eight;
-  @FXML private Button Nine;
-  @FXML private Label errorMessage;
-  @FXML private Label passcodeDisplay;
+
   @FXML private Pane paneHover1;
   @FXML private Pane paneHover2;
   @FXML private Pane paneHover3;
 
   @FXML private Pane headerContainer;
   @FXML private Pane room;
-  @FXML private Pane accessPad;
-  @FXML private Pane accessUnlock;
 
-  private ArrayList<Integer> passcode = new ArrayList<Integer>();
-  private boolean unlocked = false;
+  private AccessPadClue accessPad;
 
   private Pane shredderClueOverlay;
   private Pane laptopOverlay;
@@ -82,9 +70,15 @@ public class RoomController implements HeaderableController {
     // lblProfession.setText(context.getProfessionToGuess());
 
     addShredderClue();
+    addAccessPadClue();
+  }
 
-    accessPad.setVisible(false);
-    accessUnlock.setVisible(false);
+  private void addAccessPadClue() {
+    accessPad = new AccessPadClue();
+    accessPad.setLayoutX(0);
+    accessPad.setLayoutY(100);
+
+    this.room.getChildren().add(accessPad);
   }
 
   private void addShredderClue() {
@@ -109,7 +103,6 @@ public class RoomController implements HeaderableController {
     shredderClueComponent.setLayoutY(y);
 
     shredderClueOverlay.setVisible(false);
-    accessPad.toFront();
   }
 
   /**
@@ -160,21 +153,8 @@ public class RoomController implements HeaderableController {
     context.handleGuessClick();
   }
 
-  @FXML
-  private void onCloseButtonClick() {
-    accessPad.setVisible(false);
-  }
 
-  @FXML
-  private void handleAcessPadClick() {
-    accessPad.setVisible(true);
-    if (!unlocked) {
-      accessUnlock.setVisible(true);
-      errorMessage.setText("");
-      passcodeDisplay.setText("");
-      passcode.clear();
-    }
-  }
+
 
   @FXML
   private void setHoverHandlers(Rectangle rectangle, Pane hoverPane) {
@@ -188,62 +168,7 @@ public class RoomController implements HeaderableController {
     this.headerContainer.getChildren().add(gameHeader);
   }
 
-  public void getPasscode(ActionEvent event) {
-    if (passcode.size() >= 4) {
-      errorMessage.setText("Enter 4 digits only.");
-      return;
-    } else {
-      errorMessage.setText("");
-    }
-    Button clickedButton = (Button) event.getSource();
-    if (clickedButton == One) {
-      passcode.add(1);
-    } else if (clickedButton == Two) {
-      passcode.add(2);
-    } else if (clickedButton == Three) {
-      passcode.add(3);
-    } else if (clickedButton == Four) {
-      passcode.add(4);
-    } else if (clickedButton == Five) {
-      passcode.add(5);
-    } else if (clickedButton == Six) {
-      passcode.add(6);
-    } else if (clickedButton == Seven) {
-      passcode.add(7);
-    } else if (clickedButton == Eight) {
-      passcode.add(8);
-    } else if (clickedButton == Nine) {
-      passcode.add(9);
-    }
-    passcodeDisplay.setText("");
-    for (int i = 0; i < passcode.size(); i++) {
-      passcodeDisplay.setText(passcodeDisplay.getText() + passcode.get(i));
-    }
-  }
 
-  public void checkPasscode() {
-    if (passcode.size() == 4) {
-      if (passcode.get(0) == 7
-          && passcode.get(1) == 2
-          && passcode.get(2) == 6
-          && passcode.get(3) == 4) {
-        accessUnlock.setVisible(false);
-        unlocked = true;
-      } else {
-        errorMessage.setText("Incorrect. Try again.");
-        passcodeDisplay.setText("");
-        passcode.clear();
-      }
-    } else {
-      errorMessage.setText("Enter 4 digits.");
-    }
-  }
-
-  public void clearPasscode() {
-    passcode.clear();
-    passcodeDisplay.setText("");
-    errorMessage.setText("");
-  }
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
@@ -256,12 +181,18 @@ public class RoomController implements HeaderableController {
     mainPane.getChildren().add(overlay);
   }
 
+  @FXML
+  private void handleAcessPadClick(MouseEvent event) {
+    System.out.println("Hello world");
+    accessPad.setVisible(true);
+  }
+
   public Pane getAccessPad() {
     return accessPad;
   }
 
   public Pane getAccessUnlock() {
-    return accessUnlock;
+    return accessPad.getAccessUnlock();
   }
 
   public Pane getShredderClueOverlay() {

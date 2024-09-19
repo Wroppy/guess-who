@@ -4,4 +4,5 @@ import javafx.event.Event;
 
 public interface EventCallback {
     void run(Event e);
+
 }
