@@ -39,7 +39,7 @@ public class AccessPadClue extends Pane {
   @FXML private Pane progressPane;
 
   private static boolean unlocked = false;
-
+  private final int WIDTH = 137;
   private ImageView currentlySelected;
 
   private DustingStage dustingStage = DustingStage.POWDER;
@@ -87,6 +87,7 @@ public class AccessPadClue extends Pane {
     fingerprint4.setOpacity(0.5);
 
     changeLabel();
+    changeProgressBar(0);
   }
 
   @FXML
@@ -205,12 +206,14 @@ public class AccessPadClue extends Pane {
       if (keypadPowder.getOpacity() >= 1) {
         dustingStage = DustingStage.BRUSH;
         changeLabel(0);
+        changeProgressBar(0);
 
         return;
       }
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() + 0.005);
       changeLabel((int) (keypadPowder.getOpacity() * 100));
+      changeProgressBar((int) (keypadPowder.getOpacity() * 100));
 
       //
     } else if (dustingStage == DustingStage.BRUSH) {
@@ -234,7 +237,12 @@ public class AccessPadClue extends Pane {
 
       keypadPowder.setOpacity(keypadPowder.getOpacity() - 0.005);
       changeLabel((int) ((1 - keypadPowder.getOpacity()) * 100));
+      changeProgressBar((int) ((1 - keypadPowder.getOpacity()) * 100));
     }
+  }
+
+  private void changeProgressBar(int progress) {
+    progressPane.setPrefWidth(WIDTH * progress / 100);
   }
 
   public void showTools() {
