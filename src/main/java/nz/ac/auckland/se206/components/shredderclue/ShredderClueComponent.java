@@ -25,6 +25,8 @@ public class ShredderClueComponent extends Pane {
   @FXML private Label confidentialLabel;
   @FXML private Button closeButton;
 
+  private static boolean paperClue = false;
+
   private EventCallback onClose;
 
   private ShredderBoxIndicator indicator;
@@ -288,6 +290,7 @@ public class ShredderClueComponent extends Pane {
 
   /** Shows the completed message and the confidential label. */
   private void showCompletedMessage() {
+    paperClue = true;
     hideShreddedPieces();
     completedMessage.toFront();
     completedMessage.setVisible(true);
@@ -320,5 +323,9 @@ public class ShredderClueComponent extends Pane {
 
   public void hide() {
     this.setVisible(false);
+  }
+
+  public static boolean isPaperClue() {
+    return paperClue;
   }
 }

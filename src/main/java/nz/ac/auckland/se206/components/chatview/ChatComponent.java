@@ -20,6 +20,7 @@ import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
@@ -33,14 +34,12 @@ public class ChatComponent extends VBox {
 
   @FXML private TextField textInput;
   @FXML private TextArea chatBox;
-
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
 
   public ChatComponent(SceneType sceneType) {
     this.sceneType = sceneType;
     this.loading = false;
-
     try {
       FXMLLoader loader = App.loadFxmlLoader("chat");
 
@@ -107,6 +106,7 @@ public class ChatComponent extends VBox {
 
   /** Sends a message to the GPT model. */
   private void sendMessage() {
+    GameHeader.setTalkedTo(sceneType);
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
       return;

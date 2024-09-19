@@ -15,6 +15,7 @@ public class LaptopController {
   @FXML private Rectangle firingEmail; // pane of the firing email
   @FXML private Pane performanceReport; // pane of the promotion email
   @FXML private Pane firedEmail; // pane of the email 
+  private static boolean emailOpened = false;
 
   public void initialize() throws IOException {
     // // set the visibility of the panes to false
@@ -24,6 +25,7 @@ public class LaptopController {
 
   public void handleRectangleClick(MouseEvent event) {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
+    emailOpened = true;
 
     if(clickedRectangle == performanceEmail) {
       performanceReport.setVisible(true);
@@ -39,5 +41,9 @@ public class LaptopController {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     mainPane.getChildren().remove(mainPane.lookup("#laptop"));
+  }
+
+  public static boolean isEmailOpened() {
+    return emailOpened;
   }
 }

@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.HashMap;
+
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,14 +19,26 @@ import javafx.scene.layout.Pane;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
+import nz.ac.auckland.se206.components.shredderclue.ShredderBox;
+import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+import nz.ac.auckland.se206.controllers.LaptopController;
+import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
+import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
-  @FXML private static Button guessButton;
+  @FXML private Button guessBtn;
+  @FXML public Label timerLabel;
 
   private SceneType currentScene;
+  private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
+
   private RoomController roomController;
   private Map<String, String> suspectMap = new HashMap<>();
 
@@ -54,7 +68,17 @@ public class GameHeader extends Pane {
     suspectMap.put("Suspect 2", "Sebastian Kensington");
     suspectMap.put("Suspect 3", "Alexandra Johnson");
     suspectMap.put("Crime Scene", "Crime Scene");
+    talkedTo.put(SceneType.SUSPECT_1, false);
+    talkedTo.put(SceneType.SUSPECT_2, false);
+    talkedTo.put(SceneType.SUSPECT_3, false);
     setupComboBox();
+    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+      if(talkedTo.get(SceneType.SUSPECT_1) && talkedTo.get(SceneType.SUSPECT_2) && talkedTo.get(SceneType.SUSPECT_3) && (LaptopController.isEmailOpened() || ShredderClueComponent.isPaperClue() || AccessPadClue.isUnlocked())) {
+        guessBtn.setDisable(false);
+      }
+    }));
+    timeline.setCycleCount(Timeline.INDEFINITE);
+    timeline.play();
 
     colourHeader();
   }
@@ -125,6 +149,26 @@ public class GameHeader extends Pane {
       roomController.removeLaptopOverlay();
     }
 
+    if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
+      SuspectRoomController.gameHeader1
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+      SuspectRoomController.gameHeader2
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
+    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+      SuspectRoomController.gameHeader3
+          .getTimerLabel()
+          .setText(
+              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
+    }
+
     changeScene(selectedScene);
   }
 
@@ -155,7 +199,21 @@ public class GameHeader extends Pane {
     changeLabel(sceneType);
   }
 
+  //setter for hashmap
+  public static void setTalkedTo(SceneType scene) {
+    talkedTo.put(scene, true);
+  }
+
+  public Label getTimerLabel() {
+    return timerLabel;
+  }
+
   public void guessingStage(MouseEvent event) throws IOException {
+    if (MenuController.gameTimer != null) {
+      MenuController.gameTimer.getTimerLabel3().setText("00:10");
+      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.setFirstFiveMinutesFalse();
+    }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 }

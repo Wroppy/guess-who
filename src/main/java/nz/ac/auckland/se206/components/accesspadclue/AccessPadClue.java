@@ -37,7 +37,7 @@ public class AccessPadClue extends Pane {
   @FXML private ImageView fingerprint3;
   @FXML private ImageView fingerprint4;
 
-  private boolean unlocked = false;
+  private static boolean unlocked = false;
 
   private ImageView currentlySelected;
 
@@ -273,5 +273,8 @@ public class AccessPadClue extends Pane {
 
   public Pane getAccessUnlock() {
     return accessUnlock;
+  }
+  public static boolean isUnlocked() {
+    return unlocked;
   }
 }
