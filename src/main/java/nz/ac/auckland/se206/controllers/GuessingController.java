@@ -104,6 +104,7 @@ public class GuessingController {
 
     GameOverController.showResult();
 
+    MenuController.gameTimer.stop();
     App.changeScene(SceneType.FEEDBACK);
   }
 
