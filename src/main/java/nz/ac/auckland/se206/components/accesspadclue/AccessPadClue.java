@@ -10,7 +10,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
-import nz.ac.auckland.se206.controllers.RoomController;
 
 public class AccessPadClue extends Pane {
   private ArrayList<Integer> passCode = new ArrayList<Integer>();
@@ -20,7 +19,11 @@ public class AccessPadClue extends Pane {
   @FXML private Pane accessPad;
   @FXML private Pane accessUnlock;
 
+  @FXML private Label progressLabel;
+
   private boolean unlocked = false;
+
+  private DustingStage dustingStage = DustingStage.POWDER;
 
   public AccessPadClue() {
     super();
@@ -78,15 +81,20 @@ public class AccessPadClue extends Pane {
   private void handleAcessPadClick() {
     accessPad.setVisible(true);
     if (!unlocked) {
-    accessUnlock.setVisible(true);
-    errorMessage.setText("");
-    passCodeDisplay.setText("");
-    passCode.clear();
+      accessUnlock.setVisible(true);
+      errorMessage.setText("");
+      passCodeDisplay.setText("");
+      passCode.clear();
     }
   }
 
   @FXML
   private void onCloseButtonClick() {
     this.setVisible(false);
+  }
+
+  public void setStage(DustingStage stage) {
+    this.dustingStage = stage;
+    progressLabel.setText("Progress: " + stage.getDescription());
   }
 }

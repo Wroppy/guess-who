@@ -10,16 +10,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <fx:root fx:id="accessPad" prefHeight="499.0" prefWidth="789.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="118.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="451.0" fitWidth="554.0" layoutX="186.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/access-pad.jpeg" />
          </image>
       </ImageView>
-      <Pane layoutX="180.0" layoutY="103.0" prefHeight="308.0" prefWidth="420.0">
+      <Pane layoutX="248.0" layoutY="103.0" prefHeight="308.0" prefWidth="420.0">
          <children>
             <ImageView fitHeight="308.0" fitWidth="420.0" pickOnBounds="true">
                <image>
@@ -110,18 +109,18 @@
             </Label>
          </children>
       </Pane>
-      <Button layoutX="619.0" layoutY="50.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
-      <Pane fx:id="accessUnlock" layoutX="180.0" layoutY="103.0" prefHeight="314.0" prefWidth="421.0">
+      <Button layoutX="687.0" layoutY="50.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
+      <Pane fx:id="accessUnlock" layoutX="248.0" layoutY="103.0" prefHeight="314.0" prefWidth="421.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
             <TextField fx:id="passCodeDisplay" editable="false" layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
             <Button fx:id="one" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
-            <Button fx:id="two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="2" />
+            <Button fx:id="two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="2" />
             <Button fx:id="three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
             <Button fx:id="four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
             <Button fx:id="five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
-            <Button fx:id="six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="6" />
-            <Button fx:id="seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="7" />
+            <Button fx:id="six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="6" />
+            <Button fx:id="seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="7" />
             <Button fx:id="eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
             <Button fx:id="nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
             <Label layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
@@ -140,7 +139,41 @@
                   <Font size="8.0" />
                </font>
             </Button>
-            <Text layoutX="127.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Using tools, you notice these 3 numbers have been pressed the most. Unlock to look at the access logs." textAlignment="CENTER" wrappingWidth="166.24977032427955" />
+         </children>
+      </Pane>
+      <Pane fx:id="fingerPrintingPane" layoutX="49.0" layoutY="27.0" prefHeight="445.0" prefWidth="137.0">
+         <children>
+            <ImageView fitHeight="445.0" fitWidth="137.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/document/placeholder-board.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="5.0" layoutY="14.0" text="Fingerprinting Tools" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="62.0" text="Dust" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="9.0" layoutY="199.0" prefHeight="1.0" prefWidth="38.0" text="Duster" textFill="WHITE">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="103.0" fitWidth="97.0" layoutX="8.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/finger-print-powder.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="102.0" fitWidth="103.0" layoutX="6.0" layoutY="220.0" pickOnBounds="true" preserveRatio="true" rotate="225.0">
+               <image>
+                  <Image url="@../images/brusher.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="progressLabel" layoutX="7.0" layoutY="34.0" prefHeight="17.0" prefWidth="124.0" text="Progress: Dust prints" textFill="WHITE" />
          </children>
       </Pane>
    </children>
