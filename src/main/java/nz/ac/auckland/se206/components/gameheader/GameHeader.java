@@ -34,6 +34,7 @@ public class GameHeader extends Pane {
   public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
     this.roomController = roomController;
+    currentScene = sceneType;
 
     try {
       FXMLLoader loader = App.loadFxmlLoader("game-header");
@@ -41,7 +42,6 @@ public class GameHeader extends Pane {
       loader.setController(this);
       loader.load();
 
-      currentScene = sceneType;
       changeLabel(sceneType);
     } catch (IOException e) {
       e.printStackTrace();
@@ -50,6 +50,27 @@ public class GameHeader extends Pane {
 
   public void initialize() {
     setupComboBox();
+
+    colourHeader();
+  }
+
+  private void colourHeader() {
+    switch (currentScene) {
+      case CRIME:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #cee3ec, #7c9fb0);");
+        break;
+      case SUSPECT_1:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #cdc2a4, #313130);");
+        break;
+      case SUSPECT_2:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #ead8c1, #483223);");
+        break;
+      case SUSPECT_3:
+        this.setStyle("-fx-background-color: linear-gradient(to right, #dab576, #503218);");
+        break;
+      default:
+        break;
+    }
   }
 
   private void setupComboBox() {
@@ -94,7 +115,7 @@ public class GameHeader extends Pane {
 
     if (roomController != null) {
       roomController.getAccessPad().setVisible(false);
-      roomController.getAccessUnlock().setVisible(false);
+      // roomController.getAccessUnlock().setVisible(false);
       roomController.getShredderClueOverlay().setVisible(false);
       roomController.removeLaptopOverlay();
     }
