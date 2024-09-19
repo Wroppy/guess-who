@@ -15,13 +15,13 @@
             <Font size="48.0" />
          </font>
       </Text>
-      <Text fx:id="feedback" fill="WHITE" layoutX="105.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:">
+      <Text fx:id="feedback" fill="WHITE" layoutX="105.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="105.0" layoutY="270.0" prefHeight="238.0" prefWidth="580.0" />
-      <Button fx:id="playAgain" layoutX="335.0" layoutY="524.0" mnemonicParsing="false" text="Play Again">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="105.0" layoutY="231.0" prefHeight="238.0" prefWidth="580.0" />
+      <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false" text="Play Again">
          <font>
             <Font size="20.0" />
          </font>
