@@ -79,6 +79,8 @@ public class AccessPadClue extends Pane {
     fingerprint2.setOpacity(0.5);
     fingerprint3.setOpacity(0.5);
     fingerprint4.setOpacity(0.5);
+
+    changeLabel();
   }
 
   @FXML
@@ -135,7 +137,7 @@ public class AccessPadClue extends Pane {
 
   public void setStage(DustingStage stage) {
     this.dustingStage = stage;
-    progressLabel.setText("Progress: " + stage.getDescription());
+    changeLabel();
   }
 
   private void setDraggable(Node node, EventCallback onMouseClick, EventCallback onMouseRelease) {
@@ -190,8 +192,6 @@ public class AccessPadClue extends Pane {
         return;
       }
 
-      System.out.println("IN KEYPAD");
-
       if (currentlySelected != dust) {
         return;
       }
@@ -241,6 +241,6 @@ public class AccessPadClue extends Pane {
   }
 
   private void changeLabel() {
-    progressLabel.setText("Progress: " + dustingStage.getDescription());
+    progressLabel.setText("Todo: " + dustingStage.getDescription());
   }
 }
