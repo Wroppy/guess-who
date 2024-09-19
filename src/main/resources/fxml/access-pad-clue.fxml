@@ -114,17 +114,17 @@
       <Pane fx:id="accessUnlock" layoutX="180.0" layoutY="103.0" prefHeight="314.0" prefWidth="421.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />
-            <TextField layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
-            <Button fx:id="One" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
-            <Button fx:id="Two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="2" />
-            <Button fx:id="Three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
-            <Button fx:id="Four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
-            <Button fx:id="Five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
-            <Button fx:id="Six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="6" />
-            <Button fx:id="Seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="7" />
-            <Button fx:id="Eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
-            <Button fx:id="Nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
-            <Label fx:id="passcodeDisplay" layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
+            <TextField fx:id="passCodeDisplay" editable="false" layoutX="125.0" layoutY="71.0" prefHeight="26.0" prefWidth="168.0" />
+            <Button fx:id="one" layoutX="125.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="1" />
+            <Button fx:id="two" layoutX="187.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="2" />
+            <Button fx:id="three" layoutX="247.0" layoutY="103.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="3" />
+            <Button fx:id="four" layoutX="124.0" layoutY="140.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="4" />
+            <Button fx:id="five" layoutX="187.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="5" />
+            <Button fx:id="six" layoutX="247.0" layoutY="141.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="6" />
+            <Button fx:id="seven" layoutX="124.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" style="-fx-background-color: red;" text="7" />
+            <Button fx:id="eight" layoutX="187.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="8" />
+            <Button fx:id="nine" layoutX="247.0" layoutY="184.0" mnemonicParsing="false" onAction="#getPasscode" prefHeight="26.0" prefWidth="46.0" text="9" />
+            <Label layoutX="131.0" layoutY="77.0" prefHeight="17.0" prefWidth="51.0" />
             <Label fx:id="errorMessage" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="190.0" layoutY="75.0" prefHeight="17.0" prefWidth="97.0" textAlignment="RIGHT" textFill="RED">
                <font>
                   <Font size="10.0" />

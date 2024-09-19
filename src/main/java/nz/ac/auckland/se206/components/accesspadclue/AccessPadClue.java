@@ -7,16 +7,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.controllers.RoomController;
 
 public class AccessPadClue extends Pane {
   private ArrayList<Integer> passCode = new ArrayList<Integer>();
 
   @FXML private Label errorMessage;
-  @FXML private Label passCodeDisplay;
+  @FXML private TextField passCodeDisplay;
   @FXML private Pane accessPad;
   @FXML private Pane accessUnlock;
+
+  private boolean unlocked = false;
 
   public AccessPadClue() {
     super();
@@ -27,7 +31,6 @@ public class AccessPadClue extends Pane {
       loader.setController(this);
       loader.load();
 
-      
     } catch (IOException e) {
       e.printStackTrace();
     }
@@ -43,43 +46,24 @@ public class AccessPadClue extends Pane {
   }
 
   public void getPasscode(ActionEvent event) {
-  //   if (passcode.size() >= 3) {
-  //     errorMessage.setText("Enter 3 digits only.");
-  //     return;
-  //   } else {
-  //     errorMessage.setText("");
-  //   }
-  //   Button clickedButton = (Button) event.getSource();
-  //   if (clickedButton == One) {
-  //     passcode.add(1);
-  //   } else if (clickedButton == Two) {
-  //     passcode.add(2);
-  //   } else if (clickedButton == Three) {
-  //     passcode.add(3);
-  //   } else if (clickedButton == Four) {
-  //     passcode.add(4);
-  //   } else if (clickedButton == Five) {
-  //     passcode.add(5);
-  //   } else if (clickedButton == Six) {
-  //     passcode.add(6);
-  //   } else if (clickedButton == Seven) {
-  //     passcode.add(7);
-  //   } else if (clickedButton == Eight) {
-  //     passcode.add(8);
-  //   } else if (clickedButton == Nine) {
-  //     passcode.add(9);
-  //   }
-  //   passcodeDisplay.setText("");
-  //   for (int i = 0; i < passcode.size(); i++) {
-  //     passcodeDisplay.setText(passcodeDisplay.getText() + passcode.get(i));
-  //   }
+    if (passCode.size() >= 3) {
+      errorMessage.setText("Enter 3 digits only.");
+      return;
+    }
+    errorMessage.setText("");
+    Button clickedButton = (Button) event.getSource();
+
+    String buttonText = clickedButton.getText().toLowerCase();
+
+    passCodeDisplay.appendText(buttonText);
+    passCode.add(Integer.parseInt(buttonText));
   }
 
   public void checkPasscode() {
     if (passCode.size() == 3) {
       if (passCode.get(0) == 7 && passCode.get(1) == 2 && passCode.get(2) == 6) {
         accessUnlock.setVisible(false);
-        // unlocked = true;
+        unlocked = true;
       } else {
         errorMessage.setText("Incorrect. Try again.");
         passCodeDisplay.setText("");
@@ -93,17 +77,16 @@ public class AccessPadClue extends Pane {
   @FXML
   private void handleAcessPadClick() {
     accessPad.setVisible(true);
-    // if (!unlocked) {
-      // accessUnlock.setVisible(true);
-      // errorMessage.setText("");
-      // passCodeDisplay.setText("");
-      // passCode.clear();
-    // }
+    if (!unlocked) {
+    accessUnlock.setVisible(true);
+    errorMessage.setText("");
+    passCodeDisplay.setText("");
+    passCode.clear();
+    }
   }
 
   @FXML
   private void onCloseButtonClick() {
     this.setVisible(false);
   }
-
 }
