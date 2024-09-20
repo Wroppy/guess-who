@@ -123,6 +123,17 @@ public class GuessingController {
     App.changeScene(SceneType.FEEDBACK);
   }
 
+  public void timeUpExplanation() {
+    explanation = explaintxt.getText().trim();
+    if (explanation.isEmpty()) {
+      return;
+    }
+    ChatMessage msg = new ChatMessage("user", explanation);
+
+    setupGpt();
+    runGpt(msg);
+  }
+
   public void choiceCriminal(MouseEvent event) {
     isClicked = true;
     MenuController.gameTimer.setSuspectChosenTrue();
