@@ -200,7 +200,7 @@ public class ChatComponent extends VBox {
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
-              .setMaxTokens(100);
+              .setMaxTokens(200);
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();

@@ -28,5 +28,6 @@
             </Label>
          </children></Pane>
       <Button fx:id="guessBtn" disable="true" layoutX="625.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
+      <Button fx:id="informationBtn" layoutX="597.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
    </children>
 </fx:root>

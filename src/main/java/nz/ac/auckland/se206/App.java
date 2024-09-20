@@ -225,6 +225,8 @@ public class App extends Application {
 
       gameOverController.setOnRestart(() -> restartGame());
 
+      root = loadFxml("proccessing-submission");
+      SceneManager.addScene(SceneType.PROCESSING_SUBMISSION, root);
     } catch (IOException e) {
       e.printStackTrace();
     }

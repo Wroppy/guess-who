@@ -13,7 +13,8 @@ public class SceneManager {
     SUSPECT_3("Suspect 3"),
     PLAYER_EXPLANATION("Player Explanation"),
 
-    FEEDBACK("Player Feedback");
+    FEEDBACK("Player Feedback"), 
+    PROCESSING_SUBMISSION("Processing Submission");
 
     private String name;
 
