@@ -18,6 +18,12 @@ import nz.ac.auckland.se206.utils.CoordinateCallback;
 import nz.ac.auckland.se206.utils.EventCallback;
 
 public class AccessPadClue extends Pane {
+  private static boolean unlocked = false;
+
+  public static boolean isUnlocked() {
+    return unlocked;
+  }
+
   private ArrayList<Integer> passCode = new ArrayList<Integer>();
 
   @FXML private Label errorMessage;
@@ -38,8 +44,7 @@ public class AccessPadClue extends Pane {
   @FXML private ImageView fingerprint4;
   @FXML private Pane progressPane;
 
-  private static boolean unlocked = false;
-  private final int WIDTH = 137;
+  private final int width = 137;
   private ImageView currentlySelected;
 
   private DustingStage dustingStage = DustingStage.POWDER;
@@ -99,26 +104,32 @@ public class AccessPadClue extends Pane {
   }
 
   public void getPasscode(ActionEvent event) {
+    // Check if the passcode is correct
     if (passCode.size() >= 3) {
       errorMessage.setText("Enter 3 digits only.");
       return;
     }
+    // Check if the passcode is correct
     errorMessage.setText("");
     Button clickedButton = (Button) event.getSource();
 
     String buttonText = clickedButton.getText().toLowerCase();
 
+    // Append the text to the passcode display
     passCodeDisplay.appendText(buttonText);
     passCode.add(Integer.parseInt(buttonText));
   }
 
   public void checkPasscode() {
+    // Check if the passcode is correct
     if (passCode.size() == 3) {
+      // Check if the passcode is correct
       if (passCode.get(0) == 7 && passCode.get(1) == 2 && passCode.get(2) == 6) {
         accessUnlock.setVisible(false);
         unlocked = true;
         hideTools();
       } else {
+        // Incorrect passcode
         errorMessage.setText("Incorrect. Try again.");
         passCodeDisplay.setText("");
         passCode.clear();
@@ -243,7 +254,7 @@ public class AccessPadClue extends Pane {
   }
 
   private void changeProgressBar(int progress) {
-    progressPane.setPrefWidth(WIDTH * progress / 100);
+    progressPane.setPrefWidth(width * progress / 100);
   }
 
   public void showTools() {
@@ -291,9 +302,5 @@ public class AccessPadClue extends Pane {
 
   public Pane getAccessUnlock() {
     return accessUnlock;
-  }
-
-  public static boolean isUnlocked() {
-    return unlocked;
   }
 }

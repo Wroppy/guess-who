@@ -1,11 +1,7 @@
 package nz.ac.auckland.se206.states;
 
 import java.io.IOException;
-
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.GameStateContext;
 
 /**
@@ -34,9 +30,7 @@ public class GameStarted implements GameState {
    * @throws IOException if there is an I/O error
    */
   @Override
-  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {
-    
-  }
+  public void handleRectangleClick(MouseEvent event, String rectangleId) throws IOException {}
 
   /**
    * Handles the event when the guess button is clicked. Prompts the player to make a guess and

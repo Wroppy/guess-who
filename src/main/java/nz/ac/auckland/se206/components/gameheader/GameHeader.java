@@ -28,14 +28,20 @@ import nz.ac.auckland.se206.controllers.RoomController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
 public class GameHeader extends Pane {
+  private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
+
+  // setter for hashmap
+  public static void setTalkedTo(SceneType scene) {
+    talkedTo.put(scene, true);
+  }
+
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessBtn;
   @FXML private Button informationBtn;
-  @FXML public Label timerLabel;
+  @FXML private Label timerLabel;
 
   private SceneType currentScene;
-  private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   private RoomController roomController;
   private Map<String, String> suspectMap = new HashMap<>();
@@ -62,6 +68,7 @@ public class GameHeader extends Pane {
   }
 
   public void initialize() {
+    // Add the suspects to the hashmap
     suspectMap.put("Suspect 1", "Dominic Sterling");
     suspectMap.put("Suspect 2", "Sebastian Kensington");
     suspectMap.put("Suspect 3", "Alexandra Johnson");
@@ -69,10 +76,13 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_1, false);
     talkedTo.put(SceneType.SUSPECT_2, false);
     talkedTo.put(SceneType.SUSPECT_3, false);
+
+    // Set up the combo box
     setupComboBox();
     Timeline timeline =
         new Timeline(
             new KeyFrame(
+                // Check if all suspects have been talked to and if the player has found a clue
                 Duration.seconds(1),
                 event -> {
                   if (talkedTo.get(SceneType.SUSPECT_1)
@@ -85,6 +95,8 @@ public class GameHeader extends Pane {
                     informationBtn.setVisible(false);
                   }
                 }));
+
+    // Set the cycle count to indefinite
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
 
@@ -152,7 +164,6 @@ public class GameHeader extends Pane {
 
     if (roomController != null) {
       roomController.getAccessPad().setVisible(false);
-      // roomController.getAccessUnlock().setVisible(false);
       roomController.getShredderClueOverlay().setVisible(false);
       roomController.removeLaptopOverlay();
     }
@@ -205,11 +216,6 @@ public class GameHeader extends Pane {
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
-  }
-
-  // setter for hashmap
-  public static void setTalkedTo(SceneType scene) {
-    talkedTo.put(scene, true);
   }
 
   public Label getTimerLabel() {

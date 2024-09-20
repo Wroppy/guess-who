@@ -14,6 +14,4 @@ public enum DustingStage {
   public String getDescription() {
     return description;
   }
-
-  
 }

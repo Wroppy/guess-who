@@ -1,51 +1,54 @@
 package nz.ac.auckland.se206.components.shredderclue;
 
 public class Coordinate {
-  private double x;
-  private double y;
+  private double xPos;
+  private double yPos;
 
   public Coordinate(double x, double y) {
-    this.x = x;
-    this.y = y;
+    this.xPos = x;
+    this.yPos = y;
   }
 
   /**
    * Get the distance between this coordinate and another.
-   * 
+   *
    * @param other The other coordinate
    * @return The distance between the two coordinates
    */
   public double getDistance(Coordinate other) {
-    return Math.sqrt(Math.pow(x - other.x, 2) + Math.pow(y - other.y, 2));
+    return Math.sqrt(Math.pow(xPos - other.xPos, 2) + Math.pow(yPos - other.yPos, 2));
   }
 
-  public double getX() {
-    return x;
+  public double getxPos() {
+    return xPos;
   }
 
-  public double getY() {
-    return y;
+  public double getyPos() {
+    return yPos;
   }
 
   /**
    * Add another coordinate to this one.
-   * 
+   *
    * @param other The other coordinate
    * @return The resulting coordinate
    */
   public Coordinate subtract(Coordinate other) {
-    x -= other.x;
-    y -= other.y;
+    xPos -= other.xPos;
+    yPos -= other.yPos;
 
     return this;
   }
 
   public boolean isInsideRectangle(Coordinate topLeft, Coordinate bottomRight) {
-    return x >= topLeft.x && x <= bottomRight.x && y >= topLeft.y && y <= bottomRight.y;
+    return xPos >= topLeft.xPos
+        && xPos <= bottomRight.xPos
+        && yPos >= topLeft.yPos
+        && yPos <= bottomRight.yPos;
   }
 
   @Override
   public String toString() {
-    return "(" + x + ", " + y + ")";
+    return "(" + xPos + ", " + yPos + ")";
   }
 }

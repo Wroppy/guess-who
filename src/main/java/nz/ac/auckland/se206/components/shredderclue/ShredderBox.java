@@ -24,7 +24,7 @@ public class ShredderBox extends Rectangle implements Positionable {
 
     this.center = new Coordinate(x, y);
 
-    System.out.println("Center: " + this.center.getX() + ", " + this.center.getY());
+    System.out.println("Center: " + this.center.getxPos() + ", " + this.center.getyPos());
   }
 
   @Override

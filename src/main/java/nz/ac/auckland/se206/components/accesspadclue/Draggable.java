@@ -7,7 +7,8 @@ import nz.ac.auckland.se206.utils.CoordinateCallback;
 import nz.ac.auckland.se206.utils.EventCallback;
 
 public class Draggable {
-  private double orgSceneX, orgSceneY;
+  private double orgSceneX;
+  private double orgSceneY;
 
   public Draggable(
       Node node,
@@ -40,8 +41,8 @@ public class Draggable {
     node.setOnMouseReleased(
         e -> {
           // Send the node back to the anchor point
-          node.setLayoutX(anchorPoint.getX());
-          node.setLayoutY(anchorPoint.getY());
+          node.setLayoutX(anchorPoint.getxPos());
+          node.setLayoutY(anchorPoint.getyPos());
 
           Platform.runLater(() -> onMouseRelease.run(e));
         });

@@ -3,6 +3,5 @@ package nz.ac.auckland.se206.utils;
 import javafx.event.Event;
 
 public interface EventCallback {
-    void run(Event e);
-
+  void run(Event e);
 }

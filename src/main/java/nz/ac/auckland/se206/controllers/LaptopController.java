@@ -10,11 +10,20 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class LaptopController {
+  private static boolean emailOpened = false;
+
+  public static boolean isEmailOpened() {
+    return emailOpened;
+  }
+
+  public static void restart() {
+    emailOpened = false;
+  }
+
   @FXML private Rectangle performanceEmail; // pane of the perfomance email
   @FXML private Rectangle firingEmail; // pane of the firing email
   @FXML private Pane performanceReport; // pane of the promotion email
   @FXML private Pane firedEmail; // pane of the email
-  private static boolean emailOpened = false;
 
   public void initialize() throws IOException {
     // // set the visibility of the panes to false
@@ -23,9 +32,11 @@ public class LaptopController {
   }
 
   public void handleRectangleClick(MouseEvent event) {
+    // get the rectangle that was clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     emailOpened = true;
 
+    // set the visibility of the panes based on the clicked rectangle
     if (clickedRectangle == performanceEmail) {
       performanceReport.setVisible(true);
       firedEmail.setVisible(false);
@@ -37,17 +48,9 @@ public class LaptopController {
   }
 
   @FXML
-  private void closeLaptop(ActionEvent event) {
+  private void onCloseLaptop(ActionEvent event) {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     mainPane.getChildren().remove(mainPane.lookup("#laptop"));
-  }
-
-  public static boolean isEmailOpened() {
-    return emailOpened;
-  }
-
-  public static void restart() {
-    emailOpened = false;
   }
 }

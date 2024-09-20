@@ -1,29 +1,17 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.event.ActionEvent;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import nz.ac.auckland.se206.utils.CallBack;
-import javafx.util.Duration;
 import nz.ac.auckland.se206.SoundManager;
+import nz.ac.auckland.se206.utils.CallBack;
 
 public class GameOverController implements Restartable {
-  @FXML private Label result;
-  @FXML private TextArea feedbacktxt;
-  @FXML private Text feedback;
-  @FXML private Button playAgain;
-  @FXML private ImageView showCat;
-  @FXML private ImageView showCat2;
-  @FXML private Label timeUp;
-
   private static ImageView catImage;
   private static ImageView catImage2;
   private static Label resultLabel;
@@ -33,19 +21,20 @@ public class GameOverController implements Restartable {
 
   private static Label timeUpLabel;
 
-  private CallBack onRestart;
+  public static Text getFeedbackLabel() {
+    return feedbackLabel;
+  }
 
-  public void initialize() {
-    GameOverController.resultLabel = result;
-    GameOverController.feedbackLabel = feedback;
-    GameOverController.feedbackTextArea = feedbacktxt;
-    GameOverController.playAgainButton = playAgain;
-    showCat.setVisible(false);
-    showCat2.setVisible(false);
-    GameOverController.catImage = showCat;
-    GameOverController.catImage2 = showCat2;
+  public static TextArea getFeedbackTextArea() {
+    return feedbackTextArea;
+  }
 
-    GameOverController.timeUpLabel = timeUp;
+  public static Label getResultLabel() {
+    return resultLabel;
+  }
+
+  public static Label getTimeUpLabel() {
+    return timeUpLabel;
   }
 
   public static void showResult() {
@@ -64,8 +53,9 @@ public class GameOverController implements Restartable {
       GameOverController.feedbackLabel.setVisible(true);
 
       SoundManager.playSound("GuessCorrect.mp3");
-      // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
+
+      // Hide the feedback text area and label
       GameOverController.resultLabel.setText("Incorrect Choice!");
       GameOverController.resultLabel.setFont(Font.font("System", 28));
       GameOverController.resultLabel.setLayoutY(250);
@@ -73,36 +63,48 @@ public class GameOverController implements Restartable {
       GameOverController.feedbackLabel.setVisible(false);
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
-        
+
+      // Show the cat images
       GameOverController.catImage.setVisible(true);
       GameOverController.catImage2.setVisible(true);
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
 
+      // Play the incorrect sound
       SoundManager.playSound("GuessIncorrect.mp3");
     }
     GameOverController.timeUpLabel.setVisible(false);
   }
 
-  public static Text getFeedbackLabel() {
-    return feedbackLabel;
-  }
+  @FXML private Label result;
+  @FXML private TextArea feedbacktxt;
+  @FXML private Text feedback;
+  @FXML private Button playAgain;
+  @FXML private ImageView showCat;
+  @FXML private ImageView showCat2;
+  @FXML private Label timeUp;
 
-  public static TextArea getFeedbackTextArea() {
-    return feedbackTextArea;
-  }
+  private CallBack onRestart;
 
-  public static Label getResultLabel() {
-    return resultLabel;
-  }
+  public void initialize() {
+    // Set the static variables
+    GameOverController.resultLabel = result;
+    GameOverController.feedbackLabel = feedback;
+    GameOverController.feedbackTextArea = feedbacktxt;
+    GameOverController.playAgainButton = playAgain;
+    showCat.setVisible(false);
+    showCat2.setVisible(false);
 
-  public static Label getTimeUpLabel() {
-    return timeUpLabel;
+    // Set the static variables
+    GameOverController.catImage = showCat;
+    GameOverController.catImage2 = showCat2;
+
+    GameOverController.timeUpLabel = timeUp;
   }
 
   @FXML
-  private void handlePlayAgain(ActionEvent event) {
+  private void onPlayAgainClicked(ActionEvent event) {
     if (onRestart != null) {
       onRestart.call();
     }

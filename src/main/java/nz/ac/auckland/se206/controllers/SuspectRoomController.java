@@ -9,13 +9,13 @@ import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 
 public class SuspectRoomController implements HeaderableController, Restartable {
-  @FXML private Pane headerContainer;
-  @FXML private Pane chatContainer;
-  @FXML private ImageView imageContainer;
-
   public static GameHeader gameHeader1;
   public static GameHeader gameHeader2;
   public static GameHeader gameHeader3;
+
+  @FXML private Pane headerContainer;
+  @FXML private Pane chatContainer;
+  @FXML private ImageView imageContainer;
 
   private ChatComponent chatComponent;
 
@@ -37,7 +37,10 @@ public class SuspectRoomController implements HeaderableController, Restartable 
     chatContainer.getChildren().add(chatComponent);
   }
 
+  // Sets up the image for the room
   public void setupImage(String imagePath) {
+
+    // Sets up the image for the room with the correct dimensions
     Image image = new Image(getClass().getResourceAsStream(imagePath));
     imageContainer.setImage(image);
     if (imagePath == "/images/bob_bar.png") {
@@ -64,31 +67,29 @@ public class SuspectRoomController implements HeaderableController, Restartable 
       gameHeader3 = new GameHeader(sceneType);
       this.headerContainer.getChildren().add(gameHeader3);
     }
-    // GameHeader gameHeader = new GameHeader(sceneType);
-    // this.headerContainer.getChildren().add(gameHeader);
   }
 
   @Override
   public void restart() {
+    // Restarts the chat component
     chatComponent.restart();
 
+    // Restarts the game header
     if (gameHeader1 != null) {
       System.out.println("Restarting gameHeader1");
       gameHeader1.restartTalkedTo();
     }
 
+    // Restarts the game header
     if (gameHeader2 != null) {
       System.out.println("Restarting gameHeader2");
       gameHeader2.restartTalkedTo();
     }
 
+    // Restarts the game header
     if (gameHeader3 != null) {
       System.out.println("Restarting gameHeader3");
       gameHeader3.restartTalkedTo();
     }
   }
-
-  // public static GameHeader getGameHeader() {
-  // return gameHeader;
-  // }
 }

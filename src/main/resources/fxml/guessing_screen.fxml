@@ -53,9 +53,9 @@
             <Image url="@../images/fileClerk-PFP.png" />
          </image>
       </ImageView>
-      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
-      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
-      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
+      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
+      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
+      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
       <Line endX="188.27825927734375" layoutX="371.0" layoutY="97.0" startX="-141.5838623046875" stroke="#f2f2f2" />
       <TextArea fx:id="explaintxt" layoutX="188.0" layoutY="381.0" prefHeight="141.0" prefWidth="412.0" wrapText="true" />
       <Button fx:id="submitBtn" layoutX="355.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="39.0" prefWidth="75.0" text="Submit" />

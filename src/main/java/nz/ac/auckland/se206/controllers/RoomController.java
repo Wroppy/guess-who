@@ -25,6 +25,23 @@ import nz.ac.auckland.se206.utils.EventCallback;
  * chat with customers and guess their profession.
  */
 public class RoomController implements HeaderableController, Restartable {
+  private static boolean isFirstTimeInit = true;
+  private static GameStateContext context = new GameStateContext();
+  private static boolean accessClue = false;
+
+  private static GameHeader gameHeader;
+
+  public static GameStateContext getContext() {
+    return context;
+  }
+
+  public static GameHeader getGameHeader() {
+    return gameHeader;
+  }
+
+  public static boolean isAccessClue() {
+    return accessClue;
+  }
 
   @FXML private Rectangle rectAccess;
   @FXML private Rectangle rectLaptop;
@@ -47,12 +64,6 @@ public class RoomController implements HeaderableController, Restartable {
   private boolean firstAccessPadClue = true;
   private boolean firstLaptopClue = true;
 
-  private static boolean isFirstTimeInit = true;
-  private static GameStateContext context = new GameStateContext();
-  private static boolean accessClue = false;
-
-  private static GameHeader gameHeader;
-
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
@@ -70,8 +81,6 @@ public class RoomController implements HeaderableController, Restartable {
     setHoverHandlers(rectAccess, paneHover1);
     setHoverHandlers(rectLaptop, paneHover2);
     setHoverHandlers(rectShredder, paneHover3);
-
-    // lblProfession.setText(context.getProfessionToGuess());
 
     addShredderClue();
     addAccessPadClue();
@@ -196,16 +205,7 @@ public class RoomController implements HeaderableController, Restartable {
       firstAccessPadClue = false;
     }
 
-    // System.out.println("Hello world");
     accessPad.setVisible(true);
-  }
-
-  public static GameStateContext getContext() {
-    return context;
-  }
-
-  public static GameHeader getGameHeader() {
-    return gameHeader;
   }
 
   public Pane getAccessPad() {
@@ -229,10 +229,6 @@ public class RoomController implements HeaderableController, Restartable {
     if (laptopOverlay != null && laptopOverlay.getParent() != null) {
       ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
     }
-  }
-
-  public static boolean isAccessClue() {
-    return accessClue;
   }
 
   @Override
