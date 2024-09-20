@@ -3,9 +3,8 @@ package nz.ac.auckland.se206.components.gameheader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
-import java.util.HashMap;
-
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,15 +15,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.SoundManager;
 import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
-import nz.ac.auckland.se206.components.shredderclue.ShredderBox;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.util.Duration;
 import nz.ac.auckland.se206.controllers.LaptopController;
 import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
@@ -34,6 +31,7 @@ public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessBtn;
+  @FXML private Button informationBtn;
   @FXML public Label timerLabel;
 
   private SceneType currentScene;
@@ -72,11 +70,21 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_2, false);
     talkedTo.put(SceneType.SUSPECT_3, false);
     setupComboBox();
-    Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
-      if(talkedTo.get(SceneType.SUSPECT_1) && talkedTo.get(SceneType.SUSPECT_2) && talkedTo.get(SceneType.SUSPECT_3) && (LaptopController.isEmailOpened() || ShredderClueComponent.isPaperClue() || AccessPadClue.isUnlocked())) {
-        guessBtn.setDisable(false);
-      }
-    }));
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                Duration.seconds(1),
+                event -> {
+                  if (talkedTo.get(SceneType.SUSPECT_1)
+                      && talkedTo.get(SceneType.SUSPECT_2)
+                      && talkedTo.get(SceneType.SUSPECT_3)
+                      && (LaptopController.isEmailOpened()
+                          || ShredderClueComponent.isPaperClue()
+                          || AccessPadClue.isUnlocked())) {
+                    guessBtn.setDisable(false);
+                    informationBtn.setDisable(true);
+                  }
+                }));
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
 
@@ -199,7 +207,7 @@ public class GameHeader extends Pane {
     changeLabel(sceneType);
   }
 
-  //setter for hashmap
+  // setter for hashmap
   public static void setTalkedTo(SceneType scene) {
     talkedTo.put(scene, true);
   }
@@ -215,5 +223,9 @@ public class GameHeader extends Pane {
       MenuController.gameTimer.setFirstFiveMinutesFalse();
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
+  }
+
+  public void giveInformation(MouseEvent event) throws IOException {
+    SoundManager.playSound("Interact.mp3");
   }
 }
