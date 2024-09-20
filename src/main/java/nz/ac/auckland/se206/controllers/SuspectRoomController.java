@@ -17,6 +17,8 @@ public class SuspectRoomController implements HeaderableController, Restartable 
   public static GameHeader gameHeader2;
   public static GameHeader gameHeader3;
 
+  private ChatComponent chatComponent;
+
   public void initialize() {}
 
   public void setupRoom(SceneType sceneType) {
@@ -31,17 +33,17 @@ public class SuspectRoomController implements HeaderableController, Restartable 
     }
 
     // Adds the chat box
-    ChatComponent chatComponent = new ChatComponent(sceneType);
+    chatComponent = new ChatComponent(sceneType);
     chatContainer.getChildren().add(chatComponent);
   }
 
   public void setupImage(String imagePath) {
     Image image = new Image(getClass().getResourceAsStream(imagePath));
     imageContainer.setImage(image);
-    if(imagePath == "/images/bob_bar.png") {
+    if (imagePath == "/images/bob_bar.png") {
       imageContainer.setFitWidth(840);
       imageContainer.setFitHeight(499);
-    } else if(imagePath == "/images/VP.png") {
+    } else if (imagePath == "/images/VP.png") {
       imageContainer.setFitWidth(750);
       imageContainer.setFitHeight(499);
     } else {
@@ -68,8 +70,7 @@ public class SuspectRoomController implements HeaderableController, Restartable 
 
   @Override
   public void restart() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'restart'");
+    chatComponent.restart();
   }
 
   // public static GameHeader getGameHeader() {

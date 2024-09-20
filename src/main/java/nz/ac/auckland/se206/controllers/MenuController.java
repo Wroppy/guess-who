@@ -38,7 +38,6 @@ public class MenuController implements Restartable {
 
   @Override
   public void restart() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'restart'");
+    gameTimer = null;
   }
 }

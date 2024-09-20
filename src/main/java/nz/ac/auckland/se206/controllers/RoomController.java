@@ -178,7 +178,6 @@ public class RoomController implements HeaderableController, Restartable {
 
   @FXML
   private void handleAcessPadClick(MouseEvent event) {
-    System.out.println("Hello world");
     accessPad.setVisible(true);
   }
 
@@ -219,7 +218,12 @@ public class RoomController implements HeaderableController, Restartable {
 
   @Override
   public void restart() {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'restart'");
+    // Recreates the access pad clue
+    this.room.getChildren().remove(accessPad);
+    addAccessPadClue();
+
+    // Recreates the shredder clue overlay
+    this.room.getChildren().remove(shredderClueOverlay);
+    addShredderClue();
   }
 }
