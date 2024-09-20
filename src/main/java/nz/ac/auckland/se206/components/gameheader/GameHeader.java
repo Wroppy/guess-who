@@ -236,6 +236,7 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_2, false);
     talkedTo.put(SceneType.SUSPECT_3, false);
 
+    informationBtn.setVisible(true);
     guessBtn.setDisable(true);
   }
 

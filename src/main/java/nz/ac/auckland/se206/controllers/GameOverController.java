@@ -8,7 +8,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
-import nz.ac.auckland.se206.SoundManager;
 import nz.ac.auckland.se206.utils.CallBack;
 
 public class GameOverController implements Restartable {
@@ -52,7 +51,6 @@ public class GameOverController implements Restartable {
       GameOverController.feedbackTextArea.setVisible(true);
       GameOverController.feedbackLabel.setVisible(true);
 
-      SoundManager.playSound("GuessCorrect.mp3");
     } else {
 
       // Hide the feedback text area and label
@@ -70,9 +68,6 @@ public class GameOverController implements Restartable {
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
-
-      // Play the incorrect sound
-      SoundManager.playSound("GuessIncorrect.mp3");
     }
     GameOverController.timeUpLabel.setVisible(false);
   }
