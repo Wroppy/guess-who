@@ -15,6 +15,7 @@ public class GameOverController {
   @FXML private Button playAgain;
   @FXML private ImageView showCat;
   @FXML private ImageView showCat2;
+  @FXML private Label timeUp;
 
   private static ImageView catImage;
   private static ImageView catImage2;
@@ -23,6 +24,7 @@ public class GameOverController {
   private static TextArea feedbackTextArea;
   private static Button playAgainButton;
 
+  private static Label timeUpLabel;
 
   public void initialize() {
     GameOverController.resultLabel = result;
@@ -34,6 +36,7 @@ public class GameOverController {
     GameOverController.catImage = showCat;
     GameOverController.catImage2 = showCat2;
 
+    GameOverController.timeUpLabel = timeUp;
   }
 
   public static void showResult() {
@@ -43,7 +46,7 @@ public class GameOverController {
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(507);
-
+      GameOverController.timeUpLabel.setVisible(false);
     } else {
       GameOverController.resultLabel.setText("Incorrect Choice!");
       GameOverController.resultLabel.setFont(Font.font("System", 28));
@@ -56,5 +59,22 @@ public class GameOverController {
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
     }
+    GameOverController.timeUpLabel.setVisible(false);
+  }
+
+  public static Text getFeedbackLabel() {
+    return feedbackLabel;
+  }
+
+  public static TextArea getFeedbackTextArea() {
+    return feedbackTextArea;
+  }
+
+  public static Label getResultLabel() {
+    return resultLabel;
+  }
+
+  public static Label getTimeUpLabel() {
+    return timeUpLabel;
   }
 }
