@@ -19,12 +19,15 @@ public class RunGptTask extends Task<Void> {
 
   @Override
   protected Void call() throws Exception {
+    // Add the user message to the request
     req.addMessage(msg);
     try {
+      // Execute the request
       ChatCompletionResult chatCompletionResult = req.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       req.addMessage(result.getChatMessage());
-
+       
+      // Set the result
       this.result = result.getChatMessage();
 
       return null;

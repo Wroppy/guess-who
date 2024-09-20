@@ -3,7 +3,6 @@ package nz.ac.auckland.se206.components.chatview;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -51,11 +50,7 @@ public class ChatComponent extends VBox {
       setupButton();
 
       // Sets up the GPT model
-      // TODO: UNCOMMENT IN PRESENTATION, COMMENT OUT SET LOADING
       this.setupGpt();
-      // this.setLoading(true);
-
-
 
       this.styleWidget();
 
@@ -81,8 +76,6 @@ public class ChatComponent extends VBox {
     loaderComponent = new LoaderComponent();
     loaderComponent.setPrefWidth(
         sendMessageButton.getPrefWidth() - this.getPadding().getBottom() * 2);
-    // loaderComponent.setStyle(
-    // );
     sendMessageButton.getChildren().add(loaderComponent);
   }
 
@@ -145,9 +138,11 @@ public class ChatComponent extends VBox {
   private void runGpt(ChatMessage msg) {
     this.setLoading(true);
     RunGptTask gptTask = new RunGptTask(msg, chatCompletionRequest);
-
+    // Sets the event handler for when the task is completed
     gptTask.setOnSucceeded(
         event -> {
+
+          // Sets the event handler for when the task is completed
           this.setLoading(false);
           ChatMessage result = gptTask.getResult();
           appendChatMessage(result);

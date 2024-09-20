@@ -96,19 +96,19 @@ public class ShredderPaper extends Pane implements Moveable {
    */
   private void onMouseDragged(MouseEvent e) {
     // Calculates the relative position of the mouse
-    double relativeXPos = e.getSceneX() - mouseAnchorX;
-    double relativeYPos = e.getSceneY() - mouseAnchorY;
+    double relativeX = e.getSceneX() - mouseAnchorX;
+    double relativeY = e.getSceneY() - mouseAnchorY;
 
     // Checks that the node is not dragged out of the parent
     double rightBound = parent.getLayoutBounds().getWidth() - this.getLayoutBounds().getWidth();
     double bottomBound = parent.getLayoutBounds().getHeight() - this.getLayoutBounds().getHeight();
-    if (relativeXPos < 0) {
+    if (relativeX < 0) {
       return;
     }
-    if (relativeXPos > rightBound) {
+    if (relativeX > rightBound) {
       return;
     }
-    if (relativeYPos < 0) {
+    if (relativeY < 0) {
       return;
     }
     if (e.getSceneY() - mouseAnchorY > bottomBound) {
@@ -151,8 +151,8 @@ public class ShredderPaper extends Pane implements Moveable {
 
   @Override
   public void moveTo(Coordinate pos) {
-    this.setLayoutX(pos.getX());
-    this.setLayoutY(pos.getY());
+    this.setLayoutX(pos.getxPos());
+    this.setLayoutY(pos.getyPos());
   }
 
   public int getOrder() {

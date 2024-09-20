@@ -9,6 +9,7 @@ import nz.ac.auckland.se206.controllers.GuessingController;
 
 public class GameTimer {
   private static final int TIME_LIMIT = 300; // should 5 minutes in seconds
+
   private int timeRemaining;
   private Label timerLabel1;
   private Label timerLabel2;
@@ -57,15 +58,22 @@ public class GameTimer {
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes && !isSuspectChosen) {
+              // If the time is up, change the state to GameOverState
               Platform.runLater(() -> context.setState(context.getGameOverState()));
               GameOverController.getFeedbackTextArea().setVisible(false);
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getResultLabel().setVisible(false);
+
+              // Show the time up label
               GameOverController.getTimeUpLabel().setVisible(true);
               SoundManager.playSound("TimeUpLost.mp3");
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
+
+              // Show the time up explanation
             } else if (running && !firstFiveMinutes && isSuspectChosen) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
+
+              // Playing corresponding sound
               SoundManager.playSound("TimeUpWritten.mp3");
               Platform.runLater(() -> GameOverController.showResult());
               Platform.runLater(() -> guessingController.timeUpExplanation());

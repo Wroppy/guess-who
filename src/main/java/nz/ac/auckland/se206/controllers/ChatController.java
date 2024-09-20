@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -44,8 +43,6 @@ public class ChatController {
    * @return the system prompt string
    */
   private String getSystemPrompt() {
-    // TODO: Replace the following line with the actual system prompt
-    // TODO: Probably need to pass the "profession" to the getPrompt method
     return PromptEngineering.getPrompt("chat.txt");
   }
 

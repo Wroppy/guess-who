@@ -14,6 +14,12 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
 public class ShredderClueComponent extends Pane {
+  private static boolean paperClue = false;
+
+  public static boolean isPaperClue() {
+    return paperClue;
+  }
+
   // Sets the size of the clue rectangles, with aspect ratio 2200:283
   private final double clueHeight = 300;
   private final double clueWidth = clueHeight * 283 / 2200;
@@ -24,8 +30,6 @@ public class ShredderClueComponent extends Pane {
   @FXML private Label completedMessage;
   @FXML private Label confidentialLabel;
   @FXML private Button closeButton;
-
-  private static boolean paperClue = false;
 
   private EventCallback onClose;
 
@@ -324,9 +328,5 @@ public class ShredderClueComponent extends Pane {
 
   public void hide() {
     this.setVisible(false);
-  }
-
-  public static boolean isPaperClue() {
-    return paperClue;
   }
 }

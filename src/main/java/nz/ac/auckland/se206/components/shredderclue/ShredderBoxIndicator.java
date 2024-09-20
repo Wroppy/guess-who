@@ -26,8 +26,8 @@ public class ShredderBoxIndicator implements Moveable {
   @Override
   public void moveTo(Coordinate c) {
 
-    indicator.setLayoutX(c.getX());
-    indicator.setLayoutY(c.getY());
+    indicator.setLayoutX(c.getxPos());
+    indicator.setLayoutY(c.getyPos());
   }
 
   public void hide() {

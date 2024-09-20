@@ -5,6 +5,16 @@ import java.util.Map;
 import javafx.scene.Parent;
 
 public class SceneManager {
+  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
+
+  public static void addScene(SceneType sceneType, Parent parent) {
+    sceneMap.put(sceneType, parent);
+  }
+
+  public static Parent getScene(SceneType sceneType) {
+    return sceneMap.get(sceneType);
+  }
+
   public enum SceneType {
     INTRO("Introduction"),
     CRIME("Crime Scene"),
@@ -13,7 +23,7 @@ public class SceneManager {
     SUSPECT_3("Suspect 3"),
     PLAYER_EXPLANATION("Player Explanation"),
 
-    FEEDBACK("Player Feedback"), 
+    FEEDBACK("Player Feedback"),
     PROCESSING_SUBMISSION("Processing Submission");
 
     private String name;
@@ -25,15 +35,5 @@ public class SceneManager {
     public String toString() {
       return name;
     }
-  }
-
-  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
-
-  public static void addScene(SceneType sceneType, Parent parent) {
-    sceneMap.put(sceneType, parent);
-  }
-
-  public static Parent getScene(SceneType sceneType) {
-    return sceneMap.get(sceneType);
   }
 }

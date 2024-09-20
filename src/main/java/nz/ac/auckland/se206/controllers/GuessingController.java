@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,7 +12,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -25,6 +23,18 @@ import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
 public class GuessingController implements Restartable {
+  private static boolean correctChoice;
+  private static String feedback;
+
+  public static String getFeedback() {
+    return feedback;
+  }
+
+  // getter for correctChoice
+  public static boolean getCorrectChoice() {
+    return correctChoice;
+  }
+
   @FXML private TextArea explaintxt;
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
@@ -32,14 +42,12 @@ public class GuessingController implements Restartable {
   @FXML private Button submitBtn;
   @FXML private Label timerLabel;
   private String explanation;
-  private static boolean correctChoice;
   private boolean isClicked = false;
 
   private Rectangle selectedRectangle;
   private ChatCompletionRequest chatCompletionRequest;
-  private static String feedback;
 
-  List<Rectangle> suspectOptions;
+  private List<Rectangle> suspectOptions;
 
   private ChatMessage msg;
 
@@ -48,11 +56,15 @@ public class GuessingController implements Restartable {
     submitBtn.setStyle(
         "-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 4 6; -fx-border-style: solid;"
             + " -fx-background-insets: 0;");
+
+    // Add a listener to check if TextArea has text input
     Timeline timeline =
         new Timeline(
             new KeyFrame(
                 Duration.seconds(1),
                 event -> {
+                  // If the text area is empty or the user has not clicked on a suspect, disable the
+                  // submit button
                   if (explaintxt.getText() == null
                       || explaintxt.getText().trim().isEmpty()
                       || !isClicked) {
@@ -61,9 +73,12 @@ public class GuessingController implements Restartable {
                     submitBtn.setDisable(false);
                   }
                 }));
+
+    // Set the cycle count of the timeline to indefinite
     timeline.setCycleCount(Timeline.INDEFINITE);
     timeline.play();
 
+    // Add the suspect options to the list
     suspectOptions = new ArrayList<>();
     suspectOptions.add(bob);
     suspectOptions.add(vicePresident);
@@ -112,15 +127,13 @@ public class GuessingController implements Restartable {
   public void explanationScene(MouseEvent event) throws IOException {
     explanation = explaintxt.getText().trim();
     if (explanation.isEmpty()) {
-      
+
       return;
     }
     msg = new ChatMessage("user", explanation);
     App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
     setupGpt();
-    // TODO: Send explanation to GPT
-
     GameOverController.showResult();
 
     MenuController.gameTimer.stop();
@@ -133,11 +146,11 @@ public class GuessingController implements Restartable {
     }
     App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
-     msg = new ChatMessage("user", explanation);
+    msg = new ChatMessage("user", explanation);
     setupGpt();
   }
 
-  public void choiceCriminal(MouseEvent event) {
+  public void chooseCriminal(MouseEvent event) {
     isClicked = true;
     MenuController.gameTimer.setSuspectChosenTrue();
     Rectangle clickedRectangle = (Rectangle) event.getSource();
@@ -145,16 +158,12 @@ public class GuessingController implements Restartable {
     selectedRectangle = clickedRectangle;
     selectRectangle();
 
+    // Check if the correct suspect was chosen
     if (clickedRectangle == vicePresident) {
       correctChoice = true;
     } else {
       correctChoice = false;
     }
-  }
-
-  // getter for correctChoice
-  public static boolean getCorrectChoice() {
-    return correctChoice;
   }
 
   public Label getTimerLabel() {
@@ -167,6 +176,7 @@ public class GuessingController implements Restartable {
 
   @Override
   public void restart() {
+    // Reset the variables
     isClicked = false;
     correctChoice = false;
     explaintxt.clear();
@@ -182,8 +192,10 @@ public class GuessingController implements Restartable {
    * @param suspectId the ID of the suspect the user is chatting with
    */
   public void setupGpt() {
+    // this.setLoading(true);
     try {
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
@@ -202,21 +214,19 @@ public class GuessingController implements Restartable {
    * @param msg the chat message to process
    */
   private void runGpt(ChatMessage msg, boolean isUser) {
-    // this.setLoading(true);
     RunGptTask gptTask = new RunGptTask(msg, chatCompletionRequest);
 
     gptTask.setOnSucceeded(
         event -> {
           if (!isUser) {
-            runGpt(msg, true);
+            runGpt(this.msg, true);
             return;
           }
 
-          // this.setLoading(false);
+          // Set the result
           ChatMessage result = gptTask.getResult();
           feedback = result.getContent();
           GameOverController.getFeedbackTextArea().setText(GuessingController.getFeedback());
-          // appendChatMessage(result);
           App.changeScene(SceneType.FEEDBACK);
         });
 
@@ -229,11 +239,6 @@ public class GuessingController implements Restartable {
    * @return the system prompt string
    */
   private String getSystemPrompt() {
-    // final String promptId = sceneType.toString().toLowerCase().replace(" ", "-");
     return PromptEngineering.getPrompt("feedback");
-  }
-
-  public static String getFeedback() {
-    return feedback;
   }
 }

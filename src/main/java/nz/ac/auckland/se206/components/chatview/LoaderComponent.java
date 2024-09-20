@@ -30,7 +30,9 @@ public class LoaderComponent extends Pane {
   }
 
   private void setAnimation(Circle circle, int delayMs) {
+    //  Delays the animation of the loader
     Task<Void> task =
+        // Creates a new task that sleeps for the delay time
         new Task<Void>() {
           @Override
           protected Void call() throws Exception {
@@ -39,8 +41,10 @@ public class LoaderComponent extends Pane {
           }
         };
 
+    // Sets the event handler for when the task is succeeded
     task.setOnSucceeded(
         event -> {
+          // Creates a new translate transition for the circle
           TranslateTransition transition = new TranslateTransition();
           transition.setDuration(Duration.millis(400));
           transition.setNode(circle);

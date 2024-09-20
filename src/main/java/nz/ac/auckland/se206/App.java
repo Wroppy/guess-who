@@ -35,9 +35,6 @@ public class App extends Application {
 
   private static Scene scene;
 
-  private MenuController menuController;
-  private Map<SceneType, Restartable> controllers;
-
   public static void restart() {
     try {
       app.start(stage);
@@ -101,42 +98,6 @@ public class App extends Application {
     stage.show();
   }
 
-  /**
-   * This method is invoked when the application starts. It loads and shows the "room" scene.
-   *
-   * @param stage the primary stage of the application
-   * @throws IOException if the "src/main/resources/fxml/room.fxml" file is not found
-   */
-  @Override
-  public void start(final Stage stage) throws IOException {
-    controllers = new HashMap<>();
-
-    this.setupScenes();
-
-    App.stage = stage;
-    App.app = this;
-
-    Parent root = SceneManager.getScene(SceneType.INTRO);
-    scene = new Scene(root);
-    stage.setScene(scene);
-    stage.show();
-    stage.setOnCloseRequest(event -> handleWindowClose(event));
-    root.requestFocus();
-
-    stage.setOnCloseRequest(
-        event -> {
-          if (MenuController.gameTimer != null) {
-            MenuController.gameTimer.stop();
-          }
-          Platform.exit();
-          System.exit(0);
-        });
-  }
-
-  private void handleWindowClose(WindowEvent event) {
-    FreeTextToSpeech.deallocateSynthesizer();
-  }
-
   public static String getCssUrl(String filename) {
     return App.class.getResource("/css/" + filename + ".css").toExternalForm();
   }
@@ -165,7 +126,46 @@ public class App extends Application {
     stage.sizeToScene();
   }
 
-  private void setupScenes() {
+  private MenuController menuController;
+  private Map<SceneType, Restartable> controllers;
+
+  /**
+   * This method is invoked when the application starts. It loads and shows the "room" scene.
+   *
+   * @param stage the primary stage of the application
+   * @throws IOException if the "src/main/resources/fxml/room.fxml" file is not found
+   */
+  @Override
+  public void start(final Stage stage) throws IOException {
+    controllers = new HashMap<>();
+
+    this.initializeScenes();
+
+    App.stage = stage;
+    App.app = this;
+
+    Parent root = SceneManager.getScene(SceneType.INTRO);
+    scene = new Scene(root);
+    stage.setScene(scene);
+    stage.show();
+    stage.setOnCloseRequest(event -> handleWindowClose(event));
+    root.requestFocus();
+
+    stage.setOnCloseRequest(
+        event -> {
+          if (MenuController.gameTimer != null) {
+            MenuController.gameTimer.stop();
+          }
+          Platform.exit();
+          System.exit(0);
+        });
+  }
+
+  private void handleWindowClose(WindowEvent event) {
+    FreeTextToSpeech.deallocateSynthesizer();
+  }
+
+  private void initializeScenes() {
     try {
 
       FXMLLoader loader = loadFxmlLoader("introduction-scene");
@@ -176,36 +176,36 @@ public class App extends Application {
 
       controllers.put(SceneType.INTRO, menuController);
 
-      FXMLLoader rootFXML = loadFxmlLoader("room");
-      root = rootFXML.load();
-      ((RoomController) rootFXML.getController()).setupHeader(SceneType.CRIME);
+      FXMLLoader rootFxml = loadFxmlLoader("room");
+      root = rootFxml.load();
+      ((RoomController) rootFxml.getController()).setupHeader(SceneType.CRIME);
       SceneManager.addScene(SceneType.CRIME, root);
 
-      controllers.put(SceneType.CRIME, (Restartable) rootFXML.getController());
+      controllers.put(SceneType.CRIME, (Restartable) rootFxml.getController());
 
       // Suspect 1 room
-      rootFXML = loadFxmlLoader("suspect-room");
-      root = rootFXML.load();
-      ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_1);
+      rootFxml = loadFxmlLoader("suspect-room");
+      root = rootFxml.load();
+      ((SuspectRoomController) rootFxml.getController()).setupRoom(SceneType.SUSPECT_1);
       SceneManager.addScene(SceneType.SUSPECT_1, root);
 
-      controllers.put(SceneType.SUSPECT_1, (Restartable) rootFXML.getController());
+      controllers.put(SceneType.SUSPECT_1, (Restartable) rootFxml.getController());
 
       // Suspect 2 room
-      rootFXML = loadFxmlLoader("suspect-room");
-      root = rootFXML.load();
-      ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_2);
+      rootFxml = loadFxmlLoader("suspect-room");
+      root = rootFxml.load();
+      ((SuspectRoomController) rootFxml.getController()).setupRoom(SceneType.SUSPECT_2);
       SceneManager.addScene(SceneType.SUSPECT_2, root);
 
-      controllers.put(SceneType.SUSPECT_2, (Restartable) rootFXML.getController());
+      controllers.put(SceneType.SUSPECT_2, (Restartable) rootFxml.getController());
 
       // Suspect 3 room
-      rootFXML = loadFxmlLoader("suspect-room");
-      root = rootFXML.load();
-      ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_3);
+      rootFxml = loadFxmlLoader("suspect-room");
+      root = rootFxml.load();
+      ((SuspectRoomController) rootFxml.getController()).setupRoom(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
 
-      controllers.put(SceneType.SUSPECT_3, (Restartable) rootFXML.getController());
+      controllers.put(SceneType.SUSPECT_3, (Restartable) rootFxml.getController());
 
       FXMLLoader loader2 = loadFxmlLoader("guessing_screen");
       root = loader2.load();

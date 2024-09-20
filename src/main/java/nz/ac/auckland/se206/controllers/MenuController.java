@@ -8,12 +8,11 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.SoundManager;
 
 public class MenuController implements Restartable {
+  public static GameTimer gameTimer;
 
   @FXML private Button btnStart;
 
   private GuessingController guessingController;
-
-  public static GameTimer gameTimer;
 
   /** Initializes the menu view. */
   @FXML
@@ -24,9 +23,11 @@ public class MenuController implements Restartable {
 
   /** Handles the start button click event. */
   @FXML
-  public void onStartButtonClick() {
+  private void onStartButtonClick() {
+    // Start the game
     gameTimer =
         new GameTimer(
+            // GameTimer takes in the timer label, context, and guessing controller
             RoomController.getGameHeader().getTimerLabel(),
             RoomController.getContext(),
             guessingController);
