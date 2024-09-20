@@ -13,8 +13,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
+import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
+import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
+import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.prompts.PromptEngineering;
+import nz.ac.auckland.se206.tasks.RunGptTask;
 
 public class GuessingController {
   @FXML private TextArea explaintxt;
@@ -28,6 +34,7 @@ public class GuessingController {
   private boolean isClicked = false;
 
   private Rectangle selectedRectangle;
+  private ChatCompletionRequest chatCompletionRequest;
 
   List<Rectangle> suspectOptions;
 
@@ -134,5 +141,54 @@ public class GuessingController {
 
   public GuessingController getGuessingController() {
     return this;
+  }
+
+  /**
+   * Begins the chat with the GPT model by setting up the GPT model with the suspect type.
+   *
+   * @param suspectId the ID of the suspect the user is chatting with
+   */
+  public void setupGpt() {
+    try {
+      ApiProxyConfig config = ApiProxyConfig.readConfig();
+      chatCompletionRequest =
+          new ChatCompletionRequest(config)
+              .setN(1)
+              .setTemperature(0.2)
+              .setTopP(0.5)
+              .setMaxTokens(100);
+      runGpt(new ChatMessage("system", getSystemPrompt()));
+    } catch (ApiProxyException e) {
+      e.printStackTrace();
+    }
+  }
+
+  /**
+   * Runs the GPT model with a given chat message.
+   *
+   * @param msg the chat message to process
+   */
+  private void runGpt(ChatMessage msg) {
+    // this.setLoading(true);
+    RunGptTask gptTask = new RunGptTask(msg, chatCompletionRequest);
+
+    gptTask.setOnSucceeded(
+        event -> {
+          // this.setLoading(false);
+          ChatMessage result = gptTask.getResult();
+          // appendChatMessage(result);
+        });
+
+    new Thread(gptTask).start();
+  }
+
+  /**
+   * Generates the system prompt based on the suspect type.
+   *
+   * @return the system prompt string
+   */
+  private String getSystemPrompt() {
+    // final String promptId = sceneType.toString().toLowerCase().replace(" ", "-");
+    return PromptEngineering.getPrompt("feedback");
   }
 }
