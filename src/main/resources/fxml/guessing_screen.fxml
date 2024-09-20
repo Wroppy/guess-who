@@ -74,5 +74,8 @@
             <Font size="22.0" />
          </font>
       </Label>
+      <Text fill="WHITE" layoutX="222.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dominic" />
+      <Text fill="WHITE" layoutX="372.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian" />
+      <Text fill="WHITE" layoutX="513.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexandra" />
    </children>
 </Pane>

@@ -52,5 +52,14 @@
             <Font size="49.0" />
          </font>
       </Label>
+      <Pane fx:id="processSubmission" layoutX="-1.0" layoutY="-3.0" prefHeight="602.0" prefWidth="791.0" style="-fx-background-color: black;">
+         <children>
+            <Text fill="RED" layoutX="201.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Processing Submission...">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
    </children>
 </Pane>
