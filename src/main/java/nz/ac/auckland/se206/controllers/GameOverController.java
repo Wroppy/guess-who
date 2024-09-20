@@ -1,12 +1,11 @@
 package nz.ac.auckland.se206.controllers;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
-import nz.ac.auckland.se206.App;
+import nz.ac.auckland.se206.utils.CallBack;
 
 public class GameOverController {
   @FXML private Label result;
@@ -18,6 +17,8 @@ public class GameOverController {
   private static Text feedbackLabel;
   private static TextArea feedbackTextArea;
   private static Label timeUpLabel;
+
+  private CallBack onRestart;
 
   public void initialize() {
     GameOverController.resultLabel = result;
@@ -56,6 +57,12 @@ public class GameOverController {
 
   @FXML
   private void handlePlayAgain(ActionEvent event) {
-    App.restart();
+    if (onRestart != null) {
+      onRestart.call();
+    }
+  }
+
+  public void setOnRestart(CallBack onRestart) {
+    this.onRestart = onRestart;
   }
 }

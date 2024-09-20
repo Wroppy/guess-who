@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
+import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
 import nz.ac.auckland.se206.controllers.HeaderableController;
 import nz.ac.auckland.se206.controllers.MenuController;
@@ -30,6 +31,9 @@ public class App extends Application {
   private static Stage stage;
 
   private static Scene scene;
+  
+
+  private MenuController menuController;
 
   public static void restart() {
     try {
@@ -38,7 +42,6 @@ public class App extends Application {
       e.printStackTrace();
     }
   }
-  
 
   /**
    * The main method that launches the JavaFX application.
@@ -163,6 +166,7 @@ public class App extends Application {
       FXMLLoader loader = loadFxmlLoader("introduction-scene");
       Parent root = loader.load();
       MenuController menuController = loader.getController();
+      
       // Parent root = loadFxml("introduction-scene");
       SceneManager.addScene(SceneType.INTRO, root);
 
@@ -196,10 +200,23 @@ public class App extends Application {
       // root = loadFxml("guessing_screen");
       SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
 
-      root = loadFxml("game-over");
+      FXMLLoader loader3 = loadFxmlLoader("game-over");
+      root = loader3.load();
+      GameOverController gameOverController = loader3.getController();
       SceneManager.addScene(SceneType.FEEDBACK, root);
+
+      gameOverController.setOnRestart(() -> restartGame());
+
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  private void restartGame() {
+
+    // Resets the scenes
+    setupScenes();
+    //  Changes the scene to the introduction scene
+    changeScene(SceneType.INTRO);
   }
 }
