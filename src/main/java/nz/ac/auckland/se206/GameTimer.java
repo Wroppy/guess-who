@@ -8,7 +8,7 @@ import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
 
 public class GameTimer {
-  private static final int TIME_LIMIT = 300; // should 5 minutes in seconds
+  private static final int TIME_LIMIT = 10; // should 5 minutes in seconds
   private int timeRemaining;
   private Label timerLabel1;
   private Label timerLabel2;
@@ -49,6 +49,7 @@ public class GameTimer {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
+              SoundManager.playSound("5MinuteUp.mp3");
 
               setTimeRemaining(10);
               setFirstFiveMinutesFalse();
@@ -63,6 +64,7 @@ public class GameTimer {
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             } else if (running && !firstFiveMinutes && isSuspectChosen) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
+              SoundManager.playSound("TimeUpWritten.mp3");
               Platform.runLater(() -> GameOverController.showResult());
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }

@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameTimer;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.SoundManager;
 
 public class MenuController {
 
@@ -18,6 +19,7 @@ public class MenuController {
   @FXML
   public void initialize() {
     // Any required initialization code can be placed here
+    SoundManager.playSound("Welcome.mp3");
   }
 
   /** Handles the start button click event. */
