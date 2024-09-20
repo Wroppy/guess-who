@@ -62,9 +62,6 @@ public class GameOverController implements Restartable {
 
       GameOverController.feedbackTextArea.setVisible(true);
       GameOverController.feedbackLabel.setVisible(true);
-
-      SoundManager.playSound("GuessCorrect.mp3");
-      // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
       GameOverController.resultLabel.setText("Incorrect Choice!");
       GameOverController.resultLabel.setFont(Font.font("System", 28));
@@ -79,8 +76,6 @@ public class GameOverController implements Restartable {
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
-
-      SoundManager.playSound("GuessIncorrect.mp3");
     }
     GameOverController.timeUpLabel.setVisible(false);
   }
