@@ -50,7 +50,7 @@ public class GameTimer {
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
 
-              setTimeRemaining(10);
+              setTimeRemaining(60);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes && !isSuspectChosen) {

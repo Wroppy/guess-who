@@ -210,8 +210,8 @@ public class GameHeader extends Pane {
 
   public void guessingStage(MouseEvent event) throws IOException {
     if (MenuController.gameTimer != null) {
-      MenuController.gameTimer.getTimerLabel3().setText("00:10");
-      MenuController.gameTimer.setTimeRemaining(10);
+      MenuController.gameTimer.getTimerLabel3().setText("01:00");
+      MenuController.gameTimer.setTimeRemaining(60);
       MenuController.gameTimer.setFirstFiveMinutesFalse();
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
