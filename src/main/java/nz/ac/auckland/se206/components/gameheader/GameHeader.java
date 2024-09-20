@@ -82,7 +82,7 @@ public class GameHeader extends Pane {
                           || ShredderClueComponent.isPaperClue()
                           || AccessPadClue.isUnlocked())) {
                     guessBtn.setDisable(false);
-                    informationBtn.setDisable(true);
+                    informationBtn.setVisible(false);
                   }
                 }));
     timeline.setCycleCount(Timeline.INDEFINITE);
