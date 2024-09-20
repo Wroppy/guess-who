@@ -7,6 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import nz.ac.auckland.se206.SoundManager;
 
 public class GameOverController {
   @FXML private Label result;
@@ -48,6 +49,7 @@ public class GameOverController {
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
+      SoundManager.playSound("GuessCorrect.mp3");
       // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
       GameOverController.resultLabel.setText("Incorrect Choice!");
@@ -60,6 +62,8 @@ public class GameOverController {
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
+
+      SoundManager.playSound("GuessIncorrect.mp3");
     }
     GameOverController.timeUpLabel.setVisible(false);
   }

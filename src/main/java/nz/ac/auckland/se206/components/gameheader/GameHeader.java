@@ -19,6 +19,7 @@ import javafx.util.Duration;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.SoundManager;
 import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import nz.ac.auckland.se206.controllers.LaptopController;
@@ -30,6 +31,7 @@ public class GameHeader extends Pane {
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessBtn;
+  @FXML private Button informationBtn;
   @FXML public Label timerLabel;
 
   private SceneType currentScene;
@@ -80,6 +82,7 @@ public class GameHeader extends Pane {
                           || ShredderClueComponent.isPaperClue()
                           || AccessPadClue.isUnlocked())) {
                     guessBtn.setDisable(false);
+                    informationBtn.setVisible(false);
                   }
                 }));
     timeline.setCycleCount(Timeline.INDEFINITE);
@@ -220,5 +223,9 @@ public class GameHeader extends Pane {
       MenuController.gameTimer.setFirstFiveMinutesFalse();
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
+  }
+
+  public void giveInformation(MouseEvent event) throws IOException {
+    SoundManager.playSound("Interact.mp3");
   }
 }
