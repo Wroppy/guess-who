@@ -45,6 +45,7 @@ public class RoomController implements HeaderableController {
 
   private boolean firstShredderClue = true;
   private boolean firstAccessPadClue = true;
+  private boolean firstLaptopClue = true;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -175,6 +176,10 @@ public class RoomController implements HeaderableController {
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
+    if (firstLaptopClue) {
+      SoundManager.playSound("Laptop.mp3");
+      firstLaptopClue = false;
+    }
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
