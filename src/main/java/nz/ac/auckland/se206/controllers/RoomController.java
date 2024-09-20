@@ -23,7 +23,7 @@ import nz.ac.auckland.se206.utils.EventCallback;
  * Controller class for the room view. Handles user interactions within the room where the user can
  * chat with customers and guess their profession.
  */
-public class RoomController implements HeaderableController {
+public class RoomController implements HeaderableController, Restartable {
 
   @FXML private Rectangle rectAccess;
   @FXML private Rectangle rectLaptop;
@@ -215,5 +215,11 @@ public class RoomController implements HeaderableController {
 
   public static boolean isAccessClue() {
     return accessClue;
+  }
+
+  @Override
+  public void restart() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'restart'");
   }
 }

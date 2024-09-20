@@ -16,7 +16,7 @@ import javafx.util.Duration;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 
-public class GuessingController {
+public class GuessingController implements Restartable{
   @FXML private TextArea explaintxt;
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
@@ -134,5 +134,11 @@ public class GuessingController {
 
   public GuessingController getGuessingController() {
     return this;
+  }
+
+  @Override
+  public void restart() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'restart'");
   }
 }

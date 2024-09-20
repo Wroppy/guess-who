@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.utils.CallBack;
 
-public class GameOverController {
+public class GameOverController implements Restartable{
   @FXML private Label result;
   @FXML private TextArea feedbacktxt;
   @FXML private Text feedback;
@@ -64,5 +64,11 @@ public class GameOverController {
 
   public void setOnRestart(CallBack onRestart) {
     this.onRestart = onRestart;
+  }
+
+  @Override
+  public void restart() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'restart'");
   }
 }

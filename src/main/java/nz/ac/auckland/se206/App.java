@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -17,8 +19,9 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.ChatController;
 import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
-import nz.ac.auckland.se206.controllers.HeaderableController;
 import nz.ac.auckland.se206.controllers.MenuController;
+import nz.ac.auckland.se206.controllers.Restartable;
+import nz.ac.auckland.se206.controllers.RoomController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 import nz.ac.auckland.se206.speech.FreeTextToSpeech;
 
@@ -31,9 +34,9 @@ public class App extends Application {
   private static Stage stage;
 
   private static Scene scene;
-  
 
   private MenuController menuController;
+  private Map<SceneType, Restartable> controllers;
 
   public static void restart() {
     try {
@@ -106,6 +109,8 @@ public class App extends Application {
    */
   @Override
   public void start(final Stage stage) throws IOException {
+    controllers = new HashMap<>();
+
     this.setupScenes();
 
     App.stage = stage;
@@ -166,14 +171,17 @@ public class App extends Application {
       FXMLLoader loader = loadFxmlLoader("introduction-scene");
       Parent root = loader.load();
       MenuController menuController = loader.getController();
-      
-      // Parent root = loadFxml("introduction-scene");
+
       SceneManager.addScene(SceneType.INTRO, root);
+
+      controllers.put(SceneType.INTRO, menuController);
 
       FXMLLoader rootFXML = loadFxmlLoader("room");
       root = rootFXML.load();
-      ((HeaderableController) rootFXML.getController()).setupHeader(SceneType.CRIME);
+      ((RoomController) rootFXML.getController()).setupHeader(SceneType.CRIME);
       SceneManager.addScene(SceneType.CRIME, root);
+
+      controllers.put(SceneType.CRIME, (Restartable) rootFXML.getController());
 
       // Suspect 1 room
       rootFXML = loadFxmlLoader("suspect-room");
@@ -181,17 +189,23 @@ public class App extends Application {
       ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_1);
       SceneManager.addScene(SceneType.SUSPECT_1, root);
 
+      controllers.put(SceneType.SUSPECT_1, (Restartable) rootFXML.getController());
+
       // Suspect 2 room
       rootFXML = loadFxmlLoader("suspect-room");
       root = rootFXML.load();
       ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_2);
       SceneManager.addScene(SceneType.SUSPECT_2, root);
 
+      controllers.put(SceneType.SUSPECT_2, (Restartable) rootFXML.getController());
+
       // Suspect 3 room
       rootFXML = loadFxmlLoader("suspect-room");
       root = rootFXML.load();
       ((SuspectRoomController) rootFXML.getController()).setupRoom(SceneType.SUSPECT_3);
       SceneManager.addScene(SceneType.SUSPECT_3, root);
+
+      controllers.put(SceneType.SUSPECT_3, (Restartable) rootFXML.getController());
 
       FXMLLoader loader2 = loadFxmlLoader("guessing_screen");
       root = loader2.load();
@@ -200,10 +214,14 @@ public class App extends Application {
       // root = loadFxml("guessing_screen");
       SceneManager.addScene(SceneType.PLAYER_EXPLANATION, root);
 
+      controllers.put(SceneType.PLAYER_EXPLANATION, guessingController);
+
       FXMLLoader loader3 = loadFxmlLoader("game-over");
       root = loader3.load();
       GameOverController gameOverController = loader3.getController();
       SceneManager.addScene(SceneType.FEEDBACK, root);
+
+      controllers.put(SceneType.FEEDBACK, gameOverController);
 
       gameOverController.setOnRestart(() -> restartGame());
 
@@ -214,9 +232,11 @@ public class App extends Application {
 
   private void restartGame() {
 
-    // Resets the scenes
-    setupScenes();
-    //  Changes the scene to the introduction scene
+    controllers.forEach(
+        (sceneType, controller) -> {
+          controller.restart();
+        });
+
     changeScene(SceneType.INTRO);
   }
 }

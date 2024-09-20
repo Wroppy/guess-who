@@ -8,7 +8,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 
-public class SuspectRoomController implements HeaderableController {
+public class SuspectRoomController implements HeaderableController, Restartable {
   @FXML private Pane headerContainer;
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
@@ -64,6 +64,12 @@ public class SuspectRoomController implements HeaderableController {
     }
     // GameHeader gameHeader = new GameHeader(sceneType);
     // this.headerContainer.getChildren().add(gameHeader);
+  }
+
+  @Override
+  public void restart() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'restart'");
   }
 
   // public static GameHeader getGameHeader() {
