@@ -33,7 +33,7 @@
                   <Image url="@../images/bob-pad.png" />
                </image>
             </ImageView>
-            <Label layoutX="168.0" layoutY="190.0" prefHeight="18.0" prefWidth="51.0" text="Bob" textAlignment="CENTER">
+            <Label layoutX="152.0" layoutY="193.0" prefHeight="20.0" prefWidth="63.0" text="Dominic" textAlignment="CENTER">
                <font>
                   <Font size="16.0" />
                </font>

@@ -1,12 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 import nz.ac.auckland.se206.SoundManager;
 
 public class GameOverController {
@@ -41,6 +45,17 @@ public class GameOverController {
   }
 
   public static void showResult() {
+
+    // Timeline timeline = new Timeline(new KeyFrame(
+    //     Duration.seconds(4), // 1 second delay
+    //     e -> {
+    //         // Make the pane invisible after 1 second
+    //         processSubmissionPane.setVisible(false);
+    //     }
+    // ));
+    // timeline.setCycleCount(1);
+    // timeline.play(); // Start the timeline
+
     feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");

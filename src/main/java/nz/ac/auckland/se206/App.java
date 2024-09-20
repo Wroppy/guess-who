@@ -145,6 +145,7 @@ public class App extends Application {
   private void setupScenes() {
     try {
 
+
       FXMLLoader loader = loadFxmlLoader("introduction-scene");
       Parent root = loader.load();
       MenuController menuController = loader.getController();
@@ -183,6 +184,9 @@ public class App extends Application {
 
       root = loadFxml("game-over");
       SceneManager.addScene(SceneType.FEEDBACK, root);
+
+      root = loadFxml("proccessing-submission");
+      SceneManager.addScene(SceneType.PROCESSING_SUBMISSION, root);
     } catch (IOException e) {
       e.printStackTrace();
     }

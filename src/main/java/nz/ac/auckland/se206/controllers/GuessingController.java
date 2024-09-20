@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -39,6 +40,8 @@ public class GuessingController {
   private static String feedback;
 
   List<Rectangle> suspectOptions;
+
+  private ChatMessage msg;
 
   public void initialize() {
     // Add a listener to check if TextArea has text input
@@ -109,18 +112,18 @@ public class GuessingController {
   public void explanationScene(MouseEvent event) throws IOException {
     explanation = explaintxt.getText().trim();
     if (explanation.isEmpty()) {
+      
       return;
     }
-    ChatMessage msg = new ChatMessage("user", explanation);
+    msg = new ChatMessage("user", explanation);
+    App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
     setupGpt();
-    runGpt(msg);
     // TODO: Send explanation to GPT
 
     GameOverController.showResult();
 
     MenuController.gameTimer.stop();
-    App.changeScene(SceneType.FEEDBACK);
   }
 
   public void timeUpExplanation() {
@@ -128,11 +131,10 @@ public class GuessingController {
     if (explanation.isEmpty()) {
       return;
     }
-    
-    ChatMessage msg = new ChatMessage("user", explanation);
+    App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
+     msg = new ChatMessage("user", explanation);
     setupGpt();
-    runGpt(msg);
   }
 
   public void choiceCriminal(MouseEvent event) {
@@ -177,7 +179,7 @@ public class GuessingController {
               .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(100);
-      runGpt(new ChatMessage("system", getSystemPrompt()));
+      runGpt(new ChatMessage("system", getSystemPrompt()), false);
     } catch (ApiProxyException e) {
       e.printStackTrace();
     }
@@ -188,17 +190,23 @@ public class GuessingController {
    *
    * @param msg the chat message to process
    */
-  private void runGpt(ChatMessage msg) {
+  private void runGpt(ChatMessage msg, boolean isUser) {
     // this.setLoading(true);
     RunGptTask gptTask = new RunGptTask(msg, chatCompletionRequest);
 
     gptTask.setOnSucceeded(
         event -> {
+          if (!isUser) {
+            runGpt(msg, true);
+            return;
+          }
+
           // this.setLoading(false);
           ChatMessage result = gptTask.getResult();
           feedback = result.getContent();
           GameOverController.getFeedbackTextArea().setText(GuessingController.getFeedback());
           // appendChatMessage(result);
+          App.changeScene(SceneType.FEEDBACK);
         });
 
     new Thread(gptTask).start();
