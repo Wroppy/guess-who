@@ -228,5 +228,10 @@ public class RoomController implements HeaderableController, Restartable {
 
     LaptopController.restart();
     gameHeader.restartTalkedTo();
+
+    // Remove the laptop overlay if it is present
+    if (laptopOverlay != null && laptopOverlay.getParent() != null) {
+      ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
+    }
   }
 }
