@@ -24,7 +24,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
-public class GuessingController {
+public class GuessingController implements Restartable {
   @FXML private TextArea explaintxt;
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
@@ -163,6 +163,17 @@ public class GuessingController {
 
   public GuessingController getGuessingController() {
     return this;
+  }
+
+  @Override
+  public void restart() {
+    isClicked = false;
+    correctChoice = false;
+    explaintxt.clear();
+    for (Rectangle rect : suspectOptions) {
+      rect.setStroke(Color.RED);
+    }
+    selectedRectangle = null;
   }
 
   /**

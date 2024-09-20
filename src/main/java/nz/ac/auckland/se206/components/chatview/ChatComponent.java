@@ -52,8 +52,10 @@ public class ChatComponent extends VBox {
 
       // Sets up the GPT model
       // TODO: UNCOMMENT IN PRESENTATION, COMMENT OUT SET LOADING
-      // this.setupGpt();
-      this.setLoading(true);
+      this.setupGpt();
+      // this.setLoading(true);
+
+
 
       this.styleWidget();
 
@@ -205,8 +207,9 @@ public class ChatComponent extends VBox {
     }
   }
 
-  @FXML
-  private void handleSetupGptClicked(ActionEvent e) {
-    this.setupGpt();
+  public void restart() {
+    chatBox.clear();
+    setupGpt();
+    textInput.clear();
   }
 }

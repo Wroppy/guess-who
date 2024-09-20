@@ -24,7 +24,7 @@ import nz.ac.auckland.se206.utils.EventCallback;
  * Controller class for the room view. Handles user interactions within the room where the user can
  * chat with customers and guess their profession.
  */
-public class RoomController implements HeaderableController {
+public class RoomController implements HeaderableController, Restartable {
 
   @FXML private Rectangle rectAccess;
   @FXML private Rectangle rectLaptop;
@@ -233,5 +233,24 @@ public class RoomController implements HeaderableController {
 
   public static boolean isAccessClue() {
     return accessClue;
+  }
+
+  @Override
+  public void restart() {
+    // Recreates the access pad clue
+    this.room.getChildren().remove(accessPad);
+    addAccessPadClue();
+
+    // Recreates the shredder clue overlay
+    this.room.getChildren().remove(shredderClueOverlay);
+    addShredderClue();
+
+    LaptopController.restart();
+    gameHeader.restartTalkedTo();
+
+    // Remove the laptop overlay if it is present
+    if (laptopOverlay != null && laptopOverlay.getParent() != null) {
+      ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
+    }
   }
 }

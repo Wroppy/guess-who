@@ -1,5 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
@@ -10,10 +11,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import nz.ac.auckland.se206.utils.CallBack;
 import javafx.util.Duration;
 import nz.ac.auckland.se206.SoundManager;
 
-public class GameOverController {
+public class GameOverController implements Restartable {
   @FXML private Label result;
   @FXML private TextArea feedbacktxt;
   @FXML private Text feedback;
@@ -31,6 +33,8 @@ public class GameOverController {
 
   private static Label timeUpLabel;
 
+  private CallBack onRestart;
+
   public void initialize() {
     GameOverController.resultLabel = result;
     GameOverController.feedbackLabel = feedback;
@@ -46,16 +50,6 @@ public class GameOverController {
 
   public static void showResult() {
 
-    // Timeline timeline = new Timeline(new KeyFrame(
-    //     Duration.seconds(4), // 1 second delay
-    //     e -> {
-    //         // Make the pane invisible after 1 second
-    //         processSubmissionPane.setVisible(false);
-    //     }
-    // ));
-    // timeline.setCycleCount(1);
-    // timeline.play(); // Start the timeline
-
     feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
@@ -64,6 +58,11 @@ public class GameOverController {
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
+      resultLabel.setVisible(true);
+
+      GameOverController.feedbackTextArea.setVisible(true);
+      GameOverController.feedbackLabel.setVisible(true);
+
       SoundManager.playSound("GuessCorrect.mp3");
       // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
@@ -72,6 +71,9 @@ public class GameOverController {
       GameOverController.resultLabel.setLayoutY(250);
       GameOverController.feedbackTextArea.setVisible(false);
       GameOverController.feedbackLabel.setVisible(false);
+      GameOverController.timeUpLabel.setVisible(false);
+      resultLabel.setVisible(true);
+        
       GameOverController.catImage.setVisible(true);
       GameOverController.catImage2.setVisible(true);
 
@@ -98,4 +100,18 @@ public class GameOverController {
   public static Label getTimeUpLabel() {
     return timeUpLabel;
   }
+
+  @FXML
+  private void handlePlayAgain(ActionEvent event) {
+    if (onRestart != null) {
+      onRestart.call();
+    }
+  }
+
+  public void setOnRestart(CallBack onRestart) {
+    this.onRestart = onRestart;
+  }
+
+  @Override
+  public void restart() {}
 }

@@ -7,7 +7,7 @@ import nz.ac.auckland.se206.GameTimer;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.SoundManager;
 
-public class MenuController {
+public class MenuController implements Restartable {
 
   @FXML private Button btnStart;
 
@@ -36,5 +36,10 @@ public class MenuController {
 
   public void setGuessingController(GuessingController guessingController) {
     this.guessingController = guessingController;
+  }
+
+  @Override
+  public void restart() {
+    gameTimer = null;
   }
 }

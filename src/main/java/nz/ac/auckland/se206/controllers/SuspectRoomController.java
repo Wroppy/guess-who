@@ -8,7 +8,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 
-public class SuspectRoomController implements HeaderableController {
+public class SuspectRoomController implements HeaderableController, Restartable {
   @FXML private Pane headerContainer;
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
@@ -16,6 +16,8 @@ public class SuspectRoomController implements HeaderableController {
   public static GameHeader gameHeader1;
   public static GameHeader gameHeader2;
   public static GameHeader gameHeader3;
+
+  private ChatComponent chatComponent;
 
   public void initialize() {}
 
@@ -31,17 +33,17 @@ public class SuspectRoomController implements HeaderableController {
     }
 
     // Adds the chat box
-    ChatComponent chatComponent = new ChatComponent(sceneType);
+    chatComponent = new ChatComponent(sceneType);
     chatContainer.getChildren().add(chatComponent);
   }
 
   public void setupImage(String imagePath) {
     Image image = new Image(getClass().getResourceAsStream(imagePath));
     imageContainer.setImage(image);
-    if(imagePath == "/images/bob_bar.png") {
+    if (imagePath == "/images/bob_bar.png") {
       imageContainer.setFitWidth(840);
       imageContainer.setFitHeight(499);
-    } else if(imagePath == "/images/VP.png") {
+    } else if (imagePath == "/images/VP.png") {
       imageContainer.setFitWidth(750);
       imageContainer.setFitHeight(499);
     } else {
@@ -64,6 +66,26 @@ public class SuspectRoomController implements HeaderableController {
     }
     // GameHeader gameHeader = new GameHeader(sceneType);
     // this.headerContainer.getChildren().add(gameHeader);
+  }
+
+  @Override
+  public void restart() {
+    chatComponent.restart();
+
+    if (gameHeader1 != null) {
+      System.out.println("Restarting gameHeader1");
+      gameHeader1.restartTalkedTo();
+    }
+
+    if (gameHeader2 != null) {
+      System.out.println("Restarting gameHeader2");
+      gameHeader2.restartTalkedTo();
+    }
+
+    if (gameHeader3 != null) {
+      System.out.println("Restarting gameHeader3");
+      gameHeader3.restartTalkedTo();
+    }
   }
 
   // public static GameHeader getGameHeader() {

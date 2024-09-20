@@ -26,7 +26,7 @@
          <font>
             <Font size="14.0" />
          </font></TextArea>
-      <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false" text="Play Again">
+      <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false" onAction="#handlePlayAgain" text="Play Again">
          <font>
             <Font size="20.0" />
          </font>

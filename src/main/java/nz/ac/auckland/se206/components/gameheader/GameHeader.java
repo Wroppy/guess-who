@@ -218,11 +218,19 @@ public class GameHeader extends Pane {
 
   public void guessingStage(MouseEvent event) throws IOException {
     if (MenuController.gameTimer != null) {
-      MenuController.gameTimer.getTimerLabel3().setText("00:30");
-      MenuController.gameTimer.setTimeRemaining(30);
+      MenuController.gameTimer.getTimerLabel3().setText("01:00");
+      MenuController.gameTimer.setTimeRemaining(60);
       MenuController.gameTimer.setFirstFiveMinutesFalse();
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
+  }
+
+  public void restartTalkedTo() {
+    talkedTo.put(SceneType.SUSPECT_1, false);
+    talkedTo.put(SceneType.SUSPECT_2, false);
+    talkedTo.put(SceneType.SUSPECT_3, false);
+
+    guessBtn.setDisable(true);
   }
 
   public void giveInformation(MouseEvent event) throws IOException {
