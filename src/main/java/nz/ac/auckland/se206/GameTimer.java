@@ -59,6 +59,7 @@ public class GameTimer {
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getResultLabel().setVisible(false);
               GameOverController.getTimeUpLabel().setVisible(true);
+              SoundManager.playSound("TimeUpLost.mp3");
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             } else if (running && !firstFiveMinutes && isSuspectChosen) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
