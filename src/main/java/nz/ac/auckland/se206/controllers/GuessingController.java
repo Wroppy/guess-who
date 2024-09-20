@@ -197,7 +197,7 @@ public class GuessingController {
           ChatMessage result = gptTask.getResult();
           feedback = result.getContent();
           GameOverController.getFeedbackTextArea().setText(GuessingController.getFeedback());
-          GameOverController.getFeedbackTextArea().setFont(Font.font("System", 24));
+          GameOverController.getFeedbackTextArea().setFont(Font.font("System", 22));
           // appendChatMessage(result);
         });
 
