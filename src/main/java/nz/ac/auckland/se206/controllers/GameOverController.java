@@ -27,6 +27,7 @@ public class GameOverController {
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.timeUpLabel.setVisible(false);
+      // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
       GameOverController.resultLabel.setText("Incorrect Choice!");
       GameOverController.feedbackTextArea.setVisible(false);

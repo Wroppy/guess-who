@@ -12,6 +12,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
@@ -35,6 +36,7 @@ public class GuessingController {
 
   private Rectangle selectedRectangle;
   private ChatCompletionRequest chatCompletionRequest;
+  private static String feedback;
 
   List<Rectangle> suspectOptions;
 
@@ -106,7 +108,13 @@ public class GuessingController {
 
   public void explanationScene(MouseEvent event) throws IOException {
     explanation = explaintxt.getText().trim();
+    if (explanation.isEmpty()) {
+      return;
+    }
+    ChatMessage msg = new ChatMessage("user", explanation);
 
+    setupGpt();
+    runGpt(msg);
     // TODO: Send explanation to GPT
 
     GameOverController.showResult();
@@ -176,6 +184,9 @@ public class GuessingController {
         event -> {
           // this.setLoading(false);
           ChatMessage result = gptTask.getResult();
+          feedback = result.getContent();
+          GameOverController.getFeedbackTextArea().setText(GuessingController.getFeedback());
+          GameOverController.getFeedbackTextArea().setFont(Font.font("System", 24));
           // appendChatMessage(result);
         });
 
@@ -190,5 +201,9 @@ public class GuessingController {
   private String getSystemPrompt() {
     // final String promptId = sceneType.toString().toLowerCase().replace(" ", "-");
     return PromptEngineering.getPrompt("feedback");
+  }
+
+  public static String getFeedback() {
+    return feedback;
   }
 }
