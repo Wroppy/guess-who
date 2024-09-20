@@ -141,8 +141,10 @@ public class AccessPadClue extends Pane {
 
   @FXML
   private void handleAcessPadClick() {
+    // Check if the access pad is unlocked
     accessPad.setVisible(true);
     if (!unlocked) {
+      // Show the access unlock pane
       accessUnlock.setVisible(true);
       errorMessage.setText("");
       passCodeDisplay.setText("");
@@ -178,12 +180,10 @@ public class AccessPadClue extends Pane {
 
   private void onDustMouseRelease(Event event) {
     currentlySelected = null;
-    if (dustingStage == DustingStage.POWDER) {}
   }
 
   private void onBrushMouseRelease(Event event) {
     currentlySelected = null;
-    if (dustingStage == DustingStage.BRUSH) {}
   }
 
   private void onMove(Coordinate center) {

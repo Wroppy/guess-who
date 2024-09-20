@@ -104,17 +104,22 @@ public class GameHeader extends Pane {
   }
 
   private void colourHeader() {
+    // Set the background colour of the header based on the current scene
     switch (currentScene) {
       case CRIME:
+        // Set the background colour of the header based on the current scene
         this.setStyle("-fx-background-color: linear-gradient(to right, #cee3ec, #7c9fb0);");
         break;
       case SUSPECT_1:
+        // Set the background colour of the header based on the current scene
         this.setStyle("-fx-background-color: linear-gradient(to right, #cdc2a4, #313130);");
         break;
       case SUSPECT_2:
+        // Set the background colour of the header based on the current scene
         this.setStyle("-fx-background-color: linear-gradient(to right, #ead8c1, #483223);");
         break;
       case SUSPECT_3:
+        // Set the background colour of the header based on the current scene
         this.setStyle("-fx-background-color: linear-gradient(to right, #dab576, #503218);");
         break;
       default:
@@ -123,10 +128,12 @@ public class GameHeader extends Pane {
   }
 
   private void setupComboBox() {
+    // Set the button cell to display the default text
     roomComboBox.setButtonCell(
         new ListCell<SceneType>() {
           @Override
           protected void updateItem(SceneType item, boolean empty) {
+            // Call the super method
             super.updateItem(item, empty);
             if (empty || item == null) {
               setText("Switch to room...");
@@ -134,13 +141,16 @@ public class GameHeader extends Pane {
           }
         });
 
+    // Set the converter to display the suspect names
     roomComboBox.setConverter(
         new StringConverter<SceneType>() {
+          // Convert the object to a string
           @Override
           public String toString(SceneType object) {
             return suspectMap.get(object.toString());
           }
 
+          // Not used
           @Override
           public SceneType fromString(String string) {
             return null;
@@ -149,6 +159,7 @@ public class GameHeader extends Pane {
 
     addComboBoxItems();
 
+    // Set the action for when the combo box is changed
     roomComboBox.setOnAction(e -> onRoomChange(e));
   }
 
@@ -168,6 +179,7 @@ public class GameHeader extends Pane {
       roomController.removeLaptopOverlay();
     }
 
+    // Set the timer label based on the selected scene
     if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
       SuspectRoomController.gameHeader1
           .getTimerLabel()
@@ -175,12 +187,14 @@ public class GameHeader extends Pane {
               MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
       MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
     } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+      // Set the timer label based on the selected scene
       SuspectRoomController.gameHeader2
           .getTimerLabel()
           .setText(
               MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
       MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
     } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+      // Set the timer label based on the selected scene
       SuspectRoomController.gameHeader3
           .getTimerLabel()
           .setText(
