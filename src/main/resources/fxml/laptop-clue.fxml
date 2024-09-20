@@ -6,7 +6,6 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -108,7 +107,7 @@
       <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="200.0" layoutY="130.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="accessEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="258.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="195.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5" visible="false">
+      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5">
          <children>
             <TextField layoutX="2.0" layoutY="1.0" prefHeight="14.0" prefWidth="171.0" text="Manager - Performance Report:">
                <font>
@@ -116,19 +115,19 @@
                </font>
             </TextField>
             <TextField layoutX="3.0" layoutY="18.0" prefHeight="145.0" prefWidth="169.0" />
-            <Label layoutX="7.0" layoutY="25.0" style="-fx-underline: true;" text="Performance Report for Bob:">
+            <Label layoutX="7.0" layoutY="25.0" style="-fx-underline: true;" text="Performance Report for Dominic:">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="5.0" layoutY="40.0" prefHeight="97.0" prefWidth="160.0" text="'Bob' has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. 'Bob's' keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
+            <Label layoutX="5.0" layoutY="40.0" prefHeight="97.0" prefWidth="160.0" text="Dominic has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. Dominic's keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
+      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5">
          <children>
             <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
             <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Vice President" wrapText="true">
@@ -141,12 +140,12 @@
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Please inform Bob that his employment with the company is being terminated, effective immediately. The following are the reasons for his dismisal:" wrapText="true">
+            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Please inform Dominic that his employment with the company is being terminated, effective immediately. The following are the reasons for his dismisal:" wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="6.0" layoutY="93.0" prefHeight="53.0" prefWidth="161.0" text="Please ensure all offboarding procedures are completed. Bob should be informed of his termination, and a separate notice will address his final paycheck, benefits, and departure details. Let me know if you have any questions or require further steps." wrapText="true">
+            <Label layoutX="6.0" layoutY="93.0" prefHeight="53.0" prefWidth="161.0" text="Please ensure that Dominic returns his access card  before he leaves. This is of utmost importance." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
@@ -161,32 +160,6 @@
                   <Font size="7.0" />
                </font>
             </Label>
-         </children>
-      </Pane>
-      <Pane fx:id="accessEmailPane" layoutX="384.0" layoutY="163.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
-         <children>
-            <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
-            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Hey there," wrapText="true">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </Label>
-            <TextField layoutX="3.0" prefHeight="14.0" prefWidth="171.0" text="HR - Access Pad Codes">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </TextField>
-            <Label layoutX="6.0" layoutY="46.0" prefHeight="44.0" prefWidth="160.0" text="We've just done our routine change of the passcode to unlock the access pad logs. It has been changed to:" wrapText="true">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </Label>
-            <Label layoutX="75.0" layoutY="93.0" prefHeight="28.0" prefWidth="20.0" text="7264" wrapText="true">
-               <font>
-                  <Font size="7.0" />
-               </font>
-            </Label>
-            <Line endX="19.0" layoutX="76.0" layoutY="112.0" startX="-3.003570556640625" />
          </children>
       </Pane>
    </children>
