@@ -18,7 +18,22 @@
             <Font size="47.0" />
          </font>
       </Text>
-      <Text fill="RED" layoutX="216.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on who you think commited the crime.">
+      <Text fill="WHITE" layoutX="222.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bob">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="371.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VP">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="495.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Third person" wrappingWidth="91.3496081953507">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="208.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on who you think commited the crime.">
          <font>
             <Font size="20.0" />
          </font>
