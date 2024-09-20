@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.GameStateContext;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.SoundManager;
 import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
@@ -35,14 +36,14 @@ public class RoomController implements HeaderableController {
   @FXML private Pane paneHover3;
   @FXML private Pane accessUnlock;
 
-
   @FXML private Pane headerContainer;
   @FXML private Pane room;
 
   private AccessPadClue accessPad;
-
   private Pane shredderClueOverlay;
   private Pane laptopOverlay;
+
+  private boolean firstShredderClue = true;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -128,6 +129,11 @@ public class RoomController implements HeaderableController {
 
   @FXML
   private void handleShredderClueClicked(MouseEvent event) {
+    if (firstShredderClue) {
+      SoundManager.playSound("Shredder.mp3");
+      firstShredderClue = false;
+    }
+
     shredderClueOverlay.setVisible(true);
   }
 
@@ -165,6 +171,7 @@ public class RoomController implements HeaderableController {
     gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
+
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
