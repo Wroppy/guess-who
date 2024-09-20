@@ -35,6 +35,7 @@ public class ShredderClueComponent extends Pane {
   private Map<ShredderBox, ShredderPaper> paperMap;
 
   public ShredderClueComponent(EventCallback onClose) {
+    paperClue = false;
     paperMap = new HashMap<>();
     this.onClose = onClose;
 

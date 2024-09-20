@@ -35,7 +35,6 @@ public class RoomController implements HeaderableController, Restartable {
   @FXML private Pane paneHover3;
   @FXML private Pane accessUnlock;
 
-
   @FXML private Pane headerContainer;
   @FXML private Pane room;
 
@@ -165,6 +164,7 @@ public class RoomController implements HeaderableController, Restartable {
     gameHeader = new GameHeader(sceneType, this);
     this.headerContainer.getChildren().add(gameHeader);
   }
+
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -225,5 +225,8 @@ public class RoomController implements HeaderableController, Restartable {
     // Recreates the shredder clue overlay
     this.room.getChildren().remove(shredderClueOverlay);
     addShredderClue();
+
+    LaptopController.restart();
+    gameHeader.restartTalkedTo();
   }
 }

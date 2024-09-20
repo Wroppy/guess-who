@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -14,7 +13,7 @@ public class LaptopController {
   @FXML private Rectangle performanceEmail; // pane of the perfomance email
   @FXML private Rectangle firingEmail; // pane of the firing email
   @FXML private Pane performanceReport; // pane of the promotion email
-  @FXML private Pane firedEmail; // pane of the email 
+  @FXML private Pane firedEmail; // pane of the email
   private static boolean emailOpened = false;
 
   public void initialize() throws IOException {
@@ -27,15 +26,16 @@ public class LaptopController {
     Rectangle clickedRectangle = (Rectangle) event.getSource();
     emailOpened = true;
 
-    if(clickedRectangle == performanceEmail) {
+    if (clickedRectangle == performanceEmail) {
       performanceReport.setVisible(true);
       firedEmail.setVisible(false);
 
-    } else if(clickedRectangle == firingEmail) {
+    } else if (clickedRectangle == firingEmail) {
       firedEmail.setVisible(true);
       performanceReport.setVisible(false);
     }
   }
+
   @FXML
   private void closeLaptop(ActionEvent event) {
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -45,5 +45,9 @@ public class LaptopController {
 
   public static boolean isEmailOpened() {
     return emailOpened;
+  }
+
+  public static void restart() {
+    emailOpened = false;
   }
 }

@@ -71,6 +71,21 @@ public class SuspectRoomController implements HeaderableController, Restartable 
   @Override
   public void restart() {
     chatComponent.restart();
+
+    if (gameHeader1 != null) {
+      System.out.println("Restarting gameHeader1");
+      gameHeader1.restartTalkedTo();
+    }
+
+    if (gameHeader2 != null) {
+      System.out.println("Restarting gameHeader2");
+      gameHeader2.restartTalkedTo();
+    }
+
+    if (gameHeader3 != null) {
+      System.out.println("Restarting gameHeader3");
+      gameHeader3.restartTalkedTo();
+    }
   }
 
   // public static GameHeader getGameHeader() {

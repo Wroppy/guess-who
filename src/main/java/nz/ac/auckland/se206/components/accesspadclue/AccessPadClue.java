@@ -50,6 +50,7 @@ public class AccessPadClue extends Pane {
 
   public AccessPadClue() {
     super();
+    unlocked = false;
 
     try {
       FXMLLoader loader = App.loadFxmlLoader("access-pad-clue");

@@ -216,4 +216,12 @@ public class GameHeader extends Pane {
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
+
+  public void restartTalkedTo() {
+    talkedTo.put(SceneType.SUSPECT_1, false);
+    talkedTo.put(SceneType.SUSPECT_2, false);
+    talkedTo.put(SceneType.SUSPECT_3, false);
+
+    guessBtn.setDisable(true);
+  }
 }
