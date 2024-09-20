@@ -40,6 +40,7 @@ public class GameOverController {
   }
 
   public static void showResult() {
+    feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.resultLabel.setLayoutY(106);
@@ -47,6 +48,7 @@ public class GameOverController {
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
+      // GameOverController.feedbackTextArea.appendText(GuessingController.getFeedback());
     } else {
       GameOverController.resultLabel.setText("Incorrect Choice!");
       GameOverController.resultLabel.setFont(Font.font("System", 28));

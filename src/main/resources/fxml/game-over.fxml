@@ -10,55 +10,47 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-  prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: black;"
-  xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1"
-  fx:controller="nz.ac.auckland.se206.controllers.GameOverController">
-  <children>
-    <Text fill="#f20000" layoutX="276.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0"
-      text="Game Over">
-      <font>
-        <Font size="48.0" />
-      </font>
-    </Text>
-    <Text fx:id="feedback" fill="WHITE" layoutX="105.0" layoutY="211.0" strokeType="OUTSIDE"
-      strokeWidth="0.0" text="Feedback:">
-      <font>
-        <Font size="30.0" />
-      </font>
-    </Text>
-    <TextArea fx:id="feedbacktxt" editable="false" layoutX="105.0" layoutY="231.0"
-      prefHeight="238.0" prefWidth="580.0" />
-    <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false"
-      text="Play Again">
-      <font>
-        <Font size="20.0" />
-      </font>
-    </Button>
-    <Line endX="133.2353515625" layoutX="378.0" layoutY="97.0" startX="-100.0" stroke="WHITE" />
-    <Label fx:id="result" alignment="CENTER" layoutX="238.0" layoutY="106.0" prefHeight="35.0"
-      prefWidth="314.0" textAlignment="CENTER" textFill="WHITE">
-      <font>
-        <Font size="24.0" />
-      </font>
-    </Label>
-    <ImageView fx:id="showCat" fitHeight="238.0" fitWidth="204.0" layoutX="601.0" layoutY="185.0"
-      pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@../images/failed-cat.gif" />
-      </image>
-    </ImageView>
-    <ImageView fx:id="showCat2" fitHeight="240.0" fitWidth="212.0" layoutX="23.0" layoutY="203.0"
-      pickOnBounds="true" preserveRatio="true">
-      <image>
-        <Image url="@../images/dissapointed_cat.gif" />
-      </image>
-    </ImageView>
-    <Label fx:id="timeUp" layoutX="118.0" layoutY="215.0" text="You did not guess in time!"
-      textFill="#fcfafa">
-      <font>
-        <Font size="49.0" />
-      </font>
-    </Label>
-  </children>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameOverController">
+   <children>
+      <Text fill="#f20000" layoutX="276.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Text>
+      <Text fx:id="feedback" fill="WHITE" layoutX="105.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="105.0" layoutY="231.0" prefHeight="238.0" prefWidth="580.0" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false" text="Play Again">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Line endX="133.2353515625" layoutX="378.0" layoutY="97.0" startX="-100.0" stroke="WHITE" />
+      <Label fx:id="result" alignment="CENTER" layoutX="238.0" layoutY="106.0" prefHeight="35.0" prefWidth="314.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="showCat" fitHeight="238.0" fitWidth="204.0" layoutX="601.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/failed-cat.gif" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="showCat2" fitHeight="240.0" fitWidth="212.0" layoutX="23.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/dissapointed_cat.gif" />
+         </image>
+      </ImageView>
+      <Label fx:id="timeUp" layoutX="118.0" layoutY="215.0" text="You did not guess in time!" textFill="#fcfafa">
+         <font>
+            <Font size="49.0" />
+         </font>
+      </Label>
+   </children>
 </Pane>

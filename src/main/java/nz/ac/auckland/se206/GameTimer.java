@@ -17,6 +17,7 @@ public class GameTimer {
   private volatile boolean running; // Flag to control the running state
   private boolean firstFiveMinutes = true;
   private boolean isSuspectChosen = false;
+  private GuessingController guessingController;
 
   public GameTimer(
       Label timerLabel1, GameStateContext context, GuessingController guessingController) {
@@ -25,6 +26,7 @@ public class GameTimer {
     this.timeRemaining = TIME_LIMIT;
     this.running = true; // Initialize the flag to true
     this.timerLabel3 = guessingController.getTimerLabel();
+    this.guessingController = guessingController;
   }
 
   // This method starts the timer, and updates the timer label every second
@@ -50,7 +52,7 @@ public class GameTimer {
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
 
-              setTimeRemaining(10);
+              setTimeRemaining(30);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes && !isSuspectChosen) {
@@ -63,6 +65,7 @@ public class GameTimer {
             } else if (running && !firstFiveMinutes && isSuspectChosen) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> GameOverController.showResult());
+              Platform.runLater(() -> guessingController.timeUpExplanation());
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
