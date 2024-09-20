@@ -20,7 +20,6 @@ public class GameOverController {
   @FXML private ImageView showCat;
   @FXML private ImageView showCat2;
   @FXML private Label timeUp;
-  @FXML private Pane processSubmission;
 
   private static ImageView catImage;
   private static ImageView catImage2;
@@ -28,7 +27,6 @@ public class GameOverController {
   private static Text feedbackLabel;
   private static TextArea feedbackTextArea;
   private static Button playAgainButton;
-  private static Pane processSubmissionPane;
 
   private static Label timeUpLabel;
 
@@ -37,27 +35,25 @@ public class GameOverController {
     GameOverController.feedbackLabel = feedback;
     GameOverController.feedbackTextArea = feedbacktxt;
     GameOverController.playAgainButton = playAgain;
-    GameOverController.processSubmissionPane = processSubmission; 
     showCat.setVisible(false);
     showCat2.setVisible(false);
     GameOverController.catImage = showCat;
     GameOverController.catImage2 = showCat2;
-    processSubmission.setVisible(true);
 
     GameOverController.timeUpLabel = timeUp;
   }
 
   public static void showResult() {
-    // Add a one-second delay before making the pane invisible
-    Timeline timeline = new Timeline(new KeyFrame(
-        Duration.seconds(4), // 1 second delay
-        e -> {
-            // Make the pane invisible after 1 second
-            processSubmissionPane.setVisible(false);
-        }
-    ));
-    timeline.setCycleCount(1);
-    timeline.play(); // Start the timeline
+
+    // Timeline timeline = new Timeline(new KeyFrame(
+    //     Duration.seconds(4), // 1 second delay
+    //     e -> {
+    //         // Make the pane invisible after 1 second
+    //         processSubmissionPane.setVisible(false);
+    //     }
+    // ));
+    // timeline.setCycleCount(1);
+    // timeline.play(); // Start the timeline
 
     feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {

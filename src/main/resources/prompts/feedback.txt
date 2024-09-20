@@ -17,6 +17,10 @@ Third clue - Access pad's access history shows Dominic entered the document room
 
 Based on the context, you need to evaluate the player's explanation and give a feedback accordingly.
 
+Given below are some examples of explanations and how you should reply to them. Use these to help you to come up with the feedback. 
+Give your reply as a paragraph.
+Only use the feedback example to structure your answer. Avoid using the example explanation structure as part of your answer.
+
 Example explanation one:
 I think the Sebastian is the thief, because the shredded papers show that someone is trying to takeover the CEO, and only Sebastian is at the position with this capability.
 
@@ -34,3 +38,5 @@ In order to commit this crime, he fired Dominic to obtain the Dominic's access c
 
 If they forget something, remember to include what clues they may have missed out on.
 Be clear on whether they are correct or not. Avoid vagueness.
+
+Your explanation must be concise and under 75 words.
