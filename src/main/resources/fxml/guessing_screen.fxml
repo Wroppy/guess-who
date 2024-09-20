@@ -18,7 +18,22 @@
             <Font size="47.0" />
          </font>
       </Text>
-      <Text fill="RED" layoutX="216.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on who you think commited the crime.">
+      <Text fill="WHITE" layoutX="222.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bob">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="371.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VP">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="495.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Third person" wrappingWidth="91.3496081953507">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fill="RED" layoutX="208.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on who you think commited the crime.">
          <font>
             <Font size="20.0" />
          </font>
@@ -43,8 +58,8 @@
       <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#choiceCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
       <Line endX="188.27825927734375" layoutX="371.0" layoutY="97.0" startX="-141.5838623046875" stroke="#f2f2f2" />
       <TextArea fx:id="explaintxt" layoutX="188.0" layoutY="381.0" prefHeight="141.0" prefWidth="412.0" />
-      <Button fx:id="submitBtn" layoutX="355.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="39.0" prefWidth="75.0" text="Submit" />
-      <Text fill="RED" layoutX="239.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please give an explanation to your decision.">
+      <Button fx:id="submitBtn" layoutX="348.0" layoutY="535.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="39.0" prefWidth="75.0" text="Submit" />
+      <Text fill="RED" layoutX="213.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please give an explanation to your decision.">
          <font>
             <Font size="18.0" />
          </font>
