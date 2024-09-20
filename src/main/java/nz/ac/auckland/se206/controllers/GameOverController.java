@@ -31,6 +31,7 @@ public class GameOverController implements Restartable {
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.timeUpLabel.setVisible(false);
+      resultLabel.setVisible(true);
 
       GameOverController.feedbackTextArea.setVisible(true);
       GameOverController.feedbackLabel.setVisible(true);
@@ -40,7 +41,7 @@ public class GameOverController implements Restartable {
       GameOverController.feedbackTextArea.setVisible(false);
       GameOverController.feedbackLabel.setVisible(false);
       GameOverController.timeUpLabel.setVisible(false);
-
+      resultLabel.setVisible(true);
         
     }
   }

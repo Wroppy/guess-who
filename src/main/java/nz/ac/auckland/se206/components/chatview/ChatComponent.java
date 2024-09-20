@@ -210,5 +210,6 @@ public class ChatComponent extends VBox {
   public void restart() {
     chatBox.clear();
     setupGpt();
+    textInput.clear();
   }
 }
