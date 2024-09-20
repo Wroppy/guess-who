@@ -44,6 +44,7 @@ public class RoomController implements HeaderableController {
   private Pane laptopOverlay;
 
   private boolean firstShredderClue = true;
+  private boolean firstAccessPadClue = true;
 
   private static boolean isFirstTimeInit = true;
   private static GameStateContext context = new GameStateContext();
@@ -185,7 +186,12 @@ public class RoomController implements HeaderableController {
 
   @FXML
   private void handleAcessPadClick(MouseEvent event) {
-    System.out.println("Hello world");
+    if (firstAccessPadClue) {
+      SoundManager.playSound("AccessPad.mp3");
+      firstAccessPadClue = false;
+    }
+
+    // System.out.println("Hello world");
     accessPad.setVisible(true);
   }
 
