@@ -24,6 +24,7 @@ public class GameOverController {
   }
 
   public static void showResult() {
+    feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.timeUpLabel.setVisible(false);

@@ -128,6 +128,7 @@ public class GuessingController {
     if (explanation.isEmpty()) {
       return;
     }
+    
     ChatMessage msg = new ChatMessage("user", explanation);
 
     setupGpt();
@@ -197,7 +198,6 @@ public class GuessingController {
           ChatMessage result = gptTask.getResult();
           feedback = result.getContent();
           GameOverController.getFeedbackTextArea().setText(GuessingController.getFeedback());
-          GameOverController.getFeedbackTextArea().setFont(Font.font("System", 22));
           // appendChatMessage(result);
         });
 
