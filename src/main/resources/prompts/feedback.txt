@@ -27,5 +27,10 @@ Example explanation two:
 I think the vice president is the thief, because he is jealous of Dominic's recent performance.
 
 Example feedback two:
-Your explanation is incorrect, the vice president, Sebastian, stole the document, the document contains sensentive informations on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
+Your explanation is incorrect, the vice president, Sebastian, stole the document, the document contains sensitive information on the current CEO's vulnerabilities and he will these informations to takeover the CEO.
 In order to commit this crime, he fired Dominic to obtain the Dominic's access card. He then used the Dominic's access card to enter the document room at night and stole the document.
+
+
+
+If they forget something, remember to include what clues they may have missed out on.
+Never ever say whether they are partially correct or not, only say whether they are correct, or they are not.
