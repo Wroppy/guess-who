@@ -185,13 +185,17 @@ public class RoomController implements HeaderableController, Restartable {
 
   @FXML
   private void showLaptop(MouseEvent event) throws IOException {
+    // If it is the first time the laptop is clicked, play the sound
     if (firstLaptopClue) {
       SoundManager.playSound("Laptop.mp3");
       firstLaptopClue = false;
     }
+    // Load the laptop overlay
     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
     Pane mainPane = (Pane) stage.getScene().lookup("#room");
     Parent overlay = App.loadFxmlLoader("laptop-clue").load();
+
+    // Set the overlay to the top left corner
     overlay.setLayoutX(0);
     overlay.setLayoutY(100.0);
     this.laptopOverlay = (Pane) overlay;

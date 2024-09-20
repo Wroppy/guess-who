@@ -57,13 +57,15 @@ public class SuspectRoomController implements HeaderableController, Restartable 
 
   @Override
   public void setupHeader(SceneType sceneType) {
+    // Sets up the game header
     if (sceneType == SceneType.SUSPECT_1) {
-      gameHeader1 = new GameHeader(sceneType);
+      gameHeader1 = new GameHeader(sceneType); // Creates a new game header
       this.headerContainer.getChildren().add(gameHeader1);
     } else if (sceneType == SceneType.SUSPECT_2) {
-      gameHeader2 = new GameHeader(sceneType);
+      gameHeader2 = new GameHeader(sceneType); // Creates a new game header
       this.headerContainer.getChildren().add(gameHeader2);
     } else if (sceneType == SceneType.SUSPECT_3) {
+      // Creates a new game header
       gameHeader3 = new GameHeader(sceneType);
       this.headerContainer.getChildren().add(gameHeader3);
     }

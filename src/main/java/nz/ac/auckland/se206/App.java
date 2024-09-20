@@ -126,7 +126,6 @@ public class App extends Application {
     stage.sizeToScene();
   }
 
-  private MenuController menuController;
   private Map<SceneType, Restartable> controllers;
 
   /**

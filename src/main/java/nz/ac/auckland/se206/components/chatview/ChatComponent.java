@@ -168,10 +168,6 @@ public class ChatComponent extends VBox {
     chatBox.setText(text);
   }
 
-  // public void setName(String name) {
-  // this.name = name;
-  // }
-
   /**
    * Generates the system prompt based on the suspect type.
    *
@@ -189,13 +185,17 @@ public class ChatComponent extends VBox {
    */
   public void setupGpt() {
     try {
+      // Reads the API proxy configuration
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+      // Sets up the chat completion request
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
-              .setTemperature(0.2)
+              .setTemperature(0.2) // 0.2
               .setTopP(0.5)
               .setMaxTokens(200);
+
+      // Runs the GPT model with the system prompt
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();

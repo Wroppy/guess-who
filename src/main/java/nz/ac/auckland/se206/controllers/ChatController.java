@@ -53,14 +53,16 @@ public class ChatController {
    */
   public void setProfession() {
     try {
-      System.out.println(getSystemPrompt());
+      //  Set the system prompt and initialize the ChatCompletionRequest
       ApiProxyConfig config = ApiProxyConfig.readConfig();
+      // Set the system prompt and initialize the ChatCompletionRequest
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
               .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(100);
+      // Set the system prompt and initialize the ChatCompletionRequest
       runGpt(new ChatMessage("system", getSystemPrompt()));
     } catch (ApiProxyException e) {
       e.printStackTrace();

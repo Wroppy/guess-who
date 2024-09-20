@@ -125,14 +125,18 @@ public class GuessingController implements Restartable {
   }
 
   public void explanationScene(MouseEvent event) throws IOException {
+    // Check if the user has selected a suspect
     explanation = explaintxt.getText().trim();
     if (explanation.isEmpty()) {
 
       return;
     }
+
+    // Set the explanation in the chat message
     msg = new ChatMessage("user", explanation);
     App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
+    // Run the GPT model
     setupGpt();
     GameOverController.showResult();
 

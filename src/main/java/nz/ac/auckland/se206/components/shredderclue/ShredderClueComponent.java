@@ -316,8 +316,6 @@ public class ShredderClueComponent extends Pane {
 
   @FXML
   public void handleClose(ActionEvent event) {
-    // this.setVisible(false);
-
     Platform.runLater(() -> onClose.run(event));
   }
 
