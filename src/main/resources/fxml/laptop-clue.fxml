@@ -120,14 +120,19 @@
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="5.0" layoutY="40.0" prefHeight="97.0" prefWidth="160.0" text="Dominic has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. Dominic's keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
+            <Label layoutX="7.0" layoutY="22.0" prefHeight="97.0" prefWidth="160.0" text="Dominic delivered outstanding results this quarter by leading portfolio analysis, optimizing investment strategies for a 15% return increase, and developing a risk assessment model that reduced market volatility exposure by 10%. His insights also helped secure three major clients." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="141.0" prefHeight="15.0" prefWidth="75.0" text="- Manager" wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5">
+      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
             <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Vice President" wrapText="true">
