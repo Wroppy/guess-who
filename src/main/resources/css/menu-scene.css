@@ -1,0 +1,8 @@
+#investigateButton {
+  -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-cursor: hand;
+}
+
+#investigateButton:hover {
+  -fx-background-color: rgba(0, 0, 0, 0.1);
+}

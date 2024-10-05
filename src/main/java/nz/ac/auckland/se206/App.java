@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
@@ -41,6 +42,12 @@ public class App extends Application {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  public static Font getMarkerFont(int size) {
+    String filename = App.class.getResource("/fonts/PermanentMarker.ttf").toExternalForm();
+
+    return Font.loadFont(filename, size);
   }
 
   /**
