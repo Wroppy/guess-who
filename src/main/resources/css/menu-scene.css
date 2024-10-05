@@ -4,11 +4,11 @@
   -fx-label-padding: 0 0 0 -10px;
 }
 
-#investigateButton:hover {
-  -fx-background-color: rgba(0, 0, 0, 0.1);
-}
+/* #investigateButton:hover { */
+/* -fx-background-color: rgba(0, 0, 0, 0.1); */
+/* } */
 
 #investigateButton:armed {
-  -fx-background-color: rgba(10, 100, 255, 0.5);
+  /* -fx-background-color: rgba(10, 100, 255, 0.5); */
   -fx-label-padding: 2px 0 0 -10px;
 }
