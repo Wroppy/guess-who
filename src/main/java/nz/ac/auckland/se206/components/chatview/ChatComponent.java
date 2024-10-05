@@ -50,7 +50,7 @@ public class ChatComponent extends VBox {
       setupButton();
 
       // Sets up the GPT model
-      this.setupGpt();
+      // this.setupGpt();
 
       this.styleWidget();
 

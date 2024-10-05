@@ -7,6 +7,10 @@ import javafx.scene.Parent;
 public class SceneManager {
   private static Map<SceneType, Parent> sceneMap = new HashMap<>();
 
+  public static Map<SceneType, Parent> getSceneMap() {
+    return SceneManager.sceneMap;
+  }
+
   public static void addScene(SceneType sceneType, Parent parent) {
     sceneMap.put(sceneType, parent);
   }

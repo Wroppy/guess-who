@@ -1,0 +1,9 @@
+.button {
+  -fx-background-color: #555555;
+  -fx-text-fill: #eeeeee;
+  -fx-background-radius: 4px;
+}
+
+.button:armed {
+  -fx-translate-y: 2px;
+}

@@ -123,6 +123,7 @@ public class App extends Application {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);
     Stage stage = (Stage) scene.getWindow();
+
     stage.sizeToScene();
   }
 
@@ -139,6 +140,7 @@ public class App extends Application {
     controllers = new HashMap<>();
 
     this.initializeScenes();
+    this.styleAllButtons();
 
     App.stage = stage;
     App.app = this;
@@ -239,5 +241,17 @@ public class App extends Application {
         });
 
     changeScene(SceneType.INTRO);
+  }
+
+  /** Styles the button with css */
+  private void styleAllButtons() {
+    String styles = App.getCssUrl("button");
+    System.out.println("Styling");
+
+    for (SceneType sceneType : SceneManager.getSceneMap().keySet()) {
+      Parent root = SceneManager.getScene(sceneType);
+
+      root.getStylesheets().add(styles);
+    }
   }
 }
