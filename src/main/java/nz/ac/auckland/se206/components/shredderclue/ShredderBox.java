@@ -7,6 +7,11 @@ public class ShredderBox extends Rectangle implements Positionable {
   private Coordinate center;
   private int order;
 
+  /**
+   * Creates a new shredder box with the given order it is relative to the other Shredder boxes.
+   *
+   * @param order
+   */
   public ShredderBox(int order) {
     super();
 
@@ -24,24 +29,41 @@ public class ShredderBox extends Rectangle implements Positionable {
 
     this.center = new Coordinate(x, y);
 
-    System.out.println("Center: " + this.center.getxPos() + ", " + this.center.getyPos());
+    System.out.println(
+        "Center: "
+            + this.center.getHorizontalPosition()
+            + ", "
+            + this.center.getVerticalPosition());
   }
 
+  /** Moves the box to the given coordinate. */
   @Override
   public Coordinate getCenterCooridinate() {
     return this.center;
   }
 
+  /** Moves the box to the given coordinate. */
   @Override
   public Coordinate getTopLeftCooridinate() {
     System.out.println("Top left: " + this.getLayoutX() + ", " + this.getLayoutY());
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 
+  /**
+   * Sets the order of the box.
+   *
+   * @return The order of the box
+   */
   public int getOrder() {
     return this.order;
   }
 
+  /***
+   * Checks if the paper is correct for the box.
+   *
+   * @param paper The paper to check
+   * @return True if the paper is correct, false otherwise
+   */
   public boolean isPaperCorrect(ShredderPaper paper) {
     return paper != null && paper.getOrder() == this.order;
   }
