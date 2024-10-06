@@ -1,11 +1,17 @@
 package nz.ac.auckland.se206;
 
+import java.util.HashMap;
+
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
+import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
+import nz.ac.auckland.se206.controllers.LaptopController;
 
 public class GameTimer {
   private static final int TIME_LIMIT = 300; // should 5 minutes in seconds
@@ -19,6 +25,7 @@ public class GameTimer {
   private boolean firstFiveMinutes = true;
   private boolean isSuspectChosen = false;
   private GuessingController guessingController;
+  private HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   public GameTimer(
       Label timerLabel1, GameStateContext context, GuessingController guessingController) {
@@ -28,6 +35,7 @@ public class GameTimer {
     this.running = true; // Initialize the flag to true
     this.timerLabel3 = guessingController.getTimerLabel();
     this.guessingController = guessingController;
+    talkedTo = GameHeader.getTalkedTo();
   }
 
   // This method starts the timer, and updates the timer label every second
@@ -48,13 +56,17 @@ public class GameTimer {
               Thread.sleep(1000);
               timeRemaining--;
             }
-            if (running && firstFiveMinutes) {
+            if(!talkedTo.get(SceneType.SUSPECT_1) || !talkedTo.get(SceneType.SUSPECT_2) || !talkedTo.get(SceneType.SUSPECT_3) || (!LaptopController.isEmailOpened() && !ShredderClueComponent.isPaperClue() && !AccessPadClue.isUnlocked())) {
+              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
+              GameOverController.getFeedbackLabel().setVisible(false);
+              GameOverController.getFeedbackTextArea().setVisible(false);
+            } else if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
               SoundManager.playSound("5MinuteUp.mp3");
 
-              setTimeRemaining(60);
+              setTimeRemaining(6);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes && !isSuspectChosen) {
@@ -77,7 +89,6 @@ public class GameTimer {
               SoundManager.playSound("TimeUpWritten.mp3");
               Platform.runLater(() -> GameOverController.showResult());
               Platform.runLater(() -> guessingController.timeUpExplanation());
-              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
             return null;
