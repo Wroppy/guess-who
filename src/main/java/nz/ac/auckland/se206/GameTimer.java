@@ -66,7 +66,7 @@ public class GameTimer {
               // Playing corresponding sound
               SoundManager.playSound("5MinuteUp.mp3");
 
-              setTimeRemaining(6);
+              setTimeRemaining(60);
               setFirstFiveMinutesFalse();
               start();
             } else if (running && !firstFiveMinutes && !isSuspectChosen) {
