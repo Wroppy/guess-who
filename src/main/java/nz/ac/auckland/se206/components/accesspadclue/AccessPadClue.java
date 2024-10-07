@@ -17,9 +17,15 @@ import nz.ac.auckland.se206.components.shredderclue.Coordinate;
 import nz.ac.auckland.se206.utils.CoordinateCallback;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** A component that displays the access pad clue for the user to interact with. */
 public class AccessPadClue extends Pane {
   private static boolean unlocked = false;
 
+  /**
+   * Checks if the access pad is unlocked.
+   *
+   * @return
+   */
   public static boolean isUnlocked() {
     return unlocked;
   }
@@ -53,6 +59,7 @@ public class AccessPadClue extends Pane {
   @FXML private Pane accessPadUnlocked;
   @FXML private Button closeButton;
 
+  /** Creates a new access pad clue component. */
   public AccessPadClue() {
     super();
     unlocked = false;
@@ -70,6 +77,7 @@ public class AccessPadClue extends Pane {
     this.setVisible(false);
   }
 
+  /** Initializes the access pad clue component. */
   @FXML
   private void initialize() {
 
@@ -96,6 +104,7 @@ public class AccessPadClue extends Pane {
     changeProgressBar(0);
   }
 
+  /** Clears the passcode. */
   @FXML
   private void clearPasscode() {
     passCode.clear();
@@ -120,6 +129,7 @@ public class AccessPadClue extends Pane {
     passCode.add(Integer.parseInt(buttonText));
   }
 
+  /** Checks if the passcode is correct. */
   public void checkPasscode() {
     // Check if the passcode is correct
     if (passCode.size() == 3) {
@@ -139,6 +149,7 @@ public class AccessPadClue extends Pane {
     }
   }
 
+  /** Handles the click event of the access pad. */
   @FXML
   private void handleAcessPadClick() {
     // Check if the access pad is unlocked
@@ -152,16 +163,29 @@ public class AccessPadClue extends Pane {
     }
   }
 
+  /** Handles the click event of the close button. */
   @FXML
   private void onCloseButtonClick() {
     this.setVisible(false);
   }
 
+  /**
+   * Sets the dusting stage.
+   *
+   * @param stage The dusting stage
+   */
   public void setStage(DustingStage stage) {
     this.dustingStage = stage;
     changeLabel();
   }
 
+  /**
+   * Sets the draggable property of the node.
+   *
+   * @param node The node to set the draggable property
+   * @param onMouseClick The callback function for when the node is clicked
+   * @param onMouseRelease The callback function for when the node is released
+   */
   private void setDraggable(Node node, EventCallback onMouseClick, EventCallback onMouseRelease) {
     Coordinate anchor = new Coordinate(node.getLayoutX(), node.getLayoutY());
 
@@ -170,18 +194,38 @@ public class AccessPadClue extends Pane {
     new Draggable(node, anchor, onMouseClick, onMouseRelease, onMouseMove);
   }
 
+  /**
+   * Handles the click event of the dust.
+   *
+   * @param event The event triggered by the dust
+   */
   private void onDustClick(Event event) {
     currentlySelected = dust;
   }
 
+  /**
+   * Handles the click event of the brush.
+   *
+   * @param event The event triggered by the brush
+   */
   private void onBrushClick(Event event) {
     currentlySelected = brush;
   }
 
+  /**
+   * Handles the release event of the dust.
+   *
+   * @param event The event triggered by the dust
+   */
   private void onDustMouseRelease(Event event) {
     currentlySelected = null;
   }
 
+  /**
+   * Handles the release event of the brush.
+   *
+   * @param event The event triggered by the brush
+   */
   private void onBrushMouseRelease(Event event) {
     currentlySelected = null;
   }

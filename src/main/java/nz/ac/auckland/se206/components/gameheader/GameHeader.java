@@ -27,10 +27,18 @@ import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
 import nz.ac.auckland.se206.controllers.SuspectRoomController;
 
+/**
+ * GameHeader component that displays the room label, room combo box, guess button, and information
+ * button.
+ */
 public class GameHeader extends Pane {
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
-  // setter for hashmap
+  /**
+   * Set the talked to status of the scene
+   *
+   * @param scene The scene to set the status of
+   */
   public static void setTalkedTo(SceneType scene) {
     talkedTo.put(scene, true);
   }
@@ -46,15 +54,27 @@ public class GameHeader extends Pane {
   private RoomController roomController;
   private Map<String, String> suspectMap = new HashMap<>();
 
+  /**
+   * Constructor for the GameHeader component that sets the current scene type
+   *
+   * @param sceneType The current scene type
+   */
   public GameHeader(SceneType sceneType) {
     this(sceneType, null);
   }
 
+  /**
+   * Constructor for the GameHeader component that sets the current scene type and room controller
+   *
+   * @param sceneType The current scene type
+   * @param roomController The room controller
+   */
   public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
     this.roomController = roomController;
     currentScene = sceneType;
 
+    // Load the FXML file
     try {
       FXMLLoader loader = App.loadFxmlLoader("game-header");
       loader.setRoot(this);
@@ -67,6 +87,10 @@ public class GameHeader extends Pane {
     }
   }
 
+  /**
+   * Initialize the GameHeader component by setting up the combo box and adding the suspects to the
+   * map.
+   */
   public void initialize() {
     // Add the suspects to the hashmap
     suspectMap.put("Suspect 1", "Dominic Sterling");
@@ -103,6 +127,7 @@ public class GameHeader extends Pane {
     colourHeader();
   }
 
+  /** Set the colour of the header based on the current scene. */
   private void colourHeader() {
     // Set the background colour of the header based on the current scene
     switch (currentScene) {
@@ -127,6 +152,10 @@ public class GameHeader extends Pane {
     }
   }
 
+  /**
+   * Set up the combo box by setting the button cell, converter, adding the items, and setting the
+   * action for when the combo box is changed.
+   */
   private void setupComboBox() {
     // Set the button cell to display the default text
     roomComboBox.setButtonCell(
@@ -163,6 +192,11 @@ public class GameHeader extends Pane {
     roomComboBox.setOnAction(e -> onRoomChange(e));
   }
 
+  /**
+   * Change the scene based on the selected scene in the combo box
+   *
+   * @param e The action event
+   */
   private void onRoomChange(ActionEvent e) {
     SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
 
@@ -205,18 +239,34 @@ public class GameHeader extends Pane {
     changeScene(selectedScene);
   }
 
+  /**
+   * Clear the selection of the combo box by setting the selection to null.
+   *
+   * @param e The mouse event
+   */
   private void clearComboBoxSelection() {
     roomComboBox.getSelectionModel().clearSelection();
   }
 
+  /**
+   * Change the label based on the scene type.
+   *
+   * @param sceneType The scene type to change the label to.
+   */
   private void changeLabel(SceneType sceneType) {
     roomLabel.setText("Room: " + sceneType.toString());
   }
 
+  /**
+   * Change the scene based on the scene type.
+   *
+   * @param sceneType The scene type to change the scene to.
+   */
   private void changeScene(SceneType sceneType) {
     App.changeScene(sceneType);
   }
 
+  /** Add the items to the combo box. */
   private void addComboBoxItems() {
     SceneType[] sceneTypes = {
       SceneType.CRIME, SceneType.SUSPECT_1, SceneType.SUSPECT_2, SceneType.SUSPECT_3
@@ -227,15 +277,31 @@ public class GameHeader extends Pane {
     }
   }
 
+  /**
+   * Set the scene type of the current scene.
+   *
+   * @param sceneType The scene type to set the current scene to.
+   */
   public void setScene(SceneType sceneType) {
     currentScene = sceneType;
     changeLabel(sceneType);
   }
 
+  /**
+   * Get the timer label.
+   *
+   * @return The timer label.
+   */
   public Label getTimerLabel() {
     return timerLabel;
   }
 
+  /**
+   * Get the room combo box.
+   *
+   * @param event The mouse event.
+   * @throws IOException If the FXML file cannot be loaded.
+   */
   public void guessingStage(MouseEvent event) throws IOException {
     if (MenuController.gameTimer != null) {
       MenuController.gameTimer.getTimerLabel3().setText("01:00");
@@ -245,6 +311,7 @@ public class GameHeader extends Pane {
     App.changeScene(SceneType.PLAYER_EXPLANATION);
   }
 
+  /** Restart the talked to status of the suspects. */
   public void restartTalkedTo() {
     talkedTo.put(SceneType.SUSPECT_1, false);
     talkedTo.put(SceneType.SUSPECT_2, false);
@@ -254,6 +321,12 @@ public class GameHeader extends Pane {
     guessBtn.setDisable(true);
   }
 
+  /**
+   * Give information to the player.
+   *
+   * @param event The mouse event.
+   * @throws IOException If the FXML file cannot be loaded.
+   */
   public void giveInformation(MouseEvent event) throws IOException {
     SoundManager.playSound("Interact.mp3");
   }
