@@ -190,11 +190,7 @@ public class GuessingController implements Restartable {
     selectedRectangle = null;
   }
 
-  /**
-   * Begins the chat with the GPT model by setting up the GPT model with the suspect type.
-   *
-   * @param suspectId the ID of the suspect the user is chatting with
-   */
+  /** Begins the chat with the GPT model by setting up the GPT model with the suspect type. */
   public void setupGpt() {
     // this.setLoading(true);
     try {

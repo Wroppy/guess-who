@@ -82,6 +82,10 @@ public class GameOverController implements Restartable {
 
   private CallBack onRestart;
 
+  /**
+   * Initializes the GameOverController by setting up the static variables and configuring the
+   * visibility of certain UI components.
+   */
   public void initialize() {
     // Set the static variables
     GameOverController.resultLabel = result;
