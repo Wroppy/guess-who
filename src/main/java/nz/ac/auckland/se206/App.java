@@ -35,6 +35,7 @@ public class App extends Application {
 
   private static Scene scene;
 
+  /** Restarts the application by re-initializing the main application stage. */
   public static void restart() {
     try {
       app.start(stage);

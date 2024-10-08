@@ -43,7 +43,7 @@ public class GameTimer {
     this.guessingController = guessingController;
   }
 
-  // This method starts the timer, and updates the timer label every second
+  /** Starts the countdown timer, updating the timer labels every second and triggering actions. */
   public void start() {
     Task<Void> task =
         new Task<Void>() {
