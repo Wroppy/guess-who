@@ -119,6 +119,12 @@ public class App extends Application {
     }
   }
 
+  /**
+   * Changes the current scene to the specified scene type.
+   *
+   * @param sceneType The enum type of the scene to be displayed. This determines which scene is
+   *     loaded and shown to the user.
+   */
   public static void changeScene(SceneType sceneType) {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);

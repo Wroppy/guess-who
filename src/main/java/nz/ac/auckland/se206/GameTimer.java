@@ -90,6 +90,12 @@ public class GameTimer {
     this.timerLabel2 = timerLabel2;
   }
 
+  /**
+   * Formats the given time in seconds into a string representation of minutes and seconds.
+   *
+   * @param seconds The time in seconds to be formatted.
+   * @return A string representing the formatted time in "MM:SS" format.
+   */
   public String formatTime(int seconds) {
     int minutes = seconds / 60;
     int secs = seconds % 60;

@@ -154,6 +154,12 @@ public class GuessingController implements Restartable {
     setupGpt();
   }
 
+  /**
+   * Handles the selection of a criminal when a mouse event occurs. Remember a choice is made and
+   * determine if the choice is correct.
+   *
+   * @param event The mouse event when clicking on the rectangle occurs
+   */
   public void chooseCriminal(MouseEvent event) {
     isClicked = true;
     MenuController.gameTimer.setSuspectChosenTrue();
