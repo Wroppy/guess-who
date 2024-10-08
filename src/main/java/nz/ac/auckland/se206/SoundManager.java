@@ -3,6 +3,13 @@ package nz.ac.auckland.se206;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+/**
+ * Class responsible for handling audio playback within the application.
+ *
+ * <p>This class provides methods to play sounds by loading audio files from the resources. It
+ * ensures that only one sound is played at a time by stopping any currently playing sound before
+ * starting a new one.
+ */
 public class SoundManager {
   private static MediaPlayer player;
 

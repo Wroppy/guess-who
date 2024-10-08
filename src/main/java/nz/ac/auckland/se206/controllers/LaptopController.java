@@ -31,12 +31,22 @@ public class LaptopController {
   @FXML private Pane performanceReport; // pane of the promotion email
   @FXML private Pane firedEmail; // pane of the email
 
+  /**
+   * Initializes the controller and sets the visibility of the email panes to false initially.
+   *
+   * @throws IOException if an error occurs during initialization.
+   */
   public void initialize() throws IOException {
     // // set the visibility of the panes to false
     performanceReport.setVisible(false);
     firedEmail.setVisible(false);
   }
 
+  /**
+   * Handles the click event on email rectangles to display the corresponding report.
+   *
+   * @param event The mouse event that occurred when a rectangle is clicked.
+   */
   public void handleRectangleClick(MouseEvent event) {
     // get the rectangle that was clicked
     Rectangle clickedRectangle = (Rectangle) event.getSource();

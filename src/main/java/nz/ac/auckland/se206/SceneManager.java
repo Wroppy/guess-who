@@ -19,6 +19,7 @@ public class SceneManager {
     return sceneMap.get(sceneType);
   }
 
+  /** Enum representing the different types of scenes available. */
   public enum SceneType {
     INTRO("Introduction"),
     CRIME("Crime Scene"),

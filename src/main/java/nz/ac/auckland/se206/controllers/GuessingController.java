@@ -58,6 +58,10 @@ public class GuessingController implements Restartable {
 
   private ChatMessage msg;
 
+  /**
+   * Initializes the controller and constantly checking if text area is empty and if a suspect is
+   * selected.
+   */
   public void initialize() {
     // Add a listener to check if TextArea has text input
     submitBtn.setStyle(
@@ -157,6 +161,7 @@ public class GuessingController implements Restartable {
     MenuController.gameTimer.stop();
   }
 
+  /** Handles the scenario when time is up, switching to the processing screen. */
   public void timeUpExplanation() {
     explanation = explaintxt.getText().trim();
     if (explanation.isEmpty()) {
