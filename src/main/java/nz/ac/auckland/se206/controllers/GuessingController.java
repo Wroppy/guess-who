@@ -22,6 +22,13 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
+/**
+ * Controller for the guessing functionality.
+ *
+ * <p>This class manages the user interface and game logic for selecting suspects, providing
+ * explanations, and interacting with the GPT model. It implements the Restartable interface to
+ * allow the game to be reset.
+ */
 public class GuessingController implements Restartable {
   private static boolean correctChoice;
   private static String feedback;
@@ -124,6 +131,13 @@ public class GuessingController implements Restartable {
     selectedRectangle.setStroke(Color.GREEN);
   }
 
+  /**
+   * Handles the transition to the feedback scene when a suspect is selected. Sends the user's
+   * explanation to GPT
+   *
+   * @param event The mouse event that submits the user's explanation.
+   * @throws IOException if an error occurs while changing the scene.
+   */
   public void explanationScene(MouseEvent event) throws IOException {
     // Check if the user has selected a suspect
     explanation = explaintxt.getText().trim();

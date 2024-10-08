@@ -9,6 +9,12 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+/**
+ * Controller for managing laptop clue interactions in the application.
+ *
+ * <p>This class handles the display of emails and reports related to performance and termination.
+ * It manages the visibility of the email panes and tracks whether an email has been opened.
+ */
 public class LaptopController {
   private static boolean emailOpened = false;
 

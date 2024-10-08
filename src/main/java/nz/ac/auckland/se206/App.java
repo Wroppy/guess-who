@@ -105,8 +105,8 @@ public class App extends Application {
   /**
    * Given a filename, returns the text data from the file as a string.
    *
-   * @param filename
-   * @return
+   * @param filename of the file to be read
+   * @return content of file as string
    */
   public static String getData(String filename) {
     URL url = App.class.getResource("/data/" + filename);
