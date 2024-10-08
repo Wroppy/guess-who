@@ -21,9 +21,10 @@ public class ShredderClueComponent extends Pane {
   }
 
   // Sets the size of the clue rectangles, with aspect ratio 2200:283
-  private final double clueHeight = 300;
-  private final double clueWidth = clueHeight * 283 / 2200;
+  private final double clueHeight = 220;
+  private final double clueWidth = clueHeight * 413 / 1130;
   private final int clues = 6;
+  private final int indicatorOffset = 6;
 
   @FXML private Pane shredderPane;
   @FXML private ImageView selectIndicator;
@@ -57,16 +58,20 @@ public class ShredderClueComponent extends Pane {
     }
   }
 
+  private void setupIndicator() {
+    selectIndicator.setFitHeight(clueHeight + indicatorOffset * 2);
+    indicator = new ShredderBoxIndicator(selectIndicator);
+  }
+
   @FXML
   public void initialize() {
     this.setHeight(400);
-    this.setWidth(500);
+    this.setWidth(600);
     this.createRectangles();
     this.createShreddedPaper();
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
-
-    indicator = new ShredderBoxIndicator(selectIndicator);
+    setupIndicator();
 
     // Sets the complete message to be invisible
     completedMessage.setVisible(false);
@@ -85,6 +90,8 @@ public class ShredderClueComponent extends Pane {
     final double startingX = (this.getWidth() - (clues * clueWidth + (clues - 1) * gap)) / 2;
     final double step = clueWidth + gap;
     final double y = (this.getHeight() - (clueHeight)) / 2;
+
+    System.out.println(clueWidth + " " + clueHeight);
 
     // Creates 6 rectangles
     for (int i = 0; i < clues; i++) {
@@ -276,7 +283,8 @@ public class ShredderClueComponent extends Pane {
    * @param box The box to highlight
    */
   private void highlightBox(ShredderBox box) {
-    indicator.moveTo(box.getTopLeftCooridinate().subtract(new Coordinate(6, 6)));
+    indicator.moveTo(
+        box.getTopLeftCooridinate().subtract(new Coordinate(indicatorOffset, indicatorOffset)));
   }
 
   /**
