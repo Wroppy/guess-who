@@ -1,9 +1,16 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
@@ -24,6 +31,9 @@ public class SuspectRoomController implements HeaderableController, Restartable 
   @FXML private Pane headerContainer;
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
+  @FXML private static Pane mapOverlay;
+
+  private static boolean mapHandler = false;
 
   private ChatComponent chatComponent;
 
@@ -112,4 +122,31 @@ public class SuspectRoomController implements HeaderableController, Restartable 
       gameHeader3.restartTalkedTo();
     }
   }
+
+  public static void openMap(MouseEvent event) throws IOException {
+    // Load the overlay
+    if(!mapHandler){
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Pane mainPane = (Pane) stage.getScene().lookup("#suspectRoom");
+      System.out.println(stage);
+      System.out.println(mainPane);
+      Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+
+      // Set the overlay to the top left corner
+      overlay.setLayoutX(0);
+      overlay.setLayoutY(100.0);
+      SuspectRoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
+      mainPane.getChildren().add(overlay);
+    }
+    mapHandler = true;
+
+}
+
+  public static void closeMap() {
+    mapHandler = false;
+    if (SuspectRoomController.mapOverlay != null && SuspectRoomController.mapOverlay.getParent() != null) {
+      ((Pane) SuspectRoomController.mapOverlay.getParent()).getChildren().remove(SuspectRoomController.mapOverlay);
+    }
+  }
+  
 }
