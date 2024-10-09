@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -33,6 +34,7 @@ import nz.ac.auckland.se206.tasks.RunGptTask;
 public class GuessingController implements Restartable {
   private static boolean correctChoice;
   private static String feedback;
+  private static TextField focusHolder;
 
   public static String getFeedback() {
     return feedback;
@@ -43,6 +45,11 @@ public class GuessingController implements Restartable {
     return correctChoice;
   }
 
+  public static void defocusTextBox() {
+    System.out.println("Defocusing");
+    focusHolder.requestFocus();
+  }
+
   @FXML private TextArea explaintxt;
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
@@ -50,6 +57,8 @@ public class GuessingController implements Restartable {
   @FXML private Button submitBtn;
   @FXML private Pane guessingScene;
   @FXML private Label timerLabel;
+  @FXML private TextField focusField;
+
   private String explanation;
   private boolean isClicked = false;
 
@@ -65,6 +74,7 @@ public class GuessingController implements Restartable {
    * selected.
    */
   public void initialize() {
+    focusHolder = focusField;
 
     // Add a listener to check if TextArea has text input
     Timeline timeline =
@@ -72,7 +82,8 @@ public class GuessingController implements Restartable {
             new KeyFrame(
                 Duration.seconds(1),
                 event -> {
-                  // If the text area is empty or the user has not clicked on a suspect, disable the
+                  // If the text area is empty or the user has not clicked on a suspect, disable
+                  // the
                   // submit button
                   if (explaintxt.getText() == null
                       || explaintxt.getText().trim().isEmpty()
@@ -133,7 +144,8 @@ public class GuessingController implements Restartable {
 
   private void selectRectangle() {
     for (Rectangle rect : suspectOptions) {
-      rect.setStroke(Color.rgb(0, 0, 0, 0));;
+      rect.setStroke(Color.rgb(0, 0, 0, 0));
+      ;
     }
 
     selectedRectangle.setStroke(Color.GREEN);
