@@ -50,6 +50,12 @@ public class App extends Application {
     return Font.loadFont(filename, size);
   }
 
+  public static Font getFont(String name, int size) {
+    String filename = App.class.getResource("/fonts/" + name + ".ttf").toExternalForm();
+
+    return Font.loadFont(filename, size);
+  }
+
   /**
    * The main method that launches the JavaFX application.
    *

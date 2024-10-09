@@ -19,9 +19,9 @@
             <Font size="38.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" layoutX="91.0" layoutY="240.0" prefHeight="270.0" prefWidth="315.0" text="An internal hostile takeover is underway, with a crucial document playing a central role. This document is found missing, and it's up to you to determine the thief. Three suspects have been identified, each with a unique motive and opportunity. Examine the evidence, interrogate the suspects, and piece together the clues to uncover who stole the document, and why." textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="briefLabel" alignment="TOP_LEFT" layoutX="91.0" layoutY="240.0" prefHeight="270.0" prefWidth="315.0" text="A document is found to be stolen, and it's up to you to determine the thief. Three suspects have been identified, each with a unique motive and opportunity. Examine the evidence, interrogate suspects, and piece together the clues to discover the thief." textAlignment="JUSTIFY" wrapText="true">
          <font>
-            <Font size="17.0" />
+            <Font name="Webdings" size="18.0" />
          </font>
       </Label>
       <Label fx:id="suspectLabel" layoutX="542.0" layoutY="81.0" rotate="3.0" text="Suspects">

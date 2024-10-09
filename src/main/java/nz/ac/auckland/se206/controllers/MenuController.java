@@ -17,6 +17,7 @@ public class MenuController implements Restartable {
   @FXML private Button investigateButton;
   @FXML private Label guessLabel;
   @FXML private Label suspectLabel;
+  @FXML private Label briefLabel;
 
   private GuessingController guessingController;
 
@@ -34,6 +35,10 @@ public class MenuController implements Restartable {
 
     font = App.getMarkerFont(24);
     suspectLabel.setFont(font);
+
+    font = App.getFont("AfacadFlux", 22);
+    briefLabel.setFont(font);
+    
 
     this.styleScene();
   }
