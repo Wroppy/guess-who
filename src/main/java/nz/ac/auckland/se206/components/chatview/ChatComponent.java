@@ -101,7 +101,6 @@ public class ChatComponent extends VBox {
 
   /** Sends a message to the GPT model. */
   private void sendMessage() {
-    GameHeader.setTalkedTo(sceneType);
     String message = textInput.getText().trim();
     if (message.isEmpty()) {
       return;
@@ -111,7 +110,7 @@ public class ChatComponent extends VBox {
     if (loading) {
       return;
     }
-
+    GameHeader.setTalkedTo(sceneType);
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
     appendChatMessage(msg);
