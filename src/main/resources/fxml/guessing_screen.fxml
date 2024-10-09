@@ -13,19 +13,14 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GuessingController">
    <children>
+      <ImageView fitHeight="599.0" fitWidth="789.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/explanation-scene.png" />
+         </image>
+      </ImageView>
       <Text fill="RED" layoutX="234.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A GUESS">
          <font>
             <Font size="47.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="222.0" layoutY="257.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bob">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Text>
-      <Text fill="WHITE" layoutX="371.0" layoutY="256.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VP">
-         <font>
-            <Font size="26.0" />
          </font>
       </Text>
       <Text fill="WHITE" layoutX="495.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Third person" wrappingWidth="91.3496081953507">
@@ -33,26 +28,7 @@
             <Font size="26.0" />
          </font>
       </Text>
-      <Text fill="RED" layoutX="208.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click on who you think commited the crime.">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="204.0" layoutY="196.0" pickOnBounds="true" preserveRatio="true" scaleX="1.35" scaleY="1.05">
-         <image>
-            <Image url="@../images/bob-PFP.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="105.0" fitWidth="92.0" layoutX="353.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" scaleX="1.4">
-         <image>
-            <Image url="@../images/VP-PFP.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="108.0" fitWidth="112.0" layoutX="486.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" scaleX="1.1">
-         <image>
-            <Image url="@../images/fileClerk-PFP.png" />
-         </image>
-      </ImageView>
+      <Text layoutX="54.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select who you think determined the crime" />
       <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
       <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
       <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
