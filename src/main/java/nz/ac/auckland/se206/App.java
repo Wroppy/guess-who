@@ -45,13 +45,11 @@ public class App extends Application {
   }
 
   public static Font getMarkerFont(int size) {
-    String filename = App.class.getResource("/fonts/PermanentMarker.ttf").toExternalForm();
-
-    return Font.loadFont(filename, size);
+    return App.getFont("PermanentMarker", size);
   }
 
   public static Font getFont(String name, int size) {
-    String filename = App.class.getResource("/fonts/" + name + ".ttf").toExternalForm();
+    String filename = App.class.getResource("/fonts/" + name + ".ttf").toString();
 
     return Font.loadFont(filename, size);
   }
