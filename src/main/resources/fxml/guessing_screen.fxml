@@ -18,7 +18,7 @@
             <Image url="@../images/explanation-scene.png" />
          </image>
       </ImageView>
-      <Text fill="RED" layoutX="234.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A GUESS">
+      <Text fill="WHITE" layoutX="217.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAKE A GUESS">
          <font>
             <Font size="47.0" />
          </font>
@@ -29,18 +29,18 @@
          </font>
       </Text>
       <Text layoutX="54.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select who you think determined the crime" />
-      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="187.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
-      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="334.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
-      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="111.0" layoutX="478.0" layoutY="192.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="121.0" />
+      <Rectangle fx:id="bob" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="134.0" layoutX="50.0" layoutY="183.0" onMouseClicked="#chooseCriminal" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="111.0" />
+      <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="142.0" layoutX="142.0" layoutY="363.0" onMouseClicked="#chooseCriminal" rotate="5.0" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
+      <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="122.0" layoutX="216.0" layoutY="188.0" onMouseClicked="#chooseCriminal" rotate="358.0" stroke="RED" strokeType="INSIDE" strokeWidth="2.0" width="119.0" />
       <Line endX="188.27825927734375" layoutX="371.0" layoutY="97.0" startX="-141.5838623046875" stroke="#f2f2f2" />
-      <TextArea fx:id="explaintxt" layoutX="188.0" layoutY="381.0" prefHeight="141.0" prefWidth="412.0" wrapText="true" />
-      <Button fx:id="submitBtn" layoutX="355.0" layoutY="540.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="39.0" prefWidth="75.0" text="Submit" />
-      <Text fill="RED" layoutX="239.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please give an explanation to your decision.">
+      <TextArea fx:id="explaintxt" layoutX="430.0" layoutY="148.0" prefHeight="295.0" prefWidth="275.0" wrapText="true" />
+      <Button fx:id="submitBtn" layoutX="580.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="28.0" prefWidth="122.0" text="Submit" />
+      <Text layoutX="430.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reasoning:">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label layoutX="14.0" layoutY="54.0" text="Time:" textFill="WHITE">
+      <Label layoutX="16.0" layoutY="25.0" text="Time:" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
@@ -50,8 +50,8 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Text fill="WHITE" layoutX="222.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dominic" />
-      <Text fill="WHITE" layoutX="372.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian" />
-      <Text fill="WHITE" layoutX="513.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexandra" />
+      <Text layoutX="84.0" layoutY="168.0" rotate="2.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Dominic" />
+      <Text layoutX="170.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian" />
+      <Text layoutX="240.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexandra" />
    </children>
 </Pane>
