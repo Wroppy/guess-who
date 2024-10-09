@@ -32,17 +32,17 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="166.0" layoutY="142.0" prefHeight="262.0" prefWidth="458.0" style="-fx-text-fill: black;" stylesheets="@../css/feedback.css" text="Your explaination is correct" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="166.0" layoutY="142.0" prefHeight="262.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
-            <Font size="14.0" />
+            <Font size="16.0" />
          </font></TextArea>
-      <Button fx:id="playAgain" layoutX="335.0" layoutY="507.0" mnemonicParsing="false" onAction="#onPlayAgainClicked" text="Play Again">
+      <Button fx:id="playAgain" layoutX="334.0" layoutY="480.0" mnemonicParsing="false" onAction="#onPlayAgainClicked" prefHeight="55.0" prefWidth="119.0" stylesheets="@../css/play-again.css" text="Play Again">
          <font>
-            <Font size="20.0" />
+            <Font size="25.0" />
          </font>
       </Button>
       <Line endX="133.2353515625" layoutX="377.0" layoutY="84.0" startX="-100.0" stroke="WHITE" />
-      <Label fx:id="result" alignment="CENTER" layoutX="238.0" layoutY="89.0" prefHeight="35.0" prefWidth="314.0" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="result" alignment="CENTER" layoutX="238.0" layoutY="73.0" prefHeight="35.0" prefWidth="314.0" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font>
@@ -57,9 +57,9 @@
             <Image url="@../images/dissapointed_cat.gif" />
          </image>
       </ImageView>
-      <Label fx:id="timeUp" layoutX="125.0" layoutY="325.0" text="You did not guess in time!" textFill="#fcfafa">
+      <Label fx:id="timeUp" layoutX="171.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="You did not guess in time!&#10;Click Play Again to restart.&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
          <font>
-            <Font size="49.0" />
+            <Font name="Bebas Neue" size="49.0" />
          </font>
       </Label>
    </children>

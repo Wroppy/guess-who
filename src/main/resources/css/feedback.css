@@ -1,5 +1,5 @@
 #feedbacktxt.text-area {
-    -fx-background-color: rgba(53,89,119,0.4);
+    -fx-background-color: transparent;
 }
 
 #feedbacktxt.text-area .scroll-pane {
