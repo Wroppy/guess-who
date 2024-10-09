@@ -12,17 +12,27 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameOverController">
    <children>
+      <ImageView fitHeight="599.0" fitWidth="789.0">
+         <image>
+            <Image url="@../images/ending%20room.jpeg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="334.0" fitWidth="521.0" layoutX="135.0" layoutY="124.0">
+         <image>
+            <Image url="@../images/pin-board.png" />
+         </image>
+      </ImageView>
       <Text fill="#f20000" layoutX="276.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
             <Font size="48.0" />
          </font>
       </Text>
-      <Text fx:id="feedback" fill="WHITE" layoutX="105.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:">
+      <Text fx:id="feedback" fill="WHITE" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="105.0" layoutY="231.0" prefHeight="238.0" prefWidth="580.0" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="167.0" layoutY="160.0" prefHeight="262.0" prefWidth="458.0" wrapText="true">
          <font>
             <Font size="14.0" />
          </font></TextArea>
@@ -37,17 +47,17 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ImageView fx:id="showCat" fitHeight="238.0" fitWidth="204.0" layoutX="601.0" layoutY="185.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="showCat" fitHeight="238.0" fitWidth="204.0" layoutX="692.0" layoutY="480.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/failed-cat.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="showCat2" fitHeight="240.0" fitWidth="212.0" layoutX="23.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="showCat2" fitHeight="240.0" fitWidth="212.0" layoutX="-41.0" layoutY="413.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/dissapointed_cat.gif" />
          </image>
       </ImageView>
-      <Label fx:id="timeUp" layoutX="118.0" layoutY="215.0" text="You did not guess in time!" textFill="#fcfafa">
+      <Label fx:id="timeUp" layoutX="125.0" layoutY="325.0" text="You did not guess in time!" textFill="#fcfafa">
          <font>
             <Font size="49.0" />
          </font>
