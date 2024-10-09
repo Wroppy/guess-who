@@ -124,12 +124,12 @@ public class GuessingController implements Restartable {
     }
 
     // Changes the border color
-    rect.setStroke(Color.RED);
+    rect.setStroke(Color.rgb(0, 0, 0, 0));
   }
 
   private void selectRectangle() {
     for (Rectangle rect : suspectOptions) {
-      rect.setStroke(Color.RED);
+      rect.setStroke(Color.rgb(0, 0, 0, 0));;
     }
 
     selectedRectangle.setStroke(Color.GREEN);
