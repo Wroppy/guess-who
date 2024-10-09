@@ -35,6 +35,7 @@ public class App extends Application {
 
   private static Scene scene;
 
+  /** Restarts the application by re-initializing the main application stage. */
   public static void restart() {
     try {
       app.start(stage);
@@ -105,8 +106,8 @@ public class App extends Application {
   /**
    * Given a filename, returns the text data from the file as a string.
    *
-   * @param filename
-   * @return
+   * @param filename The name of the file to be read
+   * @return content of file as string
    */
   public static String getData(String filename) {
     URL url = App.class.getResource("/data/" + filename);
@@ -119,6 +120,12 @@ public class App extends Application {
     }
   }
 
+  /**
+   * Changes the current scene to the specified scene type.
+   *
+   * @param sceneType The enum type of the scene to be displayed. This determines which scene is
+   *     loaded and shown to the user.
+   */
   public static void changeScene(SceneType sceneType) {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);

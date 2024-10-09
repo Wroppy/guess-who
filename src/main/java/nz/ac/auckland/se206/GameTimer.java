@@ -7,6 +7,12 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
 
+/**
+ * Class for a countdown timer for the game.
+ *
+ * <p>The GameTimer manages the remaining time for the game, updating associated UI labels every
+ * second. Depending on different conditions, different actions will be triggered.
+ */
 public class GameTimer {
   private static final int TIME_LIMIT = 300; // should 5 minutes in seconds
 
@@ -20,6 +26,13 @@ public class GameTimer {
   private boolean isSuspectChosen = false;
   private GuessingController guessingController;
 
+  /**
+   * Constructs a GameTimer instance with the specified parameters.
+   *
+   * @param timerLabel1 The label used to display the timer's remaining time.
+   * @param context The context that manages the game's state.
+   * @param guessingController The controller responsible for managing guessing game interactions.
+   */
   public GameTimer(
       Label timerLabel1, GameStateContext context, GuessingController guessingController) {
     this.timerLabel1 = timerLabel1;
@@ -30,7 +43,7 @@ public class GameTimer {
     this.guessingController = guessingController;
   }
 
-  // This method starts the timer, and updates the timer label every second
+  /** Starts the countdown timer, updating the timer labels every second and triggering actions. */
   public void start() {
     Task<Void> task =
         new Task<Void>() {
@@ -90,6 +103,12 @@ public class GameTimer {
     this.timerLabel2 = timerLabel2;
   }
 
+  /**
+   * Formats the given time in seconds into a string representation of minutes and seconds.
+   *
+   * @param seconds The time in seconds to be formatted.
+   * @return A string representing the formatted time in "MM:SS" format.
+   */
   public String formatTime(int seconds) {
     int minutes = seconds / 60;
     int secs = seconds % 60;

@@ -10,6 +10,13 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.utils.CallBack;
 
+/**
+ * Manages the game over screen, displaying results, and feedback for the player.
+ *
+ * <p>This class handles the presentation of the game results and provides an option to play again.
+ * It shows appropriate feedback based on whether the player made the correct choice or not, and can
+ * display related images and messages.
+ */
 public class GameOverController implements Restartable {
   private static ImageView catImage;
   private static ImageView catImage2;
@@ -36,6 +43,11 @@ public class GameOverController implements Restartable {
     return timeUpLabel;
   }
 
+  /**
+   * Displays the result of the game based on whether the player's choice was correct. Updates the
+   * result label, feedback text area, and visibility of UI components based on the outcome of the
+   * game.
+   */
   public static void showResult() {
 
     feedbackTextArea.setText("Loading feedback...");
@@ -82,6 +94,10 @@ public class GameOverController implements Restartable {
 
   private CallBack onRestart;
 
+  /**
+   * Initializes the GameOverController by setting up the static variables and configuring the
+   * visibility of certain UI components.
+   */
   public void initialize() {
     // Set the static variables
     GameOverController.resultLabel = result;

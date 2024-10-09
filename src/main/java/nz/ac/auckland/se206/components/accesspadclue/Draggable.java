@@ -6,10 +6,20 @@ import nz.ac.auckland.se206.components.shredderclue.Coordinate;
 import nz.ac.auckland.se206.utils.CoordinateCallback;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** Makes a node draggable. */
 public class Draggable {
   private double orgSceneX;
   private double orgSceneY;
 
+  /**
+   * Create a new Draggable object.
+   *
+   * @param node The node to make draggable
+   * @param anchorPoint The point to return the node to when dragging is finished
+   * @param onMouseClick The callback to run when the node is clicked
+   * @param onMouseRelease The callback to run when the node is released
+   * @param onMouseDrag The callback to run when the node is dragged
+   */
   public Draggable(
       Node node,
       Coordinate anchorPoint,
@@ -17,6 +27,7 @@ public class Draggable {
       EventCallback onMouseRelease,
       CoordinateCallback onMouseDrag) {
 
+    // Set the node to be draggable
     node.setOnMousePressed(
         e -> {
           System.out.println("Moving to");
@@ -25,6 +36,7 @@ public class Draggable {
           Platform.runLater(() -> onMouseClick.run(e));
         });
 
+    // Move the node to the mouse position
     node.setOnMouseDragged(
         e -> {
           double offsetX = e.getSceneX() - orgSceneX;
@@ -38,11 +50,12 @@ public class Draggable {
           Platform.runLater(() -> onMouseDrag.run(coordinate));
         });
 
+    // Send the node back to the anchor point
     node.setOnMouseReleased(
         e -> {
           // Send the node back to the anchor point
-          node.setLayoutX(anchorPoint.getxPos());
-          node.setLayoutY(anchorPoint.getyPos());
+          node.setLayoutX(anchorPoint.getHorizontalPosition());
+          node.setLayoutY(anchorPoint.getVerticalPosition());
 
           Platform.runLater(() -> onMouseRelease.run(e));
         });

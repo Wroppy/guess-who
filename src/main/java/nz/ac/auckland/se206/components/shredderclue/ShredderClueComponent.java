@@ -16,6 +16,11 @@ import nz.ac.auckland.se206.utils.EventCallback;
 public class ShredderClueComponent extends Pane {
   private static boolean paperClue = false;
 
+  /**
+   * Returns whether the paper clue has been completed.
+   *
+   * @return True if the paper clue has been completed, false otherwise
+   */
   public static boolean isPaperClue() {
     return paperClue;
   }
@@ -63,6 +68,10 @@ public class ShredderClueComponent extends Pane {
     indicator = new ShredderBoxIndicator(selectIndicator);
   }
 
+  /**
+   * Initializes the shredder clue component. Sets the height and width of the component, creates
+   * the rectangles and the shredded paper, and sets the complete message to be invisible.
+   */
   @FXML
   public void initialize() {
     this.setHeight(400);
@@ -332,6 +341,7 @@ public class ShredderClueComponent extends Pane {
     this.setVisible(true);
   }
 
+  /** Hides the clue component. */
   public void hide() {
     this.setVisible(false);
   }
