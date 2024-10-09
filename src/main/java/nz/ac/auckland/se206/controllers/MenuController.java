@@ -27,19 +27,8 @@ public class MenuController implements Restartable {
     // Any required initialization code can be placed here
     SoundManager.playSound("Welcome.mp3");
 
-    Font font = App.getMarkerFont(18);
-    investigateButton.setFont(font);
-
-    font = App.getMarkerFont(32);
-    guessLabel.setFont(font);
-
-    font = App.getMarkerFont(24);
-    suspectLabel.setFont(font);
-
-    font = App.getFont("AfacadFlux", 22);
-    briefLabel.setFont(font);
-    
-
+    App.getMarkerFont(18);
+    App.getFont("AfacadFlux", 22);
     this.styleScene();
   }
 
