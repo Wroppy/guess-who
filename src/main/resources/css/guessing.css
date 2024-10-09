@@ -5,5 +5,19 @@
 }
 
 #submitBtn:armed {
-  -fx-translate-x: 2px;
+  -fx-translate-y: 2px;
+}
+
+#explaintxt {
+  -fx-border-color: black;
+  -fx-border-width: 1;
+  -fx-border-radius: 5;
+  -fx-background-color: white;
+  -fx-focus-color: transparent;
+}
+
+#explaintxt:focused {
+  -fx-background-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-focus-color: transparent;
 }

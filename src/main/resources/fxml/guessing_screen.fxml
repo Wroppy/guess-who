@@ -33,7 +33,10 @@
       <Rectangle fx:id="vicePresident" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="142.0" layoutX="142.0" layoutY="363.0" onMouseClicked="#chooseCriminal" rotate="5.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="2.0" width="110.0" />
       <Rectangle fx:id="third" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="122.0" layoutX="216.0" layoutY="188.0" onMouseClicked="#chooseCriminal" rotate="358.0" stroke="#ffffff00" strokeType="INSIDE" strokeWidth="2.0" width="119.0" />
       <Line endX="188.27825927734375" layoutX="371.0" layoutY="97.0" startX="-141.5838623046875" stroke="#f2f2f2" />
-      <TextArea fx:id="explaintxt" layoutX="430.0" layoutY="148.0" prefHeight="295.0" prefWidth="275.0" wrapText="true" />
+      <TextArea fx:id="explaintxt" layoutX="430.0" layoutY="148.0" prefHeight="295.0" prefWidth="275.0" promptText="Enter your explanation, remember to include any clues that helped" wrapText="true">
+         <font>
+            <Font name="Verdana" size="12.0" />
+         </font></TextArea>
       <Button fx:id="submitBtn" layoutX="580.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#explanationScene" prefHeight="28.0" prefWidth="122.0" text="Submit" />
       <Text layoutX="430.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Reasoning:">
          <font>
