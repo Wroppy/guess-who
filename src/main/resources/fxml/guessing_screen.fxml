@@ -49,7 +49,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="timerLabel" layoutX="74.0" layoutY="54.0" textFill="WHITE">
+      <Label fx:id="timerLabel" layoutX="75.0" layoutY="25.0" textFill="WHITE">
          <font>
             <Font size="22.0" />
          </font>
