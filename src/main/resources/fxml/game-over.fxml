@@ -24,7 +24,7 @@
       </ImageView>
       <Text fx:id="gameOver" fill="#f20000" layoutX="275.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
-            <Font name="Bell MT" size="50.0" />
+            <Font name="Verdana" size="42.0" />
          </font>
       </Text>
       <Text fx:id="feedback" fill="WHITE" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:" visible="false">
@@ -34,7 +34,7 @@
       </Text>
       <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: black;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
-            <Font name="Bell MT" size="18.0" />
+            <Font name="Verdana" size="16.0" />
          </font></TextArea>
       <Button fx:id="playAgain" layoutX="334.0" layoutY="480.0" mnemonicParsing="false" onAction="#onPlayAgainClicked" prefHeight="55.0" prefWidth="119.0" stylesheets="@../css/play-again.css" text="Play Again">
          <font>
@@ -57,9 +57,9 @@
             <Image url="@../images/dissapointed_cat.gif" />
          </image>
       </ImageView>
-      <Label fx:id="timeUp" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="You did not guess in time!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
+      <Label fx:id="timeUp" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: black;" text="You did not guess in time!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
          <font>
-            <Font name="Bell MT" size="39.0" />
+            <Font name="Verdana" size="33.0" />
          </font>
       </Label>
       <ImageView fx:id="vp" fitHeight="92.0" fitWidth="63.0" layoutX="171.0" layoutY="227.0">
@@ -72,9 +72,9 @@
             <Image url="@../images/pin.png" />
          </image>
       </ImageView>
-      <Label fx:id="guessIncorrect" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="Your guess is incorrect!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" visible="false" wrapText="true">
+      <Label fx:id="guessIncorrect" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: black;" text="Your guess is incorrect!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" visible="false" wrapText="true">
          <font>
-            <Font name="Bell MT" size="39.0" />
+            <Font name="Verdana" size="33.0" />
          </font>
       </Label>
    </children>
