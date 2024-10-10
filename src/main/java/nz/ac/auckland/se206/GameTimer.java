@@ -80,6 +80,8 @@ public class GameTimer {
               // Show the time up label
               GameOverController.getTimeUpLabel().setVisible(true);
               SoundManager.playSound("TimeUpLost.mp3");
+              GameOverController.getVp().setVisible(false);
+              GameOverController.getVpPin().setVisible(false);
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
 
               // Show the time up explanation

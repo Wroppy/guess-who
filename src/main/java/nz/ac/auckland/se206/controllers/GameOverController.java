@@ -24,6 +24,8 @@ public class GameOverController implements Restartable {
   private static Text feedbackLabel;
   private static TextArea feedbackTextArea;
   private static Button playAgainButton;
+  private static ImageView vpStatic;
+  private static ImageView vpPinStatic;
 
   private static Label timeUpLabel;
 
@@ -43,6 +45,14 @@ public class GameOverController implements Restartable {
     return timeUpLabel;
   }
 
+  public static ImageView getVp() {
+    return vpStatic;
+  }
+
+  public static ImageView getVpPin() {
+    return vpPinStatic;
+  }
+
   /**
    * Displays the result of the game based on whether the player's choice was correct. Updates the
    * result label, feedback text area, and visibility of UI components based on the outcome of the
@@ -53,15 +63,20 @@ public class GameOverController implements Restartable {
     feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
-      GameOverController.resultLabel.setLayoutY(106);
+      GameOverController.resultLabel.setLayoutY(85);
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
+      GameOverController.vpStatic.setVisible(true);
+      GameOverController.vpPinStatic.setVisible(true);
 
       GameOverController.feedbackTextArea.setVisible(true);
-      GameOverController.feedbackLabel.setVisible(true);
+      // GameOverController.feedbackLabel.setVisible(true);
+
+      GameOverController.catImage.setVisible(false);
+      GameOverController.catImage2.setVisible(false);
 
     } else {
 
@@ -80,6 +95,9 @@ public class GameOverController implements Restartable {
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
+
+      GameOverController.vpStatic.setVisible(false);
+      GameOverController.vpPinStatic.setVisible(false);
     }
     GameOverController.timeUpLabel.setVisible(false);
   }
@@ -91,6 +109,8 @@ public class GameOverController implements Restartable {
   @FXML private ImageView showCat;
   @FXML private ImageView showCat2;
   @FXML private Label timeUp;
+  @FXML private ImageView vp;
+  @FXML private ImageView vpPin;
 
   private CallBack onRestart;
 
@@ -106,6 +126,11 @@ public class GameOverController implements Restartable {
     GameOverController.playAgainButton = playAgain;
     showCat.setVisible(false);
     showCat2.setVisible(false);
+
+    GameOverController.vpStatic = vp;
+    GameOverController.vpPinStatic = vpPin;
+    vpStatic.setVisible(false);
+    vpPinStatic.setVisible(false);
 
     // Set the static variables
     GameOverController.catImage = showCat;

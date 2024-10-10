@@ -24,7 +24,7 @@
       </ImageView>
       <Text fill="#f20000" layoutX="275.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
-            <Font size="48.0" />
+            <Font name="Bebas Neue Book" size="70.0" />
          </font>
       </Text>
       <Text fx:id="feedback" fill="WHITE" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:" visible="false">
@@ -32,9 +32,9 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="166.0" layoutY="142.0" prefHeight="262.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" stylesheets="@../css/feedback.css" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: #F0FFFF;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
-            <Font size="16.0" />
+            <Font name="Bell MT" size="18.0" />
          </font></TextArea>
       <Button fx:id="playAgain" layoutX="334.0" layoutY="480.0" mnemonicParsing="false" onAction="#onPlayAgainClicked" prefHeight="55.0" prefWidth="119.0" stylesheets="@../css/play-again.css" text="Play Again">
          <font>
@@ -57,10 +57,20 @@
             <Image url="@../images/dissapointed_cat.gif" />
          </image>
       </ImageView>
-      <Label fx:id="timeUp" layoutX="171.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="You did not guess in time!&#10;Click Play Again to restart.&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
+      <Label fx:id="timeUp" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="You did not guess in time!&#10;Click Play Again to restart.&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
          <font>
-            <Font name="Bebas Neue" size="49.0" />
+            <Font name="Bebas Neue" size="47.0" />
          </font>
       </Label>
+      <ImageView fx:id="vp" fitHeight="92.0" fitWidth="63.0" layoutX="171.0" layoutY="227.0">
+         <image>
+            <Image url="@../images/VP-PFP.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="vpPin" fitHeight="47.0" fitWidth="51.0" layoutX="146.0" layoutY="220.0">
+         <image>
+            <Image url="@../images/pin.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
