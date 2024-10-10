@@ -19,7 +19,6 @@
 }
 
 #suspectNameLabel,
-#chatBox,
 #textInput,
 #sendMessageButton {
   -fx-background-color: rgba(0, 0, 0, 0.8); /* Dark semi-transparent */
@@ -34,15 +33,19 @@
 }
 
 #chatBox {
-  -fx-background-color: transparent;
+  -fx-background-color: rgba(0, 0, 0, 0.8);
   -fx-faint-focus-color: transparent;
   -fx-focus-color: transparent;
+  -fx-padding: 8px;
+  -fx-border-radius: 12px;
+  -fx-background-radius: 12px;
+  -fx-border-color: #f1f1f1;
 }
 
 .text-area .content,
 .text-area .scroll-pane,
 .text-area .scroll-pane .viewport {
-  -fx-background-color: black;
+  -fx-background-color: rgba(0, 0, 0, 0);
   -fx-border-radius: 12px;
   -fx-background-radius: 12px;
 }

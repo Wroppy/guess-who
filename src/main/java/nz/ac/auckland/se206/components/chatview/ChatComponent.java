@@ -3,6 +3,8 @@ package nz.ac.auckland.se206.components.chatview;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -13,6 +15,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
@@ -119,6 +122,10 @@ public class ChatComponent extends VBox {
 
     loaderComponent.setVisible(loading);
     sendMessageLabel.setVisible(!loading);
+
+    if (loading) {
+      setChatboxLoading();
+    }
   }
 
   /** Sends a message to the GPT model. */
@@ -136,8 +143,23 @@ public class ChatComponent extends VBox {
 
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
-    // appendChatMessage(msg);
     runGpt(msg);
+  }
+
+  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat */
+  private void setChatboxLoading() {
+    chatBox.clear();
+    Duration sec = Duration.seconds(0.1);
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                sec,
+                e -> {
+                  chatBox.appendText(".");
+                }));
+
+    timeline.setCycleCount(3);
+    timeline.play();
   }
 
   /**
