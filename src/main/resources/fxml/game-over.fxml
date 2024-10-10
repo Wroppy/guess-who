@@ -32,7 +32,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: red;" stylesheets="@../css/feedback.css" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: #F0FFFF;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font></TextArea>

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.utils.CallBack;
 
@@ -75,7 +76,7 @@ public class GameOverController implements Restartable {
       GameOverController.vpPinStatic.setVisible(true);
       GameOverController.incorrectGuess.setVisible(false);
 
-      GameOverController.feedbackTextArea.setFont(Font.font("Bell MT", 18));
+      GameOverController.feedbackTextArea.setFont(Font.font("Bell MT", FontWeight.BOLD, 18));
 
       GameOverController.feedbackTextArea.setVisible(true);
       // GameOverController.feedbackLabel.setVisible(true);
