@@ -24,7 +24,7 @@
       </ImageView>
       <Text fx:id="gameOver" fill="#f20000" layoutX="275.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
-            <Font name="Bebas Neue Book" size="70.0" />
+            <Font size="70.0" />
          </font>
       </Text>
       <Text fx:id="feedback" fill="WHITE" layoutX="22.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Feedback:" visible="false">

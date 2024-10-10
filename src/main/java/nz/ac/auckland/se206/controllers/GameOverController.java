@@ -152,7 +152,7 @@ public class GameOverController implements Restartable {
 
     GameOverController.timeUpLabel = timeUp;
 
-    gameOver.setFont(Font.font("Bebas Neue Book", 70));
+    gameOver.setFont(Font.font("Bebas Neue", 70));
   }
 
   @FXML
