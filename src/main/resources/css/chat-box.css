@@ -5,9 +5,6 @@
 
   -fx-background-color: #dbdbdb;
   -fx-cursor: hand;
-
-  /* Box shadow */
-  /* -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 0); */
 }
 
 #sendMessageButton:hover {

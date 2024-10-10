@@ -33,6 +33,7 @@ public class ChatComponent extends VBox {
   @FXML private Pane sendMessageButton;
 
   @FXML private TextField textInput;
+  @FXML private Label suspectNameLabel;
   @FXML private TextArea chatBox;
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
@@ -60,6 +61,8 @@ public class ChatComponent extends VBox {
 
       this.styleWidget();
 
+      setSuspectName();
+
     } catch (IOException e) {
       throw new RuntimeException(e);
     }
@@ -78,6 +81,11 @@ public class ChatComponent extends VBox {
     String styles = App.getCssUrl("chat-box");
 
     this.getStylesheets().add(styles);
+  }
+
+  /** Sets the suspect's name in the chat component. */
+  public void setSuspectName() {
+    suspectNameLabel.setText(suspectMap.get(sceneType.toString()));
   }
 
   /** Sets up the send button with the loader component. */

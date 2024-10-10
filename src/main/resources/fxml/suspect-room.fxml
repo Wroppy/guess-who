@@ -7,6 +7,6 @@
    <children>
       <Pane fx:id="headerContainer" prefHeight="100.0" prefWidth="789.0" />
       <ImageView fx:id="imageContainer" fitHeight="499.0" fitWidth="790.0" layoutY="100.0" pickOnBounds="true" />
-      <Pane fx:id="chatContainer" layoutX="70.0" layoutY="380.0" prefHeight="205.0" prefWidth="650.0" />
+      <Pane fx:id="chatContainer" layoutX="70.0" layoutY="355.0" prefHeight="230.0" prefWidth="650.0" />
    </children>
 </Pane>
