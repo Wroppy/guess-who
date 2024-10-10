@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -195,7 +193,7 @@ public class GameHeader extends Pane {
     addComboBoxItems();
 
     // Set the action for when the combo box is changed
-    roomComboBox.setOnAction(e -> onRoomChange(e));
+    // roomComboBox.setOnAction(e -> onRoomChange(e));
   }
 
   /**
@@ -203,47 +201,47 @@ public class GameHeader extends Pane {
    *
    * @param e The action event
    */
-  private void onRoomChange(ActionEvent e) {
-    SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
+  // private void onRoomChange(ActionEvent e) {
+  //   SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
 
-    if (selectedScene == null) {
-      return;
-    }
+  //   if (selectedScene == null) {
+  //     return;
+  //   }
 
-    // Deselect the item and go back to default
-    Platform.runLater(() -> clearComboBoxSelection());
+  //   // Deselect the item and go back to default
+  //   Platform.runLater(() -> clearComboBoxSelection());
 
-    if (roomController != null) {
-      roomController.getAccessPad().setVisible(false);
-      roomController.getShredderClueOverlay().setVisible(false);
-      roomController.removeLaptopOverlay();
-    }
+  //   if (roomController != null) {
+  //     roomController.getAccessPad().setVisible(false);
+  //     roomController.getShredderClueOverlay().setVisible(false);
+  //     roomController.removeLaptopOverlay();
+  //   }
 
-    // Set the timer label based on the selected scene
-    if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
-      SuspectRoomController.gameHeader1
-          .getTimerLabel()
-          .setText(
-              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
-    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
-      // Set the timer label based on the selected scene
-      SuspectRoomController.gameHeader2
-          .getTimerLabel()
-          .setText(
-              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
-    } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
-      // Set the timer label based on the selected scene
-      SuspectRoomController.gameHeader3
-          .getTimerLabel()
-          .setText(
-              MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-      MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
-    }
+  //   // Set the timer label based on the selected scene
+  //   if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
+  //     SuspectRoomController.gameHeader1
+  //         .getTimerLabel()
+  //         .setText(
+  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
+  //   } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
+  //     // Set the timer label based on the selected scene
+  //     SuspectRoomController.gameHeader2
+  //         .getTimerLabel()
+  //         .setText(
+  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
+  //   } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
+  //     // Set the timer label based on the selected scene
+  //     SuspectRoomController.gameHeader3
+  //         .getTimerLabel()
+  //         .setText(
+  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
+  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
+  //   }
 
-    changeScene(selectedScene);
-  }
+  //   changeScene(selectedScene);
+  // }
 
   /**
    * Clear the selection of the combo box by setting the selection to null.
@@ -260,7 +258,15 @@ public class GameHeader extends Pane {
    * @param sceneType The scene type to change the label to.
    */
   private void changeLabel(SceneType sceneType) {
-    roomLabel.setText("Room: " + sceneType.toString());
+    if (sceneType == SceneType.CRIME) {
+      roomLabel.setText("Crime Scene");
+    } else if (sceneType == SceneType.SUSPECT_1) {
+      roomLabel.setText("Dominic Sterling");
+    } else if (sceneType == SceneType.SUSPECT_2) {
+      roomLabel.setText("Sebastian Kensington");
+    } else if (sceneType == SceneType.SUSPECT_3) {
+      roomLabel.setText("Alexandra Johnson");
+    }
   }
 
   /**
@@ -336,5 +342,19 @@ public class GameHeader extends Pane {
    */
   public void giveInformation(MouseEvent event) throws IOException {
     SoundManager.playSound("Interact.mp3");
+  }
+
+  /**
+   * Handle the map icon click event.
+   *
+   * @param event The mouse event.
+   * @throws IOException If the FXML file cannot be loaded.
+   */
+  public void handleMapClick(MouseEvent event) throws IOException {
+    if (currentScene == SceneType.CRIME) {
+      RoomController.openMap(event);
+    } else {
+      SuspectRoomController.openMap(event);
+    }
   }
 }

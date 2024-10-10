@@ -3,7 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="789.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
@@ -13,7 +16,7 @@
             <Font size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="roomComboBox" layoutX="625.0" layoutY="18.0" prefWidth="150.0" promptText="Switch to room..." />
+      <ComboBox fx:id="roomComboBox" layoutX="625.0" layoutY="18.0" prefWidth="150.0" promptText="Switch to room..." visible="false" />
       <Pane fx:id="timerContainer" layoutX="14.0" layoutY="61.0" prefHeight="25.0" prefWidth="109.0">
          <children>
             <Label layoutY="-3.0" text="Time:">
@@ -27,7 +30,13 @@
                </font>
             </Label>
          </children></Pane>
-      <Button fx:id="guessBtn" disable="true" layoutX="625.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
-      <Button fx:id="informationBtn" layoutX="597.0" layoutY="61.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
+      <Button fx:id="guessBtn" disable="true" layoutX="355.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
+      <Button fx:id="informationBtn" layoutX="327.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
+      <ImageView fitHeight="125.0" fitWidth="108.0" layoutX="659.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/map.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="handleMap" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="58.0" layoutX="672.0" layoutY="18.0" onMouseClicked="#handleMapClick" stroke="TRANSPARENT" strokeType="INSIDE" width="85.0" />
    </children>
 </fx:root>
