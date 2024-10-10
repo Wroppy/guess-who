@@ -52,11 +52,6 @@
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
-      <Text layoutX="202.0" layoutY="160.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', please find attached your...">
-         <font>
-            <Font name="Arial" size="4.0" />
-         </font>
-      </Text>
       <Text layoutX="205.0" layoutY="204.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Vice President" wrappingWidth="68.86681683683867">
          <font>
             <Font name="Arial Black" size="6.0" />
@@ -69,7 +64,12 @@
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="206.0" layoutY="224.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', I regret to inform you...">
+      <Text layoutX="209.0" layoutY="160.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey Dominic, please find attached your...">
+         <font>
+            <Font name="Arial" size="4.0" />
+         </font>
+      </Text>
+      <Text layoutX="206.0" layoutY="224.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey Dominic, I regret to inform you...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
@@ -94,20 +94,21 @@
             <Font name="Arial Black" size="6.0" />
          </font>
       </Text>
+      <Text layoutX="206.0" layoutY="349.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey Dominic, reaching out to get an update...">
+         <font>
+            <Font name="Arial" size="4.0" />
+         </font>
+      </Text>
       <Text layoutX="195.0" layoutY="337.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" text="Project Update">
          <font>
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="205.0" layoutY="349.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey 'Bob', reaching out to get an update...">
-         <font>
-            <Font name="Arial" size="4.0" />
-         </font>
-      </Text>
       <Rectangle fx:id="performanceEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="200.0" layoutY="130.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Rectangle fx:id="accessEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="258.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
+      <Rectangle fx:id="fillerEmail_1" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="258.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="195.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
-      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5">
+      <Rectangle fx:id="fillerEmail_2" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="62.0" layoutX="178.0" layoutY="313.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
+      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="2.0" layoutY="1.0" prefHeight="14.0" prefWidth="171.0" text="Manager - Performance Report:">
                <font>
@@ -120,14 +121,19 @@
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="5.0" layoutY="40.0" prefHeight="97.0" prefWidth="160.0" text="Dominic has delivered exceptional results this quarter. He led the analysis of high-profile client portfolios, optimizing investment strategies that generated a 15% increase in returns. Additionally, he spearheaded the development of a new risk assessment model, reducing client exposure to market volatility by 10%. Dominic's keen insights into market trends contributed significantly to securing three new major clients for the firm." wrapText="true">
+            <Label layoutX="7.0" layoutY="22.0" prefHeight="97.0" prefWidth="160.0" text="Dominic delivered outstanding results this quarter by leading portfolio analysis, optimizing investment strategies for a 15% return increase, and developing a risk assessment model that reduced market volatility exposure by 10%. His insights also helped secure three major clients." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="141.0" prefHeight="15.0" prefWidth="75.0" text="- Manager" wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5">
+      <Pane fx:id="firedEmail" layoutX="384.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
             <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Vice President" wrapText="true">
@@ -156,6 +162,56 @@
                </font>
             </TextField>
             <Label layoutX="6.0" layoutY="73.0" prefHeight="19.0" prefWidth="155.0" text="⚫ Not being a team player and having company's best interests in mind." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="fillerEmailPane1" layoutX="385.0" layoutY="164.0" prefHeight="164.0" prefWidth="175.0" scaleX="1.5" scaleY="1.5" visible="false">
+         <children>
+            <TextField layoutX="3.0" layoutY="17.0" prefHeight="145.0" prefWidth="169.0" />
+            <Label layoutX="6.0" layoutY="144.0" prefHeight="15.0" prefWidth="75.0" text="- Team Leader" wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Please catch up on yesterday's meeting minutes." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <TextField layoutX="3.0" prefHeight="14.0" prefWidth="171.0" text="Team Project - Team Meeting">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </TextField>
+            <Label layoutX="6.0" layoutY="52.0" prefHeight="44.0" prefWidth="163.0" text="Ensure to get your tasks done on time as this is a high priority client." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="fillerEmailPane2" layoutX="386.0" layoutY="163.0" prefHeight="164.0" prefWidth="179.0" scaleX="1.5" scaleY="1.5">
+         <children>
+            <TextField layoutX="3.0" layoutY="16.0" prefHeight="145.0" prefWidth="169.0" />
+            <Label layoutX="6.0" layoutY="114.0" prefHeight="15.0" prefWidth="75.0" text="-Client" wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <Label layoutX="5.0" layoutY="15.0" prefHeight="44.0" prefWidth="163.0" text="Hey Dominic, reaching out to get an update on the project." wrapText="true">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </Label>
+            <TextField layoutX="3.0" prefHeight="14.0" prefWidth="171.0" text="Client - Project Update">
+               <font>
+                  <Font size="7.0" />
+               </font>
+            </TextField>
+            <Label layoutX="6.0" layoutY="62.0" prefHeight="44.0" prefWidth="163.0" text="Let me know when you're avaliable for a catch-up call." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
