@@ -13,6 +13,7 @@ import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** Component for the shredder clue. Allows the user to solve the shredder clue by dragging the */
 public class ShredderClueComponent extends Pane {
   private static boolean paperClue = false;
 
@@ -44,6 +45,12 @@ public class ShredderClueComponent extends Pane {
   // Map for each rectangle to the paper that is placed on it
   private Map<ShredderBox, ShredderPaper> paperMap;
 
+  /**
+   * Creates a new shredder clue component with the given event callback for when the component is
+   * closed.
+   *
+   * @param onClose The event callback for when the component is closed
+   */
   public ShredderClueComponent(EventCallback onClose) {
     paperClue = false;
     paperMap = new HashMap<>();
@@ -63,7 +70,7 @@ public class ShredderClueComponent extends Pane {
     }
   }
 
-  private void setupIndicator() {
+  private void setUpIndicator() {
     selectIndicator.setFitHeight(clueHeight + indicatorOffset * 2);
     indicator = new ShredderBoxIndicator(selectIndicator);
   }
@@ -80,7 +87,7 @@ public class ShredderClueComponent extends Pane {
     this.createShreddedPaper();
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
-    setupIndicator();
+    setUpIndicator();
 
     // Sets the complete message to be invisible
     completedMessage.setVisible(false);
@@ -336,12 +343,12 @@ public class ShredderClueComponent extends Pane {
     Platform.runLater(() -> onClose.run(event));
   }
 
-  /** Shows the clue component. */
+  /** Shows the clue component by setting it to be visible. */
   public void show() {
     this.setVisible(true);
   }
 
-  /** Hides the clue component. */
+  /** Hides the clue component by setting it to be not visible. */
   public void hide() {
     this.setVisible(false);
   }

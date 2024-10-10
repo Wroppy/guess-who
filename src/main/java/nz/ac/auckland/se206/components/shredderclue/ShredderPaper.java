@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** Represents a piece of paper that can be dragged around the screen. The paper has a draggable */
 public class ShredderPaper extends Pane implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
@@ -21,6 +22,15 @@ public class ShredderPaper extends Pane implements Moveable {
   private ImageView imageView;
   private Node parent;
 
+  /**
+   * Creates a new shredder paper with the given parent, path, width, height and order.
+   *
+   * @param parent The parent node
+   * @param path The path to the image
+   * @param width The width of the paper
+   * @param height The height of the paper
+   * @param order The order of the paper
+   */
   public ShredderPaper(Node parent, String path, double width, double height, int order) {
     super();
 

@@ -36,7 +36,7 @@ public class GameHeader extends Pane {
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   /**
-   * Set the talked to status of the scene
+   * Set the talked to status of the scene.
    *
    * @param scene The scene to set the status of
    */
@@ -56,7 +56,7 @@ public class GameHeader extends Pane {
   private Map<String, String> suspectMap = new HashMap<>();
 
   /**
-   * Constructor for the GameHeader component that sets the current scene type
+   * Constructor for the GameHeader component that sets the current scene type.
    *
    * @param sceneType The current scene type
    */
@@ -65,7 +65,7 @@ public class GameHeader extends Pane {
   }
 
   /**
-   * Constructor for the GameHeader component that sets the current scene type and room controller
+   * Constructor for the GameHeader component that sets the current scene type and room controller.
    *
    * @param sceneType The current scene type
    * @param roomController The room controller
@@ -194,7 +194,7 @@ public class GameHeader extends Pane {
   }
 
   /**
-   * Change the scene based on the selected scene in the combo box
+   * Change the scene based on the selected scene in the combo box.
    *
    * @param e The action event
    */
@@ -289,7 +289,7 @@ public class GameHeader extends Pane {
   }
 
   /**
-   * Get the timer label.
+   * Returns the timer label for the GameHeader.
    *
    * @return The timer label.
    */
@@ -333,7 +333,7 @@ public class GameHeader extends Pane {
     SoundManager.playSound("Interact.mp3");
   }
 
-  //getter for hashmap
+  // getter for hashmap
   public static HashMap<SceneType, Boolean> getTalkedTo() {
     return talkedTo;
   }

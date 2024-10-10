@@ -9,7 +9,7 @@ public class ShredderBoxIndicator implements Moveable {
   /**
    * Creates a new shredder box indicator with the given image view.
    *
-   * @param selectIndicator
+   * @param selectIndicator The image view to use as the indicator
    */
   public ShredderBoxIndicator(ImageView selectIndicator) {
     this.indicator = selectIndicator;
@@ -38,12 +38,12 @@ public class ShredderBoxIndicator implements Moveable {
     indicator.setLayoutY(c.getVerticalPosition());
   }
 
-  /** Hides the indicator. */
+  /** Hides the indicator by setting the visibility to false. */
   public void hide() {
     indicator.setVisible(false);
   }
 
-  /** Shows the indicator. */
+  /** Shows the indicator by setting the visiibility to true. */
   public void show() {
     indicator.setVisible(true);
   }

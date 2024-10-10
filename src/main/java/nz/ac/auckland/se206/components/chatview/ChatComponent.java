@@ -65,7 +65,7 @@ public class ChatComponent extends VBox {
     }
   }
 
-  /** Initializes the chat component. */
+  /** Initializes the chat component. Puts the suspects in a map for easy access. */
   public void initialize() {
     // Any required initialization code can be placed here
     suspectMap.put("Suspect 1", "Dominic");
@@ -192,11 +192,7 @@ public class ChatComponent extends VBox {
     return PromptEngineering.getPrompt(promptId);
   }
 
-  /**
-   * Begins the chat with the GPT model by setting up the GPT model with the suspect type.
-   *
-   * @param suspectId the ID of the suspect the user is chatting with
-   */
+  /** Begins the chat with the GPT model by setting up the GPT model with the suspect type. */
   public void setupGpt() {
     try {
       // Reads the API proxy configuration
@@ -216,7 +212,10 @@ public class ChatComponent extends VBox {
     }
   }
 
-  /** Restarts the chat component. */
+  /**
+   * Restarts the chat component by clearing the chat box and text input and setting up the GPT
+   * model.
+   */
   public void restart() {
     chatBox.clear();
     setupGpt();
