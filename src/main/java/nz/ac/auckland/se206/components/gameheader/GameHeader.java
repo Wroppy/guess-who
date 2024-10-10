@@ -44,6 +44,11 @@ public class GameHeader extends Pane {
     talkedTo.put(scene, true);
   }
 
+  // getter for hashmap
+  public static HashMap<SceneType, Boolean> getTalkedTo() {
+    return talkedTo;
+  }
+
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
   @FXML private Button guessBtn;
@@ -54,15 +59,6 @@ public class GameHeader extends Pane {
 
   private RoomController roomController;
   private Map<String, String> suspectMap = new HashMap<>();
-
-  /**
-   * Constructor for the GameHeader component that sets the current scene type.
-   *
-   * @param sceneType The current scene type
-   */
-  public GameHeader(SceneType sceneType) {
-    this(sceneType, null);
-  }
 
   /**
    * Constructor for the GameHeader component that sets the current scene type and room controller.
@@ -86,6 +82,15 @@ public class GameHeader extends Pane {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  /**
+   * Constructor for the GameHeader component that sets the current scene type.
+   *
+   * @param sceneType The current scene type
+   */
+  public GameHeader(SceneType sceneType) {
+    this(sceneType, null);
   }
 
   /**
@@ -331,10 +336,5 @@ public class GameHeader extends Pane {
    */
   public void giveInformation(MouseEvent event) throws IOException {
     SoundManager.playSound("Interact.mp3");
-  }
-
-  // getter for hashmap
-  public static HashMap<SceneType, Boolean> getTalkedTo() {
-    return talkedTo;
   }
 }

@@ -9,16 +9,6 @@ import javafx.scene.Parent;
  * get the scenetype from the map. Scenetype is enum with corresponding string representations.
  */
 public class SceneManager {
-  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
-
-  public static void addScene(SceneType sceneType, Parent parent) {
-    sceneMap.put(sceneType, parent);
-  }
-
-  public static Parent getScene(SceneType sceneType) {
-    return sceneMap.get(sceneType);
-  }
-
   /** Enum representing the different types of scenes available. */
   public enum SceneType {
     INTRO("Introduction"),
@@ -40,5 +30,15 @@ public class SceneManager {
     public String toString() {
       return name;
     }
+  }
+
+  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
+
+  public static void addScene(SceneType sceneType, Parent parent) {
+    sceneMap.put(sceneType, parent);
+  }
+
+  public static Parent getScene(SceneType sceneType) {
+    return sceneMap.get(sceneType);
   }
 }
