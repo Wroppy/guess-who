@@ -3,6 +3,7 @@ package nz.ac.auckland.se206;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
+import javafx.scene.text.Font;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
@@ -79,6 +80,7 @@ public class GameTimer {
 
               // Show the time up label
               GameOverController.getTimeUpLabel().setVisible(true);
+              GameOverController.getTimeUpLabel().setFont(Font.font("Bebas Neue", 47));
               SoundManager.playSound("TimeUpLost.mp3");
               GameOverController.getVp().setVisible(false);
               GameOverController.getVpPin().setVisible(false);

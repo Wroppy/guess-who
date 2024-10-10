@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.utils.CallBack;
 
@@ -74,6 +75,8 @@ public class GameOverController implements Restartable {
       GameOverController.vpPinStatic.setVisible(true);
       GameOverController.incorrectGuess.setVisible(false);
 
+      GameOverController.feedbackTextArea.setFont(Font.font("Bell MT", 18));
+
       GameOverController.feedbackTextArea.setVisible(true);
       // GameOverController.feedbackLabel.setVisible(true);
 
@@ -89,7 +92,7 @@ public class GameOverController implements Restartable {
       GameOverController.feedbackTextArea.setVisible(false);
       GameOverController.feedbackLabel.setVisible(false);
       GameOverController.timeUpLabel.setVisible(false);
-      resultLabel.setVisible(true);
+      // resultLabel.setVisible(true);
 
       // Show the cat images
       GameOverController.catImage.setVisible(false);
@@ -100,6 +103,7 @@ public class GameOverController implements Restartable {
 
       GameOverController.vpStatic.setVisible(false);
       GameOverController.vpPinStatic.setVisible(false);
+      GameOverController.incorrectGuess.setFont(Font.font("Bebas Neue", 47));
       GameOverController.incorrectGuess.setVisible(true);
       GameOverController.resultLabel.setVisible(false);
     }
@@ -116,6 +120,7 @@ public class GameOverController implements Restartable {
   @FXML private ImageView vp;
   @FXML private ImageView vpPin;
   @FXML private Label guessIncorrect;
+  @FXML private Text gameOver;
 
   private CallBack onRestart;
 
@@ -146,6 +151,8 @@ public class GameOverController implements Restartable {
     GameOverController.catImage2 = showCat2;
 
     GameOverController.timeUpLabel = timeUp;
+
+    gameOver.setFont(Font.font("Bebas Neue Book", 70));
   }
 
   @FXML

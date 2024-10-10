@@ -22,7 +22,7 @@
             <Image url="@../images/pin-board.png" />
          </image>
       </ImageView>
-      <Text fill="#f20000" layoutX="275.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
+      <Text fx:id="gameOver" fill="#f20000" layoutX="275.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over">
          <font>
             <Font name="Bebas Neue Book" size="70.0" />
          </font>
@@ -32,7 +32,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: #F0FFFF;" stylesheets="@../css/feedback.css" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: red;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
             <Font name="Bell MT" size="18.0" />
          </font></TextArea>
