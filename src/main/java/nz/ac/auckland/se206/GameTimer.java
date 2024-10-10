@@ -1,11 +1,17 @@
 package nz.ac.auckland.se206;
 
+import java.util.HashMap;
+
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
 import nz.ac.auckland.se206.SceneManager.SceneType;
+import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
+import nz.ac.auckland.se206.components.gameheader.GameHeader;
+import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
 import nz.ac.auckland.se206.controllers.GameOverController;
 import nz.ac.auckland.se206.controllers.GuessingController;
+import nz.ac.auckland.se206.controllers.LaptopController;
 
 /**
  * Class for a countdown timer for the game.
@@ -25,6 +31,7 @@ public class GameTimer {
   private boolean firstFiveMinutes = true;
   private boolean isSuspectChosen = false;
   private GuessingController guessingController;
+  private HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   /**
    * Constructs a GameTimer instance with the specified parameters.
@@ -41,6 +48,7 @@ public class GameTimer {
     this.running = true; // Initialize the flag to true
     this.timerLabel3 = guessingController.getTimerLabel();
     this.guessingController = guessingController;
+    talkedTo = GameHeader.getTalkedTo();
   }
 
   /** Starts the countdown timer, updating the timer labels every second and triggering actions. */
@@ -61,7 +69,11 @@ public class GameTimer {
               Thread.sleep(1000);
               timeRemaining--;
             }
-            if (running && firstFiveMinutes) {
+            if(!talkedTo.get(SceneType.SUSPECT_1) || !talkedTo.get(SceneType.SUSPECT_2) || !talkedTo.get(SceneType.SUSPECT_3) || (!LaptopController.isEmailOpened() && !ShredderClueComponent.isPaperClue() && !AccessPadClue.isUnlocked())) {
+              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
+              GameOverController.getFeedbackLabel().setVisible(false);
+              GameOverController.getFeedbackTextArea().setVisible(false);
+            } else if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
               // Playing corresponding sound
@@ -90,7 +102,6 @@ public class GameTimer {
               SoundManager.playSound("TimeUpWritten.mp3");
               Platform.runLater(() -> GameOverController.showResult());
               Platform.runLater(() -> guessingController.timeUpExplanation());
-              Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
             }
 
             return null;

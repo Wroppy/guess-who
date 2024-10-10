@@ -332,4 +332,9 @@ public class GameHeader extends Pane {
   public void giveInformation(MouseEvent event) throws IOException {
     SoundManager.playSound("Interact.mp3");
   }
+
+  //getter for hashmap
+  public static HashMap<SceneType, Boolean> getTalkedTo() {
+    return talkedTo;
+  }
 }
