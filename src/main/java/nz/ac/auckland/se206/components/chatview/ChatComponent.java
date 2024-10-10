@@ -136,7 +136,7 @@ public class ChatComponent extends VBox {
 
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
+    // appendChatMessage(msg);
     runGpt(msg);
   }
 
@@ -163,7 +163,6 @@ public class ChatComponent extends VBox {
     // Sets the event handler for when the task is completed
     gptTask.setOnSucceeded(
         event -> {
-
           // Sets the event handler for when the task is completed
           this.setLoading(false);
           ChatMessage result = gptTask.getResult();
@@ -183,7 +182,7 @@ public class ChatComponent extends VBox {
     if (heading == null) {
       heading = "Me";
     }
-    chatBox.appendText(heading + ": " + msg.getContent() + "\n\n");
+    chatBox.setText(msg.getContent());
   }
 
   public void setText(String text) {
