@@ -72,5 +72,10 @@
             <Image url="@../images/pin.png" />
          </image>
       </ImageView>
+      <Label fx:id="guessIncorrect" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: #F0FFFF;" text="Your guess is incorrect!&#10;Click Play Again to restart.&#10;Good luck next time.&#10;" textFill="#fcfafa" visible="false" wrapText="true">
+         <font>
+            <Font name="Bebas Neue" size="47.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

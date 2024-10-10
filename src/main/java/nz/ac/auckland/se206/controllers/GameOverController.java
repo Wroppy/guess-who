@@ -6,7 +6,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import nz.ac.auckland.se206.utils.CallBack;
 
@@ -26,6 +25,7 @@ public class GameOverController implements Restartable {
   private static Button playAgainButton;
   private static ImageView vpStatic;
   private static ImageView vpPinStatic;
+  private static Label incorrectGuess;
 
   private static Label timeUpLabel;
 
@@ -69,8 +69,10 @@ public class GameOverController implements Restartable {
       playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
+
       GameOverController.vpStatic.setVisible(true);
       GameOverController.vpPinStatic.setVisible(true);
+      GameOverController.incorrectGuess.setVisible(false);
 
       GameOverController.feedbackTextArea.setVisible(true);
       // GameOverController.feedbackLabel.setVisible(true);
@@ -81,23 +83,25 @@ public class GameOverController implements Restartable {
     } else {
 
       // Hide the feedback text area and label
-      GameOverController.resultLabel.setText("Incorrect Choice!");
-      GameOverController.resultLabel.setFont(Font.font("System", 28));
-      GameOverController.resultLabel.setLayoutY(250);
+      // GameOverController.resultLabel.setText("Incorrect Choice!");
+      // GameOverController.resultLabel.setFont(Font.font("System", 28));
+      // GameOverController.resultLabel.setLayoutY(250);
       GameOverController.feedbackTextArea.setVisible(false);
       GameOverController.feedbackLabel.setVisible(false);
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
 
       // Show the cat images
-      GameOverController.catImage.setVisible(true);
-      GameOverController.catImage2.setVisible(true);
+      GameOverController.catImage.setVisible(false);
+      GameOverController.catImage2.setVisible(false);
 
       playAgainButton.setLayoutX(335);
       playAgainButton.setLayoutY(450);
 
       GameOverController.vpStatic.setVisible(false);
       GameOverController.vpPinStatic.setVisible(false);
+      GameOverController.incorrectGuess.setVisible(true);
+      GameOverController.resultLabel.setVisible(false);
     }
     GameOverController.timeUpLabel.setVisible(false);
   }
@@ -111,6 +115,7 @@ public class GameOverController implements Restartable {
   @FXML private Label timeUp;
   @FXML private ImageView vp;
   @FXML private ImageView vpPin;
+  @FXML private Label guessIncorrect;
 
   private CallBack onRestart;
 
@@ -124,6 +129,10 @@ public class GameOverController implements Restartable {
     GameOverController.feedbackLabel = feedback;
     GameOverController.feedbackTextArea = feedbacktxt;
     GameOverController.playAgainButton = playAgain;
+    GameOverController.incorrectGuess = guessIncorrect;
+
+    incorrectGuess.setVisible(false);
+
     showCat.setVisible(false);
     showCat2.setVisible(false);
 
