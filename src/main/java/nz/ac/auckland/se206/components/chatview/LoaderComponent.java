@@ -13,7 +13,7 @@ public class LoaderComponent extends Pane {
     int radius = 2;
     int delay = 400;
     int spacing = 10;
-    double starting = (250 - 16) / 2 - spacing;
+    double starting = (120) / 2 - spacing;
     for (int i = 0; i < 3; i++) {
       // Creates a circle component and adds it to the pane
       Circle circle = new Circle(radius);
