@@ -60,29 +60,29 @@
             <Image url="@../images/tape.png" />
          </image>
       </ImageView>
-      <Text layoutX="79.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dominic">
+      <Text layoutX="95.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dominic">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="75.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian">
+      <Text layoutX="93.0" layoutY="372.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sebastian">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="661.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crime Scene">
+      <Text layoutX="649.0" layoutY="138.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Crime Scene">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Text layoutX="674.0" layoutY="378.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexandra">
+      <Text layoutX="645.0" layoutY="383.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alexandra">
          <font>
             <Font name="Avenir Heavy" size="13.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="62.0" layoutY="79.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="60.0" layoutY="356.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="655.0" layoutY="135.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="661.0" layoutY="358.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="78.0" layoutY="118.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="78.0" layoutY="352.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="643.0" layoutY="119.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#66738000" height="32.0" layoutX="632.0" layoutY="363.0" stroke="BLACK" strokeType="INSIDE" width="86.0" />
    </children>
 </Pane>
