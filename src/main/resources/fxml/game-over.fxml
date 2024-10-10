@@ -32,7 +32,7 @@
             <Font size="30.0" />
          </font>
       </Text>
-      <TextArea fx:id="feedbacktxt" editable="false" layoutX="232.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: black;" stylesheets="@../css/feedback.css" wrapText="true">
+      <TextArea fx:id="feedbacktxt" editable="false" layoutX="171.0" layoutY="142.0" prefHeight="262.0" prefWidth="392.0" style="-fx-text-fill: black;" stylesheets="@../css/feedback.css" wrapText="true">
          <font>
             <Font name="Verdana" size="16.0" />
          </font></TextArea>
@@ -62,12 +62,12 @@
             <Font name="Verdana" size="33.0" />
          </font>
       </Label>
-      <ImageView fx:id="vp" fitHeight="92.0" fitWidth="63.0" layoutX="171.0" layoutY="227.0">
+      <ImageView fx:id="vp" fitHeight="82.0" fitWidth="59.0" layoutX="563.0" layoutY="244.0">
          <image>
             <Image url="@../images/VP-PFP.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="vpPin" fitHeight="47.0" fitWidth="51.0" layoutX="146.0" layoutY="220.0">
+      <ImageView fx:id="vpPin" fitHeight="40.0" fitWidth="46.0" layoutX="579.0" layoutY="233.0">
          <image>
             <Image url="@../images/pin.png" />
          </image>
