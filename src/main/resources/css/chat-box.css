@@ -18,3 +18,7 @@
 #sendMessageLabel {
   -fx-text-fill: black;
 }
+
+.has-text {
+  -fx-font-size: 16px;
+}

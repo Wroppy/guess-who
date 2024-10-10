@@ -9,7 +9,7 @@ import javafx.util.Duration;
 /** A component that displays a loading animation. */
 public class LoaderComponent extends Pane {
   public LoaderComponent() {
-    int height = 26;
+    int height = 37;
     int radius = 2;
     int delay = 400;
     int spacing = 10;
