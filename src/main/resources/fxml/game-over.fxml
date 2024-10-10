@@ -57,7 +57,7 @@
             <Image url="@../images/dissapointed_cat.gif" />
          </image>
       </ImageView>
-      <Label fx:id="timeUp" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: black;" text="You did not guess in time!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
+      <Label fx:id="timeUp" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: black;" text="You did not guess on time!&#10;&#10;Click Play Again to restart.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" visible="false" wrapText="true">
          <font>
             <Font name="Verdana" size="33.0" />
          </font>
@@ -79,8 +79,13 @@
       </Label>
       <ImageView fx:id="playAgain" fitHeight="62.0" fitWidth="200.0" layoutX="294.0" layoutY="488.0" onMouseClicked="#onPlayAgainClicked">
          <image>
-            <Image url="@../images/playAgainBtn.png" />
+            <Image url="@../images/playAgainBtn2.png" />
          </image>
       </ImageView>
+      <Label fx:id="hint" layoutX="178.0" layoutY="132.0" prefHeight="282.0" prefWidth="458.0" style="-fx-text-fill: black;" text="Remember to talk with all suspects and find at least one clue.&#10;&#10;Good luck next time.&#10;" textFill="#fcfafa" wrapText="true">
+         <font>
+            <Font name="Verdana" size="33.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

@@ -30,6 +30,7 @@ public class GameOverController implements Restartable {
   private static Label incorrectGuess;
 
   private static Label timeUpLabel;
+  private static Label hintLabel;
 
   public static Text getFeedbackLabel() {
     return feedbackLabel;
@@ -53,6 +54,14 @@ public class GameOverController implements Restartable {
 
   public static ImageView getVpPin() {
     return vpPinStatic;
+  }
+
+  public static Label getHintLabel() {
+    return hintLabel;
+  }
+
+  public static Label getIncorrectLabel() {
+    return incorrectGuess;
   }
 
   /**
@@ -109,6 +118,7 @@ public class GameOverController implements Restartable {
       GameOverController.resultLabel.setVisible(false);
     }
     GameOverController.timeUpLabel.setVisible(false);
+    GameOverController.hintLabel.setVisible(false);
   }
 
   @FXML private Label result;
@@ -123,6 +133,7 @@ public class GameOverController implements Restartable {
   @FXML private ImageView vpPin;
   @FXML private Label guessIncorrect;
   @FXML private Text gameOver;
+  @FXML private Label hint;
 
   private CallBack onRestart;
 
@@ -153,6 +164,7 @@ public class GameOverController implements Restartable {
     GameOverController.catImage2 = showCat2;
 
     GameOverController.timeUpLabel = timeUp;
+    GameOverController.hintLabel = hint;
 
     gameOver.setFont(Font.font("Verdana", FontWeight.BOLD, 41));
   }

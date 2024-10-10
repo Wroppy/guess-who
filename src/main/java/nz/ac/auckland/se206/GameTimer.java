@@ -1,7 +1,6 @@
 package nz.ac.auckland.se206;
 
 import java.util.HashMap;
-
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.control.Label;
@@ -70,10 +69,16 @@ public class GameTimer {
               Thread.sleep(1000);
               timeRemaining--;
             }
-            if(!talkedTo.get(SceneType.SUSPECT_1) || !talkedTo.get(SceneType.SUSPECT_2) || !talkedTo.get(SceneType.SUSPECT_3) || (!LaptopController.isEmailOpened() && !ShredderClueComponent.isPaperClue() && !AccessPadClue.isUnlocked())) {
+            if (!talkedTo.get(SceneType.SUSPECT_1)
+                || !talkedTo.get(SceneType.SUSPECT_2)
+                || !talkedTo.get(SceneType.SUSPECT_3)
+                || (!LaptopController.isEmailOpened()
+                    && !ShredderClueComponent.isPaperClue()
+                    && !AccessPadClue.isUnlocked())) {
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getFeedbackTextArea().setVisible(false);
+              GameOverController.getHintLabel().setVisible(true);
             } else if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));
@@ -96,6 +101,7 @@ public class GameTimer {
               SoundManager.playSound("TimeUpLost.mp3");
               GameOverController.getVp().setVisible(false);
               GameOverController.getVpPin().setVisible(false);
+              GameOverController.getIncorrectLabel().setVisible(false);
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
 
               // Show the time up explanation
