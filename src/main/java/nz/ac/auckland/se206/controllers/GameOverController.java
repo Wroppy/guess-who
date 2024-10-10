@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
@@ -134,6 +135,7 @@ public class GameOverController implements Restartable {
   @FXML private Label guessIncorrect;
   @FXML private Text gameOver;
   @FXML private Label hint;
+  @FXML private ImageView background;
 
   private CallBack onRestart;
 
@@ -167,6 +169,16 @@ public class GameOverController implements Restartable {
     GameOverController.hintLabel = hint;
 
     gameOver.setFont(Font.font("Verdana", FontWeight.BOLD, 41));
+
+    playAgain.setOnMouseEntered(
+        event -> {
+          playAgain.setCursor(Cursor.HAND);
+        });
+
+    playAgain.setOnMouseExited(
+        event -> {
+          playAgain.setCursor(Cursor.DEFAULT);
+        });
   }
 
   @FXML

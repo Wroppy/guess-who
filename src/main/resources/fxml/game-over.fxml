@@ -12,7 +12,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="599.0" prefWidth="789.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.GameOverController">
    <children>
-      <ImageView fitHeight="599.0" fitWidth="789.0">
+      <ImageView fx:id="background" fitHeight="599.0" fitWidth="789.0">
          <image>
             <Image url="@../images/ending%20room.jpeg" />
          </image>
