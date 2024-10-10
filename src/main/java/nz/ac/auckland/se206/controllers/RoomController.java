@@ -59,17 +59,21 @@ public class RoomController implements HeaderableController, Restartable {
   private AccessPadClue accessPad;
   private Pane shredderClueOverlay;
   private Pane laptopOverlay;
+  private static Pane mapOverlay;  
 
   private boolean firstShredderClue = true;
   private boolean firstAccessPadClue = true;
   private boolean firstLaptopClue = true;
+  private static boolean mapHandler = false;
+  private static Parent overlay;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
+   * @throws IOException 
    */
   @FXML
-  public void initialize() {
+  public void initialize() throws IOException {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
@@ -84,6 +88,7 @@ public class RoomController implements HeaderableController, Restartable {
 
     addShredderClue();
     addAccessPadClue();
+    overlay = App.loadFxmlLoader("mapSuspects").load();
   }
 
   private void addAccessPadClue() {
@@ -253,4 +258,30 @@ public class RoomController implements HeaderableController, Restartable {
       ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
     }
   }
+
+  public static void openMap(MouseEvent event) throws IOException {
+    // Load the overlay
+    if(!mapHandler){
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Pane mainPane = (Pane) stage.getScene().lookup("#room");
+      System.out.println(stage);
+      System.out.println(mainPane);
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+
+      // Set the overlay to the top left corner
+      overlay.setLayoutX(0);
+      overlay.setLayoutY(100.0);
+      RoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
+      mainPane.getChildren().add(overlay);
+    }
+    mapHandler = true;
+}
+
+  public static void closeMap() {
+    mapHandler = false;
+    if (RoomController.mapOverlay != null && RoomController.mapOverlay.getParent() != null) {
+      ((Pane) RoomController.mapOverlay.getParent()).getChildren().remove(RoomController.mapOverlay);
+    }
+  }
+
 }
