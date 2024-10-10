@@ -104,7 +104,7 @@ public class GameOverController implements Restartable {
 
       GameOverController.vpStatic.setVisible(false);
       GameOverController.vpPinStatic.setVisible(false);
-      GameOverController.incorrectGuess.setFont(Font.font("Bebas Neue", 47));
+      GameOverController.incorrectGuess.setFont(Font.font("Bell MT", 39));
       GameOverController.incorrectGuess.setVisible(true);
       GameOverController.resultLabel.setVisible(false);
     }
@@ -153,7 +153,7 @@ public class GameOverController implements Restartable {
 
     GameOverController.timeUpLabel = timeUp;
 
-    gameOver.setFont(Font.font("Bebas Neue", 70));
+    gameOver.setFont(Font.font("Bell MT", FontWeight.BOLD, 50));
   }
 
   @FXML

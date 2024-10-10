@@ -80,7 +80,7 @@ public class GameTimer {
 
               // Show the time up label
               GameOverController.getTimeUpLabel().setVisible(true);
-              GameOverController.getTimeUpLabel().setFont(Font.font("Bebas Neue", 47));
+              GameOverController.getTimeUpLabel().setFont(Font.font("Bell MT", 39));
               SoundManager.playSound("TimeUpLost.mp3");
               GameOverController.getVp().setVisible(false);
               GameOverController.getVpPin().setVisible(false);
