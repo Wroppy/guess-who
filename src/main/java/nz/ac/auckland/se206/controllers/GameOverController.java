@@ -1,11 +1,11 @@
 package nz.ac.auckland.se206.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
@@ -24,7 +24,7 @@ public class GameOverController implements Restartable {
   private static Label resultLabel;
   private static Text feedbackLabel;
   private static TextArea feedbackTextArea;
-  private static Button playAgainButton;
+  private static ImageView playAgainButton;
   private static ImageView vpStatic;
   private static ImageView vpPinStatic;
   private static Label incorrectGuess;
@@ -67,8 +67,8 @@ public class GameOverController implements Restartable {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.resultLabel.setLayoutY(85);
 
-      playAgainButton.setLayoutX(335);
-      playAgainButton.setLayoutY(507);
+      // playAgainButton.setLayoutX(335);
+      // playAgainButton.setLayoutY(507);
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
 
@@ -99,8 +99,8 @@ public class GameOverController implements Restartable {
       GameOverController.catImage.setVisible(false);
       GameOverController.catImage2.setVisible(false);
 
-      playAgainButton.setLayoutX(335);
-      playAgainButton.setLayoutY(450);
+      // playAgainButton.setLayoutX(335);
+      // playAgainButton.setLayoutY(450);
 
       GameOverController.vpStatic.setVisible(false);
       GameOverController.vpPinStatic.setVisible(false);
@@ -114,7 +114,8 @@ public class GameOverController implements Restartable {
   @FXML private Label result;
   @FXML private TextArea feedbacktxt;
   @FXML private Text feedback;
-  @FXML private Button playAgain;
+  @FXML private Button playAgain1;
+  @FXML private ImageView playAgain;
   @FXML private ImageView showCat;
   @FXML private ImageView showCat2;
   @FXML private Label timeUp;
@@ -157,7 +158,7 @@ public class GameOverController implements Restartable {
   }
 
   @FXML
-  private void onPlayAgainClicked(ActionEvent event) {
+  private void onPlayAgainClicked(MouseEvent event) {
     if (onRestart != null) {
       onRestart.call();
     }

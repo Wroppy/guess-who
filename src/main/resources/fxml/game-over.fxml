@@ -36,7 +36,7 @@
          <font>
             <Font name="Verdana" size="16.0" />
          </font></TextArea>
-      <Button fx:id="playAgain" layoutX="334.0" layoutY="480.0" mnemonicParsing="false" onAction="#onPlayAgainClicked" prefHeight="55.0" prefWidth="119.0" stylesheets="@../css/play-again.css" text="Play Again">
+      <Button fx:id="playAgain1" layoutX="334.0" layoutY="480.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="119.0" stylesheets="@../css/play-again.css" text="Play Again" visible="false">
          <font>
             <Font size="25.0" />
          </font>
@@ -77,5 +77,10 @@
             <Font name="Verdana" size="33.0" />
          </font>
       </Label>
+      <ImageView fx:id="playAgain" fitHeight="62.0" fitWidth="200.0" layoutX="294.0" layoutY="488.0" onMouseClicked="#onPlayAgainClicked">
+         <image>
+            <Image url="@../images/playAgainBtn.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
