@@ -26,10 +26,6 @@ public class MenuController implements Restartable {
     // Any required initialization code can be placed here
     SoundManager.playSound("Welcome.mp3");
 
-
-    // Initialize the font
-    App.getFont("PermanentMarker", 22);
-
     this.styleScene();
   }
 

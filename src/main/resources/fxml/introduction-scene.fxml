@@ -14,7 +14,7 @@
             <Image url="@../images/menu.png" />
          </image>
       </ImageView>
-      <Label fx:id="briefLabel" alignment="TOP_LEFT" layoutX="91.0" layoutY="240.0" prefHeight="270.0" prefWidth="315.0" text="A document is found to be stolen, and it's up to you to determine the thief. Three suspects have been identified, each with a unique motive and opportunity. Examine the evidence, interrogate suspects, and piece together the clues to discover the thief." textAlignment="JUSTIFY" wrapText="true">
+      <Label fx:id="briefLabel" alignment="TOP_LEFT" layoutX="91.0" layoutY="240.0" prefHeight="270.0" prefWidth="315.0" textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Webdings" size="18.0" />
          </font>
@@ -23,6 +23,5 @@
          <font>
             <Font size="16.0" />
          </font></Button>
-      <Label fx:id="testing" layoutX="263.0" layoutY="438.0" prefHeight="71.0" prefWidth="117.0" text="TESTING" />
    </children>
 </Pane>
