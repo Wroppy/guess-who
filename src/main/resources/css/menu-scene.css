@@ -1,7 +1,6 @@
 #investigateButton {
   -fx-background-color: rgba(0, 0, 0, 0);
   -fx-cursor: hand;
-  -fx-label-padding: 0 0 0 -10px;
   -fx-font-size: 18px;
 }
 
@@ -11,7 +10,7 @@
 
 #investigateButton:armed {
   /* -fx-background-color: rgba(10, 100, 255, 0.5); */
-  -fx-label-padding: 2px 0 0 -10px;
+  -fx-translate-y: 2 ;
 }
 
 .markerLabel {

@@ -14,22 +14,12 @@
             <Image url="@../images/menu.png" />
          </image>
       </ImageView>
-      <Label fx:id="guessLabel" alignment="CENTER" layoutX="81.0" layoutY="95.0" prefHeight="50.0" prefWidth="321.0" rotate="-6.0" styleClass="markerLabel" text="Guess the thief" textAlignment="CENTER">
-         <font>
-            <Font size="38.0" />
-         </font>
-      </Label>
       <Label fx:id="briefLabel" alignment="TOP_LEFT" layoutX="91.0" layoutY="240.0" prefHeight="270.0" prefWidth="315.0" text="A document is found to be stolen, and it's up to you to determine the thief. Three suspects have been identified, each with a unique motive and opportunity. Examine the evidence, interrogate suspects, and piece together the clues to discover the thief." textAlignment="JUSTIFY" wrapText="true">
          <font>
             <Font name="Webdings" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="suspectLabel" layoutX="542.0" layoutY="81.0" rotate="3.0" styleClass="markerLabel" text="Suspects">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </Label>
-      <Button fx:id="investigateButton" layoutX="524.0" layoutY="490.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="44.0" prefWidth="192.0" styleClass="markerLabel" text="Begin Investigation">
+      <Button fx:id="investigateButton" layoutX="524.0" layoutY="490.0" mnemonicParsing="false" onAction="#onStartButtonClick" prefHeight="44.0" prefWidth="192.0" styleClass="markerLabel">
          <font>
             <Font size="16.0" />
          </font></Button>
