@@ -65,13 +65,15 @@ public class RoomController implements HeaderableController, Restartable {
   private boolean firstAccessPadClue = true;
   private boolean firstLaptopClue = true;
   private static boolean mapHandler = false;
+  private static Parent overlay;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
+   * @throws IOException 
    */
   @FXML
-  public void initialize() {
+  public void initialize() throws IOException {
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
@@ -86,6 +88,7 @@ public class RoomController implements HeaderableController, Restartable {
 
     addShredderClue();
     addAccessPadClue();
+    overlay = App.loadFxmlLoader("mapSuspects").load();
   }
 
   private void addAccessPadClue() {
@@ -263,7 +266,7 @@ public class RoomController implements HeaderableController, Restartable {
       Pane mainPane = (Pane) stage.getScene().lookup("#room");
       System.out.println(stage);
       System.out.println(mainPane);
-      Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
 
       // Set the overlay to the top left corner
       overlay.setLayoutX(0);

@@ -2,6 +2,7 @@ package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -14,6 +15,8 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
+import java.util.Map;
+import java.util.HashMap;
 
 /**
  * Controls the suspect room interface, managing the header, image display, and chat components for
@@ -32,12 +35,16 @@ public class SuspectRoomController implements HeaderableController, Restartable 
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
   @FXML private static Pane mapOverlay;
+  private Map<String, String> suspectMap = new HashMap<String, String>();
+  private static Parent overlay;
 
   private static boolean mapHandler = false;
 
   private ChatComponent chatComponent;
 
-  public void initialize() {}
+  public void initialize() throws IOException {
+    overlay = App.loadFxmlLoader("mapSuspects").load();
+  }
 
   /**
    * Configures the room based on the specified scene type.
@@ -50,6 +57,7 @@ public class SuspectRoomController implements HeaderableController, Restartable 
 
     if (sceneType == SceneType.SUSPECT_1) {
       setupImage("/images/bob_bar.png");
+      
     } else if (sceneType == SceneType.SUSPECT_2) {
       setupImage("/images/VP.png");
     } else if (sceneType == SceneType.SUSPECT_3) {
@@ -130,7 +138,7 @@ public class SuspectRoomController implements HeaderableController, Restartable 
       Pane mainPane = (Pane) stage.getScene().lookup("#suspectRoom");
       System.out.println(stage);
       System.out.println(mainPane);
-      Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
 
       // Set the overlay to the top left corner
       overlay.setLayoutX(0);
