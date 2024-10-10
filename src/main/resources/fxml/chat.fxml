@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="230.0" prefWidth="650.0" spacing="8.0" style="-fx-opacity: 90%;" type="VBox" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="chatView" prefHeight="230.0" prefWidth="650.0" spacing="8.0" style="-fx-opacity: 90%;" type="VBox" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="suspectNameLabel" styleClass="has-text" text="Label" />
       <TextArea fx:id="chatBox" editable="false" prefHeight="197.0" prefWidth="634.0" styleClass="has-text" wrapText="true" VBox.vgrow="ALWAYS" />

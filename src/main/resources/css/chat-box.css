@@ -1,18 +1,11 @@
 #sendMessageButton {
-  -fx-border-color: #a8a8a8;
   -fx-border-style: solid;
   -fx-border-width: 1;
-
-  -fx-background-color: #dbdbdb;
   -fx-cursor: hand;
 }
 
 #sendMessageButton:hover {
-  -fx-background-color: #c8c8c8;
-}
-
-#chatBox {
-  -fx-text-fill: black;
+  -fx-background-color: rgba(255, 255, 255, 0.6);
 }
 
 #sendMessageLabel {
@@ -37,5 +30,19 @@
 
 #suspectNameLabel {
   -fx-padding: 8px 10px;
-  -fx-translate-y: 8px;
+  -fx-translate-y: 4px;
+}
+
+#chatBox {
+  -fx-background-color: transparent;
+  -fx-faint-focus-color: transparent;
+  -fx-focus-color: transparent;
+}
+
+.text-area .content,
+.text-area .scroll-pane,
+.text-area .scroll-pane .viewport {
+  -fx-background-color: black;
+  -fx-border-radius: 12px;
+  -fx-background-radius: 12px;
 }
