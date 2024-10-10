@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="shredderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="500.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="shredderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" type="Pane" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="500.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <image>
             <Image url="@../images/document/placeholder-board.png" />
          </image>
@@ -19,12 +19,12 @@
             <Image url="@../images/document/select-indicator.png" />
          </image>
       </ImageView>
-      <Label fx:id="completedMessage" layoutX="14.0" layoutY="53.0" prefHeight="320.0" prefWidth="472.0" wrapText="true" />
-      <Label fx:id="confidentialLabel" layoutX="331.0" layoutY="64.0" prefHeight="50.0" prefWidth="126.0" rotate="10.0" text="CONFIDENTIAL" textFill="RED">
+      <Label fx:id="completedMessage" layoutX="14.0" layoutY="53.0" prefHeight="320.0" prefWidth="571.0" wrapText="true" />
+      <Label fx:id="confidentialLabel" layoutX="444.0" layoutY="64.0" prefHeight="50.0" prefWidth="126.0" rotate="10.0" text="CONFIDENTIAL" textFill="RED">
          <font>
             <Font size="17.0" />
          </font>
       </Label>
-      <Button fx:id="closeButton" layoutX="462.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" text="X" />
+      <Button fx:id="closeButton" layoutX="562.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleClose" text="X" />
    </children>
 </fx:root>

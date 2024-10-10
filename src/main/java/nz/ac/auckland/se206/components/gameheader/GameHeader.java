@@ -22,6 +22,7 @@ import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.SoundManager;
 import nz.ac.auckland.se206.components.accesspadclue.AccessPadClue;
 import nz.ac.auckland.se206.components.shredderclue.ShredderClueComponent;
+import nz.ac.auckland.se206.controllers.GuessingController;
 import nz.ac.auckland.se206.controllers.LaptopController;
 import nz.ac.auckland.se206.controllers.MenuController;
 import nz.ac.auckland.se206.controllers.RoomController;
@@ -317,6 +318,7 @@ public class GameHeader extends Pane {
       MenuController.gameTimer.setFirstFiveMinutesFalse();
     }
     App.changeScene(SceneType.PLAYER_EXPLANATION);
+    GuessingController.defocusTextBox();
   }
 
   /** Restart the talked to status of the suspects. */

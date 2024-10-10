@@ -9,7 +9,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
@@ -32,6 +34,7 @@ import nz.ac.auckland.se206.tasks.RunGptTask;
 public class GuessingController implements Restartable {
   private static boolean correctChoice;
   private static String feedback;
+  private static TextField focusHolder;
 
   public static String getFeedback() {
     return feedback;
@@ -42,12 +45,20 @@ public class GuessingController implements Restartable {
     return correctChoice;
   }
 
+  public static void defocusTextBox() {
+    System.out.println("Defocusing");
+    focusHolder.requestFocus();
+  }
+
   @FXML private TextArea explaintxt;
   @FXML private Rectangle bob;
   @FXML private Rectangle vicePresident;
   @FXML private Rectangle third;
   @FXML private Button submitBtn;
+  @FXML private Pane guessingScene;
   @FXML private Label timerLabel;
+  @FXML private TextField focusField;
+
   private String explanation;
   private boolean isClicked = false;
 
@@ -63,10 +74,7 @@ public class GuessingController implements Restartable {
    * selected.
    */
   public void initialize() {
-    // Add a listener to check if TextArea has text input
-    submitBtn.setStyle(
-        "-fx-border-color: red; -fx-border-width: 2px; -fx-padding: 4 6; -fx-border-style: solid;"
-            + " -fx-background-insets: 0;");
+    focusHolder = focusField;
 
     // Add a listener to check if TextArea has text input
     Timeline timeline =
@@ -74,7 +82,8 @@ public class GuessingController implements Restartable {
             new KeyFrame(
                 Duration.seconds(1),
                 event -> {
-                  // If the text area is empty or the user has not clicked on a suspect, disable the
+                  // If the text area is empty or the user has not clicked on a suspect, disable
+                  // the
                   // submit button
                   if (explaintxt.getText() == null
                       || explaintxt.getText().trim().isEmpty()
@@ -96,6 +105,12 @@ public class GuessingController implements Restartable {
     suspectOptions.add(third);
 
     this.setupClickables();
+
+    styleScene();
+  }
+
+  private void styleScene() {
+    guessingScene.getStylesheets().add(App.getCssUrl("guessing"));
   }
 
   private void setupClickables() {
@@ -124,12 +139,13 @@ public class GuessingController implements Restartable {
     }
 
     // Changes the border color
-    rect.setStroke(Color.RED);
+    rect.setStroke(Color.rgb(0, 0, 0, 0));
   }
 
   private void selectRectangle() {
     for (Rectangle rect : suspectOptions) {
-      rect.setStroke(Color.RED);
+      rect.setStroke(Color.rgb(0, 0, 0, 0));
+      ;
     }
 
     selectedRectangle.setStroke(Color.GREEN);
