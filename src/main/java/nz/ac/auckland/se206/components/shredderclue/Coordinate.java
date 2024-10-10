@@ -67,11 +67,7 @@ public class Coordinate {
         && verticalPosition <= bottomRight.verticalPosition;
   }
 
-  /**
-   * Checks if this coordinate is inside a circle defined by a center coordinate and a radius.
-   *
-   * @param center The center of the circle
-   */
+  /** Returns the x and y position of the coordinate. */
   @Override
   public String toString() {
     return "(" + horizontalPosition + ", " + verticalPosition + ")";

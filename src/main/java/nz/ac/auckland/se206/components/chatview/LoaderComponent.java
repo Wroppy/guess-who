@@ -8,6 +8,7 @@ import javafx.util.Duration;
 
 /** A component that displays a loading animation. */
 public class LoaderComponent extends Pane {
+  /** Creates a new loader component with three circles that animate to show a loading animation. */
   public LoaderComponent() {
     int height = 26;
     int radius = 2;
