@@ -30,5 +30,5 @@ Reference specific clues when providing feedback.
 If the explanation is flawed, explain what the player missed or misunderstood.
 When talking about the access pad, make sure to mention that the vice president fired dominic so he could use dominic's card. This is why dominic appears in the access logs. 
 
-Keep your response under 75 words.
+Keep your response under 60 words.
 
