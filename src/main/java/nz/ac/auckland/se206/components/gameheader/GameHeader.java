@@ -341,6 +341,11 @@ public class GameHeader extends Pane {
     SoundManager.playSound("Interact.mp3");
   }
 
+  //getter for hashmap
+  public static HashMap<SceneType, Boolean> getTalkedTo() {
+    return talkedTo;
+  }
+
   /**
    * Handle the map icon click event.
    *
