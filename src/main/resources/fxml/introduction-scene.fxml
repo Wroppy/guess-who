@@ -23,5 +23,6 @@
          <font>
             <Font size="16.0" />
          </font></Button>
+      <Label fx:id="testing" layoutX="263.0" layoutY="438.0" prefHeight="71.0" prefWidth="117.0" text="TESTING" />
    </children>
 </Pane>
