@@ -1,8 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
 import java.io.IOException;
-
-
+import java.util.HashMap;
+import java.util.Map;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,8 +15,6 @@ import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
-import java.util.Map;
-import java.util.HashMap;
 
 /**
  * Controls the suspect room interface, managing the header, image display, and chat components for
@@ -57,7 +55,7 @@ public class SuspectRoomController implements HeaderableController, Restartable 
 
     if (sceneType == SceneType.SUSPECT_1) {
       setupImage("/images/bob_bar.png");
-      
+
     } else if (sceneType == SceneType.SUSPECT_2) {
       setupImage("/images/VP.png");
     } else if (sceneType == SceneType.SUSPECT_3) {
@@ -82,8 +80,8 @@ public class SuspectRoomController implements HeaderableController, Restartable 
     if (imagePath == "/images/bob_bar.png") {
       imageContainer.setFitWidth(840);
       imageContainer.setFitHeight(499);
-    } else if (imagePath == "/images/VP.png") {
-      imageContainer.setFitWidth(750);
+    } else if (imagePath.equals("/images/VP.png")) {
+      imageContainer.setFitWidth(789);
       imageContainer.setFitHeight(499);
     } else {
       imageContainer.setFitWidth(830);
@@ -133,28 +131,31 @@ public class SuspectRoomController implements HeaderableController, Restartable 
 
   public static void openMap(MouseEvent event) throws IOException {
     // Load the overlay
-    if(!mapHandler){
+    if (!mapHandler) {
       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
       Pane mainPane = (Pane) stage.getScene().lookup("#suspectRoom");
       System.out.println(stage);
       System.out.println(mainPane);
-      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate
+      // FXML if needed
 
       // Set the overlay to the top left corner
       overlay.setLayoutX(0);
       overlay.setLayoutY(100.0);
-      SuspectRoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
+      SuspectRoomController.mapOverlay =
+          (Pane) overlay; // Change to another overlay variable if needed
       mainPane.getChildren().add(overlay);
     }
     mapHandler = true;
-
-}
+  }
 
   public static void closeMap() {
     mapHandler = false;
-    if (SuspectRoomController.mapOverlay != null && SuspectRoomController.mapOverlay.getParent() != null) {
-      ((Pane) SuspectRoomController.mapOverlay.getParent()).getChildren().remove(SuspectRoomController.mapOverlay);
+    if (SuspectRoomController.mapOverlay != null
+        && SuspectRoomController.mapOverlay.getParent() != null) {
+      ((Pane) SuspectRoomController.mapOverlay.getParent())
+          .getChildren()
+          .remove(SuspectRoomController.mapOverlay);
     }
   }
-  
 }
