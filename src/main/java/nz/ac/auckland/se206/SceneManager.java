@@ -4,21 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.scene.Parent;
 
+/**
+ * Manages the scenes in the application. It has the functionality to add scenetype into a map and
+ * get the scenetype from the map. Scenetype is enum with corresponding string representations.
+ */
 public class SceneManager {
-  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
-
-  public static Map<SceneType, Parent> getSceneMap() {
-    return SceneManager.sceneMap;
-  }
-
-  public static void addScene(SceneType sceneType, Parent parent) {
-    sceneMap.put(sceneType, parent);
-  }
-
-  public static Parent getScene(SceneType sceneType) {
-    return sceneMap.get(sceneType);
-  }
-
+  /** Enum representing the different types of scenes available. */
   public enum SceneType {
     INTRO("Introduction"),
     CRIME("Crime Scene"),
@@ -39,5 +30,19 @@ public class SceneManager {
     public String toString() {
       return name;
     }
+  }
+
+  private static Map<SceneType, Parent> sceneMap = new HashMap<>();
+
+  public static void addScene(SceneType sceneType, Parent parent) {
+    sceneMap.put(sceneType, parent);
+  }
+
+  public static Parent getScene(SceneType sceneType) {
+    return sceneMap.get(sceneType);
+  }
+
+  public static Map<SceneType, Parent> getSceneMap() {
+    return SceneManager.sceneMap;
   }
 }

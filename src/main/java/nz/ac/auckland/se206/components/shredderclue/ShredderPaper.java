@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** Represents a piece of paper that can be dragged around the screen. The paper has a draggable */
 public class ShredderPaper extends Pane implements Moveable {
   private double mouseAnchorX;
   private double mouseAnchorY;
@@ -21,6 +22,15 @@ public class ShredderPaper extends Pane implements Moveable {
   private ImageView imageView;
   private Node parent;
 
+  /**
+   * Creates a new shredder paper with the given parent, path, width, height and order.
+   *
+   * @param parent The parent node
+   * @param path The path to the image
+   * @param width The width of the paper
+   * @param height The height of the paper
+   * @param order The order of the paper
+   */
   public ShredderPaper(Node parent, String path, double width, double height, int order) {
     super();
 
@@ -126,35 +136,58 @@ public class ShredderPaper extends Pane implements Moveable {
     onMouseDragCallback.run(e);
   }
 
+  /**
+   * Sets the callback function for when the paper is clicked.
+   *
+   * @param callback The callback function
+   */
   public void setOnClick(EventCallback callback) {
     this.onMouseClickCallback = callback;
   }
 
+  /**
+   * Sets the callback function for when the paper is dragged.
+   *
+   * @param callback The callback function
+   */
   public void setOnDrag(EventCallback callback) {
     this.onMouseDragCallback = callback;
   }
 
+  /**
+   * Sets the callback function for when the paper is released.
+   *
+   * @param callback The callback function
+   */
   public void setOnRelease(EventCallback callback) {
     this.onMouseReleaseCallback = callback;
   }
 
+  /** Gets the center coordinate of the paper. */
   @Override
   public Coordinate getCenterCooridinate() {
     return new Coordinate(
         this.getLayoutX() + this.getWidth() / 2, this.getLayoutY() + this.getHeight() / 2);
   }
 
+  /** Gets the top left coordinate of the paper. */
   @Override
   public Coordinate getTopLeftCooridinate() {
     return new Coordinate(this.getLayoutX(), this.getLayoutY());
   }
 
+  /** Moves the paper to the given coordinate. */
   @Override
   public void moveTo(Coordinate pos) {
-    this.setLayoutX(pos.getxPos());
-    this.setLayoutY(pos.getyPos());
+    this.setLayoutX(pos.getHorizontalPosition());
+    this.setLayoutY(pos.getVerticalPosition());
   }
 
+  /**
+   * Gets the order of the paper.
+   *
+   * @return The order of the paper
+   */
   public int getOrder() {
     return order;
   }

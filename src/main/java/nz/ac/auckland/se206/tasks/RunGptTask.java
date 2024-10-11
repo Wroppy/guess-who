@@ -7,6 +7,13 @@ import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.chat.openai.Choice;
 import nz.ac.auckland.apiproxy.exceptions.ApiProxyException;
 
+/**
+ * A background task for running a chat completion request using the GPT model.
+ *
+ * <p>This class extends the JavaFX Task class to execute chat message requests without blocking the
+ * JavaFX application thread. It handles the interaction with the chat completion API, processes the
+ * user message, and retrieves the model's response.
+ */
 public class RunGptTask extends Task<Void> {
   private ChatMessage msg;
   private ChatCompletionRequest req;
@@ -26,7 +33,7 @@ public class RunGptTask extends Task<Void> {
       ChatCompletionResult chatCompletionResult = req.execute();
       Choice result = chatCompletionResult.getChoices().iterator().next();
       req.addMessage(result.getChatMessage());
-       
+
       // Set the result
       this.result = result.getChatMessage();
 

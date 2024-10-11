@@ -23,6 +23,7 @@ import nz.ac.auckland.se206.components.gameheader.GameHeader;
 import nz.ac.auckland.se206.prompts.PromptEngineering;
 import nz.ac.auckland.se206.tasks.RunGptTask;
 
+/** A component that displays a chat interface for the user to interact with the GPT model. */
 public class ChatComponent extends VBox {
   private boolean loading;
   private SceneType sceneType;
@@ -36,6 +37,11 @@ public class ChatComponent extends VBox {
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
 
+  /**
+   * Creates a new chat component with a given scene type.
+   *
+   * @param sceneType the scene type of the chat component
+   */
   public ChatComponent(SceneType sceneType) {
     this.sceneType = sceneType;
     this.loading = false;
@@ -59,6 +65,7 @@ public class ChatComponent extends VBox {
     }
   }
 
+  /** Initializes the chat component. Puts the suspects in a map for easy access. */
   public void initialize() {
     // Any required initialization code can be placed here
     suspectMap.put("Suspect 1", "Dominic");
@@ -66,12 +73,14 @@ public class ChatComponent extends VBox {
     suspectMap.put("Suspect 3", "Alexandra");
   }
 
+  /** Styles the chat component with the CSS file. */
   private void styleWidget() {
     String styles = App.getCssUrl("chat-box");
 
     this.getStylesheets().add(styles);
   }
 
+  /** Sets up the send button with the loader component. */
   private void setupButton() {
     loaderComponent = new LoaderComponent();
     loaderComponent.setPrefWidth(
@@ -80,7 +89,7 @@ public class ChatComponent extends VBox {
   }
 
   /**
-   * Called when a key is pressed inside the text box
+   * Called when a key is pressed inside the text box.
    *
    * @param e key event of the text box
    */
@@ -92,6 +101,11 @@ public class ChatComponent extends VBox {
     }
   }
 
+  /**
+   * Sets the loading state of the chat component.
+   *
+   * @param loading the loading state of the chat component
+   */
   private void setLoading(boolean loading) {
     this.loading = loading;
 
@@ -106,7 +120,7 @@ public class ChatComponent extends VBox {
       return;
     }
 
-    // Checks if the component is loadwing
+    // Checks if the component is loading
     if (loading) {
       return;
     }
@@ -118,7 +132,7 @@ public class ChatComponent extends VBox {
   }
 
   /**
-   * Handler for the send button
+   * Handler for the send button.
    *
    * @param event the action event triggered by the send button
    * @throws ApiProxyException if there is an error communicating with the API proxy
@@ -177,11 +191,7 @@ public class ChatComponent extends VBox {
     return PromptEngineering.getPrompt(promptId);
   }
 
-  /**
-   * Begins the chat with the GPT model by setting up the GPT model with the suspect type.
-   *
-   * @param suspectId the ID of the suspect the user is chatting with
-   */
+  /** Begins the chat with the GPT model by setting up the GPT model with the suspect type. */
   public void setupGpt() {
     try {
       // Reads the API proxy configuration
@@ -190,7 +200,7 @@ public class ChatComponent extends VBox {
       chatCompletionRequest =
           new ChatCompletionRequest(config)
               .setN(1)
-              .setTemperature(0.2) // 0.2
+              .setTemperature(0.2)
               .setTopP(0.5)
               .setMaxTokens(200);
 
@@ -201,6 +211,10 @@ public class ChatComponent extends VBox {
     }
   }
 
+  /**
+   * Restarts the chat component by clearing the chat box and text input and setting up the GPT
+   * model.
+   */
   public void restart() {
     chatBox.clear();
     setupGpt();

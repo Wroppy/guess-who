@@ -13,17 +13,24 @@ import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.utils.EventCallback;
 
+/** Component for the shredder clue. Allows the user to solve the shredder clue by dragging the */
 public class ShredderClueComponent extends Pane {
   private static boolean paperClue = false;
 
+  /**
+   * Returns whether the paper clue has been completed.
+   *
+   * @return True if the paper clue has been completed, false otherwise
+   */
   public static boolean isPaperClue() {
     return paperClue;
   }
 
   // Sets the size of the clue rectangles, with aspect ratio 2200:283
-  private final double clueHeight = 300;
-  private final double clueWidth = clueHeight * 283 / 2200;
+  private final double clueHeight = 220;
+  private final double clueWidth = clueHeight * 413 / 1130;
   private final int clues = 6;
+  private final int indicatorOffset = 6;
 
   @FXML private Pane shredderPane;
   @FXML private ImageView selectIndicator;
@@ -38,6 +45,12 @@ public class ShredderClueComponent extends Pane {
   // Map for each rectangle to the paper that is placed on it
   private Map<ShredderBox, ShredderPaper> paperMap;
 
+  /**
+   * Creates a new shredder clue component with the given event callback for when the component is
+   * closed.
+   *
+   * @param onClose The event callback for when the component is closed
+   */
   public ShredderClueComponent(EventCallback onClose) {
     paperClue = false;
     paperMap = new HashMap<>();
@@ -57,16 +70,24 @@ public class ShredderClueComponent extends Pane {
     }
   }
 
+  private void setUpIndicator() {
+    selectIndicator.setFitHeight(clueHeight + indicatorOffset * 2);
+    indicator = new ShredderBoxIndicator(selectIndicator);
+  }
+
+  /**
+   * Initializes the shredder clue component. Sets the height and width of the component, creates
+   * the rectangles and the shredded paper, and sets the complete message to be invisible.
+   */
   @FXML
   public void initialize() {
     this.setHeight(400);
-    this.setWidth(500);
+    this.setWidth(600);
     this.createRectangles();
     this.createShreddedPaper();
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
-
-    indicator = new ShredderBoxIndicator(selectIndicator);
+    setUpIndicator();
 
     // Sets the complete message to be invisible
     completedMessage.setVisible(false);
@@ -85,6 +106,8 @@ public class ShredderClueComponent extends Pane {
     final double startingX = (this.getWidth() - (clues * clueWidth + (clues - 1) * gap)) / 2;
     final double step = clueWidth + gap;
     final double y = (this.getHeight() - (clueHeight)) / 2;
+
+    System.out.println(clueWidth + " " + clueHeight);
 
     // Creates 6 rectangles
     for (int i = 0; i < clues; i++) {
@@ -276,7 +299,8 @@ public class ShredderClueComponent extends Pane {
    * @param box The box to highlight
    */
   private void highlightBox(ShredderBox box) {
-    indicator.moveTo(box.getTopLeftCooridinate().subtract(new Coordinate(6, 6)));
+    indicator.moveTo(
+        box.getTopLeftCooridinate().subtract(new Coordinate(indicatorOffset, indicatorOffset)));
   }
 
   /**
@@ -319,11 +343,12 @@ public class ShredderClueComponent extends Pane {
     Platform.runLater(() -> onClose.run(event));
   }
 
-  /** Shows the clue component. */
+  /** Shows the clue component by setting it to be visible. */
   public void show() {
     this.setVisible(true);
   }
 
+  /** Hides the clue component by setting it to be not visible. */
   public void hide() {
     this.setVisible(false);
   }

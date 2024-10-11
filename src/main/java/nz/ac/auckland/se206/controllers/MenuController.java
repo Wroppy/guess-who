@@ -11,6 +11,12 @@ import nz.ac.auckland.se206.GameTimer;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.SoundManager;
 
+/**
+ * Controller for the start menu of the game.
+ *
+ * <p>The MenuController initializes the menu and handles user interactions, such as starting the
+ * game. It also starts the game timer and transits to the appropriate scene.
+ */
 public class MenuController implements Restartable {
   public static GameTimer gameTimer;
 
@@ -20,7 +26,10 @@ public class MenuController implements Restartable {
 
   private GuessingController guessingController;
 
-  /** Initializes the menu view. */
+  /**
+   * Initializes the menu after its root element has been completely processed and plays a welcome
+   * sound.
+   */
   @FXML
   public void initialize() {
     // Any required initialization code can be placed here

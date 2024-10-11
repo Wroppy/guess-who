@@ -1,13 +1,31 @@
 package nz.ac.auckland.se206.controllers;
 
+import java.io.IOException;
+
+
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 import nz.ac.auckland.se206.SceneManager.SceneType;
 import nz.ac.auckland.se206.components.chatview.ChatComponent;
 import nz.ac.auckland.se206.components.gameheader.GameHeader;
+import java.util.Map;
+import java.util.HashMap;
 
+/**
+ * Controls the suspect room interface, managing the header, image display, and chat components for
+ * each suspect.
+ *
+ * <p>This class implements the HeaderableController and Restartable interfaces, allowing for header
+ * setup and restart functionality. It configures the room based on the selected suspect and manages
+ * the chat interactions.
+ */
 public class SuspectRoomController implements HeaderableController, Restartable {
   public static GameHeader gameHeader1;
   public static GameHeader gameHeader2;
@@ -16,16 +34,30 @@ public class SuspectRoomController implements HeaderableController, Restartable 
   @FXML private Pane headerContainer;
   @FXML private Pane chatContainer;
   @FXML private ImageView imageContainer;
+  @FXML private static Pane mapOverlay;
+  private Map<String, String> suspectMap = new HashMap<String, String>();
+  private static Parent overlay;
+
+  private static boolean mapHandler = false;
 
   private ChatComponent chatComponent;
 
-  public void initialize() {}
+  public void initialize() throws IOException {
+    overlay = App.loadFxmlLoader("mapSuspects").load();
+  }
 
+  /**
+   * Configures the room based on the specified scene type.
+   *
+   * @param sceneType The type of scene to set up, determining which suspect's image and chat
+   *     component to display.
+   */
   public void setupRoom(SceneType sceneType) {
     setupHeader(sceneType);
 
     if (sceneType == SceneType.SUSPECT_1) {
       setupImage("/images/bob_bar.png");
+      
     } else if (sceneType == SceneType.SUSPECT_2) {
       setupImage("/images/VP.png");
     } else if (sceneType == SceneType.SUSPECT_3) {
@@ -37,7 +69,11 @@ public class SuspectRoomController implements HeaderableController, Restartable 
     chatContainer.getChildren().add(chatComponent);
   }
 
-  // Sets up the image for the room
+  /**
+   * Sets up the image for the room based on the provided image path.
+   *
+   * @param imagePath The path to the image resource to be displayed.
+   */
   public void setupImage(String imagePath) {
 
     // Sets up the image for the room with the correct dimensions
@@ -94,4 +130,31 @@ public class SuspectRoomController implements HeaderableController, Restartable 
       gameHeader3.restartTalkedTo();
     }
   }
+
+  public static void openMap(MouseEvent event) throws IOException {
+    // Load the overlay
+    if(!mapHandler){
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Pane mainPane = (Pane) stage.getScene().lookup("#suspectRoom");
+      System.out.println(stage);
+      System.out.println(mainPane);
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
+
+      // Set the overlay to the top left corner
+      overlay.setLayoutX(0);
+      overlay.setLayoutY(100.0);
+      SuspectRoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
+      mainPane.getChildren().add(overlay);
+    }
+    mapHandler = true;
+
+}
+
+  public static void closeMap() {
+    mapHandler = false;
+    if (SuspectRoomController.mapOverlay != null && SuspectRoomController.mapOverlay.getParent() != null) {
+      ((Pane) SuspectRoomController.mapOverlay.getParent()).getChildren().remove(SuspectRoomController.mapOverlay);
+    }
+  }
+  
 }

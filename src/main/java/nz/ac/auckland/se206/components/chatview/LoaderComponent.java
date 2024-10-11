@@ -6,7 +6,9 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+/** A component that displays a loading animation. */
 public class LoaderComponent extends Pane {
+  /** Creates a new loader component with three circles that animate to show a loading animation. */
   public LoaderComponent() {
     int height = 26;
     int radius = 2;
@@ -29,6 +31,12 @@ public class LoaderComponent extends Pane {
     this.setPrefHeight(26);
   }
 
+  /**
+   * Sets the animation for the loader.
+   *
+   * @param circle The circle to animate
+   * @param delayMs The delay before the animation starts
+   */
   private void setAnimation(Circle circle, int delayMs) {
     //  Delays the animation of the loader
     Task<Void> task =
