@@ -21,7 +21,7 @@
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">
                <children>
                   <Label fx:id="historyLabel" text="Label" />
-                  <Button mnemonicParsing="false" onAction="#goBackInChatHistory" styleClass="historyButton">
+                  <Button fx:id="goUp" mnemonicParsing="false" onAction="#goBackInChatHistory" styleClass="historyButton">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="11.0" preserveRatio="true">
                            <image>
@@ -30,7 +30,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#goForwardInChatHistory" styleClass="historyButton">
+                  <Button fx:id="goDown" mnemonicParsing="false" onAction="#goForwardInChatHistory" styleClass="historyButton">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="11.0" preserveRatio="true">
                            <image>
@@ -39,7 +39,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#goToChatHistoryEnd" styleClass="historyButton">
+                  <Button fx:id="goEnd" mnemonicParsing="false" onAction="#goToChatHistoryEnd" styleClass="historyButton">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="20.0" preserveRatio="true" styleClass="historyButton">
                            <image>

@@ -8,6 +8,7 @@ import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -40,6 +41,11 @@ public class ChatComponent extends VBox {
   @FXML private Label suspectNameLabel;
   @FXML private TextArea chatBox;
   @FXML private Label historyLabel;
+
+  @FXML private Button goUp;
+  @FXML private Button goDown;
+  @FXML private Button goEnd;
+
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
   private ArrayList<String> chatHistory;
@@ -131,6 +137,10 @@ public class ChatComponent extends VBox {
     if (loading) {
       setChatboxLoading();
     }
+
+    goUp.setDisable(loading);
+    goDown.setDisable(loading);
+    goEnd.setDisable(loading);
   }
 
   /** Sends a message to the GPT model. */
