@@ -80,6 +80,8 @@ public class GameTimer {
               GameOverController.getFeedbackTextArea().setVisible(false);
               GameOverController.getTimeUpLabel().setVisible(false);
               GameOverController.getHintLabel().setVisible(true);
+              GameOverController.getVp().setVisible(false);
+              GameOverController.getVpPin().setVisible(false);
             } else if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
               Platform.runLater(() -> App.changeScene(SceneType.PLAYER_EXPLANATION));

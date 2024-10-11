@@ -131,13 +131,15 @@ public class ChatComponent extends VBox {
   private void setLoading(boolean loading) {
     this.loading = loading;
 
+    // Set the visibility of the loader component based on the loading state
     loaderComponent.setVisible(loading);
+    // Hide the send message label while loading
     sendMessageLabel.setVisible(!loading);
 
     if (loading) {
       setChatboxLoading();
     }
-
+    // Enable or disable navigation buttons based on the loading state
     goUp.setDisable(loading);
     goDown.setDisable(loading);
     goEnd.setDisable(loading);
@@ -160,18 +162,21 @@ public class ChatComponent extends VBox {
     runGpt(msg);
   }
 
-  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat */
+  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat. */
   private void setChatboxLoading() {
+    // Clear any existing text in the chat box
     chatBox.clear();
+    // Define the duration for each loading dot (0.1 seconds)
     Duration sec = Duration.seconds(0.1);
     Timeline timeline =
         new Timeline(
             new KeyFrame(
-                sec,
+                sec, // Duration for each frame
                 e -> {
+                  // Append a dot to the chat box every 0.1 seconds
                   chatBox.appendText(".");
                 }));
-
+    // Set the timeline to repeat 3 times
     timeline.setCycleCount(3);
     timeline.play();
   }
@@ -214,10 +219,7 @@ public class ChatComponent extends VBox {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    String heading = suspectMap.get(msg.getRole().replaceFirst("assistant", sceneType.toString()));
-    if (heading == null) {
-      heading = "Me";
-    }
+
     chatBox.setText(msg.getContent());
 
     chatHistory.add(msg.getContent());
@@ -266,6 +268,7 @@ public class ChatComponent extends VBox {
     chatBox.clear();
     setupGpt();
     textInput.clear();
+    chatHistory.clear();
   }
 
   /**
@@ -282,6 +285,10 @@ public class ChatComponent extends VBox {
     setHistoryLabel();
   }
 
+  /**
+   * Navigates back in the chat history by one message. If the chat is at the beginning of the chat
+   * history, it does nothing.
+   */
   public void goBackInChatHistory() {
     if (loading) {
       return;
