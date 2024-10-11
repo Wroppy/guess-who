@@ -25,7 +25,6 @@ public class GameOverController implements Restartable {
   private static Label resultLabel;
   private static Text feedbackLabel;
   private static TextArea feedbackTextArea;
-  private static ImageView playAgainButton;
   private static ImageView vpStatic;
   private static ImageView vpPinStatic;
   private static Label incorrectGuess;
@@ -72,13 +71,13 @@ public class GameOverController implements Restartable {
    */
   public static void showResult() {
 
+    // Set the feedback text area to loading
     feedbackTextArea.setText("Loading feedback...");
     if (GuessingController.getCorrectChoice()) {
       GameOverController.resultLabel.setText("Correct Choice!");
       GameOverController.resultLabel.setLayoutY(85);
 
-      // playAgainButton.setLayoutX(335);
-      // playAgainButton.setLayoutY(507);
+      // Hide the feedback text area and label
       GameOverController.timeUpLabel.setVisible(false);
       resultLabel.setVisible(true);
 
@@ -86,32 +85,27 @@ public class GameOverController implements Restartable {
       GameOverController.vpPinStatic.setVisible(true);
       GameOverController.incorrectGuess.setVisible(false);
 
+      // Show the cat images
       GameOverController.feedbackTextArea.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
 
       GameOverController.feedbackTextArea.setVisible(true);
-      // GameOverController.feedbackLabel.setVisible(true);
 
+      // Show the result label
       GameOverController.catImage.setVisible(false);
       GameOverController.catImage2.setVisible(false);
 
     } else {
 
       // Hide the feedback text area and label
-      // GameOverController.resultLabel.setText("Incorrect Choice!");
-      // GameOverController.resultLabel.setFont(Font.font("System", 28));
-      // GameOverController.resultLabel.setLayoutY(250);
       GameOverController.feedbackTextArea.setVisible(false);
       GameOverController.feedbackLabel.setVisible(false);
       GameOverController.timeUpLabel.setVisible(false);
-      // resultLabel.setVisible(true);
 
       // Show the cat images
       GameOverController.catImage.setVisible(false);
       GameOverController.catImage2.setVisible(false);
 
-      // playAgainButton.setLayoutX(335);
-      // playAgainButton.setLayoutY(450);
-
+      // Show the result label
       GameOverController.vpStatic.setVisible(false);
       GameOverController.vpPinStatic.setVisible(false);
       GameOverController.incorrectGuess.setFont(Font.font("Verdana", 33));
@@ -148,7 +142,6 @@ public class GameOverController implements Restartable {
     GameOverController.resultLabel = result;
     GameOverController.feedbackLabel = feedback;
     GameOverController.feedbackTextArea = feedbacktxt;
-    GameOverController.playAgainButton = playAgain;
     GameOverController.incorrectGuess = guessIncorrect;
 
     incorrectGuess.setVisible(false);
@@ -168,8 +161,10 @@ public class GameOverController implements Restartable {
     GameOverController.timeUpLabel = timeUp;
     GameOverController.hintLabel = hint;
 
+    // Set the font of the game over label
     gameOver.setFont(Font.font("Verdana", FontWeight.BOLD, 40));
 
+    // Set the background image
     playAgain.setOnMouseEntered(
         event -> {
           playAgain.setCursor(Cursor.HAND);

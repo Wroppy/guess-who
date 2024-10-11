@@ -42,9 +42,12 @@ public class MenuController implements Restartable {
     String style = App.getCssUrl("menu-scene");
     menuPane.getStylesheets().add(style);
 
+    // Set the image for the start button
     Image image =
         new Image(App.class.getResource("/images/start-investigation-text.png").toExternalForm());
     ImageView imageView = new ImageView(image);
+
+    // Set the image size
     imageView.setFitWidth(170);
     imageView.preserveRatioProperty().setValue(true);
     investigateButton.setGraphic(imageView);

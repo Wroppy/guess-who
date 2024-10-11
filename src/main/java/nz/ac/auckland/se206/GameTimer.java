@@ -31,7 +31,7 @@ public class GameTimer {
   private boolean firstFiveMinutes = true;
   private boolean isSuspectChosen = false;
   private GuessingController guessingController;
-  private HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
+  private HashMap<SceneType, Boolean> talkedTo;
 
   /**
    * Constructs a GameTimer instance with the specified parameters.
