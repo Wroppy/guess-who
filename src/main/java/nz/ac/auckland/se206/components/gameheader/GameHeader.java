@@ -11,8 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -49,9 +51,13 @@ public class GameHeader extends Pane {
 
   @FXML private Label roomLabel;
   @FXML private ComboBox<SceneType> roomComboBox;
-  @FXML private Button guessBtn;
+  // @FXML private Button guessBtn;
   @FXML private Button informationBtn;
   @FXML private Label timerLabel;
+  @FXML private Rectangle guessRectangle;
+  @FXML private ImageView colourGuess;
+  @FXML private ImageView fadedGuess;
+
 
   private SceneType currentScene;
 
@@ -96,6 +102,9 @@ public class GameHeader extends Pane {
    * map.
    */
   public void initialize() {
+    fadedGuess.setVisible(true);
+    guessRectangle.setVisible(false);
+    colourGuess.setVisible(false);
     // Add the suspects to the hashmap
     suspectMap.put("Suspect 1", "Dominic Sterling");
     suspectMap.put("Suspect 2", "Sebastian Kensington");
@@ -119,7 +128,10 @@ public class GameHeader extends Pane {
                       && (LaptopController.isEmailOpened()
                           || ShredderClueComponent.isPaperClue()
                           || AccessPadClue.isUnlocked())) {
-                    guessBtn.setDisable(false);
+                    // guessBtn.setDisable(false);
+                    guessRectangle.setVisible(true);
+                    colourGuess.setVisible(true);
+                    fadedGuess.setVisible(false);
                     informationBtn.setVisible(false);
                   }
                 }));
@@ -331,7 +343,11 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_3, false);
 
     informationBtn.setVisible(true);
-    guessBtn.setDisable(true);
+    fadedGuess.setVisible(true);
+    guessRectangle.setVisible(false);
+    colourGuess.setVisible(false);
+    
+    // guessBtn.setDisable(true);
   }
 
   /**
