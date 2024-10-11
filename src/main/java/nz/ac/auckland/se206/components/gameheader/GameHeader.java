@@ -15,7 +15,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -55,7 +54,6 @@ public class GameHeader extends Pane {
   @FXML private Button guessBtn;
   @FXML private Button informationBtn;
   @FXML private Label timerLabel;
-
 
   private SceneType currentScene;
 
@@ -102,7 +100,7 @@ public class GameHeader extends Pane {
   public void initialize() {
     Image image = new Image(App.class.getResource("/images/GuessColour.png").toExternalForm());
     ImageView imageview = new ImageView(image);
-    // imageview.setFitWidth(125);
+    // set the properties for image.
     imageview.setFitHeight(50);
     imageview.preserveRatioProperty().setValue(true);
     guessBtn.setGraphic(imageview);
@@ -345,7 +343,7 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_3, false);
 
     informationBtn.setVisible(true);
-    
+
     guessBtn.setDisable(true);
   }
 

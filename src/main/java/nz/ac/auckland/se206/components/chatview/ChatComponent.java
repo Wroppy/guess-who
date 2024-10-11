@@ -131,7 +131,9 @@ public class ChatComponent extends VBox {
   private void setLoading(boolean loading) {
     this.loading = loading;
 
+    // Set the visibility of the loader component based on the loading state
     loaderComponent.setVisible(loading);
+
     sendMessageLabel.setVisible(!loading);
 
     if (loading) {
@@ -162,16 +164,19 @@ public class ChatComponent extends VBox {
 
   /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat */
   private void setChatboxLoading() {
+    // Clear any existing text in the chat box
     chatBox.clear();
+    // Define the duration for each loading dot (0.1 seconds)
     Duration sec = Duration.seconds(0.1);
     Timeline timeline =
         new Timeline(
             new KeyFrame(
-                sec,
+                sec, // Duration for each frame
                 e -> {
+                  // Append a dot to the chat box every 0.1 seconds
                   chatBox.appendText(".");
                 }));
-
+    // Set the timeline to repeat 3 times
     timeline.setCycleCount(3);
     timeline.play();
   }

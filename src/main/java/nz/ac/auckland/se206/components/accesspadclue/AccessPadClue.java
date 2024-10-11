@@ -82,17 +82,21 @@ public class AccessPadClue extends Pane {
   @FXML
   private void initialize() {
 
+    // Create event callbacks for mouse click and release events on the dust and brush
     EventCallback dustClick = e -> onDustClick(e);
     EventCallback brushClick = e -> onBrushClick(e);
 
     EventCallback dustRelease = e -> onDustMouseRelease(e);
     EventCallback brushRelease = e -> onBrushMouseRelease(e);
 
+    // Make the dust and brush draggable with the defined click and release handlers
     setDraggable(dust, dustClick, dustRelease);
     setDraggable(brush, brushClick, brushRelease);
 
+    // Set the opacity of the keypad powder to 0 (invisible)
     keypadPowder.setOpacity(0);
 
+    // Hide any existing fingerprint prints
     hidePrints();
 
     // Sets the opacity of the fingerprint to 0.5
@@ -101,9 +105,11 @@ public class AccessPadClue extends Pane {
     fingerprint3.setOpacity(0.5);
     fingerprint4.setOpacity(0.5);
 
+    // Update the label and progress bar
     changeLabel();
     changeProgressBar(0);
 
+    // Load an image for the close button and set its properties
     Image image = new Image(App.class.getResource("/images/x-button.png").toExternalForm());
     ImageView imageView = new ImageView(image);
     imageView.setFitWidth(20);
