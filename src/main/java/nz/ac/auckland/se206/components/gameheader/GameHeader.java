@@ -270,14 +270,15 @@ public class GameHeader extends Pane {
    * @param sceneType The scene type to change the label to.
    */
   private void changeLabel(SceneType sceneType) {
+    // Check the provided scene type and update the room label accordingly
     if (sceneType == SceneType.CRIME) {
-      roomLabel.setText("Crime Scene");
-    } else if (sceneType == SceneType.SUSPECT_1) {
+      roomLabel.setText("Crime Scene"); // Set label for crime scene
+    } else if (sceneType == SceneType.SUSPECT_1) { // Set label for suspect 1
       roomLabel.setText("Dominic Sterling");
     } else if (sceneType == SceneType.SUSPECT_2) {
-      roomLabel.setText("Sebastian Kensington");
+      roomLabel.setText("Sebastian Kensington"); // Set label for suspect 2
     } else if (sceneType == SceneType.SUSPECT_3) {
-      roomLabel.setText("Alexandra Johnson");
+      roomLabel.setText("Alexandra Johnson"); // Set label for suspect 3
     }
   }
 

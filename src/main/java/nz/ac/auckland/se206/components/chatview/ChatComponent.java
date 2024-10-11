@@ -133,13 +133,13 @@ public class ChatComponent extends VBox {
 
     // Set the visibility of the loader component based on the loading state
     loaderComponent.setVisible(loading);
-
+    // Hide the send message label while loading
     sendMessageLabel.setVisible(!loading);
 
     if (loading) {
       setChatboxLoading();
     }
-
+    // Enable or disable navigation buttons based on the loading state
     goUp.setDisable(loading);
     goDown.setDisable(loading);
     goEnd.setDisable(loading);
