@@ -4,4 +4,9 @@
 
 .guessBtn{
   -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-cursor: hand;
+}
+
+.guessBtn:armed {
+  -fx-translate-y: 2px;
 }
