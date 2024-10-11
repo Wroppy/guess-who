@@ -31,7 +31,7 @@
             </Label>
          </children></Pane>
       <Button fx:id="guessBtn" disable="true" layoutX="509.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="50.0" prefWidth="125.0" styleClass="guessBtn" />
-      <Button fx:id="informationBtn" layoutX="497.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
+      <Button fx:id="informationBtn" layoutX="498.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
       <ImageView fitHeight="125.0" fitWidth="108.0" layoutX="659.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/map.png" />

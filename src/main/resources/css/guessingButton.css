@@ -10,3 +10,16 @@
 .guessBtn:armed {
   -fx-translate-y: 2px;
 }
+
+
+#informationBtn {
+  -fx-background-color:#7ED957;
+  -fx-cursor: hand;
+  -fx-border-color: white;
+  -fx-text-fill: white;
+  -fx-border-radius: 5px;
+}
+
+#informationBtn:armed {
+  -fx-translate-y: 2px;
+}
