@@ -57,7 +57,6 @@ public class GameHeader extends Pane {
 
   private SceneType currentScene;
 
-  private RoomController roomController;
   private Map<String, String> suspectMap = new HashMap<>();
 
   /**
@@ -68,7 +67,6 @@ public class GameHeader extends Pane {
    */
   public GameHeader(SceneType sceneType, RoomController roomController) {
     super();
-    this.roomController = roomController;
     currentScene = sceneType;
 
     // Load the FXML file
@@ -205,63 +203,6 @@ public class GameHeader extends Pane {
     addComboBoxItems();
 
     // Set the action for when the combo box is changed
-    // roomComboBox.setOnAction(e -> onRoomChange(e));
-  }
-
-  /**
-   * Change the scene based on the selected scene in the combo box.
-   *
-   * @param e The action event
-   */
-  // private void onRoomChange(ActionEvent e) {
-  //   SceneType selectedScene = roomComboBox.getSelectionModel().getSelectedItem();
-
-  //   if (selectedScene == null) {
-  //     return;
-  //   }
-
-  //   // Deselect the item and go back to default
-  //   Platform.runLater(() -> clearComboBoxSelection());
-
-  //   if (roomController != null) {
-  //     roomController.getAccessPad().setVisible(false);
-  //     roomController.getShredderClueOverlay().setVisible(false);
-  //     roomController.removeLaptopOverlay();
-  //   }
-
-  //   // Set the timer label based on the selected scene
-  //   if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_1) {
-  //     SuspectRoomController.gameHeader1
-  //         .getTimerLabel()
-  //         .setText(
-  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
-  //   } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_2) {
-  //     // Set the timer label based on the selected scene
-  //     SuspectRoomController.gameHeader2
-  //         .getTimerLabel()
-  //         .setText(
-  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
-  //   } else if (MenuController.gameTimer != null && selectedScene == SceneType.SUSPECT_3) {
-  //     // Set the timer label based on the selected scene
-  //     SuspectRoomController.gameHeader3
-  //         .getTimerLabel()
-  //         .setText(
-  //             MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
-  //     MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
-  //   }
-
-  //   changeScene(selectedScene);
-  // }
-
-  /**
-   * Clear the selection of the combo box by setting the selection to null.
-   *
-   * @param e The mouse event
-   */
-  private void clearComboBoxSelection() {
-    roomComboBox.getSelectionModel().clearSelection();
   }
 
   /**
@@ -282,17 +223,9 @@ public class GameHeader extends Pane {
     }
   }
 
-  /**
-   * Change the scene based on the scene type.
-   *
-   * @param sceneType The scene type to change the scene to.
-   */
-  private void changeScene(SceneType sceneType) {
-    App.changeScene(sceneType);
-  }
-
   /** Add the items to the combo box. */
   private void addComboBoxItems() {
+    // Add the scene types to the combo box
     SceneType[] sceneTypes = {
       SceneType.CRIME, SceneType.SUSPECT_1, SceneType.SUSPECT_2, SceneType.SUSPECT_3
     };

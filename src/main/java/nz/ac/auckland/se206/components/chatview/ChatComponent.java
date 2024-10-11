@@ -162,7 +162,7 @@ public class ChatComponent extends VBox {
     runGpt(msg);
   }
 
-  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat */
+  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat. */
   private void setChatboxLoading() {
     // Clear any existing text in the chat box
     chatBox.clear();
@@ -219,10 +219,7 @@ public class ChatComponent extends VBox {
    * @param msg the chat message to append
    */
   private void appendChatMessage(ChatMessage msg) {
-    String heading = suspectMap.get(msg.getRole().replaceFirst("assistant", sceneType.toString()));
-    if (heading == null) {
-      heading = "Me";
-    }
+
     chatBox.setText(msg.getContent());
 
     chatHistory.add(msg.getContent());
@@ -288,6 +285,10 @@ public class ChatComponent extends VBox {
     setHistoryLabel();
   }
 
+  /**
+   * Navigates back in the chat history by one message. If the chat is at the beginning of the chat
+   * history, it does nothing.
+   */
   public void goBackInChatHistory() {
     if (loading) {
       return;

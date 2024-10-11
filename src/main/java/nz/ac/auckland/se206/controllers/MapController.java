@@ -1,5 +1,8 @@
 package nz.ac.auckland.se206.controllers;
 
+import javax.swing.Action;
+
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -22,12 +25,14 @@ public class MapController {
     closeButton.setGraphic(imageView);
   }
 
-  /**
-   * Close the map.
-   *
-   * @param event The mouse event.
-   */
-  public void closeMap() {
+  /** Close the map. */
+  @FXML
+  private void closeMap(ActionEvent e) {
+    RoomController.closeMap();
+    SuspectRoomController.closeMap();
+  }
+
+  private void closeTheMap() {
     RoomController.closeMap();
     SuspectRoomController.closeMap();
   }
@@ -46,7 +51,7 @@ public class MapController {
                 MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
         MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader1.getTimerLabel());
         App.changeScene(SceneType.SUSPECT_1);
-        closeMap();
+        closeTheMap();
       }
     } else if (id.equals("VP")) {
       if (MenuController.gameTimer != null) {
@@ -56,7 +61,7 @@ public class MapController {
                 MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
         MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader2.getTimerLabel());
         App.changeScene(SceneType.SUSPECT_2);
-        closeMap();
+        closeTheMap();
       }
     } else if (id.equals("Clerk")) {
       if (MenuController.gameTimer != null) {
@@ -66,11 +71,11 @@ public class MapController {
                 MenuController.gameTimer.formatTime(MenuController.gameTimer.getTimeRemaining()));
         MenuController.gameTimer.setTimerLabel2(SuspectRoomController.gameHeader3.getTimerLabel());
         App.changeScene(SceneType.SUSPECT_3);
-        closeMap();
+        closeTheMap();
       }
     } else {
       App.changeScene(SceneType.CRIME);
-      closeMap();
+      closeTheMap();
     }
   }
 }
