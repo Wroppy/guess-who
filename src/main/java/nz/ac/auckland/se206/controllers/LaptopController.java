@@ -5,10 +5,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import nz.ac.auckland.se206.App;
 
 /**
  * Controller for managing laptop clue interactions in the application.
@@ -32,9 +35,10 @@ public class LaptopController {
   @FXML private Rectangle fillerEmail_1;
   @FXML private Rectangle fillerEmail_2;
   @FXML private Pane fillerEmailPane1;
-  @FXML private Pane fillerEmailPane2;  
+  @FXML private Pane fillerEmailPane2;
   @FXML private Pane performanceReport; // pane of the promotion email
   @FXML private Pane firedEmail; // pane of the email
+  @FXML private Button closeButton;
 
   /**
    * Initializes the controller and sets the visibility of the email panes to false initially.
@@ -47,6 +51,12 @@ public class LaptopController {
     firedEmail.setVisible(false);
     fillerEmailPane1.setVisible(false);
     fillerEmailPane2.setVisible(false);
+
+    Image image = new Image(App.class.getResource("/images/x-button.png").toExternalForm());
+    ImageView imageView = new ImageView(image);
+    imageView.setFitWidth(20);
+    imageView.preserveRatioProperty().setValue(true);
+    closeButton.setGraphic(imageView);
   }
 
   /**

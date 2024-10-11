@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
@@ -88,6 +89,12 @@ public class ShredderClueComponent extends Pane {
 
     this.getStylesheets().add(App.getCssUrl("shredder-clue"));
     setUpIndicator();
+
+    Image image = new Image(App.class.getResource("/images/x-button.png").toExternalForm());
+    ImageView imageView = new ImageView(image);
+    imageView.setFitWidth(20);
+    imageView.preserveRatioProperty().setValue(true);
+    closeButton.setGraphic(imageView);
 
     // Sets the complete message to be invisible
     completedMessage.setVisible(false);
