@@ -64,12 +64,12 @@
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="209.0" layoutY="160.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey Dominic, please find attached your...">
+      <Text layoutX="209.0" layoutY="160.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Performance report for Dominic...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="206.0" layoutY="224.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey Dominic, I regret to inform you...">
+      <Text layoutX="206.0" layoutY="224.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Please inform Dominic that his...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
@@ -84,7 +84,7 @@
             <Font name="Arial Black" size="4.0" />
          </font>
       </Text>
-      <Text layoutX="205.0" layoutY="289.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Hey there, We've just done our...">
+      <Text layoutX="205.0" layoutY="289.0" scaleX="1.5" scaleY="1.5" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-opacity: 50%;" text="Please catch up on yesterday's...">
          <font>
             <Font name="Arial" size="4.0" />
          </font>
@@ -108,7 +108,7 @@
       <Rectangle fx:id="fillerEmail_1" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="258.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="firingEmail" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="41.0" layoutX="205.0" layoutY="195.0" onMouseClicked="#handleRectangleClick" scaleX="1.5" scaleY="1.5" stroke="TRANSPARENT" strokeType="INSIDE" width="104.0" />
       <Rectangle fx:id="fillerEmail_2" arcHeight="5.0" arcWidth="5.0" fill="#54718d00" height="62.0" layoutX="178.0" layoutY="313.0" onMouseClicked="#handleRectangleClick" stroke="TRANSPARENT" strokeType="INSIDE" width="156.0" />
-      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5" visible="false">
+      <Pane fx:id="performanceReport" layoutX="385.0" layoutY="163.0" prefHeight="167.0" prefWidth="174.0" scaleX="1.5" scaleY="1.5">
          <children>
             <TextField layoutX="2.0" layoutY="1.0" prefHeight="14.0" prefWidth="171.0" text="Manager - Performance Report:">
                <font>
@@ -121,7 +121,7 @@
                   <Font size="7.0" />
                </font>
             </Label>
-            <Label layoutX="7.0" layoutY="22.0" prefHeight="97.0" prefWidth="160.0" text="Dominic delivered outstanding results this quarter by leading portfolio analysis, optimizing investment strategies for a 15% return increase, and developing a risk assessment model that reduced market volatility exposure by 10%. His insights also helped secure three major clients." wrapText="true">
+            <Label layoutX="7.0" layoutY="22.0" prefHeight="97.0" prefWidth="160.0" text="Dominic increased returns by 15%, reduced volatility exposure by 10%, and secured three major clients through portfolio analysis and risk assessment. He has been a very important driving factor for the company." wrapText="true">
                <font>
                   <Font size="7.0" />
                </font>
@@ -193,7 +193,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="fillerEmailPane2" layoutX="386.0" layoutY="163.0" prefHeight="164.0" prefWidth="179.0" scaleX="1.5" scaleY="1.5">
+      <Pane fx:id="fillerEmailPane2" layoutX="386.0" layoutY="163.0" prefHeight="164.0" prefWidth="179.0" scaleX="1.5" scaleY="1.5" visible="false">
          <children>
             <TextField layoutX="3.0" layoutY="16.0" prefHeight="145.0" prefWidth="169.0" />
             <Label layoutX="6.0" layoutY="114.0" prefHeight="15.0" prefWidth="75.0" text="-Client" wrapText="true">
