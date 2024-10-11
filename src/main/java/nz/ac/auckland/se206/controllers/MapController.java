@@ -1,6 +1,5 @@
 package nz.ac.auckland.se206.controllers;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -29,7 +28,12 @@ public class MapController {
     closeButton.setGraphic(imageView);
   }
 
-  /** Close the map. */
+  /**
+   * Close the map by making the map invisible. Does this by calling the closeMap method in
+   * RoomController and SuspectRoomController.
+   *
+   * @param e the action event that triggered the method
+   */
   @FXML
   private void closeMap(ActionEvent e) {
     RoomController.closeMap();

@@ -17,7 +17,7 @@ Contradictory emails: One shows Dominic’s excellent performance, and another f
 Shredded letter: The letter reveals an internal hostile takeover plot led by the Vice President, outlining the CEO’s weaknesses.
 Access pad history: Shows that Dominic’s access card was used to enter the document room at 10:43 pm.
 
-If the explanation only contains 1 clue with their reasoning, respond with:
+If the explanation only contains 0 or 1 clue with their reasoning, respond with:
 "Your reasoning is incorrect as it is missing some evidence." and then tell them about the clues they did not mention.
 
 If the explaination mentions 2 or more clues with their reasoning, respond with:

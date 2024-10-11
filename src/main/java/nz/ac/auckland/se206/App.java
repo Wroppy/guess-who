@@ -54,7 +54,7 @@ public class App extends Application {
    *
    * @param name the name of the font file
    * @param size the size of the font
-   * @return
+   * @return the font with the specified name and size
    */
   public static Font getFont(String name, int size) {
     String filename = App.class.getResource("/fonts/" + name + ".ttf").toString();
