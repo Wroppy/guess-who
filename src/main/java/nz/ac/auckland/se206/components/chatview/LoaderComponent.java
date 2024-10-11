@@ -3,6 +3,7 @@ package nz.ac.auckland.se206.components.chatview;
 import javafx.animation.TranslateTransition;
 import javafx.concurrent.Task;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
@@ -17,6 +18,7 @@ public class LoaderComponent extends Pane {
     for (int i = 0; i < 3; i++) {
       // Creates a circle component and adds it to the pane
       Circle circle = new Circle(radius);
+      circle.setFill(Color.rgb(241, 241, 241));
 
       // Sets the position of the circle in the center
       circle.setCenterX(starting + i * spacing);
