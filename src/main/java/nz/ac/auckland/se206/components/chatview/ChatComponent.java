@@ -1,10 +1,14 @@
 package nz.ac.auckland.se206.components.chatview;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -13,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import nz.ac.auckland.apiproxy.chat.openai.ChatCompletionRequest;
 import nz.ac.auckland.apiproxy.chat.openai.ChatMessage;
 import nz.ac.auckland.apiproxy.config.ApiProxyConfig;
@@ -33,9 +38,18 @@ public class ChatComponent extends VBox {
   @FXML private Pane sendMessageButton;
 
   @FXML private TextField textInput;
+  @FXML private Label suspectNameLabel;
   @FXML private TextArea chatBox;
+  @FXML private Label historyLabel;
+
+  @FXML private Button goUp;
+  @FXML private Button goDown;
+  @FXML private Button goEnd;
+
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
+  private ArrayList<String> chatHistory;
+  private int chatIndex = 0;
 
   /**
    * Creates a new chat component with a given scene type.
@@ -44,6 +58,7 @@ public class ChatComponent extends VBox {
    */
   public ChatComponent(SceneType sceneType) {
     this.sceneType = sceneType;
+    this.chatHistory = new ArrayList<>();
     this.loading = false;
     try {
       FXMLLoader loader = App.loadFxmlLoader("chat");
@@ -56,9 +71,11 @@ public class ChatComponent extends VBox {
       setupButton();
 
       // Sets up the GPT model
-      // this.setupGpt();
+      this.setupGpt();
 
       this.styleWidget();
+
+      setSuspectName();
 
     } catch (IOException e) {
       throw new RuntimeException(e);
@@ -78,6 +95,11 @@ public class ChatComponent extends VBox {
     String styles = App.getCssUrl("chat-box");
 
     this.getStylesheets().add(styles);
+  }
+
+  /** Sets the suspect's name in the chat component. */
+  public void setSuspectName() {
+    suspectNameLabel.setText(suspectMap.get(sceneType.toString()));
   }
 
   /** Sets up the send button with the loader component. */
@@ -111,6 +133,14 @@ public class ChatComponent extends VBox {
 
     loaderComponent.setVisible(loading);
     sendMessageLabel.setVisible(!loading);
+
+    if (loading) {
+      setChatboxLoading();
+    }
+
+    goUp.setDisable(loading);
+    goDown.setDisable(loading);
+    goEnd.setDisable(loading);
   }
 
   /** Sends a message to the GPT model. */
@@ -127,8 +157,23 @@ public class ChatComponent extends VBox {
     GameHeader.setTalkedTo(sceneType);
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
-    appendChatMessage(msg);
     runGpt(msg);
+  }
+
+  /** Sets the chat box to a loading state, indicating that the GPT model is processing the chat */
+  private void setChatboxLoading() {
+    chatBox.clear();
+    Duration sec = Duration.seconds(0.1);
+    Timeline timeline =
+        new Timeline(
+            new KeyFrame(
+                sec,
+                e -> {
+                  chatBox.appendText(".");
+                }));
+
+    timeline.setCycleCount(3);
+    timeline.play();
   }
 
   /**
@@ -154,7 +199,6 @@ public class ChatComponent extends VBox {
     // Sets the event handler for when the task is completed
     gptTask.setOnSucceeded(
         event -> {
-
           // Sets the event handler for when the task is completed
           this.setLoading(false);
           ChatMessage result = gptTask.getResult();
@@ -174,7 +218,10 @@ public class ChatComponent extends VBox {
     if (heading == null) {
       heading = "Me";
     }
-    chatBox.appendText(heading + ": " + msg.getContent() + "\n\n");
+    chatBox.setText(msg.getContent());
+
+    chatHistory.add(msg.getContent());
+    goToChatHistoryEnd();
   }
 
   public void setText(String text) {
@@ -219,5 +266,44 @@ public class ChatComponent extends VBox {
     chatBox.clear();
     setupGpt();
     textInput.clear();
+  }
+
+  /**
+   * Changes the chat to a specific index in the chat history.
+   *
+   * @param index the index to change the chat to in the chat history
+   */
+  private void changeChatToIndex(int index) {
+    if (index < 0 || index >= chatHistory.size()) {
+      return;
+    }
+    chatIndex = index;
+    chatBox.setText(chatHistory.get(chatIndex));
+    setHistoryLabel();
+  }
+
+  public void goBackInChatHistory() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatIndex - 1);
+  }
+
+  public void goForwardInChatHistory() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatIndex + 1);
+  }
+
+  public void goToChatHistoryEnd() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatHistory.size() - 1);
+  }
+
+  private void setHistoryLabel() {
+    historyLabel.setText((chatIndex + 1) + "/" + chatHistory.size());
   }
 }
