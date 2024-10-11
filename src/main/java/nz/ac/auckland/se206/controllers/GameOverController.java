@@ -86,7 +86,7 @@ public class GameOverController implements Restartable {
       GameOverController.vpPinStatic.setVisible(true);
       GameOverController.incorrectGuess.setVisible(false);
 
-      GameOverController.feedbackTextArea.setFont(Font.font("Verdana", 16));
+      GameOverController.feedbackTextArea.setFont(Font.font("Verdana", FontWeight.BOLD, 16));
 
       GameOverController.feedbackTextArea.setVisible(true);
       // GameOverController.feedbackLabel.setVisible(true);
