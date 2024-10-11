@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.Map;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -36,12 +34,17 @@ public class GameHeader extends Pane {
   private static HashMap<SceneType, Boolean> talkedTo = new HashMap<SceneType, Boolean>();
 
   /**
-   * Set the talked to status of the scene
+   * Set the talked to status of the scene.
    *
    * @param scene The scene to set the status of
    */
   public static void setTalkedTo(SceneType scene) {
     talkedTo.put(scene, true);
+  }
+
+  // getter for hashmap
+  public static HashMap<SceneType, Boolean> getTalkedTo() {
+    return talkedTo;
   }
 
   @FXML private Label roomLabel;
@@ -56,16 +59,7 @@ public class GameHeader extends Pane {
   private Map<String, String> suspectMap = new HashMap<>();
 
   /**
-   * Constructor for the GameHeader component that sets the current scene type
-   *
-   * @param sceneType The current scene type
-   */
-  public GameHeader(SceneType sceneType) {
-    this(sceneType, null);
-  }
-
-  /**
-   * Constructor for the GameHeader component that sets the current scene type and room controller
+   * Constructor for the GameHeader component that sets the current scene type and room controller.
    *
    * @param sceneType The current scene type
    * @param roomController The room controller
@@ -86,6 +80,15 @@ public class GameHeader extends Pane {
     } catch (IOException e) {
       e.printStackTrace();
     }
+  }
+
+  /**
+   * Constructor for the GameHeader component that sets the current scene type.
+   *
+   * @param sceneType The current scene type
+   */
+  public GameHeader(SceneType sceneType) {
+    this(sceneType, null);
   }
 
   /**
@@ -194,7 +197,7 @@ public class GameHeader extends Pane {
   }
 
   /**
-   * Change the scene based on the selected scene in the combo box
+   * Change the scene based on the selected scene in the combo box.
    *
    * @param e The action event
    */
@@ -255,13 +258,13 @@ public class GameHeader extends Pane {
    * @param sceneType The scene type to change the label to.
    */
   private void changeLabel(SceneType sceneType) {
-    if(sceneType == SceneType.CRIME){
+    if (sceneType == SceneType.CRIME) {
       roomLabel.setText("Crime Scene");
-    }else if (sceneType == SceneType.SUSPECT_1) {
+    } else if (sceneType == SceneType.SUSPECT_1) {
       roomLabel.setText("Dominic Sterling");
-    }else if (sceneType == SceneType.SUSPECT_2) {
+    } else if (sceneType == SceneType.SUSPECT_2) {
       roomLabel.setText("Sebastian Kensington");
-    }else if (sceneType == SceneType.SUSPECT_3) {
+    } else if (sceneType == SceneType.SUSPECT_3) {
       roomLabel.setText("Alexandra Johnson");
     }
   }
@@ -297,7 +300,7 @@ public class GameHeader extends Pane {
   }
 
   /**
-   * Get the timer label.
+   * Returns the timer label for the GameHeader.
    *
    * @return The timer label.
    */
@@ -341,11 +344,6 @@ public class GameHeader extends Pane {
     SoundManager.playSound("Interact.mp3");
   }
 
-  //getter for hashmap
-  public static HashMap<SceneType, Boolean> getTalkedTo() {
-    return talkedTo;
-  }
-
   /**
    * Handle the map icon click event.
    *
@@ -353,9 +351,9 @@ public class GameHeader extends Pane {
    * @throws IOException If the FXML file cannot be loaded.
    */
   public void handleMapClick(MouseEvent event) throws IOException {
-    if(currentScene == SceneType.CRIME){
+    if (currentScene == SceneType.CRIME) {
       RoomController.openMap(event);
-    }else{
+    } else {
       SuspectRoomController.openMap(event);
     }
   }

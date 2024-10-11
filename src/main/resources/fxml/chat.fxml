@@ -16,6 +16,7 @@
    <children>
       <Label fx:id="suspectNameLabel" styleClass="has-text" text="Label" />
       <HBox fx:id="chatViewer" prefHeight="100.0" prefWidth="200.0" spacing="8.0" VBox.vgrow="ALWAYS">
+
          <children>
             <TextArea fx:id="chatBox" editable="false" prefHeight="197.0" prefWidth="634.0" styleClass="has-text" wrapText="true" />
             <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="NEVER">

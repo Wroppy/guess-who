@@ -24,7 +24,7 @@ public class AccessPadClue extends Pane {
   /**
    * Checks if the access pad is unlocked.
    *
-   * @return
+   * @return True if the access pad is unlocked, false otherwise
    */
   public static boolean isUnlocked() {
     return unlocked;
@@ -104,7 +104,7 @@ public class AccessPadClue extends Pane {
     changeProgressBar(0);
   }
 
-  /** Clears the passcode. */
+  /** Clears the passcode by resetting all the arrays and the text inputs. */
   @FXML
   private void clearPasscode() {
     passCode.clear();
@@ -112,6 +112,11 @@ public class AccessPadClue extends Pane {
     errorMessage.setText("");
   }
 
+  /**
+   * Gets the passcode from the button clicked, and appends it to the passcode display.
+   *
+   * @param event The event triggered by the button
+   */
   public void getPasscode(ActionEvent event) {
     // Check if the passcode is correct
     if (passCode.size() >= 3) {
@@ -170,7 +175,7 @@ public class AccessPadClue extends Pane {
   }
 
   /**
-   * Sets the dusting stage.
+   * Sets the dusting stage and changes the label to the description of the stage.
    *
    * @param stage The dusting stage
    */
@@ -301,6 +306,7 @@ public class AccessPadClue extends Pane {
     progressPane.setPrefWidth(width * progress / 100);
   }
 
+  /** Shows the tools for the access pad. The tools include the dusting powder and the brush. */
   public void showTools() {
     int offset = 68;
     fingerPrintingPane.setVisible(true);
@@ -311,6 +317,7 @@ public class AccessPadClue extends Pane {
     accessUnlock.setLayoutX(accessUnlock.getLayoutX() + offset);
   }
 
+  /** Hides the tools for the access pad. The tools include the dusting powder and the brush. */
   public void hideTools() {
     int offset = 68;
     fingerPrintingPane.setVisible(false);
@@ -322,6 +329,7 @@ public class AccessPadClue extends Pane {
     accessUnlock.setLayoutX(accessUnlock.getLayoutX() - offset);
   }
 
+  /** Shows the fingerprints on the keypad. */
   private void showPrints() {
     fingerprint1.setVisible(true);
     fingerprint2.setVisible(true);
@@ -329,6 +337,7 @@ public class AccessPadClue extends Pane {
     fingerprint4.setVisible(true);
   }
 
+  /** Hides the fingerprints on the keypad. */
   private void hidePrints() {
     fingerprint1.setVisible(false);
     fingerprint2.setVisible(false);

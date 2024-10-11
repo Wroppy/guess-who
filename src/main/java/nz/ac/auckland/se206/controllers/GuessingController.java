@@ -180,9 +180,9 @@ public class GuessingController implements Restartable {
   /** Handles the scenario when time is up, switching to the processing screen. */
   public void timeUpExplanation() {
     explanation = explaintxt.getText().trim();
-    if (explanation.isEmpty()) {
-      return;
-    }
+    // if (explanation.isEmpty()) {
+    // return;
+    // }
     App.changeScene(SceneType.PROCESSING_SUBMISSION);
 
     msg = new ChatMessage("user", explanation);

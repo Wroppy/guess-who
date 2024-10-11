@@ -1,0 +1,17 @@
+#feedbacktxt.text-area {
+    -fx-background-color: transparent;
+}
+
+#feedbacktxt.text-area .scroll-pane {
+    -fx-background-color: transparent;
+}
+
+#feedbacktxt.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
+
+#feedbacktxt.text-area .scroll-pane .content{
+    -fx-background-color: transparent;
+}
+
