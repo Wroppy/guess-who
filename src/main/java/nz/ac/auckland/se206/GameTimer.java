@@ -78,6 +78,7 @@ public class GameTimer {
               Platform.runLater(() -> App.changeScene(SceneType.FEEDBACK));
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getFeedbackTextArea().setVisible(false);
+              GameOverController.getTimeUpLabel().setVisible(false);
               GameOverController.getHintLabel().setVisible(true);
             } else if (running && firstFiveMinutes) {
               Platform.runLater(() -> context.setState(context.getGuessingState()));
@@ -94,6 +95,7 @@ public class GameTimer {
               GameOverController.getFeedbackTextArea().setVisible(false);
               GameOverController.getFeedbackLabel().setVisible(false);
               GameOverController.getResultLabel().setVisible(false);
+              GameOverController.getHintLabel().setVisible(false);
 
               // Show the time up label
               GameOverController.getTimeUpLabel().setVisible(true);

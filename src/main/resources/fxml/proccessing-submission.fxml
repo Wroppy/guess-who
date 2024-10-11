@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <Pane fx:id="processSubmission" prefHeight="602.0" prefWidth="791.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text fill="RED" layoutX="201.0" layoutY="309.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Processing Submission...">
+      <ImageView fitHeight="602.0" fitWidth="791.0">
+         <image>
+            <Image url="@../images/loading1.gif" />
+         </image>
+      </ImageView>
+      <Text fill="WHITE" layoutX="203.0" layoutY="524.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Processing Submission...">
          <font>
             <Font size="36.0" />
          </font>
