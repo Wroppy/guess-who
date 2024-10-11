@@ -271,6 +271,7 @@ public class ChatComponent extends VBox {
     chatBox.clear();
     setupGpt();
     textInput.clear();
+    chatHistory.clear();
   }
 
   /**
