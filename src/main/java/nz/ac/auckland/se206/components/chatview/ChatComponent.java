@@ -1,6 +1,7 @@
 package nz.ac.auckland.se206.components.chatview;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.animation.KeyFrame;
@@ -38,8 +39,11 @@ public class ChatComponent extends VBox {
   @FXML private TextField textInput;
   @FXML private Label suspectNameLabel;
   @FXML private TextArea chatBox;
+  @FXML private Label historyLabel;
   private LoaderComponent loaderComponent;
   private Map<String, String> suspectMap = new HashMap<>();
+  private ArrayList<String> chatHistory;
+  private int chatIndex = 0;
 
   /**
    * Creates a new chat component with a given scene type.
@@ -48,6 +52,7 @@ public class ChatComponent extends VBox {
    */
   public ChatComponent(SceneType sceneType) {
     this.sceneType = sceneType;
+    this.chatHistory = new ArrayList<>();
     this.loading = false;
     try {
       FXMLLoader loader = App.loadFxmlLoader("chat");
@@ -141,6 +146,7 @@ public class ChatComponent extends VBox {
       return;
     }
 
+
     textInput.clear();
     ChatMessage msg = new ChatMessage("user", message);
     runGpt(msg);
@@ -205,6 +211,9 @@ public class ChatComponent extends VBox {
       heading = "Me";
     }
     chatBox.setText(msg.getContent());
+
+    chatHistory.add(msg.getContent());
+    goToChatHistoryEnd();
   }
 
   public void setText(String text) {
@@ -250,5 +259,44 @@ public class ChatComponent extends VBox {
     chatBox.clear();
     setupGpt();
     textInput.clear();
+  }
+
+  /**
+   * Changes the chat to a specific index in the chat history.
+   *
+   * @param index the index to change the chat to in the chat history
+   */
+  private void changeChatToIndex(int index) {
+    if (index < 0 || index >= chatHistory.size()) {
+      return;
+    }
+    chatIndex = index;
+    chatBox.setText(chatHistory.get(chatIndex));
+    setHistoryLabel();
+  }
+
+  public void goBackInChatHistory() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatIndex - 1);
+  }
+
+  public void goForwardInChatHistory() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatIndex + 1);
+  }
+
+  public void goToChatHistoryEnd() {
+    if (loading) {
+      return;
+    }
+    changeChatToIndex(chatHistory.size() - 1);
+  }
+
+  private void setHistoryLabel() {
+    historyLabel.setText((chatIndex + 1) + "/" + chatHistory.size());
   }
 }
