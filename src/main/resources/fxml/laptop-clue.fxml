@@ -12,7 +12,7 @@
 
 <Pane fx:id="laptop" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="499.0" prefWidth="789.0" style="-fx-background-color: rgba(0, 0, 0, 0.8);" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="nz.ac.auckland.se206.controllers.LaptopController">
    <children>
-      <Button layoutX="650.0" layoutY="50.0" mnemonicParsing="false" onAction="#onCloseLaptop" scaleX="1.5" scaleY="1.5" text="Close">
+      <Button fx:id="closeButton" layoutX="650.0" layoutY="50.0" mnemonicParsing="false" onAction="#onCloseLaptop" scaleX="1.5" scaleY="1.5" style="-fx-background-color: white; -fx-cursor: hand;">
          <font>
             <Font size="8.0" />
          </font></Button>

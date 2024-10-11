@@ -109,7 +109,7 @@
             </Label>
          </children>
       </Pane>
-      <Button fx:id="closeButton" layoutX="687.0" layoutY="50.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" text="X" />
+      <Button fx:id="closeButton" layoutX="668.0" layoutY="43.0" minWidth="38.0" mnemonicParsing="false" onAction="#onCloseButtonClick" prefHeight="30.0" prefWidth="38.0" style="-fx-background-color: white; -fx-cursor: hand;" />
       <Pane fx:id="accessUnlock" layoutX="248.0" layoutY="103.0" prefHeight="314.0" prefWidth="421.0">
          <children>
             <Rectangle fx:id="print2" arcHeight="5.0" arcWidth="5.0" fill="#9fa4a8" height="313.0" stroke="BLACK" strokeType="INSIDE" width="421.0" />

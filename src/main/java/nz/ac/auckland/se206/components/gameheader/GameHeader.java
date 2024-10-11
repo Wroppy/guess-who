@@ -11,8 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import javafx.util.StringConverter;
 import nz.ac.auckland.se206.App;
@@ -52,6 +55,7 @@ public class GameHeader extends Pane {
   @FXML private Button guessBtn;
   @FXML private Button informationBtn;
   @FXML private Label timerLabel;
+
 
   private SceneType currentScene;
 
@@ -96,6 +100,12 @@ public class GameHeader extends Pane {
    * map.
    */
   public void initialize() {
+    Image image = new Image(App.class.getResource("/images/GuessColour.png").toExternalForm());
+    ImageView imageview = new ImageView(image);
+    // imageview.setFitWidth(125);
+    imageview.setFitHeight(50);
+    imageview.preserveRatioProperty().setValue(true);
+    guessBtn.setGraphic(imageview);
     // Add the suspects to the hashmap
     suspectMap.put("Suspect 1", "Dominic Sterling");
     suspectMap.put("Suspect 2", "Sebastian Kensington");
@@ -129,6 +139,10 @@ public class GameHeader extends Pane {
     timeline.play();
 
     colourHeader();
+
+    String styles = App.getCssUrl("guessingButton");
+
+    this.getStylesheets().add(styles);
   }
 
   /** Set the colour of the header based on the current scene. */
@@ -331,6 +345,7 @@ public class GameHeader extends Pane {
     talkedTo.put(SceneType.SUSPECT_3, false);
 
     informationBtn.setVisible(true);
+    
     guessBtn.setDisable(true);
   }
 

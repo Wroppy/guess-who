@@ -10,6 +10,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import nz.ac.auckland.se206.App;
@@ -102,6 +103,12 @@ public class AccessPadClue extends Pane {
 
     changeLabel();
     changeProgressBar(0);
+
+    Image image = new Image(App.class.getResource("/images/x-button.png").toExternalForm());
+    ImageView imageView = new ImageView(image);
+    imageView.setFitWidth(20);
+    imageView.preserveRatioProperty().setValue(true);
+    closeButton.setGraphic(imageView);
   }
 
   /** Clears the passcode by resetting all the arrays and the text inputs. */

@@ -30,13 +30,24 @@
                </font>
             </Label>
          </children></Pane>
-      <Button fx:id="guessBtn" disable="true" layoutX="355.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="25.0" prefWidth="150.0" text="Make a guess" />
-      <Button fx:id="informationBtn" layoutX="327.0" layoutY="41.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
+      <Button fx:id="guessBtn" disable="true" layoutX="509.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#guessingStage" prefHeight="50.0" prefWidth="125.0" styleClass="guessBtn" />
+      <Button fx:id="informationBtn" layoutX="498.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#giveInformation" text="?" />
       <ImageView fitHeight="125.0" fitWidth="108.0" layoutX="659.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/map.png" />
          </image>
       </ImageView>
       <Rectangle fx:id="handleMap" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="58.0" layoutX="672.0" layoutY="18.0" onMouseClicked="#handleMapClick" stroke="TRANSPARENT" strokeType="INSIDE" width="85.0" />
+      <ImageView fx:id="colourGuess" fitHeight="53.0" fitWidth="155.0" layoutX="355.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../images/GuessColour.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="fadedGuess" fitHeight="54.0" fitWidth="158.0" layoutX="353.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" styleClass="fadedGuess" visible="false">
+         <image>
+            <Image url="@../images/FadedGuess.png" />
+         </image>
+      </ImageView>
+      <Rectangle fx:id="guessRectangle" arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="31.0" layoutX="362.0" layoutY="39.0" onMouseClicked="#guessingStage" stroke="TRANSPARENT" strokeType="INSIDE" styleClass="handleGuess" visible="false" width="127.0" />
    </children>
 </fx:root>
