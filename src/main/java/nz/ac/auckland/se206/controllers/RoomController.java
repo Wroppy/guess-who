@@ -31,6 +31,10 @@ public class RoomController implements HeaderableController, Restartable {
 
   private static GameHeader gameHeader;
 
+  private static Pane mapOverlay;
+  private static boolean mapHandler = false;
+  private static Parent overlay;
+
   public static GameStateContext getContext() {
     return context;
   }
@@ -41,6 +45,44 @@ public class RoomController implements HeaderableController, Restartable {
 
   public static boolean isAccessClue() {
     return accessClue;
+  }
+
+  /**
+   * Opens the map overlay by loading the map overlay FXML file, setting the overlay to the top left
+   * corner, and adding it to the main pane.
+   *
+   * @param event the mouse event that triggered the opening of the map overlay
+   * @throws IOException if there is an I/O error
+   */
+  public static void openMap(MouseEvent event) throws IOException {
+    // Load the overlay
+    if (!mapHandler) {
+      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+      Pane mainPane = (Pane) stage.getScene().lookup("#room");
+      System.out.println(stage);
+      System.out.println(mainPane);
+      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate
+      // FXML if needed
+
+      // Set the overlay to the top left corner
+      overlay.setLayoutX(0);
+      overlay.setLayoutY(100.0);
+      RoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
+      mainPane.getChildren().add(overlay);
+    }
+    mapHandler = true;
+  }
+
+  /**
+   * Close the map on the ui by hiding it on the other scenes. Only closes the map if it is open.
+   */
+  public static void closeMap() {
+    mapHandler = false;
+    if (RoomController.mapOverlay != null && RoomController.mapOverlay.getParent() != null) {
+      ((Pane) RoomController.mapOverlay.getParent())
+          .getChildren()
+          .remove(RoomController.mapOverlay);
+    }
   }
 
   @FXML private Rectangle rectAccess;
@@ -59,33 +101,35 @@ public class RoomController implements HeaderableController, Restartable {
   private AccessPadClue accessPad;
   private Pane shredderClueOverlay;
   private Pane laptopOverlay;
-  private static Pane mapOverlay;  
 
   private boolean firstShredderClue = true;
   private boolean firstAccessPadClue = true;
   private boolean firstLaptopClue = true;
-  private static boolean mapHandler = false;
-  private static Parent overlay;
 
   /**
    * Initializes the room view. If it's the first time initialization, it will provide instructions
    * via text-to-speech.
-   * @throws IOException 
+   *
+   * @throws IOException if there is an I/O error
    */
   @FXML
   public void initialize() throws IOException {
+    // If it is the first time the room is initialized, play the sound
     if (isFirstTimeInit) {
       isFirstTimeInit = false;
     }
 
+    // Set up the hover handlers for the rectangles
     paneHover1.setVisible(false);
     paneHover2.setVisible(false);
     paneHover3.setVisible(false);
 
+    // Set up the hover handlers for the rectangles
     setHoverHandlers(rectAccess, paneHover1);
     setHoverHandlers(rectLaptop, paneHover2);
     setHoverHandlers(rectShredder, paneHover3);
 
+    // Add the shredder clue overlay
     addShredderClue();
     addAccessPadClue();
     overlay = App.loadFxmlLoader("mapSuspects").load();
@@ -143,6 +187,11 @@ public class RoomController implements HeaderableController, Restartable {
     System.out.println("Key " + event.getCode() + " released");
   }
 
+  /**
+   * Handles the mouse clicked event on the access pad, which displays the access pad clue.
+   *
+   * @param event the mouse event
+   */
   @FXML
   private void handleShredderClueClicked(MouseEvent event) {
     if (firstShredderClue) {
@@ -258,30 +307,4 @@ public class RoomController implements HeaderableController, Restartable {
       ((Pane) laptopOverlay.getParent()).getChildren().remove(laptopOverlay);
     }
   }
-
-  public static void openMap(MouseEvent event) throws IOException {
-    // Load the overlay
-    if(!mapHandler){
-      Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-      Pane mainPane = (Pane) stage.getScene().lookup("#room");
-      System.out.println(stage);
-      System.out.println(mainPane);
-      // Parent overlay = App.loadFxmlLoader("mapSuspects").load(); // Change to the appropriate FXML if needed
-
-      // Set the overlay to the top left corner
-      overlay.setLayoutX(0);
-      overlay.setLayoutY(100.0);
-      RoomController.mapOverlay = (Pane) overlay; // Change to another overlay variable if needed
-      mainPane.getChildren().add(overlay);
-    }
-    mapHandler = true;
-}
-
-  public static void closeMap() {
-    mapHandler = false;
-    if (RoomController.mapOverlay != null && RoomController.mapOverlay.getParent() != null) {
-      ((Pane) RoomController.mapOverlay.getParent()).getChildren().remove(RoomController.mapOverlay);
-    }
-  }
-
 }

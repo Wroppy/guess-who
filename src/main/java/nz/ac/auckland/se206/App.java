@@ -49,6 +49,13 @@ public class App extends Application {
     return App.getFont("PermanentMarker", size);
   }
 
+  /**
+   * Returns a font with the specified name and size from the "fonts" directory.
+   *
+   * @param name the name of the font file
+   * @param size the size of the font
+   * @return
+   */
   public static Font getFont(String name, int size) {
     String filename = App.class.getResource("/fonts/" + name + ".ttf").toString();
 
@@ -261,7 +268,7 @@ public class App extends Application {
     changeScene(SceneType.INTRO);
   }
 
-  /** Styles the button with css */
+  /** Styles the button with css. */
   private void styleAllButtons() {
     String styles = App.getCssUrl("button");
     System.out.println("Styling");
