@@ -296,6 +296,10 @@ public class ChatComponent extends VBox {
     changeChatToIndex(chatIndex - 1);
   }
 
+  /**
+   * Navigates forward in the chat history by one message. If the chat is at the end of the chat
+   * history, it does nothing.
+   */
   public void goForwardInChatHistory() {
     if (loading) {
       return;
@@ -303,6 +307,10 @@ public class ChatComponent extends VBox {
     changeChatToIndex(chatIndex + 1);
   }
 
+  /**
+   * Navigates to the end of the chat history. If the chat is already at the end of the chat
+   * history, it does nothing.
+   */
   public void goToChatHistoryEnd() {
     if (loading) {
       return;
