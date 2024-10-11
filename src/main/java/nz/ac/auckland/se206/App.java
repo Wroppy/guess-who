@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import nz.ac.auckland.se206.SceneManager.SceneType;
@@ -42,6 +43,16 @@ public class App extends Application {
     } catch (Exception e) {
       e.printStackTrace();
     }
+  }
+
+  public static Font getMarkerFont(int size) {
+    return App.getFont("PermanentMarker", size);
+  }
+
+  public static Font getFont(String name, int size) {
+    String filename = App.class.getResource("/fonts/" + name + ".ttf").toString();
+
+    return Font.loadFont(filename, size);
   }
 
   /**
@@ -130,6 +141,7 @@ public class App extends Application {
     Parent root = SceneManager.getScene(sceneType);
     scene.setRoot(root);
     Stage stage = (Stage) scene.getWindow();
+
     stage.sizeToScene();
   }
 
@@ -146,6 +158,7 @@ public class App extends Application {
     controllers = new HashMap<>();
 
     this.initializeScenes();
+    this.styleAllButtons();
 
     App.stage = stage;
     App.app = this;
@@ -246,5 +259,17 @@ public class App extends Application {
         });
 
     changeScene(SceneType.INTRO);
+  }
+
+  /** Styles the button with css */
+  private void styleAllButtons() {
+    String styles = App.getCssUrl("button");
+    System.out.println("Styling");
+
+    for (SceneType sceneType : SceneManager.getSceneMap().keySet()) {
+      Parent root = SceneManager.getScene(sceneType);
+
+      root.getStylesheets().add(styles);
+    }
   }
 }

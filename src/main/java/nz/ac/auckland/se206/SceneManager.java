@@ -41,4 +41,8 @@ public class SceneManager {
   public static Parent getScene(SceneType sceneType) {
     return sceneMap.get(sceneType);
   }
+
+  public static Map<SceneType, Parent> getSceneMap() {
+    return SceneManager.sceneMap;
+  }
 }

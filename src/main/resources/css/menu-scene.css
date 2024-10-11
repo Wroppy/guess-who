@@ -1,0 +1,27 @@
+#investigateButton {
+  -fx-background-color: rgba(0, 0, 0, 0);
+  -fx-cursor: hand;
+  -fx-font-size: 18px;
+}
+
+/* #investigateButton:hover { */
+/* -fx-background-color: rgba(0, 0, 0, 0.1); */
+/* } */
+
+#investigateButton:armed {
+  /* -fx-background-color: rgba(10, 100, 255, 0.5); */
+  -fx-translate-y: 2;
+}
+
+.markerLabel {
+  -fx-font-family: "Permanent Marker";
+}
+
+#briefLabel {
+  -fx-font-family: "Afacad Flux";
+}
+
+#testing {
+  -fx-font-family: "Permanent Marker";
+  -fx-font-size: 24px;
+}
