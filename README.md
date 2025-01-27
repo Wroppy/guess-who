@@ -1,4 +1,10 @@
-# Sample JavaFX application using Proxy API
+# Guess Who
+
+## Description
+Guess Who is an interactive crime-solving game developed by a team of 3 as a group project in Software Engineering 206. 
+
+The game allows players to explore detailed crime scenes, uncover interactive clues, and chat with suspects powered by OpenAI's GPT. Each suspect has a unique personality and responds intelligently, creating a lifelike and engaging investigative process.
+
 
 ## To setup the API to access Chat Completions and TTS
 
